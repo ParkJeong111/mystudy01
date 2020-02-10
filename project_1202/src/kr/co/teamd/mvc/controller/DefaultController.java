@@ -23,6 +23,7 @@ public class DefaultController {
 	
 	@RequestMapping(value= {"/","index"})
 	public ModelAndView defaultMethod() {
+		System.out.println("YONG TEST");
 		ModelAndView mav = new ModelAndView();
 		List<BoardDTO> sealist = maindao.reviewsList("¹Ù´Ù");
 		mav.addObject("sealist", sealist);
