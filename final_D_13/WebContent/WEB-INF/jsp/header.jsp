@@ -124,7 +124,20 @@
                 <li class="nav-link"><a href="uselow">이용약관</a></li>
               </ul>
            </li>
-          <li class="nav-item cta"><a href="login" class="nav-link"><span>로그인</span></a>
+          <li class="nav-item cta">
+          
+          			<c:choose>
+						<c:when test="${sessionScope.mid==null }">
+							<a href="login" class="nav-link"><span>로그인</span></a>
+						</c:when>
+						<c:otherwise>
+							<a href="logout" class="nav-link"><span>로그아웃</span></a>
+						</c:otherwise>
+					</c:choose>
+          
+          
+          
+          
                         <ul class="submenumore">
                 <li class="nav-link" ><a href="my_passwordcheck">내정보</a></li>
           	  	<li class="nav-link" ><a href="my_reservation">예약내역</a></li>

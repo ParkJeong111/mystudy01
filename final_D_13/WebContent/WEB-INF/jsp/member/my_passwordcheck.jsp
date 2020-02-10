@@ -15,7 +15,7 @@
       <div class="container" style = "margin: auto;">
         <div class="contact-info" style="padding: auto;">
         <br>
-				<form action="my_myinfo" style="margin:0px;; padding: 0px; text-align: center;">
+				<form action="pwdchk" style="margin:0px;; padding: 0px; text-align: center;">
 					<table style="margin: auto;padding: auto; width: 50%;">
 						<tr>
 							<td>
@@ -30,7 +30,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td><input type="text" width="100%" class="form-control">
+							<td><input id="mpwd" name="mpwd" type="password" width="100%" class="form-control">
 							</td>
 						</tr>
 						<tr>

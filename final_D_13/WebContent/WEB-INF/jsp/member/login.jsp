@@ -93,7 +93,7 @@
 						<div class="form-group">
 						<img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_login_password.png" alt="" 
 						class="ico_login_password" style = "width: 34px; height: 26px; z-index: 50; position:relative; right:-460px; top: 38px;">
-							<input id="mid" name="mid" type="password" class="form-control"
+							<input id="mpwd" name="mpwd" type="password" class="form-control"
 								placeholder="  비밀번호를 입력해주세요" value="">
 						</div>
 		
