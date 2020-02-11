@@ -1,11 +1,9 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<html lang="ko">
-<head>
+
 <style>
 /* 업체 상세 */
 .view_area {
@@ -2461,85 +2459,7 @@ keyframes swiper-preloader-spin { 100%{
 	content: '';
 }
 </style>
-<title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/animate.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/style.css">
-<!-- 경계선 -->
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/animate.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/style.css">
-</head>
-<body>
 
 
 	<!-- END nav -->
@@ -2573,7 +2493,7 @@ keyframes swiper-preloader-spin { 100%{
 			<section>
 				<div class="view_profile clearfix">
 					<img
-						src="${pageContext.request.contextPath}/resources/images/ssss.jpg"
+						src="${pageContext.request.contextPath}/resources/images/${host.himage }"
 						alt="" style="width: 65%; float: left;">
 
 					<!-- 업체 정보 -->
