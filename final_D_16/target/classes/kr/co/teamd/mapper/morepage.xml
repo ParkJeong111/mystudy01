@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="morepage">
+
+	<!-- 김채은 영역 시작 -->
+
+	<!-- 김채은 영역 끝 -->
+
+
+	<!-- 권세진 영역 시작 -->
+
+	<!-- 권세진 영역 끝 -->
+
+
+	<!-- 박정연 영역 시작 -->
+
+	<!-- 박정연 영역 끝 -->
+
+
+	<!-- 주성중 영역 시작 -->
+
+	<select id="hostlist" parameterType="int" resultType="hldto">
+		select h.himage as himage,h.hname as hname
+		,h.hstar as hstar,hg.hgmoney as hgmoney,h.hnotice as hnotice
+		,h.haddr as haddr
+		from host h, hostgoods hg
+		where h.hname = hg.hname and
+		<choose>
+			<when test="type == 1">
+				htype = '바다'
+			</when>
+			<when test="type == 2">
+				htype = '민물'
+			</when>
+			<when test="type == 3">
+				htype = '전문'
+			</when>
+			<when test="type == 4">
+				htype = '카페'
+			</when>
+			<otherwise></otherwise>
+		</choose>
+	</select>
+	<select id="matchlist" resultType="mbdto">
+		select mbnum, mbtitle, mid, mbcontent, mbtag, mbperson, mblocation, mbimage,
+		to_char(mbstartdate,'YYYY-MM-DD') as mbstartdate, mbdate, mbreport
+		from matchingboard
+	</select>
+	<!-- 주성중 영역 끝 -->
+
+
+
+</mapper>

@@ -85,8 +85,8 @@ public class MemberController {
 	@RequestMapping(value= "my_myinfo")  //나의정보
 	public ModelAndView myInfo(HttpSession session, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView();
-		//String mid = (String) session.getAttribute("mid");
-		String mid = "juju";
+		String mid = (String) session.getAttribute("mid");
+		//String mid = "juju";
 		MemberDTO my = mdao.myInfo(mid);
 		mav.addObject("my",my);
 		mav.setViewName("member/my_myinfo");
@@ -106,15 +106,19 @@ public class MemberController {
 		return "member/my_passwordcheck";
 	}
 	
-	/*@RequestMapping("pwdchk")
-	public String pwdchangechk(MemberDTO mdto, HttpServletResponse resp, HttpSession session) {
-		//String mid = (String) session.getAttribute("mid");
-		mdto.setMid("juju");
+	@RequestMapping("pwdchk")
+	public ModelAndView pwdchangechk(MemberDTO mdto, HttpServletResponse resp, HttpSession session) {
+		String mid = (String) session.getAttribute("mid");
+		mdto.setMid(mid);
+		System.out.println(mdto.getMid());
+		ModelAndView mav = new ModelAndView();
 		int cnt = mdao.pwdCheck(mdto);
 		System.out.println(cnt);
 		if(cnt > 0) {
 			session.setAttribute("mid",mdto.getMid());
-			return "redirect:my_myinfo";
+			mav.setViewName("redirect:my_myinfo");
+			mav.addObject("mdto", mdto);
+			return mav;
 		}else {
 			PrintWriter out;
 			try {
@@ -125,32 +129,29 @@ public class MemberController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return "redirect:my_passwordcheck";
+			mav.setViewName("member/my_passwordcheck");
+			return mav;
+			//return "redirect:my_passwordcheck";
 		}
 		
 	}
-	*/
+	
 	
 	
 	
 	@RequestMapping("logincheck")
-	public String loginfprocess(HttpSession session, HttpServletRequest reqeust, HttpServletResponse resp,
+	public ModelAndView loginfprocess(HttpSession session, HttpServletRequest reqeust, HttpServletResponse resp,
 			@RequestHeader("User-Agent") String uagent, MemberDTO mdto) {
-		System.out.println("id : " + mdto.getMid());
-		System.out.println("pwd: " + mdto.getMpwd());
+		ModelAndView mav = new ModelAndView();
 		MemberDTO m = mdao.idCheck(mdto);
 		if (m != null) {
 			session.setAttribute("mid", m.getMid());
 			session.setAttribute("nickname", m.getMnickname());
 			String mid = (String) session.getAttribute("mid");
-			System.out.println("-----------------------");
-			System.out.println("mid" + mid);
-
-			if (mid.equals("admin")) {
-				return "admin";
-			} else {
-				return "redirect:index";
-			}
+			mav.setViewName("index");
+			
+			return mav;
+		
 		} else {
 			PrintWriter out;
 			try {
@@ -161,7 +162,8 @@ public class MemberController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return "redirect:login";
+			mav.setViewName("member/login");
+			return mav;
 		}
 	}
 

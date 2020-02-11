@@ -43,14 +43,9 @@
 	<select id = "pwdcheck" parameterType="mdto" resultType = "int">
 	select count(mid) from member where mid = #{mid} and mpwd = #{mpwd}
 	</select>
-	<!-- 
-	<select id = "pwdcheck" parameterType="mdto" resultType = "int">
-	select count(mid) from member where mid=#{mid} and mpwd=#{mpwd}
-	</select>
-	 -->
+	
 	<select id="idcheck" parameterType="mdto" resultType="mdto">
 	select mid, mnickname from member where mid=#{mid} and mpwd=#{mpwd}
-	
 	</select>
 	<!-- 박정연 영역 끝  -->
 	

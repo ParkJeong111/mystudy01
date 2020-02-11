@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="talk">
+
+	<!-- 김채은 영역 시작  -->
+	<select id="boardAlllist" resultType="bldto">		
+		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
+		from board b, host h, member m
+		where b.hname=h.hname and b.mid=m.mid
+	
+  	</select>
+  	
+ 	<!-- 게시글 리스트(Dynamic & Ajax) 
+ 	parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
+  	<select id="boardAjax" parameterType="int" resultType="bldto">		
+		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
+		from board b, host h, member m
+		where b.hname=h.hname and b.mid=m.mid
+		
+		<choose>
+			<when test="check==1">
+			and b.btype1='유저조행기' order by b.bdate desc
+			</when>
+			<when test="check==3">
+			and b.btype1='유용한정보' order by b.bdate desc
+			</when>
+			<when test="check==4">
+			and b.btype1='낚시지식인' order by b.bdate desc
+			</when>
+			
+			<when test="check==5">
+			and b.btype1='자유게시판' order by b.bdate desc
+			</when>
+			
+		</choose> -->
+  	</select>
+  	
+  	<select id="itemsboard" parameterType="int" resultType="ibdto">
+  		select ibnum,ibtitle,ibname,mid,ibcontent,ibmoney,ibimage,ibstatus,ibdate,ibreport from itemsboard order by ibdate desc
+  	</select>
+  	
+  	<select id="boardInfo" parameterType="int" resultType="bldto">	<!-- 게시글 상세정보 -->	
+		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
+		from board b, host h, member m
+		where b.hname=h.hname and b.mid=m.mid and b.bnum=#{bnum}
+	
+  	</select>
+  	
+	<!-- 김채은 영역 끝  -->
+
+
+	<!-- 권세진 영역 시작  -->
+	
+	<!-- 권세진 영역 끝  -->
+	
+	
+	<!-- 박정연 영역 시작  -->
+	
+	<!-- 박정연 영역 끝  -->
+	
+	
+	<!-- 주성중 영역 시작  -->
+
+	<!-- 주성중 영역 끝  -->
+
+
+
+  </mapper>
