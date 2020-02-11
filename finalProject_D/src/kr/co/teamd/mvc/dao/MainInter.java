@@ -10,8 +10,8 @@ import kr.co.teamd.mvc.dto.HostDTO;
 public interface MainInter {
 
 	
-	public List<BoardDTO> reviewsList(String viewtype);
-	public Map<Object, Object> mainRes();
-	public List<HostDTO> mainRec();
+	public List<BoardDTO> reviewsList(String viewtype);//메인에서 최근 이용 후기 확인
+	public Map<Object, Object> mainRes();//메인에서 하단에 기업 정보값 출력
+	public List<HostDTO> mainRec();//메인 추천가맹점
 
 }

@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet"> <!-- 로고폰트  Gugi -->
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"> <!--  추가 폰트  Noto Sans KR -->
@@ -147,7 +148,7 @@
                 <hr>
           	  	<li class="nav-link" ><a href="my_reservation">예약내역</a></li>
           	  	<hr>
-          	  	<li class="nav-link" ><a href="my_coupon">쿠폰함</a></li>
+          	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
           	  	<hr>
                 <li class="nav-link"><a href="my_board">내글쓰기</a></li>
               </ul>

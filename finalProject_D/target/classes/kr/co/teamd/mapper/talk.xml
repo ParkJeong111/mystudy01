@@ -21,20 +21,22 @@
 		
 		<choose>
 			<when test="check==1">
-			and b.btype1='유저조행기' order by b.bdate desc
+			and b.btype1='유저조행기' 
 			</when>
 			<when test="check==3">
-			and b.btype1='유용한정보' order by b.bdate desc
+			and b.btype1='유용한정보' 
 			</when>
 			<when test="check==4">
-			and b.btype1='낚시지식인' order by b.bdate desc
+			and b.btype1='낚시지식인'
 			</when>
 			
 			<when test="check==5">
-			and b.btype1='자유게시판' order by b.bdate desc
+			and b.btype1='자유게시판' 
 			</when>
+			<otherwise></otherwise>
 			
-		</choose> -->
+		</choose> 
+		order by b.bdate desc
   	</select>
   	
   	<select id="itemsboard" parameterType="int" resultType="ibdto">

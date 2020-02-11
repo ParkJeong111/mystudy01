@@ -293,7 +293,7 @@ section {
 	color: black;
 }
 
-.talk_header .talk_tab li a i {
+.talk_header .talk_tab li i {
 	padding: 0 5px 0 4px;
 	height: 19px;
 	line-height: 17px;
@@ -309,9 +309,9 @@ section {
 	top: -2px;
 }
 
-.selected {
-	color: #e84418;
-	border-bottom: 1px solid #e84418
+.selected a{
+	border-bottom: 3px solid #F85959;
+	border-top: 3px solid #F85959;
 }
 
 .talk_header .talk_cate_tab {
@@ -1432,6 +1432,13 @@ section {
 	line-height: 48px;
 	text-align: center
 }
+
+.boardlisthead > a{
+	 font-family: Jua;
+	 font-size: 25px;
+	 }
+	 
+
 </style>
 
 
@@ -1446,133 +1453,37 @@ section {
 	<div class="header_area" style="padding-top: 20px;">
 
 
-		<!-- <div class="scrolling scroll_up">
 
-							<div class="header_title">
-					<section>
-						<a class="title_reserve_line">예약검색</a>
-						<p class="h_tit">
-							반반톡													</p>
-					</section>
-				</div> -->
-
-
-
-
-
-
-<!-- 기획전 팝업 -->
-<div class="popup_opacity popup_plan" style="display: none;">
-	<div class="popup_area">
-		<a class="closein_btn"><img
-			src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/popup_close_05.png"
-			alt="팝업닫기"></a>
-		<div class="popup_section"></div>
-	</div>
-</div>
-<!--// 기획전 팝업 -->
-
-
-
-
-
-
-
-<!-- 업체 사진 슬라이드 -->
-<div class="gallery_opacity" style="display: none">
-	<div class="gallery_area">
-		<a class="wrap_close"><img
-			src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/popup_close_01.png"
-			alt="팝업닫기"></a>
-		<div class="swiper-container gallery-top">
-			<div class="swiper-wrapper"></div>
-		</div>
-
-		<!-- Add Arrows -->
-		<div class="swiper-button-next swiper-button-white"></div>
-		<div class="swiper-button-prev swiper-button-white"></div>
-
-		<div class="clearfix title_paging">
-			<div class="company_title"></div>
-			<div class="swiper-pagination"></div>
-		</div>
-
-		<div class="swiper-container gallery-thumbs">
-			<div class="swiper-wrapper"></div>
-		</div>
-	</div>
-</div>
-<!--// 업체 사진 슬라이드 -->
-
-<!-- 업체 사진 슬라이드 -->
-<div class="gallery_opacity22 talk_gallery" style="display: none">
-	<div class="gallery_area">
-		<a class="wrap_close"><img
-			src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/popup_close_01.png"
-			alt="팝업닫기"></a>
-		<div class="swiper-container gallery-top">
-			<div class="swiper-wrapper"></div>
-		</div>
-
-		<!-- Add Arrows -->
-		<div class="swiper-button-next swiper-button-white"></div>
-		<div class="swiper-button-prev swiper-button-white"></div>
-
-		<div class="clearfix title_paging">
-			<div class="company_title"></div>
-			<div class="swiper-pagination"></div>
-		</div>
-
-		<div class="swiper-container gallery-thumbs">
-			<div class="swiper-wrapper"></div>
-		</div>
-	</div>
-</div>
-<!--// 업체 사진 슬라이드 -->
 
 <div class="header_area">
 
 	<div class="scrolling scroll_up">
-		<div class="header_title">
-			<section>
-				<a class="title_reserve_line" href="/reserve/live_search">예약검색</a>
-				<p class="h_tit">반반톡</p>
-			</section>
-		</div>
+		
 
-		<!-- 반반톡 -->
 		<div class="talk_header" style="display:">
 			<div class="talk_tab_area">
 				<section>
-					<ul class="talk_tab clearfix">
+			
+					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
-						<li class="on"><a data-talk_key="1" data-tc_key="0"
-							data-u_type="1" href='javasript:void(0);' onclick="boardAjax(1)">유저조행기</a></li>
+						<li class="on boardlisthead selected"><a data-talk_key="1" data-tc_key="0"
+							data-u_type="1" href='javasript:void(0);' onclick="boardAjax(1)" >유저조행기</a></li>
 
-						<li class="on"><a data-talk_key="11" data-tc_key="0"
+						<li class="on boardlisthead"><a data-talk_key="11" data-tc_key="0"
 							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(2)">중고장터</a></li>
 
-						<li class="on"><a data-talk_key="2" data-tc_key="0"
+						<li class="on boardlisthead"><a data-talk_key="2" data-tc_key="0"
 							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(3)">유용한정보</a></li>
-						<li class="on"><a data-talk_key="3" data-tc_key="0"
+						<li class="on boardlisthead"><a data-talk_key="3" data-tc_key="0"
 							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(4)">낚시지식인</a></li>
 
-						<li class="on"><a data-talk_key="5" data-tc_key="0"
+						<li class="on boardlisthead"><a data-talk_key="5" data-tc_key="0"
 							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(5)">자유게시판</a></li>
 					</ul>
+					
 				</section>
 			</div>
-			<!-- <div class="talk_cate_tab tab6" style="display: block">
-					<section>
-						<ul class="tab_cnt3">
-							<li class="active"><a data-tc_key="0" data-talk_key="6">전체</a></li>
-							<li class=""><a data-tc_key="1" data-talk_key="6">바다 조황</a></li>
-							<li class=""><a data-tc_key="15" data-talk_key="6">민물 조황</a></li>
-						</ul>
-					</section>
-				</div> -->
-			<!--// talk_cate_tab -->
-
+			
 		</div>
 	</div>
 
@@ -1738,140 +1649,15 @@ section {
 			</div>
 
 		</div>
-		<!--// contents_pic -->
-		<!--// 조황 리스트 -->
 	</section>
 
-
-
 </div>
-<!--// container -->
-
-<!-- 중고장터 상품검색 팝업 -->
-<div class="popup_opacity popup_jgo_search" style="display: none">
-	<div class="popup_area">
-		<a class="closein_btn" id="btn_used_popup_close"><img
-			src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/popup_close_05.png"
-			alt="팝업닫기"></a> <a class="closemo_btn" id="btn_used_popup_close"><img
-			src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/popup_close_02.png"
-			alt="팝업닫기"></a>
-		<div class="popup_section">
-			<h2 class="popup_title">
-				상품 검색 <a class="reset_btn"><img
-					src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/reset_ico.png"
-					alt="">초기화</a>
-			</h2>
-			<div class="popup_inner">
-				<div class="search_inner">
-					<div class="search_box">
-						<input type="text" name="tui_item_name"
-							placeholder="상품 키워드를 입력해주세요.">
-					</div>
-					<div class="search_line">
-						<p>판매 · 구매 완료상품</p>
-						<select name="tui_state" id="">
-							<option value="Y">포함</option>
-							<option value="N">제외</option>
-						</select>
-					</div>
-					<div class="search_line">
-						<p>가격</p>
-						<div class="input_line">
-							<div class="inner">
-								<input type="tel" name="tui_price_min" maxlength="8"
-									onkeypress="javascript:onlyNumber();"
-									onkeyup="javascript:onlyNumber2(this);" placeholder="최소가격">
-								<em>원</em>
-							</div>
-							<i>~</i>
-							<div class="inner">
-								<input type="tel" name="tui_price_max" maxlength="8"
-									onkeypress="javascript:onlyNumber();"
-									onkeyup="javascript:onlyNumber2(this);" placeholder="최대가격">
-								<em>원</em>
-							</div>
-						</div>
-					</div>
-
-					<div class="search_line">
-						<label> <input type="checkbox" name="tui_price_nego_chk"
-							class="tui_price_nego" value="Y" checked=""> <ins></ins>
-							<span>가격협의</span> <input type="hidden" name="tui_price_nego">
-						</label>
-					</div>
-
-					<div class="search_line">
-						<p>배송</p>
-						<select name="tui_free_shipping" id="">
-							<option value="">전체</option>
-							<option value="1">직거래</option>
-							<option value="2">택배비포함</option>
-							<option value="3">택배비별도</option>
-							<option value="4">착불</option>
-						</select>
-					</div>
-					<div class="search_line">
-						<p>상품상태</p>
-						<select name="tui_kind" id="">
-							<option value="">전체</option>
-							<option value="1">상태무관</option>
-							<option value="2">중고상품</option>
-							<option value="3">미사용</option>
-							<option value="4">거의새것</option>
-						</select>
-					</div>
-					<div class="search_line">
-						<p>교환가능</p>
-						<select name="tui_exchange" id="">
-							<option value="">전체</option>
-							<option value="N">교환불가</option>
-							<option value="Y">교환가능</option>
-						</select>
-					</div>
-					<div class="search_line">
-						<p>선호지역</p>
-						<a class="search_map_btn"><i class="area_name">전체</i></a>
-					</div>
-				</div>
-				<div class="btn_box">
-					<a class="search_btn">검색하기</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--// 중고장터 상품검색 팝업 -->
-
-<!-- 중고장터 본인인증 팝업 -->
-<div id="exec-wrap"></div>
-<!-- 중고장터 본인인증 팝업 -->
-<!-- 공통 bottom -->
-<div>
-	<div class="foot_banner_area scroll_up" style="display: none;">
-		<a class="foot_banner"><img
-			src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/foot_banner_02.gif"
-			alt=""></a> <a class="foot_banner_close">닫기</a>
-	</div>
-	<div class="banner_top_area scroll_up" style="display: block;"></div>
-
-	<!-- fixed bottom -->
-	<div class="foot_fixed scroll_up">
-		<a href="/home">홈</a> <a href="/category/list?sea_type=1">바다</a> <a
-			href="/category/list?sea_type=2">민물</a> <a href="/search/home">검색</a>
-		<a href="/talk/list" class="on">반반톡</a>
-	</div>
-	<!--// fixed bottom -->
-</div>
-<!--// 공통 bottom -->
 
 
 
 <!-- script -->
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
 <!-- loader -->
 
@@ -1935,16 +1721,7 @@ section {
 										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
 										"<div class='talk_text'><strong>"+value.ibtitle+"</strong><p class='more'>"+value.ibcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.ibimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'></p><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
 										"<div class='talk_btn clearfix'><a class='talk_money_btn' href='#'>"+value.ibmoney+"원</a><a class='talk_comm_btn' style='width:50%;' href='talk_detail?ibnum="+value.ibnum+"#comment_box'>댓글쓰기</a></div></div></div>")
-			
-					    
-					    
 					    });
-					
-						
-					
-					
-				
-
 				}
 			});
 			
@@ -1962,22 +1739,11 @@ section {
 										"<div class='profile_date'><p>"+value.bdate+"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.bnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>"+value.btype1+"</span></p>"+
 										"<div class='talk_text'><strong>"+value.btitle+"</strong><p class='more'>"+value.bcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.bimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
 										"<div class='talk_btn clearfix'><a class='talk_comm_btn' href='talk_detail?bnum="+value.bnum+"#comment_box'>댓글쓰기</a></div></div></div>")
-							
-							
-						});
-					
-						
-					
-				
-
-				}
+							});
+					}
 			});
-			
 		}
-
 	}
 </script>
-
-
 </body>
 </html>

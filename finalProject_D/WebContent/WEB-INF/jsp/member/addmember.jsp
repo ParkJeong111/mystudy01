@@ -221,7 +221,7 @@
 							<input type="text" class="form-control" placeholder="  전화번호"
 								style="z-index: 1;">
 						</div>
-						<div class="form-group">
+						<div class="form-group ">
 							<img
 								src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4Ij48cGF0aCBkPSJtNDI0LjQ3MjY1NiAzMDFoLTExMy4yMTQ4NDRsNTguOTYwOTM4LTk0LjA3ODEyNWMxMy41NjI1LTIxLjUxMTcxOSAyMC43MzQzNzUtNDYuMzgyODEzIDIwLjczNDM3NS03MS45MjE4NzUgMC03NC40Mzc1LTYwLjU2MjUtMTM1LTEzNS0xMzUtNzQuNDQxNDA2IDAtMTM1IDYwLjU2MjUtMTM1IDEzNSAwIDI1LjUzOTA2MiA3LjE2Nzk2OSA1MC40MTAxNTYgMjAuNzEwOTM3IDcxLjg4NjcxOWw1OC45ODQzNzYgOTQuMTEzMjgxaC0xMTMuMjE4NzVsLTg3LjQyOTY4OCAyMTFoNTExLjkwMjM0NHptLTc2LjkzMzU5NCAxMjBoOTQuMTgzNTk0bDI1LjI3NzM0NCA2MWgtMTExLjY4MzU5NHptLTIyLjQ2ODc1IDYxaC0xMzguMzg2NzE4bDcuNTgyMDMxLTYxaDEyMy4wMzEyNXptMTA0LjIyMjY1Ny05MWgtODUuNTc4MTI1bC03LjY0ODQzOC02MGg2OC4zNjMyODJ6bS0yNzguMzM5ODQ0LTI1NmMwLTU3Ljg5ODQzOCA0Ny4xMDE1NjMtMTA1IDEwNS0xMDUgNTcuODk0NTMxIDAgMTA1IDQ3LjEwMTU2MiAxMDUgMTA1IDAgMTkuODY3MTg4LTUuNTcwMzEzIDM5LjIwMzEyNS0xNi4xMzI4MTMgNTUuOTUzMTI1bC04OC44NjcxODcgMTQxLjgwMDc4MS04OC44OTA2MjUtMTQxLjgzMjAzMWMtMTAuNTM5MDYyLTE2LjcxODc1LTE2LjEwOTM3NS0zNi4wNTQ2ODctMTYuMTA5Mzc1LTU1LjkyMTg3NXptMTA1IDI1NC4yNDYwOTQgMzYuNTAzOTA2LTU4LjI0NjA5NGgxMy4zNjcxODhsNy42NDg0MzcgNjBoLTExNS40ODA0NjhsNy40NjA5MzctNjBoMTMuOTk2MDk0em0tMTQ4LjQ4MDQ2OS01OC4yNDYwOTRoNjcuNzVsLTcuNDYwOTM3IDYwaC04NS4xNTIzNDR6bS0zNy4yOTI5NjggOTBoOTMuODU1NDY4bC03LjU4NTkzNyA2MWgtMTExLjU0Njg3NXptMCAwIiBmaWxsPSIjMDAwMDAwIi8+PHBhdGggZD0ibTMzMC45NTMxMjUgMTM1YzAtNDEuMzU1NDY5LTMzLjY0NDUzMS03NS03NS03NXMtNzUgMzMuNjQ0NTMxLTc1IDc1IDMzLjY0NDUzMSA3NSA3NSA3NSA3NS0zMy42NDQ1MzEgNzUtNzV6bS0xMjAgMGMwLTI0LjgxMjUgMjAuMTg3NS00NSA0NS00NXM0NSAyMC4xODc1IDQ1IDQ1LTIwLjE4NzUgNDUtNDUgNDUtNDUtMjAuMTg3NS00NS00NXptMCAwIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+Cg=="
 								alt="" class="ico_login_email"
@@ -253,13 +253,6 @@
 							<input type="text" class="form-control" placeholder="  성별"
 								style="z-index: 1;">
 						</div>
-						<!--  <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              -->
 						<div class="agree_section">
 							<div class="agree_all" style="font-weight: bold;">
 								<label class="clearfix"> <!--  <input type="checkbox">

@@ -15,7 +15,7 @@
 	
 	
 	<!-- 박정연 영역 시작  -->
-	
+		<!-- 예약내역 확인을위한 resultMap -->
 	<resultMap type="rdto" id="myreservationResult">
        <id property="rnum" column="rnum"/>
            <result property="hname" column="hname"/>
@@ -27,23 +27,23 @@
                  <result property="himage" column="himage"/>
            </association>
     </resultMap>
-
+		<!-- 기본 예약내역 -->
 	<select id="myreservation" parameterType="String" resultMap="myreservationResult">
 	select r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate from host h, reservation r where h.hname = r.hname and r.mid=#{mid} order by r.usedate desc
 	</select>
-	
+		<!-- 고객정보 확인 -->
 	<select id="myinfo" parameterType="String" resultType="mdto">
 	select mid, mpwd, memail, mnickname, mphone, maddr1, maddr2 from member where mid=#{mid}
 	</select>
-	
+		<!-- 고객정보 수정 -->
 	<update id="myupdate" parameterType="mdto">
 	update member set mpwd=#{mpwd}, memail=#{memail}, mnickname=#{mnickname}, mphone=#{mphone}, maddr1=#{maddr1}, maddr2=#{maddr2} where mid=#{mid}
 	</update>
-	
+		<!-- 고객정보 확인을 위한 페이지 이동전 패스워드 체크 -->
 	<select id = "pwdcheck" parameterType="mdto" resultType = "int">
 	select count(mid) from member where mid = #{mid} and mpwd = #{mpwd}
 	</select>
-	
+		<!-- 로그인을 위한 아이디, 비밀번호 체크 -->
 	<select id="idcheck" parameterType="mdto" resultType="mdto">
 	select mid, mnickname from member where mid=#{mid} and mpwd=#{mpwd}
 	</select>

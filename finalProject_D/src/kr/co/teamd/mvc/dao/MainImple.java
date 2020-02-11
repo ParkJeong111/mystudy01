@@ -17,18 +17,18 @@ public class MainImple implements MainInter {
 	private SqlSessionTemplate ss;
 	
 	@Override
-	public List<BoardDTO> reviewsList(String viewtype) {
+	public List<BoardDTO> reviewsList(String viewtype) { //메인에서 최근 이용 후기 확인
 		return ss.selectList("main.revieswList",viewtype);
 	}
 
 	@Override
-	public Map<Object,Object> mainRes() {
+	public Map<Object,Object> mainRes() { //메인에서 하단에 기업 정보값 출력
 		String res= "res";
 		return ss.selectMap("main.mainres", res );
 	}
 
 	@Override
-	public List<HostDTO> mainRec() {
+	public List<HostDTO> mainRec() { //메인 추천가맹점
 		return ss.selectList("main.mainrec");
 	}
 
