@@ -22,7 +22,6 @@ public class TalkController {
 	public ModelAndView boardtalk(int check) {
 		ModelAndView mav = new ModelAndView("talk/talklist");
 		
-		System.out.println("컨트롤러 들어왔나");
 		List<BoardListAjaxDTO> list = bdao.boardAjax(check);
 		mav.addObject("list", list);
 		return mav;

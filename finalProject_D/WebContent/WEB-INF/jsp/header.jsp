@@ -117,8 +117,8 @@
       <input type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%">
       <input type="button" class="search-submit btn btn-primary" value="Search">
       <ul class="navbar-nav ml-auto" >
-          <li class="nav-item"><a href="about.jsp" class="nav-link">바다</a></li>
-          <li class="nav-item"><a href="tour.jsp" class="nav-link">민물</a></li>
+          <li class="nav-item"><a href="itemslist?type=1" class="nav-link">바다</a></li>
+          <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
           <li class="nav-item"><a href="game" class="nav-link">게임</a></li>
           <li class="nav-item"><a href="game" class="nav-link">서비스</a></li>
           <li class="nav-item"><a href="talklist?check=1" class="nav-link">게시판</a></li>
