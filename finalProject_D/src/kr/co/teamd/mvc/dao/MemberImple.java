@@ -15,27 +15,27 @@ public class MemberImple implements MemberInter{
 	private SqlSessionTemplate ss;
 
 	@Override
-	public List<ReservationDTO> myReservation(String mid) {
+	public List<ReservationDTO> myReservation(String mid) { //나의 예약 내역확인
 		return ss.selectList("member.myreservation",mid);
 	}
 
 	@Override
-	public MemberDTO myInfo(String mid) {
+	public MemberDTO myInfo(String mid) { //나의 정보 확인
 		return ss.selectOne("member.myinfo", mid);
 	}
 
 	@Override
-	public void myUpdate(MemberDTO mdto) {
+	public void myUpdate(MemberDTO mdto) { //나의 정보 수정
 		ss.update("member.myupdate",mdto);
 		
 	}
 	@Override
-	public int pwdCheck(MemberDTO mdto) {
+	public int pwdCheck(MemberDTO mdto) { //나의 정보로 진입전 비밀번호 체크 
 		return ss.selectOne("member.pwdcheck", mdto);
 	}
 
 	@Override
-	public MemberDTO idCheck(MemberDTO mdto) {
+	public MemberDTO idCheck(MemberDTO mdto) { //로그인 시 아이디, 비밀번호 체크
 		return ss.selectOne("member.idcheck",mdto);
 	}
 

@@ -6,6 +6,31 @@
 background: '#F85959';
 }
 
+
+.selected a{
+	border-bottom: 3px solid #F85959;
+	border-top: 3px solid #F85959;
+}
+
+.talk_tab li {
+	float: left;
+	width: 19.1111%;
+	position: relative;
+	top: 1px;
+	list-style: none;
+	
+}
+.talk_tab li a {
+	display: block;
+	font-size: 19px;
+	letter-spacing: -0.6px;
+	text-align: center;
+	height: 44px;
+	line-height: 42px;
+	color: black;
+		 font-family: Jua;
+	 font-size: 19px;
+}
 </style>
 
 
@@ -26,28 +51,22 @@ background: '#F85959';
 			<div class="row">
 
 				<div class="col-lg-9" style="margin: auto;">
-							<div class="nav ftco-animate nav-pills" id="v-pills-tab"
-								role="tablist" aria-orientation="vertical"
-								style="margin-top: -100px; text-align: center;">
-								<!-- <a class="nav-link active" id="v-pills-whatwedo-tab"
-									data-toggle="pill" href="#v-pills-whatwedo" role="tab"
-									aria-controls="v-pills-whatwedo" aria-selected="true" >예약내역</a>
+							
+			<div class="talk_tab_area" style="margin-top: -100px;">
+				<section>
+			
+					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
-								<a class="nav-link" id="v-pills-mission-tab" data-toggle="pill"
-									href="#v-pills-mission" role="tab"
-									aria-controls="v-pills-mission" aria-selected="false">이용완료</a>
-
-								<a class="nav-link" id="v-pills-mission-tab" data-toggle="pill"
-									href="#v-pills-mission" role="tab"
-									aria-controls="v-pills-mission" aria-selected="false">취소환불</a>-->
-								<a class="nav-link" id="" data-toggle="" href="" role=""aria-controls="" aria-selected="" >
-								예약내역</a>
-								<a class="nav-link" id="" data-toggle="" href="" role=""aria-controls="" aria-selected="" >
-								이용완료</a>
-								<a class="nav-link" id="" data-toggle="" href="" role=""aria-controls="" aria-selected="" >
-								취소환불</a>	
-									
-							</div>
+						<li class="selecthead selected">
+						<a href='javasript:void(0);' onclick="restype(1)" >예약내역</a></li>
+						<li class="selecthead">
+						<a href='javascript:void(0);' onclick="restype(2)">이용완료</a></li>
+						<li class="selecthead">
+						<a href='javascript:void(0);' onclick="restype(3)">취소환불</a></li>
+					</ul>
+					
+				</section>
+			</div>
 				
 					<div class="row"style="margin-top: 3%">
 					
@@ -109,4 +128,33 @@ background: '#F85959';
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
 </body>
+<script>
+$(document).ready(function() {
+	$(".selecthead").each(function() {
+		$(this).click(function() {
+			$(this).addClass("selected"); 
+			$(this).siblings().removeClass("selected");
+		});
+	});
+
+});
+
+function restype(num) {
+	$.ajax({
+			url : "myReservationType?type="+num,
+			datatype : 'json',
+			success : function(data) {
+				$("#talk_detail_list").html("")
+				$.each(data, function(key, value){
+						$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong>"+value.mid+"</strong><p><a href='/' class='header_logo'> <img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' alt=''></a></p></div>"+
+									"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
+									"<div class='talk_text'><strong>"+value.ibtitle+"</strong><p class='more'>"+value.ibcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.ibimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'></p><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
+									"<div class='talk_btn clearfix'><a class='talk_money_btn' href='#'>"+value.ibmoney+"원</a><a class='talk_comm_btn' style='width:50%;' href='talk_detail?ibnum="+value.ibnum+"#comment_box'>댓글쓰기</a></div></div></div>")
+				    });
+			}
+		});
+		
+	}
+
+</script>
 </html>

@@ -33,7 +33,7 @@
     <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet"> <!-- 로고폰트  Gugi -->
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"> <!--  추가 폰트  Noto Sans KR -->
-    
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  추가 폰트  Do Hyeon -->
     <style>
     .nav-link{font-family: Jua;}
     .form-controla{
@@ -55,10 +55,9 @@
     .d-block{height: 200px}
     
     .submenumore{
-     font-family: Noto Sans KR;
      position: absolute;
      top: 100%;
-    width: 200px;
+    width: 150px;
     z-index: 2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
     opacity: 0;
@@ -68,9 +67,8 @@
     -moz-transition: 0.6s;
     -o-transition: 0.6s;
     transition: 0.6s;
-    border-radius: 5px;
     margin: 0px; padding: 0px;
-    font-size: 20px; 
+    font-size: 16px; 
     background-color: white;
 }
  li:hover .submenumore{
@@ -84,7 +82,13 @@
    } 
    
  .submenumore li{
-
+	margin:5%;
+	padding:0px;
+   color: black;
+   }
+    .submenumore hr{
+	margin:0px;
+	padding:0px;
    color: black;
    }
    
@@ -109,26 +113,42 @@
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
-      <input type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 5%; width: 35%">
+      <input type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%">
       <input type="button" class="search-submit btn btn-primary" value="Search">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto" >
           <li class="nav-item"><a href="about.jsp" class="nav-link">바다</a></li>
           <li class="nav-item"><a href="tour.jsp" class="nav-link">민물</a></li>
           <li class="nav-item"><a href="game" class="nav-link">게임</a></li>
+          <li class="nav-item"><a href="game" class="nav-link">서비스</a></li>
           <li class="nav-item"><a href="talklist?check=1" class="nav-link">게시판</a></li>
           <li class="nav-item"><a href="#" class="nav-link"><span class="submenumorem">더보기</span><i class="ti-angle-down"></i></a>
               <ul class="submenumore scrolled awake">
-          	  	<li class="nav-link" ><a href="notice">공지사항</a></li>
+          	  	<li class="nav-link"><a href="notice">공지사항</a></li>
+          	  	<hr>
                 <li class="nav-link"><a href="event">이벤트</a></li>
+                <hr>
                 <li class="nav-link"><a href="cs_faq">고객센터</a></li>
-                <li class="nav-link"><a href="uselow">이용약관</a></li>
+                <hr>
+                <li class="nav-link" ><a href="uselow">이용약관</a></li>
               </ul>
            </li>
-          <li class="nav-item cta"><a href="login" class="nav-link"><span>로그인</span></a>
-                        <ul class="submenumore">
-                <li class="nav-link" ><a href="my_passwordcheck">내정보</a></li>
+          <li class="nav-item cta">
+         			 <c:choose>
+						<c:when test="${sessionScope.mid==null }">
+							<a href="login" class="nav-link"><span>로그인</span></a>
+						</c:when>
+						<c:otherwise>
+							<a href="logout" class="nav-link"><span >로그아웃</span></a>
+						</c:otherwise>
+					</c:choose>
+          
+             <ul class="submenumore">
+                <li class="nav-link" ><a href="my_passwordcheck">나의정보</a></li>
+                <hr>
           	  	<li class="nav-link" ><a href="my_reservation">예약내역</a></li>
+          	  	<hr>
           	  	<li class="nav-link" ><a href="my_coupon">쿠폰함</a></li>
+          	  	<hr>
                 <li class="nav-link"><a href="my_board">내글쓰기</a></li>
               </ul>
           

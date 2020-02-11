@@ -41,9 +41,9 @@ public class MemberController {
 	
 	
 	
-	@RequestMapping(value= "my_coupon") //나의 쿠폰
+	@RequestMapping(value= "my_point") //나의 쿠폰
 	public String coupon() {
-		return "member/my_coupon";
+		return "member/my_point";
 	}
 	
 	@RequestMapping(value= "my_board") //내글쓰기
@@ -134,7 +134,7 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping("logincheck")  //fhrmdl
+	@RequestMapping("logincheck")  //로그인체크
 	public ModelAndView loginfprocess(HttpSession session, HttpServletRequest reqeust, HttpServletResponse resp,
 			@RequestHeader("User-Agent") String uagent, MemberDTO mdto) {
 		ModelAndView mav = new ModelAndView();
@@ -160,7 +160,7 @@ public class MemberController {
 		}
 	}
 
-	@RequestMapping("logout")
+	@RequestMapping("logout")  //로그아웃
 	public ModelAndView loginfoutprocess(HttpSession session, HttpServletRequest request) {
 		session.removeAttribute("uname");
 		session.removeAttribute("mid");
