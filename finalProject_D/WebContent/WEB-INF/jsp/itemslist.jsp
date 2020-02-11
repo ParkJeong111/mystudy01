@@ -489,7 +489,7 @@ li {
 						<c:forEach items = "${hostlist }" var = "hostlist">
 							<div class="col-md-4 ftco-animate">
 								<div class="destination">
-									<a href="#"
+									<a href="itemdetail?hnum=${hostlist.hnum}"
 										class="img img-2 d-flex justify-content-center align-items-center"
 										style="background-image: url(${pageContext.request.contextPath}/resources/images/${hostlist.himage });">
 										<div
@@ -501,7 +501,7 @@ li {
 										<div class="d-flex">
 											<div class="one">
 												<h3>
-													<a href="#">${hostlist.hname }</a>
+													<a href="itemdetail?hnum=${hostlist.hnum}">${hostlist.hname }</a>
 												</h3>
 												<p class="rate">
 													<i class="icon-star"></i> <i class="icon-star"></i> <i
