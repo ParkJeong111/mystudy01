@@ -31,15 +31,21 @@ public class MemberController {
 	public String passwordfind() {
 		return "member/passwordfind";
 	}
-
-	@RequestMapping(value= "addmember")  //회원가입
-	public String addmember() {
-		return "member/addmember";
+	
+//  --------------재민 추가------------------------
+	@RequestMapping(value= "addmember")  //회원가입 폼      
+	public String addmember() {    
+		return "member/addmember"; 
 	}
 	
-	
-	
-	
+	@RequestMapping(value= "insertmember")  //회원가입 (멤버 추가)      
+	public String insertmember(MemberDTO mdto) {  
+		mdao.addMember(mdto);   
+		System.out.println(mdto.getMname());
+		System.out.println(mdto.getMaddr1());
+		return "redirect:login"; 
+	}
+//  ----------------------------------------------
 	
 	@RequestMapping(value= "my_point") //나의 쿠폰
 	public String coupon() {
