@@ -74,11 +74,14 @@ public class MemberController {
 	@RequestMapping(value= "my_reservation")  //예약내역
 	public ModelAndView reservation(HttpSession session, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView();
-		//String mid = (String) session.getAttribute("mid");
-		String mid = "juju";
-		List<ReservationDTO> reservationlist = mdao.myReservation(mid);
-		mav.addObject("rlist", reservationlist);
-		mav.setViewName("member/my_reservation");
+		String mid = (String) session.getAttribute("mid");
+		if (mid ==null) {
+			mav.setViewName("member/login");
+		}else {
+			List<ReservationDTO> reservationlist = mdao.myReservation(mid);
+			mav.addObject("rlist", reservationlist);
+			mav.setViewName("member/my_reservation");	
+		}
 		return mav;
 	}
 		
@@ -86,10 +89,9 @@ public class MemberController {
 	public ModelAndView myInfo(HttpSession session, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView();
 		String mid = (String) session.getAttribute("mid");
-		//String mid = "juju";
 		MemberDTO my = mdao.myInfo(mid);
 		mav.addObject("my",my);
-		mav.setViewName("member/my_myinfo");
+		mav.setViewName("member/my_myinfo");		
 		return mav;
 	}
 	
@@ -102,8 +104,13 @@ public class MemberController {
 	}
 
 	@RequestMapping(value= "my_passwordcheck") //비밀번호 체크페이지로 이동
-	public String myPasswordCheck() {
+	public String myPasswordCheck(HttpSession session) {
+		String mid = (String) session.getAttribute("mid");
+		if (mid ==null) {
+			return "member/login";
+		}else {
 		return "member/my_passwordcheck";
+		}
 	}
 	
 	@RequestMapping("pwdchk") //비밀번호 체크
