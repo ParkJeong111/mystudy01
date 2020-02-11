@@ -101,19 +101,17 @@ public class MemberController {
 		return "redirect:my_myinfo";
 	}
 
-	@RequestMapping(value= "my_passwordcheck") //비밀번호 체크
+	@RequestMapping(value= "my_passwordcheck") //비밀번호 체크페이지로 이동
 	public String myPasswordCheck() {
 		return "member/my_passwordcheck";
 	}
 	
-	@RequestMapping("pwdchk")
+	@RequestMapping("pwdchk") //비밀번호 체크
 	public ModelAndView pwdchangechk(MemberDTO mdto, HttpServletResponse resp, HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
 		mdto.setMid(mid);
-		System.out.println(mdto.getMid());
 		ModelAndView mav = new ModelAndView();
 		int cnt = mdao.pwdCheck(mdto);
-		System.out.println(cnt);
 		if(cnt > 0) {
 			session.setAttribute("mid",mdto.getMid());
 			mav.setViewName("redirect:my_myinfo");
@@ -131,15 +129,12 @@ public class MemberController {
 			}
 			mav.setViewName("member/my_passwordcheck");
 			return mav;
-			//return "redirect:my_passwordcheck";
 		}
 		
 	}
 	
 	
-	
-	
-	@RequestMapping("logincheck")
+	@RequestMapping("logincheck")  //fhrmdl
 	public ModelAndView loginfprocess(HttpSession session, HttpServletRequest reqeust, HttpServletResponse resp,
 			@RequestHeader("User-Agent") String uagent, MemberDTO mdto) {
 		ModelAndView mav = new ModelAndView();
@@ -149,7 +144,6 @@ public class MemberController {
 			session.setAttribute("nickname", m.getMnickname());
 			String mid = (String) session.getAttribute("mid");
 			mav.setViewName("redirect:index");
-			
 			return mav;
 		
 		} else {
@@ -158,7 +152,6 @@ public class MemberController {
 				out = resp.getWriter();
 				out.println("<script>alert('아이디와 비밀번호를 다시 확인해주세요');</script>");
 				out.flush(); 
-				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -169,7 +162,6 @@ public class MemberController {
 
 	@RequestMapping("logout")
 	public ModelAndView loginfoutprocess(HttpSession session, HttpServletRequest request) {
-		System.out.println("로그아웃");
 		session.removeAttribute("uname");
 		session.removeAttribute("mid");
 		ModelAndView mav = new ModelAndView();
