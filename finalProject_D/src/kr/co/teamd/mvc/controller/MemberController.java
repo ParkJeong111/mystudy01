@@ -31,15 +31,21 @@ public class MemberController {
 	public String passwordfind() {
 		return "member/passwordfind";
 	}
-
-	@RequestMapping(value= "addmember")  //회원가입
-	public String addmember() {
-		return "member/addmember";
+	
+//  --------------재민 추가------------------------
+	@RequestMapping(value= "addmember")  //회원가입 폼      
+	public String addmember() {    
+		return "member/addmember"; 
 	}
 	
-	
-	
-	
+	@RequestMapping(value= "insertmember")  //회원가입 (멤버 추가)      
+	public String insertmember(MemberDTO mdto) {  
+		mdao.addMember(mdto);   
+		System.out.println(mdto.getMname());
+		System.out.println(mdto.getMaddr1());
+		return "redirect:login"; 
+	}
+//  ----------------------------------------------
 	
 	@RequestMapping(value= "my_point") //나의 쿠폰
 	public String coupon() {
@@ -74,11 +80,14 @@ public class MemberController {
 	@RequestMapping(value= "my_reservation")  //예약내역
 	public ModelAndView reservation(HttpSession session, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView();
-		//String mid = (String) session.getAttribute("mid");
-		String mid = "juju";
-		List<ReservationDTO> reservationlist = mdao.myReservation(mid);
-		mav.addObject("rlist", reservationlist);
-		mav.setViewName("member/my_reservation");
+		String mid = (String) session.getAttribute("mid");
+		if (mid ==null) {
+			mav.setViewName("member/login");
+		}else {
+			List<ReservationDTO> reservationlist = mdao.myReservation(mid);
+			mav.addObject("rlist", reservationlist);
+			mav.setViewName("member/my_reservation");	
+		}
 		return mav;
 	}
 		
@@ -86,10 +95,9 @@ public class MemberController {
 	public ModelAndView myInfo(HttpSession session, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView();
 		String mid = (String) session.getAttribute("mid");
-		//String mid = "juju";
 		MemberDTO my = mdao.myInfo(mid);
 		mav.addObject("my",my);
-		mav.setViewName("member/my_myinfo");
+		mav.setViewName("member/my_myinfo");		
 		return mav;
 	}
 	
@@ -102,8 +110,13 @@ public class MemberController {
 	}
 
 	@RequestMapping(value= "my_passwordcheck") //비밀번호 체크페이지로 이동
-	public String myPasswordCheck() {
+	public String myPasswordCheck(HttpSession session) {
+		String mid = (String) session.getAttribute("mid");
+		if (mid ==null) {
+			return "member/login";
+		}else {
 		return "member/my_passwordcheck";
+		}
 	}
 	
 	@RequestMapping("pwdchk") //비밀번호 체크

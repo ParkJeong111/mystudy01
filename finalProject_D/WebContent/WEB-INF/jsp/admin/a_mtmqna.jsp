@@ -43,7 +43,7 @@
 				class="table table-striped table-bordered bootstrap-datatable datatable">
 				<thead>
 					<tr>
-						<th>No.</th>
+						<th>No</th>
 						<th>구분</th>
 						<th>아이디</th>
 						<th>연락처</th>
