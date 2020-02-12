@@ -30,25 +30,10 @@
     </resultMap>
 		<!-- 기본 예약내역 -->
 	<select id="myreservation" parameterType="String" resultMap="myreservationResult">
-	select r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate, r.rmoney from host h, reservation r where h.hname = r.hname and r.mid=#{mid} 
-	and usedate > to_char(sysdate) order by r.usedate desc
+	select r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate, r.rmoney 
+	from host h, reservation r where h.hname = r.hname and r.mid=#{mid} and r.usedate >= to_char(sysdate) order by r.usedate desc
 	</select>
-	<!-- <choose>
-			<when test="num==1">
-			r.usedate >= to_char(sysdate)
-			</when>
-			<when test="num==2">
-			r.usedate &lt; to_char(sysdate)
-			</when>
-			<when test="num==3">
-			r.rmoney == '0'
-			</when>
-			<otherwise>
-			
-			</otherwise>
-		</choose>
-	 -->
-	
+
 		<!-- 고객정보 확인 -->
 	<select id="myinfo" parameterType="String" resultType="mdto">
 	select mid, mpwd, memail, mnickname, mphone, maddr1, maddr2 from member where mid=#{mid}
