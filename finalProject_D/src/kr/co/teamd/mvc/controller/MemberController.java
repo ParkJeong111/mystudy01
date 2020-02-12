@@ -56,18 +56,11 @@ public class MemberController {
 	public String board() {
 		return "member/my_board";
 	}
-	
-	
-	
-	
-	
-	
-	
+		
 	//김채은 영역 시작
 	
 	
-	
-		//김채은 영역 끝
+	//김채은 영역 끝
 		
 
 		//권세진 영역 시작

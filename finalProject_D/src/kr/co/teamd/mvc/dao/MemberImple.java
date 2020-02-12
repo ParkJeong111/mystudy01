@@ -23,6 +23,8 @@ public class MemberImple implements MemberInter{
 	public List<ReservationDTO> myReservation(String mid) { //나의 예약 내역확인
 		return ss.selectList("member.myreservation",mid);
 	}
+	
+	
 
 	@Override
 	public MemberDTO myInfo(String mid) { //나의 정보 확인
