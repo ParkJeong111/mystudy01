@@ -212,7 +212,7 @@
 								alt="" class="ico_login_password"
 								style="width: 34px; height: 26px; z-index: 2; position: relative; right: -60%; top: 38px;">
 								<div>
-							<input type="password" class="form-control"
+							<input type="password" class="form-control" name="mpwd2" id="mpwd2"
 								placeholder="  비밀번호 확인" style="z-index: 1; width: 70%; float: left;">
 	<%-- 여기... 비번 2차 확인 로직 짜야함... ㅠㅠ --%>
 							<input type="button" id="pwdChkBtn" value="확인" class="btn btn-primary" style="width:20%; float: right; margin-top: 5px;">
