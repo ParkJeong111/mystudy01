@@ -139,7 +139,6 @@
 		$('.qnalist').each(function() {
 			$(this).click(function() {
 				var qnum = $(this).prev().prev().text();
-				console.log(qnum);
 				$.ajax({
 					url : "qnainfo?qnum="+qnum,
 					datatype:'json',
@@ -166,21 +165,6 @@
 		})
 	});
 </script>
-<!-- <script>
-	$(function() {
-		$('.qnalist').each(function() {
-			$(this).click(function() {
-				var qnum = $(this).text();
-				console.log("¿©±â?");
-				$.ajax({
-					url : "qnainfo?qnum="+qnum,
-					datatype:'json',
-					success:function(data){
 
-				}
-			});
-		});
-	})
-</script> -->
 
 <%@ include file="a_footer.jsp"%>

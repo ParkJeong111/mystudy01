@@ -165,6 +165,16 @@
 						</div>
 						<!-- ---------------------아이디  (재민)----------------------------oninput="checkId()" -->   <!-- width: 34px -->
 						<div class="form-group">
+						
+						<div align="center" style="color: black; font-size: 15px">
+										<table>
+											<tr id="idchk">
+												<td></td>
+										<td id="target" colspan="2" style="text-align: left;"></td>
+									</tr>
+										</table>
+						</div>
+						
 							<img
 								src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSItOTAgLTE5IDYwNSA2MDUuMzMzMzEiIHdpZHRoPSI1MTJweCI+PHBhdGggZD0ibTIwNy45MTc5NjkgMzAxLjI1YzM1LjY5MTQwNiAwIDY0LjYyMTA5My0yOC45Mzc1IDY0LjYyMTA5My02NC42MjUgMC0zNS42OTE0MDYtMjguOTI5Njg3LTY0LjYyNS02NC42MjEwOTMtNjQuNjI1LTM1LjY5NTMxMyAwLTY0LjYyNSAyOC45MzM1OTQtNjQuNjI1IDY0LjYyNS4wNDI5NjkgMzUuNjcxODc1IDI4Ljk0OTIxOSA2NC41NzgxMjUgNjQuNjI1IDY0LjYyNXptMC0xMDQuMTI1YzIxLjg4MjgxMiAwIDM5LjYyMTA5MyAxNy43MzgyODEgMzkuNjIxMDkzIDM5LjYyNSAwIDIxLjg4MjgxMi0xNy43MzgyODEgMzkuNjI1LTM5LjYyMTA5MyAzOS42MjUtMjEuODg2NzE5IDAtMzkuNjI1LTE3Ljc0MjE4OC0zOS42MjUtMzkuNjI1LjAwMzkwNi0yMS44ODI4MTIgMTcuNzQyMTg3LTM5LjYxNzE4OCAzOS42MjUtMzkuNjI1em0wIDAiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJtMjA3LjkxNzk2OSAzMjUuMTI1Yy0yNi40NDE0MDctLjE5NTMxMi01MS44MTY0MDcgMTAuNDE3OTY5LTcwLjI1IDI5LjM3NS0xOC43NSAxOS4xMjUtMjkgNDUuMTI1LTI5IDczLjM3NS4wMTk1MzEgNi44OTQ1MzEgNS42MDE1NjIgMTIuNDgwNDY5IDEyLjUgMTIuNWgxNzMuNDk2MDkzYzYuODk4NDM4LS4wMTk1MzEgMTIuNDgwNDY5LTUuNjA1NDY5IDEyLjUtMTIuNSAwLTI4LjI1LTEwLjI1LTU0LjI1LTI5LTczLjM3NS0xOC40Mjk2ODctMTguOTU3MDMxLTQzLjgwODU5My0yOS41NzAzMTItNzAuMjQ2MDkzLTI5LjM3NXptLTczLjM3NSA5MC4yNWMyLjEzNjcxOS0xNi4zNDM3NSA5LjUwNzgxMi0zMS41NTQ2ODggMjEtNDMuMzc1IDEzLjgzMjAzMS0xMy45OTYwOTQgMzIuNjk1MzEyLTIxLjg3NSA1Mi4zNzUtMjEuODc1IDE5LjY3NTc4MSAwIDM4LjUzOTA2MiA3Ljg3ODkwNiA1Mi4zNzEwOTMgMjEuODc1IDExLjQ2ODc1IDExLjgzMjAzMSAxOC44MzIwMzIgMjcuMDM5MDYyIDIxIDQzLjM3NXptMCAwIiBmaWxsPSIjMDAwMDAwIi8+PHBhdGggZD0ibTM1Ny45MTc5NjkgMGgtMzAwYy0zNC41MTE3MTkuMDE1NjI1LTYyLjQ4ODI4MSAyNy45ODgyODEtNjIuNSA2Mi41djQ0Mi41Yy4wMTE3MTkgMzQuNTExNzE5IDI3Ljk4ODI4MSA2Mi40ODQzNzUgNjIuNSA2Mi41aDMwMGMzNC41MTE3MTktLjAxNTYyNSA2Mi40ODQzNzUtMjcuOTg4MjgxIDYyLjUtNjIuNXYtNDQyLjVjLS4wMTU2MjUtMzQuNTExNzE5LTI3Ljk4ODI4MS02Mi40ODQzNzUtNjIuNS02Mi41em0zNy41IDUwNWMtLjA1ODU5NCAyMC42ODM1OTQtMTYuODE2NDA3IDM3LjQ0MTQwNi0zNy41IDM3LjVoLTMwMGMtMjAuNjgzNTk0LS4wNTg1OTQtMzcuNDQxNDA3LTE2LjgxNjQwNi0zNy41LTM3LjV2LTQ0Mi41Yy4wNTg1OTMtMjAuNjgzNTk0IDE2LjgxNjQwNi0zNy40NDE0MDYgMzcuNS0zNy41aDMwMGMyMC42ODM1OTMuMDU4NTk0IDM3LjQ0MTQwNiAxNi44MTY0MDYgMzcuNSAzNy41em0wIDAiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJtMTU1Ljc5Mjk2OSA4My44NzVoMTAwYzYuOTAyMzQzIDAgMTIuNS01LjU5NzY1NiAxMi41LTEyLjVzLTUuNTk3NjU3LTEyLjUtMTIuNS0xMi41aC0xMDBjLTYuOTA2MjUgMC0xMi41IDUuNTk3NjU2LTEyLjUgMTIuNXM1LjU5Mzc1IDEyLjUgMTIuNSAxMi41em0wIDAiIGZpbGw9IiMwMDAwMDAiLz48L3N2Zz4K"
 								alt="" class="ico_login_email"
@@ -172,7 +182,7 @@
 							<div><input type="text" class="form-control" placeholder="  아이디" pattern="(?=.*[a-z]).{4,16}"
 								title="아이디는 영문 소문자만 4자 이상 16자 이하인 아이디만 사용가능합니다." name="mid" id="mid"
 								 style="z-index: 1; width: 70%; float: left;" required>
-							<input type="button" id="idChkBtn" value="중복확인" class="btn btn-primary" style="width:20%; float: right;">
+							<input type="button" id="idChkBtn" value="중복확인" class="btn btn-primary" style="width:20%; float: right; margin-top: 5px;">
 							</div>
 						</div>
 						<!-- ----------------이메일  (재민)----------position: relative; right: -20%; top: 50px;"-------- -->
@@ -202,10 +212,10 @@
 								alt="" class="ico_login_password"
 								style="width: 34px; height: 26px; z-index: 2; position: relative; right: -60%; top: 38px;">
 								<div>
-							<input type="password" class="form-control"
+							<input type="password" class="form-control" name="mpwd2" id="mpwd2"
 								placeholder="  비밀번호 확인" style="z-index: 1; width: 70%; float: left;">
 	<%-- 여기... 비번 2차 확인 로직 짜야함... ㅠㅠ --%>
-							<input type="button" id="pwdChkBtn" value="확인" class="btn btn-primary" style="width:20%; float: right;">
+							<input type="button" id="pwdChkBtn" value="확인" class="btn btn-primary" style="width:20%; float: right; margin-top: 5px;">
 							</div>
 						</div>
 						<!-- ---------------------------닉네임  (재민)----------position: relative; right: -20%; top: 50px;"---------------- -->
@@ -237,7 +247,7 @@
 							<div>
 							<input type="text" class="form-control" placeholder="  주소1" name="maddr1" id="maddr1"
 								style="z-index: 1; width: 70%; float: left;" readonly>
-							<input type="button" id="postBtn" value="검색" class="btn btn-primary" style="width:20%; float: right;">
+							<input type="button" id="postBtn" value="검색" class="btn btn-primary" style="width:20%; float: right; margin-top: 5px;">
 							</div>
 						</div>
 						<!-- ---------------------------주소2  (재민)-------------------------- -->
