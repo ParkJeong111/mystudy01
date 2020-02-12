@@ -52,7 +52,7 @@
         
         <!-- 추천 가맹점 정보 (예약건 많은 순으로 정렬) -->
         <select id="mainrec" resultType="hdto">
-        select hname, hspecies from (select h.hname, h.hspecies, c.cnt from host h,
+        select hname, hspecies , himage from (select h.hname, h.hspecies, h.himage,c.cnt from host h,
         (select count(rnum)cnt, hname from reservation group by hname)c where h.hname = c.hname order by cnt desc) where ROWNUM &lt;7
         </select>
 	<!-- 박정연 영역 끝  -->

@@ -83,6 +83,14 @@
 	color: #c7c7c7;
 	margin-left: 10px;
 }
+
+.redcolor{
+color: red;
+}
+
+.bluecolor{
+color: blue;
+}
 </style>
 
 	<!-- END nav -->
@@ -128,7 +136,7 @@
 								src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00MzcuMzMzLDE5MmgtMzJ2LTQyLjY2N0M0MDUuMzMzLDY2Ljk5LDMzOC4zNDQsMCwyNTYsMFMxMDYuNjY3LDY2Ljk5LDEwNi42NjcsMTQ5LjMzM1YxOTJoLTMyICAgIEM2OC43NzEsMTkyLDY0LDE5Ni43NzEsNjQsMjAyLjY2N3YyNjYuNjY3QzY0LDQ5Mi44NjUsODMuMTM1LDUxMiwxMDYuNjY3LDUxMmgyOTguNjY3QzQyOC44NjUsNTEyLDQ0OCw0OTIuODY1LDQ0OCw0NjkuMzMzICAgIFYyMDIuNjY3QzQ0OCwxOTYuNzcxLDQ0My4yMjksMTkyLDQzNy4zMzMsMTkyeiBNMjg3LjkzOCw0MTQuODIzYzAuMzMzLDMuMDEtMC42MzUsNi4wMzEtMi42NTYsOC4yOTIgICAgYy0yLjAyMSwyLjI2LTQuOTE3LDMuNTUyLTcuOTQ4LDMuNTUyaC00Mi42NjdjLTMuMDMxLDAtNS45MjctMS4yOTItNy45NDgtMy41NTJjLTIuMDIxLTIuMjYtMi45OS01LjI4MS0yLjY1Ni04LjI5Mmw2LjcyOS02MC41MSAgICBjLTEwLjkyNy03Ljk0OC0xNy40NTgtMjAuNTIxLTE3LjQ1OC0zNC4zMTNjMC0yMy41MzEsMTkuMTM1LTQyLjY2Nyw0Mi42NjctNDIuNjY3czQyLjY2NywxOS4xMzUsNDIuNjY3LDQyLjY2NyAgICBjMCwxMy43OTItNi41MzEsMjYuMzY1LTE3LjQ1OCwzNC4zMTNMMjg3LjkzOCw0MTQuODIzeiBNMzQxLjMzMywxOTJIMTcwLjY2N3YtNDIuNjY3QzE3MC42NjcsMTAyLjI4MSwyMDguOTQ4LDY0LDI1Niw2NCAgICBzODUuMzMzLDM4LjI4MSw4NS4zMzMsODUuMzMzVjE5MnoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"
 								alt="" class="ico_login_password"
 								style="width: 34px; height: 26px; z-index: 2; position: relative; right: -460px; top: 38px;">
-							<label>변경 비밀번호 확인</label>
+							<label style="width: 70%">변경 비밀번호 <span id="pwdch" style="margin-left: 2%">확인</span></label>
 							<input id="mpwdcheck" name="mpwdcheck" type="password" class="form-control" value="" placeholder="변경 비밀번호를 확인해주세요" style="z-index: 1;">
 						</div>
 						<div class="form-group">
@@ -203,18 +211,18 @@
 
 <script type='text/javascript'>
 	$(function() {
-
-		$("#updateBtn").click(function() {
-			
-			console.log("클릭");
-			console.log($('#memail').val());
-			console.log($('#mpwd').val());
-			console.log($('#mnickname').val());
-			console.log($('#mphone').val());
-			console.log($('#maddr1').val());
-			console.log($('#maddr2').val());
-			
-		})
+		$('#mpwdcheck').on('keyup', function() { //비밀번호 확인 입력시 바로 값 비교  
+			if ($('#mpwd').val() === $('#mpwdcheck').val()){
+				$('#pwdch').text("일치");
+				$('#pwdch').removeClass("redcolor");
+				$('#pwdch').addClass("bluecolor");
+			}else{
+				console.log("비밀번호 불일치");
+				$('#pwdch').text("불일치");
+				$('#pwdch').removeClass("bluecolor");
+				$('#pwdch').addClass("redcolor");
+			}
+		});
 	});
 
 

@@ -30,6 +30,7 @@ background: '#F85959';
 	color: black;
 		 font-family: Jua;
 	 font-size: 19px;
+	cursor: pointer;
 }
 </style>
 
@@ -75,7 +76,7 @@ background: '#F85959';
 							<div class="destination">
 								<a href="hotel-single.jsp"
 									class="img img-2 d-flex justify-content-center align-items-center"
-									style="background-image: url('${pageContext.request.contextPath}/resources/images/reservation/${r.hostdto.himage }');">
+									style="background-image: url('${pageContext.request.contextPath}/resources/images/${r.hostdto.himage }');">
 									<div class="icon d-flex justify-content-center align-items-center">
 										<span class="icon-search2"></span>
 									</div>

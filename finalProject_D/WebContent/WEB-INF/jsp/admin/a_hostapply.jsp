@@ -242,13 +242,7 @@
 			 
 			 
 			  console.log($("#hguide").val())
-			if($("#hguide").val() == "null"){
-
-			    alert("입력하세요");
-
-			    return;
-
-			} 
+		
 
 
 			hostform.attr('action', 'hostinsert');
