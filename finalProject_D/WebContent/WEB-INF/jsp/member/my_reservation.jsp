@@ -58,11 +58,11 @@ background: '#F85959';
 					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
 						<li class="selecthead selected">
-						<a href='javasript:void(0);' onclick="restype(1)" >예약내역</a></li>
+						<a href='javasript:void(0);' onclick="" >예약내역</a></li>
 						<li class="selecthead">
-						<a href='javascript:void(0);' onclick="restype(2)">이용완료</a></li>
+						<a href='javascript:void(0);' onclick="">이용완료</a></li>
 						<li class="selecthead">
-						<a href='javascript:void(0);' onclick="restype(3)">취소환불</a></li>
+						<a href='javascript:void(0);' onclick="">취소환불</a></li>
 					</ul>
 					
 				</section>
@@ -138,7 +138,7 @@ $(document).ready(function() {
 	});
 
 });
-
+/*
 function restype(num) {
 	$.ajax({
 			url : "myReservationType?type="+num,
@@ -155,6 +155,6 @@ function restype(num) {
 		});
 		
 	}
-
+*/
 </script>
 </html>
