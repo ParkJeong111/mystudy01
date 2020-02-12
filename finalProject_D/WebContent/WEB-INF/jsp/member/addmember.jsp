@@ -339,7 +339,7 @@ $(function() {
 	$('#idChkBtn').click(
 		function() {
 			console.log("ID check button : " + $('#mid').val());
-				$.ajax({
+				/* $.ajax({
 				url : "idcheck?id=" + $('#mid').val(),
 				success : function(data) {
 					console.log(data);
@@ -364,7 +364,7 @@ $(function() {
 // 								"#aaaaaa");
 					}
 				}
-			});   
+			});    */
 		});
 		
 	/* 비밀번호 확인 (손봐야함...)*/     /* 테스트 해야됨!!! */
