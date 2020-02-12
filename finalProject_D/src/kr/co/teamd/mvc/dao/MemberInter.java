@@ -13,5 +13,5 @@ public interface MemberInter {
 	public int pwdCheck(MemberDTO mdto); //나의 정보로 진입전 비밀번호 체크 
 	public MemberDTO idCheck(MemberDTO mdto); //로그인 시 아이디, 비밀번호 체크
 	public void addMember(MemberDTO mdto);  // 회원 가입 (재민)
-
+	public int idChk(String id);  // 회원가입(아이디 중복확인)
 }
