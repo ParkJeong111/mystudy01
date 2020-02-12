@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
-
+	
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet"> <!-- 로고폰트  Gugi -->
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->

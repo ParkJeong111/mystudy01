@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reserve">
+
+	<!-- 송용화 영역 시작 -->
+	
+	<!-- reserve Insert 시작 -->
+	<insert id="addreserve" parameterType="rdto">
+		insert into reservation values(reservation_seq.nextVal, #{mid}, #{hname}, #{hgnum},
+		#{rmoney}, 0, #{usedate}, sysdate)
+	</insert>
+	<!-- 송용화 영역 끝 -->
+</mapper>

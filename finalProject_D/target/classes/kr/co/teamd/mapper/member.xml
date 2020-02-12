@@ -48,7 +48,7 @@
 	</select>
 		<!-- 로그인을 위한 아이디, 비밀번호 체크 -->
 	<select id="idcheck" parameterType="mdto" resultType="mdto">
-	select mid, mnickname from member where mid=#{mid} and mpwd=#{mpwd}
+	select mid, mnickname, mphone from member where mid=#{mid} and mpwd=#{mpwd}
 	</select>
 	<!-- 박정연 영역 끝  -->
 	
