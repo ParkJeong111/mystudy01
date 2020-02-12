@@ -12,5 +12,6 @@ public interface MemberInter {
 	public void myUpdate(MemberDTO mid); //나의 정보 수정
 	public int pwdCheck(MemberDTO mdto); //나의 정보로 진입전 비밀번호 체크 
 	public MemberDTO idCheck(MemberDTO mdto); //로그인 시 아이디, 비밀번호 체크
+	public void addMember(MemberDTO mdto);  // 회원 가입 (재민)
 
 }
