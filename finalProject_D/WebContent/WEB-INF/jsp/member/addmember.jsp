@@ -182,7 +182,7 @@
 							<div><input type="text" class="form-control" placeholder="  아이디" pattern="(?=.*[a-z]).{4,16}"
 								title="아이디는 영문 소문자만 4자 이상 16자 이하인 아이디만 사용가능합니다." name="mid" id="mid"
 								 style="z-index: 1; width: 70%; float: left;" required>
-							<input type="button" id="idChkBtn" value="중복확인" class="btn btn-primary" style="width:20%; float: right; margin-top: 20%;">
+							<input type="button" id="idChkBtn" value="중복확인" class="btn btn-primary" style="width:20%; float: right; margin-top: 5px;">
 							</div>
 						</div>
 						<!-- ----------------이메일  (재민)----------position: relative; right: -20%; top: 50px;"-------- -->
@@ -215,7 +215,7 @@
 							<input type="password" class="form-control"
 								placeholder="  비밀번호 확인" style="z-index: 1; width: 70%; float: left;">
 	<%-- 여기... 비번 2차 확인 로직 짜야함... ㅠㅠ --%>
-							<input type="button" id="pwdChkBtn" value="확인" class="btn btn-primary" style="width:20%; float: right; margin-top: 20%;">
+							<input type="button" id="pwdChkBtn" value="확인" class="btn btn-primary" style="width:20%; float: right; margin-top: 5px;">
 							</div>
 						</div>
 						<!-- ---------------------------닉네임  (재민)----------position: relative; right: -20%; top: 50px;"---------------- -->
@@ -247,7 +247,7 @@
 							<div>
 							<input type="text" class="form-control" placeholder="  주소1" name="maddr1" id="maddr1"
 								style="z-index: 1; width: 70%; float: left;" readonly>
-							<input type="button" id="postBtn" value="검색" class="btn btn-primary" style="width:20%; float: right; margin-top: 20%;">
+							<input type="button" id="postBtn" value="검색" class="btn btn-primary" style="width:20%; float: right; margin-top: 5px;">
 							</div>
 						</div>
 						<!-- ---------------------------주소2  (재민)-------------------------- -->
