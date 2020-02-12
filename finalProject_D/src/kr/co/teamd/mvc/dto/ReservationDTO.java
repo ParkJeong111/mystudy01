@@ -5,29 +5,13 @@ public class ReservationDTO {
 	private int rnum;
 	private String mid;
 	private String hname;
-	private String hgname;
+	private int hgnum;
 	private int rmoney;
 	private int rstar;
 	private String rdate;
 
 	private String usedate;
-	private HostDTO hostdto;  // resultMap사용으로 HostDTO 추가. usedate 컬럼 추가
-
-	public String getUsedate() {
-		return usedate;
-	}
-
-	public void setUsedate(String usedate) {
-		this.usedate = usedate;
-	}
-
-	public HostDTO getHostdto() {
-		return hostdto;
-	}
-
-	public void setHostdto(HostDTO hostdto) {
-		this.hostdto = hostdto;
-	}
+	private HostDTO hostdto; // resultMap사용으로 HostDTO 추가. usedate 컬럼 추가
 
 	public int getRnum() {
 		return rnum;
@@ -53,12 +37,12 @@ public class ReservationDTO {
 		this.hname = hname;
 	}
 
-	public String getHgname() {
-		return hgname;
+	public int getHgnum() {
+		return hgnum;
 	}
 
-	public void setHgname(String hgname) {
-		this.hgname = hgname;
+	public void setHgnum(int hgnum) {
+		this.hgnum = hgnum;
 	}
 
 	public int getRmoney() {
@@ -83,6 +67,22 @@ public class ReservationDTO {
 
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+
+	public String getUsedate() {
+		return usedate;
+	}
+
+	public void setUsedate(String usedate) {
+		this.usedate = usedate;
+	}
+
+	public HostDTO getHostdto() {
+		return hostdto;
+	}
+
+	public void setHostdto(HostDTO hostdto) {
+		this.hostdto = hostdto;
 	}
 
 }

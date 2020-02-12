@@ -56,18 +56,11 @@ public class MemberController {
 	public String board() {
 		return "member/my_board";
 	}
-	
-	
-	
-	
-	
-	
-	
+		
 	//김채은 영역 시작
 	
 	
-	
-		//김채은 영역 끝
+	//김채은 영역 끝
 		
 
 		//권세진 영역 시작
@@ -155,6 +148,7 @@ public class MemberController {
 		if (m != null) {
 			session.setAttribute("mid", m.getMid());
 			session.setAttribute("nickname", m.getMnickname());
+			session.setAttribute("m", m);
 			String mid = (String) session.getAttribute("mid");
 			mav.setViewName("redirect:index");
 			return mav;

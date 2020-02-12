@@ -39,7 +39,6 @@ public class itemslistController {
 		mav.addObject("hglist", hgdtoList);
 		mav.addObject("hspeciesList", hspeciesList);
 		mav.addObject("hserviceList", hserviceList);
-		System.out.println("test");
 		return mav;
 	}
 	
