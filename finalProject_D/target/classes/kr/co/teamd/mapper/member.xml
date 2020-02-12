@@ -31,8 +31,9 @@
 		<!-- 기본 예약내역 -->
 	<select id="myreservation" parameterType="String" resultMap="myreservationResult">
 	select r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate, r.rmoney from host h, reservation r where h.hname = r.hname and r.mid=#{mid} 
-	and 
-		<choose>
+	and usedate > to_char(sysdate) order by r.usedate desc
+	</select>
+	<!-- <choose>
 			<when test="num==1">
 			r.usedate >= to_char(sysdate)
 			</when>
@@ -43,11 +44,10 @@
 			r.rmoney == '0'
 			</when>
 			<otherwise>
-			usedate > to_char(sysdate)
+			
 			</otherwise>
-		</choose> 
-		 order by r.usedate desc
-	</select>
+		</choose>
+	 -->
 	
 		<!-- 고객정보 확인 -->
 	<select id="myinfo" parameterType="String" resultType="mdto">
@@ -79,7 +79,8 @@
 	</insert>
 	<!-- id 중복 확인 -->
 	<select id="idchk" parameterType="String" resultType="int">
-		select mnum(*) mnum from member where mid = #{mid}
+		select count(*) mnum from member 
+		where mid = #{mid}
 	</select>
 
   </mapper>

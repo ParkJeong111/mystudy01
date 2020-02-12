@@ -330,28 +330,29 @@
 
 <script>
 <%-- 회원가입 체크 기능--%>
-/*회원아이디 중복확인!*/     /* 테스트 완료 */
+     							/* 테스트 완료 */
+/* 다음 우편주소 API */
 $(function() {
 	$('#postBtn').click(function() {
 		execDaumPostcode();
 	});
-	
+	/* 회원아이디 중복확인! */
 	$('#idChkBtn').click(
 		function() {
 			console.log("ID check button : " + $('#mid').val());
-				/* $.ajax({
+			$.ajax({
 				url : "idcheck?id=" + $('#mid').val(),
 				success : function(data) {
 					console.log(data);
 					if (data === 0) {
-					data === 0 || inputed=="" && data=='0'
+						<%-- data === 0 || inputed=="" && data=='0'--%>
 						$('#target').show().css("color", "blue")
 								.text("사용가능");
 						$("#mid").css("background-color",
 								"#B0F6AC");
 						$(".signupbtn").prop("disabled", false);
-// 						$(".signupbtn").css("background-color",
-// 								"#0066ff");
+						$(".signupbtn").css("background-color",
+								"#f85959");
 						idChk = 1;
 					} else {
 						alert("다른 아이디를 선택해 주세요.");
@@ -360,28 +361,25 @@ $(function() {
 						$('#target').show().css("color", "red")
 								.text("사용중");
 						$(".signupbtn").prop("disabled", true);
-// 						$(".signupbtn").css("background-color",
-// 								"#aaaaaa");
+						$(".signupbtn").css("background-color",
+								"#aaaaaa");
 					}
 				}
-			});    */
+			});   
 		});
 		
-	/* 비밀번호 확인 (손봐야함...)*/     /* 테스트 해야됨!!! */
+	/* 비밀번호 확인 */     
 		$('#pwdChkBtn').click(
 					function() {
-						console.log("does it work??? 22222  " + $('#mpwd').val());
-			<%--			$.ajax({
-							url : "PwdChk?pwd=" + $('mpwd').val()
-									+ "&email=" + $('#femail').val(),
-							success : function(data) {
-								if(data === 0){
-									alert("비밀번호가 일치하지 않습니다!");
-								}else{
-									console.log("비밀번호 일치!");
-								}
-							}
-						});    --%>
+						console.log("비밀번호1차 " + $('#mpwd').val());
+						console.log("비밀번호2차 " + $('#mpwd2').val());
+						if($('#mpwd').val() === $('#mpwd2').val()){
+							console.log("비밀번호 일치!");
+							alert("비밀번호 일치!");
+						}else{
+							console.log("비밀번호 일치하지않습니다.");
+							alert("비밀번호가 일치하지 않습니다.");
+						}
 					});
 		
 
