@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IdcheckController {
-	
-	@Autowired
-	
+
 	@RequestMapping(value ="/idcheck" )
 	public String idchk(String id) {
 		System.out.println("Id :" + id);

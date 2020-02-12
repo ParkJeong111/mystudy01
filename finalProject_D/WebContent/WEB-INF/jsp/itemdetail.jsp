@@ -2495,7 +2495,6 @@ keyframes swiper-preloader-spin { 100%{
 					<img
 						src="${pageContext.request.contextPath}/resources/images/${host.himage }"
 						alt="" style="width: 65%; float: left;">
-
 					<!-- 업체 정보 -->
 					<div class="profile_info col-md-4">
 						<dl class="clearfix">
@@ -2518,8 +2517,8 @@ keyframes swiper-preloader-spin { 100%{
 				class="view_info view_info_reserve view_contents">
 				<section>
 					<c:forEach items="${hglist}" var="e">
-						<a class="reserve_area view_box " data-gi-type="4"
-							data-gi-key="2181410" href="#">
+						<a class="reserve_area view_box " data-gi-type="4" data-num="${e.hgnum}"
+							data-gi-key="2181410" id="reservelink">
 							<div class="reserve_con">
 								<h2 class="reserve_title">${e.hgname }</h2>
 								<div class="reserve_price">
@@ -2590,6 +2589,29 @@ keyframes swiper-preloader-spin { 100%{
 				</section>
 			</div>
 		</div>
+		<script>
+			$(function() {
+/* 				$('#reservelink').click(function() {
+			     	$('#reserveform').submit();
+				}); */
+				
+				$("a[id=reservelink]").each(
+					function(){
+						$(this).click(function(){
+							var hg = $(this).attr('data-num');
+							 var $form = $('<form></form>');
+							 $form.attr('action', 'reserve');
+						     $form.attr('method', 'post');
+						     $form.appendTo('body');
+						     var hnum = $('<input type="hidden" value="${host.hnum}" name="hnum">');
+						     var hgnum = $('<input type="hidden" value="' + hg + '" name="hgnum">');
+						     $form.append(hnum).append(hgnum);
+						     $form.submit();
+						});
+					}
+				);
+			});
+		</script>
 		<!-- .section -->
 		<script
 			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>

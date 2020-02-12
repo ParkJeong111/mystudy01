@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.teamd.mvc.dto.HostDTO;
+import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 
 @Repository
@@ -23,6 +24,11 @@ public class hostdao implements hostinterdao {
 	@Override
 	public HostDTO hostDetail(int hnum) {
 		return ss.selectOne("morepage.hostdetail", hnum);
+	}
+
+	@Override
+	public HostgoodsDTO hostgoodsDetail(int hgnum) {
+		return ss.selectOne("morepage.hostgoodsdetail", hgnum);
 	}
 
 }

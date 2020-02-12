@@ -71,17 +71,25 @@
 		<result column="hgname" property="hgname"/>
 		<result column="hginfo" property="hginfo"/>
 		<result column="hgmoney" property="hgmoney"/>
+		<result column="hgnum" property="hgnum"/>
 	</resultMap>
 	
 	<select id="hostdetail" parameterType="int" resultMap="hdto">
 		select h.himage as himage, h.hname as hname,
 		h.hstar as hstar, h.hnotice as hnotice, h.htype as htype, h.hservice as hservice,
 		h.haddr as haddr, h.hnum as hnum, h.howner as howner, h.hspecies as hspecies,
-        hg.hgname as hgname, hg.hginfo as hginfo, hg.hgmoney as hgmoney
+        hg.hgname as hgname, hg.hginfo as hginfo, hg.hgmoney as hgmoney, hg.hgnum as hgnum
 		from host h, hostgoods hg
 		where h.hname = hg.hname and h.hnum = #{hnum}
 	</select>
 	<!-- Host Detail 끝 -->
+	
+	<!-- Host Reserve 시작 -->
+	<select id="hostgoodsdetail" parameterType="int" resultType="hgdto">
+		select hgnum, hname, hgname, hginfo, hgmoney from hostgoods
+		where hgnum = #{hgnum}
+	</select>
+	<!-- Host Reserve 끝 -->
 	
 	<!-- 송용화 영역 끝 -->
 </mapper>
