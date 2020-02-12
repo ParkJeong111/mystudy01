@@ -59,17 +59,17 @@ background: '#F85959';
 					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
 						<li class="selecthead selected">
-						<a >예약내역</a></li>
+						<a href="javascript:void(0);" onclick="restpye(1)">예약내역</a></li>
 						<li class="selecthead">
-						<a >이용완료</a></li>
+						<a href="javascript:void(0);" onclick="restpye(2)">이용완료</a></li>
 						<li class="selecthead">
-						<a >취소환불</a></li>
+						<a href="javascript:void(0);" onclick="restpye(3)">취소환불</a></li>
 					</ul>
 					
 				</section>
 			</div>
 				
-					<div class="row reservationlist"style="margin-top: 3%">
+					<div id="reservationtarget" class="row reservationlist"style="margin-top: 3%">
 					
 					<c:forEach var="r" items="${rlist}">
 						<div class="col-md-4 ftco-animate ">
@@ -102,7 +102,6 @@ background: '#F85959';
 						</div>
 						</c:forEach>
 
-				<!-- .col-md-8 -->
 			</div>
 		</div>
 	</section>
@@ -140,6 +139,21 @@ $(document).ready(function() {
 
 });
 
+
+function restpye(type) {
+	console.log(type)
+		$.ajax({
+			url : "my_reservationtype?type=" + type,
+			datatype : 'json',
+			success : function(data) {
+				$("#reservationtarget").html("")
+				$.each(data, function(key, value){
+						$("#reservationtarget").append(value.hname + value.usedate);
+				    });
+			}
+		});
+		
+	}
 
 
 </script>
