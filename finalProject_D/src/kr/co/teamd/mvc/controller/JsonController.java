@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardDaoInter;
-<<<<<<< HEAD
+
 import kr.co.teamd.mvc.dao.AdminHostDaoInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
-=======
-import kr.co.teamd.mvc.dao.HostDaoInter;
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
+
+
+
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
