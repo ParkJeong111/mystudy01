@@ -79,7 +79,8 @@
 	</insert>
 	<!-- id 중복 확인 -->
 	<select id="idchk" parameterType="String" resultType="int">
-		select mnum(*) mnum from member where mid = #{mid}
+		select count(*) mnum from member 
+		where mid = #{mid}
 	</select>
 
   </mapper>
