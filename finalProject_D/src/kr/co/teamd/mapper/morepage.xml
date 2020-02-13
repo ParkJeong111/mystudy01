@@ -15,7 +15,13 @@
 
 
 	<!-- 박정연 영역 시작 -->
-
+		<insert id="hostreg" parameterType="hrdto">
+		insert into hostreg values(hostreg_seq.nextVal, #{hrtype},#{hrname},#{hrceo},#{hrphone},#{hraddr},'대기')
+		</insert>
+		
+		<insert id="qnainsert" parameterType="qdto">
+		insert into qna values(qna_seq.nextVal, #{mid}, #{qcategory},#{qcontent} ,#{qphone},sysdate,null,null,null)
+		</insert>
 	<!-- 박정연 영역 끝 -->
 
 
