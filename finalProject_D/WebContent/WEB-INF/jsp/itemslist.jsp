@@ -1261,10 +1261,10 @@ li {
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
 								style="text-align: center; font-weight: bold;">상세 검색</h3>
-							<form action="#" method="post">
+							<form action="searchlist" method="post">
 								<div class="fields">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="검색 할 컨텐츠" name="searchValue">
+										<input type="text" class="form-control" placeholder="검색 할 컨텐츠" name="searchValue" id="searchValue">
 									</div>
 									<div class="form-group">
 										<div class="select-wrap one-third">
@@ -1282,8 +1282,8 @@ li {
 									</div>
 									<div class="form-group">
 										<div class="range-slider">
-											<span> <input type="number" value="1000" min="0" name="minprice"
-												max="120000" />원 - <input type="number" value="50000" name="maxprice"
+											<span> <input type="number" value="1000" min="0" name="minprice" id="minprice"
+												max="120000" />원 - <input type="number" value="50000" name="maxprice" id="maxprice"
 												min="0" max="120000" />원
 											</span> <input value="1000" min="0" max="120000" step="500"
 												type="range" /> <input value="50000" min="0" max="120000"
@@ -1291,7 +1291,7 @@ li {
 										</div>
 									</div>
 									<div class="form-group">
-										<input type="submit" value="검색"
+										<input type="button" value="검색" id="searchbtn"
 											class="btn btn-primary py-3 px-5">
 									</div>
 								</div>
@@ -1359,7 +1359,7 @@ li {
 						</div>
 					</div>
 					<div class="col-lg-9">
-						<div class="row">
+						<div class="row" id="hostlistdiv">
 							<c:forEach items="${hostlist }" var="hostlist">
 								<div class="col-md-4 ftco-animate">
 									<div class="destination">
@@ -1377,22 +1377,30 @@ li {
 													<h3>
 														<a href="itemdetail?hnum=${hostlist.hnum}">${hostlist.hname }</a>
 													</h3>
-													<p class="rate">
-														<i class="icon-star"></i> <i class="icon-star"></i> <i
-															class="icon-star"></i> <i class="icon-star"></i> <i
-															class="icon-star-o"></i> <span style="font-size: 15px;">${hostlist.hstar }</span>
+													<p class="rate starrate">
+													<c:forEach begin="0" end="4" varStatus="i">
+														<c:choose>
+															<c:when test="${i.current < hostlist.hstar}">
+																<i class="icon-star"></i>
+															</c:when>
+															<c:otherwise>
+																<i class="icon-star-o"></i>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>		
+													<span style="font-size: 15px;">${hostlist.hstar}</span>
 													</p>
 												</div>
 												<div class="two">
-													<span class="price">${hostlist.hgmoney }</span>
+													<span class="price product-price">${hostlist.hgmoney }</span>
 												</div>
 											</div>
 											<p>${hostlist.hnotice }</p>
 											<p class="days"></p>
 											<hr>
 											<p class="bottom-area d-flex">
-												<span><i class="icon-map-o"></i>${hostlist.haddr } </span> <span
-													class="ml-auto"><a href="#">예약하기</a></span>
+												<span><i class="icon-map-o"></i>${hostlist.haddr } </span> 
+												<%-- <span class="ml-auto"><a href="#">예약하기</a></span> --%>
 											</p>
 										</div>
 									</div>
@@ -1421,8 +1429,58 @@ li {
 		</section>
 		<!-- .section -->
 		</div>
+		<script>
+		$(function() {
+			$.fn.priceBuilder = function(price) {
+				// 금액에 천단위 콤마 추가해주는 정규표현식
+				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
 
-
+			$(".product-price").each(function(idx) {
+				// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+				var value = $(this).text();
+				$(this).text($.fn.priceBuilder(value));
+			});
+			
+			$("#searchbtn").click(function() {
+				$.ajax({
+					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() + "&maxprice=" + $('#maxprice').val(),
+					datatype : 'json',
+					success : function(data) {
+						console.log(data)
+						$("#hostlistdiv").html("")
+						$.each(data, function(key, value) {
+							
+							var star = "";
+							for(i = 0; i < 5; i++) {
+								if(i < value.hstar) {
+									star += '<i class="icon-star"></i>';				
+								} else {
+									star += '<i class="icon-star-o"></i>';
+								}
+							}
+							
+							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+									+ "<div class='destination'>"
+									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<div class="icon d-flex justify-content-center align-items-center">'
+									+ '<span class="icon-search2"></span></div></a>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+								    + '<p class="rate">' + star
+								    + '<span style="font-size: 15px;">'+ value.hstar + '</span></p></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span></div></div>'
+									+ '<p>' + value.hnotice + '</p><p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>' + value.haddr + ' </span></p></div></div></div>'
+									);
+						});
+						$(".product-price").each(function(idx) {
+							var value = $(this).text();
+							$(this).text($.fn.priceBuilder(value));
+						});
+					}
+				});
+			});
+		});
+		</script>
 
 
 		<script

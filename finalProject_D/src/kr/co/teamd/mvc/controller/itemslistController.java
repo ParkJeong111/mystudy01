@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,6 +20,7 @@ public class itemslistController {
 	@Autowired
 	private hostinterdao hostdao;
 	
+	// 업체 리스트
 	@RequestMapping(value= "itemslist")
 	public ModelAndView hostlist(int type) {
 		ModelAndView mav = new ModelAndView();
@@ -28,6 +30,7 @@ public class itemslistController {
 		return mav;
 	}
 	
+	// 업체 상세페이지
 	@GetMapping(value = "itemdetail")
 	public ModelAndView hostDetail(int hnum) {
 		ModelAndView mav = new ModelAndView("itemdetail");
@@ -41,26 +44,4 @@ public class itemslistController {
 		mav.addObject("hserviceList", hserviceList);
 		return mav;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
 }
