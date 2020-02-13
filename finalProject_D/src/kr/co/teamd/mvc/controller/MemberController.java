@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
@@ -24,6 +25,8 @@ public class MemberController {
 	@Autowired
 	private MemberInter mdao;
 	
+	
+	
 	@RequestMapping(value= "login") //로그인
 	public String login() {
 		return "member/login";
@@ -32,6 +35,19 @@ public class MemberController {
 	public String passwordfind() {
 		return "member/passwordfind";
 	}
+	
+	
+	
+	@RequestMapping("kakao")
+	public ModelAndView kakao(String mid, HttpSession session, HttpServletRequest reqeust) {
+		
+		System.out.println("카카오 mid 들어왔나요? :" + mid);
+		ModelAndView mav = new ModelAndView();
+		session.setAttribute("mid", mid);
+		mav.setViewName("redirect:index");
+		return mav;
+	}
+
 	
 //  --------------재민 추가------------------------
 	@RequestMapping(value= "addmember")  //회원가입 폼      
