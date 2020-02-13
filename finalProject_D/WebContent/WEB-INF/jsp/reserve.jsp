@@ -308,7 +308,6 @@ input[type=checkbox]:checked+label {
 								&& $('#rbox4').prop("checked")) {
 							$('#agreebtn').attr("disabled", false);
 							var form = $("#insertForm").serialize();
-							console.log(form);
 							var result = confirm("구매하시겠습니까?");
 							if (result) {
 								$("#insertForm").submit();
@@ -328,15 +327,13 @@ input[type=checkbox]:checked+label {
 
 						}
 					});
-			$('#mname')
-					.keyup(
+			$('#mname').keyup(
 							function() {
 								var reservid = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
 								var str = $('#mname').val()
 
 								if (reservid.test(str) == true) {
-									$("#here")
-											.append(
+									$("#here").append(
 													"<br><span style='margin-top: -15px; font-size: 14px; font-color: red;'>한글, 영문, 숫자만 입력이 가능합니다.</span>");
 									document.getElementById("here").innerHTML = "<span style='margin-top: -15px; font-size: 14px; color: red;'>한글, 영문, 숫자만 입력이 가능합니다.</span>";
 									$('#here').css('visibility', 'visible');
@@ -354,6 +351,7 @@ input[type=checkbox]:checked+label {
 				}
 
 			});
+			
 			// datepicker에 대한 공통 옵션 설정
             $.datepicker.setDefaults({
                 dateFormat: 'yy-mm-dd' //Input Display Format 변경

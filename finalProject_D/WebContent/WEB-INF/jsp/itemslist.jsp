@@ -1311,13 +1311,14 @@ li {
 							</form>
 						</div>
 						<div class="sidebar-wrap bg-light ftco-animate">
-							<h3 class="heading mb-4">별점</h3>
+							<h3 class="heading mb-4"
+								style="text-align: center; font-weight: bold;">리뷰 별점</h3>
 							<form method="post" class="star-rating">
 								<div class="form-check">
 									<input type="radio" class="form-check-input" name="star" value="0"> <label class="form-check-label"
 										for="exampleCheck1">
 										<p class="rate">
-											<span>상관없음</span>
+											<span>&nbsp;상관없음</span>
 										</p>
 									</label>
 								</div>
@@ -1465,7 +1466,7 @@ li {
 				star = $(':radio[name="star"]:checked').val();
 				$.ajax({
 					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() 
-							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + ${type},
+							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
 						console.log(data)

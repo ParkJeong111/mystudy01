@@ -23,6 +23,7 @@ public class ReserveController {
 	@Autowired
 	private ReservationDaoInter reservationdao;
 	
+	// 결제페이지 이동
 	@RequestMapping(value = "reserve")
 	public ModelAndView reserveView(int hnum, int hgnum) {
 		ModelAndView mav = new ModelAndView("reserve");
@@ -33,6 +34,7 @@ public class ReserveController {
 		return mav;
 	}
 	
+	// 결제 진행
 	@RequestMapping(value = "resInsert")
 	public ModelAndView reserveInsert(HttpServletRequest request, int hnum, ReservationDTO rdto) {
 		ModelAndView mav = new ModelAndView("redirect:itemdetail?hnum=" + hnum);
