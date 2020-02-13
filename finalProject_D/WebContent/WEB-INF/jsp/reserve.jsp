@@ -158,7 +158,7 @@ input[type=checkbox]:checked+label {
 	style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
 	결제</p>
 <hr>
-<div class="talk_header" style="">
+<div class="talk_header" style="font-family: 'Poppins', Arial, sans-serif;">
 	<section class="ftco-section ftco-degree-bg" style="padding-top: 10px;">
 		<div class="noticeList_area container"
 			style="padding-top: 112px; padding-bottom: 80px;">
@@ -186,15 +186,6 @@ input[type=checkbox]:checked+label {
 													style="margin-top: -15px; font-size: 14px; color: red; visibility: hidden;"
 													id="here"><br>한글, 영문, 숫자만 입력이 가능합니다.</span>
 											</p>
-											<br> <strong style="font-size: 18px;">휴대폰 번호</strong> <br>
-											<span style="font-size: 14px;">개인 정보 보호를 위해 안심번호로 업체에
-												전송됩니다.</span> <br> <input type="text" id="mphone"
-												style="width: 454px; height: 44px; font-size: 16px"
-												placeholder="입장 시 필요한 정보 입니다." name="mphone"
-												value="${sessionScope.m.mphone}">
-											<button type="button" id="phonebtn"
-												style="width: 100px; height: 52px; background: #f85959; color: white; border: 0; outline: 0; cursor: pointer;">인증번호
-												전송</button>
 											<br> <strong style="font-size: 18px;">사용일자</strong><br>
 											<p>	
 												<input style="width: 530px; height: 44px; font-size: 16px;" type="text" id="datepicker" name="usedate">
@@ -268,13 +259,12 @@ input[type=checkbox]:checked+label {
 												</strong> <br> <span style="font-size: 24px; color: #f85959;"
 													class="product-price"><b>${hostgoods.hgmoney} <br></b></span>
 											</p>
-
+											<hr style="width: 270px;">
 											<ul style="font-size: 16px;">
 												<li style="font-size: 16px; padding-right: 16px;">해당
-													결제금액은 세금, 이용료가 포함된 금액입니다</li>
-												<li style="font-size: 16px; padding-right: 16px;">결제완료
-													후 <span style="color: #f85959;">구매자 이름</span>으로 바로 <span
-													style="color: #f85959;">사용</span>하시면 됩니다.
+													결제금액은 세금, 이용료가 포함된 금액입니다.</li>
+													<li style="font-size: 16px; padding-right: 16px;">사용일자 당일에 사용이 가능합니다.</li>
+												<li style="font-size: 16px; padding-right: 16px;">티켓사용: <span style="color: #f85959;">티켓 후제시</span>(결제 시 제시)
 												</li>
 											</ul>
 											<button type="button" id="insert"
@@ -290,6 +280,7 @@ input[type=checkbox]:checked+label {
 			</section>
 		</div>
 	</section>
+</div>
 	<!-- .section -->
 
 	<script>
@@ -317,7 +308,6 @@ input[type=checkbox]:checked+label {
 								&& $('#rbox4').prop("checked")) {
 							$('#agreebtn').attr("disabled", false);
 							var form = $("#insertForm").serialize();
-							console.log(form);
 							var result = confirm("구매하시겠습니까?");
 							if (result) {
 								$("#insertForm").submit();
@@ -337,15 +327,13 @@ input[type=checkbox]:checked+label {
 
 						}
 					});
-			$('#mname')
-					.keyup(
+			$('#mname').keyup(
 							function() {
 								var reservid = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
 								var str = $('#mname').val()
 
 								if (reservid.test(str) == true) {
-									$("#here")
-											.append(
+									$("#here").append(
 													"<br><span style='margin-top: -15px; font-size: 14px; font-color: red;'>한글, 영문, 숫자만 입력이 가능합니다.</span>");
 									document.getElementById("here").innerHTML = "<span style='margin-top: -15px; font-size: 14px; color: red;'>한글, 영문, 숫자만 입력이 가능합니다.</span>";
 									$('#here').css('visibility', 'visible');
@@ -363,13 +351,14 @@ input[type=checkbox]:checked+label {
 				}
 
 			});
-			//모든 datepicker에 대한 공통 옵션 설정
+			
+			// datepicker에 대한 공통 옵션 설정
             $.datepicker.setDefaults({
                 dateFormat: 'yy-mm-dd' //Input Display Format 변경
                 ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
                 ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
                 ,changeYear: true //콤보박스에서 년 선택 가능
-                ,changeMonth: true //콤보박스에서 월 선택 가능                
+                ,changeMonth: true //콤보박스에서 월 선택 가능
                 ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
                 ,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
                 ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
