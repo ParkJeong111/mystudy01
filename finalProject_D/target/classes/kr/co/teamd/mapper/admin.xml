@@ -15,6 +15,10 @@
 		#{hname},#{hceo},#{hphone},#{haddr},#{himage},#{hspecies}, #{hnotice},
 		#{howner},#{hservice},#{hguide},0)
 	</insert>
+	<update id="updatehrstatus" parameterType="hdto">
+		update hostreg set hrstatus = '완료' where hrname = #{hname}
+	</update>
+	
 
 	<select id="hostalllist" resultType="hdto">
 		select

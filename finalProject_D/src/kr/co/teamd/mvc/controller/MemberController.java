@@ -2,6 +2,7 @@ package kr.co.teamd.mvc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -77,7 +78,10 @@ public class MemberController {
 		if (mid ==null) {
 			mav.setViewName("member/login");
 		}else {
-			List<ReservationDTO> reservationlist = mdao.myReservation(mid);
+			HashMap<Object, Object> map = new HashMap<Object, Object>();
+			map.put("mid", mid);
+			map.put("type", 5);
+			List<ReservationDTO> reservationlist = mdao.myReservation(map);
 			mav.addObject("rlist", reservationlist);
 			mav.setViewName("member/my_reservation");	
 		}
