@@ -3,6 +3,9 @@ package kr.co.teamd.mvc.dto;
 public class HostSearchDTO {
 	private String searchValue;
 	private int minprice, maxprice;
+	private String star;
+	private int starnum;
+	private int type;
 
 	public String getSearchValue() {
 		return searchValue;
@@ -28,4 +31,28 @@ public class HostSearchDTO {
 		this.maxprice = maxprice;
 	}
 
+	public String getStar() {
+		return star;
+	}
+
+	public void setStar(String star) {
+		this.star = star;
+	}
+
+	public int getStarnum() {
+		return starnum;
+	}
+
+	public void setStarnum(int starnum) {
+		this.starnum = starnum;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+	
 }
