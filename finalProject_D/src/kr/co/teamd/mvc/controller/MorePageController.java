@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -97,13 +98,15 @@ public class MorePageController {
 	
 		
 		@RequestMapping("qnainsert")  //QnA 등록
-		public String qnaInsert(QnaDTO qdto, HttpServletResponse resp) {
+		public String qnaInsert(QnaDTO qdto, HttpServletResponse resp,HttpSession session) {
+			String mid = (String) session.getAttribute("mid");
+			qdto.setMid(mid);
 			mdao.qnaInsert(qdto);
 			
 			PrintWriter out;
 			try {
 				out = resp.getWriter();
-				out.println("<script>alert('등록요청이 완료되었습니다.');</script>");
+				out.println("<script>alert('문의가 정상적으로 등록되었습니다.');</script>");
 				out.flush(); 
 			} catch (IOException e) {
 				e.printStackTrace();
