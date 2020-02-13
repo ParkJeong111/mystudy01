@@ -1465,7 +1465,7 @@ li {
 			$("#searchbtn").click(function() {
 				star = $(':radio[name="star"]:checked').val();
 				$.ajax({
-					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() 
+					url : "searchlist?searchValue=" + encodeURI($('#searchValue').val(), "UTF-8") + "&minprice=" + $('#minprice').val() 
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
