@@ -38,12 +38,6 @@ public class MemberController {
 		return "member/passwordfind";
 	}
 	
-	
-	
-<<<<<<< HEAD
-	
-//  -------------------------Àç¹Î ¿µ¿ª ½ÃÀÛ--------------------------------
-=======
 	@RequestMapping("kakao")
 	public ModelAndView kakao(String mid, HttpSession session, HttpServletRequest reqeust) {
 		
@@ -54,9 +48,6 @@ public class MemberController {
 		return mav;
 	}
 
-	
-//  --------------Àç¹Î Ãß°¡------------------------
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 	@RequestMapping(value= "addmember")  //È¸¿ø°¡ÀÔ Æû      
 	public String addmember() {    
 		return "member/addmember"; 
