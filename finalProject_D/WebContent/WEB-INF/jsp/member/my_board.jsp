@@ -833,16 +833,16 @@ input, select, button {
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select name="" id="" class="form-control"
+													<select name="t1" id="t1" class="form-control"
 														placeholder="유저조행기" style="border-radius: 7px;">
-														<option value="0">유저조행기</option>
-														<option value="1">동반출조</option>
-														<option value="2">중고장터</option>
-														<option value="3">물반동영상</option>
-														<option value="4">유용한정보</option>
-														<option value="5">낚시지식인</option>
-														<option value="6">물반갤러리</option>
-														<option value="7">자유게시판</option>
+														<option value="0" id="tt">유저조행기</option>
+<!-- 														<option value="1">동반출조</option> -->
+<!-- 														<option value="2">중고장터</option> -->
+<!-- 														<option value="3">물반동영상</option> -->
+														<option value="1">유용한정보</option>
+														<option value="2">낚시지식인</option>
+<!-- 														<option value="6">물반갤러리</option> -->
+														<option value="3">자유게시판</option>
 													</select>
 												</div>
 											</div>
@@ -853,37 +853,45 @@ input, select, button {
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select name="" id="" class="form-control"
+													<select name="t2" id="t2" class="form-control"
 														placeholder="카테고리를선택해주세요" style="border-radius: 7px;">
-														<option value="0">바다조행기</option>
-														<option value="1">민물조행기</option>
-														<option value="2">배스조행기</option>
+														<option value="0" id="oc">바다조행기</option>
+														<option value="1" id="rv">민물조행기</option>
 													</select>
 												</div>
 											</div>
 										</div>
-										<div class="col-md-6" style="float: left;">
-											<div class="form-group">
-												<input type="text" id="checkin_date" class="form-control"
-													placeholder="Date from" style="border-radius: 7px;">
+<!-- 										여기 별점, 가맹점 추가 -->
+										
+										<div class="col-md-6">
+											<div class="form-group" style="float: left;">
+												<input type="text" class="form-control" id="hname" name="hname"
+													placeholder="가맹점 이름">
 											</div>
 										</div>
-										<div class="col-md-6" style="float: right;">
-											<div class="form-group">
-												<input type="text" id="checkin_date" class="form-control"
-													placeholder="Date to" style="border-radius: 7px;">
-											</div>
+										
+										<div class="star-rating">
+											<label class="form-check-label" for="exampleCheck1">
+												<p class="rate">
+													<span><i class="icon-star"></i><i class="icon-star"></i><i
+														class="icon-star"></i><i class="icon-star"></i><i
+														class="icon-star"></i></span>
+												</p>
+											</label>
 										</div>
+										
+										<!-- 별점, 가맹점 끝 -->
 										<div class="col-md-6">
 											<div class="form-group" style="width: 870px;">
-												<input type="text" class="form-control"
-													placeholder="제목을 입력해 주세요(30자 이하)">
+												<input type="text" class="form-control" id="btitle" name="btitle"
+													placeholder="제목을 입력해 주세요(30자 이하)" required>
+												<input type="hidden" name="bwriter" value= "${sessionScope.mid}">	
 											</div>
 										</div>
 										&nbsp;<br>
 										<div class="col-md-6">
 											<div class="form-group">
-												<textarea style="width: 870px; height: 500px; resize: none;"
+												<textarea style="width: 870px; height: 500px; resize: none;" name="bcontent" id="bcontent"
 													placeholder="TextArea입니다.">
 											
 											</textarea>
@@ -893,9 +901,9 @@ input, select, button {
 										<div>
 											<div class="form-group"
 												style="margin-top: 520px; margin-left: 205px;">
-												<input type="button" value="취소"
+												<input type="reset" value="취소" id="cancelBtn"
 													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
-												<input type="button" value="올리기"
+												<input type="submit" value="올리기" id="uploadBtn"
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 											</div>
 										</div>
@@ -936,15 +944,33 @@ input, select, button {
 	src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
+<!-- <script -->
+<%-- 	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script> --%>
 <script
 	src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
+<!-- <script -->
+<!-- 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
+<!-- <script -->
+<%-- 	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script> --%>
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+
+<script>
+	<%-- 게시글 작성 type1 & type2 (재민)--%>
+	$(function() {
+		$('#t1').click(
+			function(){
+				//console.log("나오나??");       여기 손보기~~~~!!! -_-;;;    로직 다시 짜야할듯.
+				if($('#t1') != $('#tt').val('#0')){
+					$("#t2").prop("hidden", true);
+					console.log("사용불가??");
+				}else if($("#t1") === $('#tt').val('#0')){
+					$("t2").prop("visible", true);
+					console.log("나오나??");
+				}
+			}	
+		)
+	});
+</script>
 
 </body>
 </html>
