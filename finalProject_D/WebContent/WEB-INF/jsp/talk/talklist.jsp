@@ -437,6 +437,7 @@ section {
 	float: left;
 	position: relative;
 	padding-top: 45px;
+	margin-left: 180px;;
 }
 
 .talk_area .contents_list .talk_notice {
@@ -1584,71 +1585,7 @@ section {
 		<!--// contents_list -->
 
 		<!-- 조황 리스트 -->
-		<div class="contents_pic">
-			<div class="talk_plan">
-				<p class="pic_title">기획전</p>
-
-				<a href="/home/plan_view?seq_key=90" data-key="90"><img
-					src="https://img.moolban.com/unsafe/${pageContext.request.contextPath}/resources/images/promotion/356c558f3c542a8987612238af43f1ec.jpg?rand=1577763884"
-					alt=""></a> <a href="/home/plan_view?seq_key=98" data-key="98"><img
-					src="https://img.moolban.com/unsafe/${pageContext.request.contextPath}/resources/images/promotion/a0177c8f1e15fd2a4356efab01b35ee1.jpg?rand=1577763884"
-					alt=""></a> <a href="/home/plan_view?seq_key=96" data-key="96"><img
-					src="https://img.moolban.com/unsafe/${pageContext.request.contextPath}/resources/images/promotion/3bb3742e963becb524de5e62c6a71042.jpg?rand=1577763884"
-					alt=""></a> <a href="/home/plan_view?seq_key=97" data-key="97"><img
-					src="https://img.moolban.com/unsafe/${pageContext.request.contextPath}/resources/images/promotion/cca0390bb21b635969ea2a84b71d82d8.jpg?rand=1577763884"
-					alt=""></a>
-			</div>
-			<div class="talk_recom">
-				<p class="pic_title">물반고기반 추천 바다업체</p>
-				<a href="/company/4032"> <img
-					src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/4032/main.jpg"
-					alt="">
-					<div class="recom_text">
-						<em>감성돔</em> <strong>창성호</strong> <span><i>60,000원 ~</i></span>
-					</div>
-				</a> <a href="/company/10220"> <img
-					src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/10220/2e81aeea254f3bc94a2a8c2fb400d2d6.jpg"
-					alt="">
-					<div class="recom_text">
-						<em>광어 외 2종</em> <strong>산으로간 낚시꾼</strong> <span><i>33,000원
-								~</i></span>
-					</div>
-				</a> <a href="/company/8984"> <img
-					src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/8984/f6220a1cc24049ff683931003e6aa919.jpg"
-					alt="">
-					<div class="recom_text">
-						<em>감성돔</em> <strong>세영호 </strong> <span><i>25,000원 ~</i></span>
-					</div>
-				</a>
-			</div>
-
-			<div class="talk_recom">
-				<p class="pic_title">물반고기반 추천 민물업체</p>
-				<a href="/company/1660"> <img
-					src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1660/b5f00e2d93311337e5907d7a55bf7bef.jpg"
-					alt="">
-					<div class="recom_text">
-						<em>붕어 외 2종</em> <strong>삼하낚시터</strong> <span><i>20,000원
-								~</i></span>
-					</div>
-				</a> <a href="/company/1558"> <img
-					src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg"
-					alt="">
-					<div class="recom_text">
-						<em>붕어 외 2종</em> <strong>김포낚시터</strong> <span><i>20,000원
-								~</i></span>
-					</div>
-				</a> <a href="/company/1623"> <img
-					src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1623/5b728be9990c715c0f8f304b8fc9967c.jpg"
-					alt="">
-					<div class="recom_text">
-						<em>붕어 외 2종</em> <strong>원동낚시터</strong> <span><i>30,000원
-								~</i></span>
-					</div>
-				</a>
-			</div>
-
-		</div>
+	
 	</section>
 
 </div>

@@ -171,9 +171,9 @@
 					
 					
 					<div class="form-actions">
-						<button type="submit" class="btn btn-primary" id=hsave>Save
-							changes</button>
-						<button class="btn">Cancel</button>
+						<button type="submit" class="btn btn-primary" id=hsave> 등록
+							</button>
+						<button class="btn" id="cancel" onClick="window.location.reload()">취소</button>
 					</div>
 				</fieldset>
 			</form>
@@ -251,8 +251,11 @@
 			return;
 
 		});
+		
+	
 
  });
+	
 </script>
 
 <%@ include file="a_footer.jsp"%>
