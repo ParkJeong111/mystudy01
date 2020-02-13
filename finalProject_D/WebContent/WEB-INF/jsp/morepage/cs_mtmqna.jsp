@@ -77,8 +77,8 @@ input, select, button {
 }
 
 .service_area .service_tab li.active a {
-	border-bottom: 1px solid #e84418;
-	color: #e84418
+	border-bottom: 1px solid #f85959;
+	color: #f85959
 }
 
 .service_area section {
@@ -94,14 +94,14 @@ input, select, button {
 .service_area .service_title span {
 	font-weight: normal;
 	font-size: 18px;
-	color: #ff724c;
+	color: #f85959;
 	text-align: center;
 	display: inline-block;
 	margin-right: 10px;
 	width: 55px;
 	height: 31px;
 	line-height: 29px;
-	border: 1px solid #ff724c;
+	border: 1px solid #f85959;
 	border-radius: 0.3rem;
 }
 
@@ -116,7 +116,7 @@ input, select, button {
 	margin-right: 10px;
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	position: relative;
 	top: -3px;
@@ -135,7 +135,7 @@ input, select, button {
 	display: block;
 	text-align: center;
 	border-radius: 0.3rem;
-	background: #e84418;
+	background: #f85959;
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;
@@ -222,7 +222,7 @@ input, select, button {
 	margin-left: -18px;
 	width: 8px;
 	height: 8px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	display: inline-block;
 	position: relative;
@@ -279,7 +279,7 @@ input, select, button {
 .req_area .req_list strong.pic:before {
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	position: absolute;
 	top: 30px;
@@ -325,7 +325,7 @@ input, select, button {
 }
 
 .inq_area .inq_tab li.active a {
-	background: #ff724c;
+	background: #f85959;
 	color: #fff
 }
 
@@ -381,7 +381,7 @@ input, select, button {
 	width: 8px;
 	height: 8px;
 	border-radius: 100%;
-	background: #ff724c;
+	background: #f85959;
 	content: '';
 	display: inline-block;
 	position: relative;
@@ -529,8 +529,8 @@ input, select, button {
 }
 
 .inq_area .inq_list_box li a span.complete {
-	border: 1px solid #ff724c;
-	color: #ff724c;
+	border: 1px solid #f85959;
+	color: #f85959;
 	background: #fff;
 }
 
@@ -577,8 +577,8 @@ input, select, button {
 }
 
 .inq_area .view_sty1 dd span.complete {
-	border: 1px solid #ff724c;
-	color: #ff724c;
+	border: 1px solid #f85959;
+	color: #f85959;
 	background: #fff;
 }
 
@@ -625,7 +625,7 @@ input, select, button {
 	margin-right: 10px;
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	display: inline-block;
 	position: relative;
@@ -741,10 +741,10 @@ input, select, button {
 .select2-result-repository.company_info .info_area .cc_name {
 	display: inline-block;
 	font-size: 18px;
-	color: #ff724c;
+	color: #f85959;
 	letter-spacing: -0.5px;
 	padding: 0 10px;
-	border: 1px solid #ff724c;
+	border: 1px solid #f85959;
 	border-radius: 0.3rem;
 	height: 33px;
 	line-height: 31px
@@ -771,7 +771,7 @@ input, select, button {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] .select2-result-repository.company_info
 	{
-	background: #ff724c
+	background: #f85959
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] .cc_type
@@ -818,18 +818,18 @@ input, select, button {
 
 	<section class="ftco-section"
 		style="background: white; ">
-		<div class="service_area container" style="padding-top: 112px;">
+		<div class="service_area container">
 
 			<div class="service_tab">
 				<ol class="clearfix">
-					<li><a href="cs_faq">자주하는질문</a></li>
-					<li><a href="cs_customerreg">업체등록요청</a></li>
-					<li class="active"><a href="cs_mtmqna">1:1 문의하기</a></li>
+					<li><strong><a href="cs_faq"><b>자주하는질문</b></a></strong></li>
+					<li><strong><a href="cs_customerreg"><b>업체등록요청</b></a></strong></li>
+					<li class="active"><strong><a href="cs_mtmqna"><b>1:1 문의하기</b></a></strong></li>
 				</ol>
 			</div>
 
 			<section>
-				<form class="" action="/service/inq_proc" method="post" id="form"
+				<form class="" action="qnainsert" method="post" id="form"
 					novalidate="novalidate">
 					<!-- 1:1 문의하기 -->
 					<div class="inq_area">
@@ -847,14 +847,14 @@ input, select, button {
 						<!-- 문의하기 -->
 						<div class="inq_form_area">
 							<div class="inq_select">
-								<em> <select name="sono_cate">
-										<option value="7">예약/결제</option>
-										<option value="2">정보수정</option>
-										<option value="4">기능개선</option>
-										<option value="8">이벤트</option>
-										<option value="9">회원정보</option>
-										<option value="1">기타</option>
-								</select> <ins>
+								<em> <select name="qcategory" id="qcategory">
+									<option value="예약/결제">예약/결제</option>
+									<option value="정보수정">정보수정</option>
+									<option value="기능개선">기능개선</option>
+									<option value="이벤트">이벤트</option>
+									<option value="회원정보">회원정보</option>
+									<option value="기타">기타</option>
+							</select> <ins>
 										<img
 											src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/select_arrow_01.png"
 											alt="">
@@ -862,35 +862,7 @@ input, select, button {
 								</em>
 							</div>
 
-							<div class="clearfix" id="company_info" style="display: none">
-								<div class="inq_in_box">
-									<div class="inqTi">
-										<p>업체명</p>
-									</div>
-
-									<div class="inqIn">
-										<!-- // 업체상세에서 바로 진입시 In_content 추가 !-->
-										<!--<div class="inqIn In_content"><!-- // 업체상세에서 바로 진입시 In_content 추가 !-->
-										<select class="company_search select2-hidden-accessible"
-											name="c_key" style="width: 100%; height: 100%;" tabindex="-1"
-											aria-hidden="true">
-											<option value="" selected="selected">업체명을 입력해주세요.</option>
-										</select><span
-											class="select2 select2-container select2-container--default"
-											dir="ltr" style="width: 100%;"><span class="selection"><span
-												class="select2-selection select2-selection--single"
-												role="combobox" aria-haspopup="true" aria-expanded="false"
-												tabindex="0" aria-labelledby="select2-c_key-2u-container"><span
-													class="select2-selection__rendered"
-													id="select2-c_key-2u-container" title="업체명을 입력해주세요.">업체명을
-														입력해주세요.</span><span class="select2-selection__arrow"
-													role="presentation"><b role="presentation"></b></span></span></span><span
-											class="dropdown-wrapper" aria-hidden="true"></span></span>
-									</div>
-									<!-- // reqIn !-->
-								</div>
-								<!-- // inq_in_box !-->
-							</div>
+			
 							<textarea name="sono_content" placeholder="최소 10자이상 문의글을 입력해주세요."></textarea>
 
 							<div class="inq_check clearfix">

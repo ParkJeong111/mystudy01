@@ -29,8 +29,8 @@
 }
 
 .service_area .service_tab li.active a {
-	border-bottom: 1px solid #e84418;
-	color: #e84418
+	border-bottom: 1px solid #f85959;
+	color: #f85959
 }
 
 .service_area section {
@@ -87,7 +87,7 @@
 	display: block;
 	text-align: center;
 	border-radius: 0.3rem;
-	background: #e84418;
+	background: #f85959;
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;
@@ -821,10 +821,10 @@ input, select, button {
 
 		<div class="service_tab">
 			<ol class="clearfix">
-				<li class="active"><a href="cs_faq">자주하는질문</a></li>
-				<li><a href="cs_customerreg">업체등록요청</a></li>
-				<li><a href="cs_mtmqna">1:1 문의하기</a></li>
-			</ol>
+					<li class="active"><strong><a href="cs_faq"><b>자주하는질문</b></a></strong></li>
+					<li ><strong><a href="cs_customerreg"><b>업체등록요청</b></a></strong></li>
+					<li ><strong><a href="cs_mtmqna"><b>1:1 문의하기</b></a></strong></li>
+				</ol>
 		</div>
 		<section>
 			<!-- 고객센터 -->

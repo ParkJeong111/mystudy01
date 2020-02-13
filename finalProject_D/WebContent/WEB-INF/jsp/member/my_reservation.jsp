@@ -28,7 +28,7 @@ background: '#F85959';
 	height: 44px;
 	line-height: 42px;
 	color: black;
-		 font-family: Jua;
+		 font-family: Arial;
 	 font-size: 19px;
 	cursor: pointer;
 }
