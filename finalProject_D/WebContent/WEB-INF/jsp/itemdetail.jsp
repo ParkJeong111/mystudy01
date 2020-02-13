@@ -1467,6 +1467,11 @@
 	top: -5px
 }
 
+.reserveclick:hover {
+	border-color: #f85959;
+	cursor: pointer;
+}
+
 .view_area .reserve_area_off .count_pic {
 	background: #b5b5b5;
 	border: 1px solid #b5b5b5;
@@ -2459,11 +2464,7 @@ keyframes swiper-preloader-spin { 100%{
 	content: '';
 }
 </style>
-
-
-
 	<!-- END nav -->
-
 	<div class="hero-wrap js-fullheight"
 		style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_3.jpg');">
 
@@ -2512,18 +2513,18 @@ keyframes swiper-preloader-spin { 100%{
 				<!--// view_profile -->
 			</section>
 
-			<!-- 티켓정보 -->
+			<!-- 티켓정보 시작 -->
 			<div id="view_ticket"
 				class="view_info view_info_reserve view_contents">
 				<section>
 					<c:forEach items="${hglist}" var="e">
-						<a class="reserve_area view_box " data-gi-type="4" data-num="${e.hgnum}"
+						<a class="reserve_area view_box reserveclick" data-gi-type="4" data-num="${e.hgnum}"
 							data-gi-key="2181410" id="reservelink">
 							<div class="reserve_con">
 								<h2 class="reserve_title">${e.hgname }</h2>
 								<div class="reserve_price">
 									<p class="sale_pay">
-										${e.hgmoney }<span>원</span>
+										<span class="product-price">${e.hgmoney }</span>
 									</p>
 								</div>
 								<div class="reserve_dot">
@@ -2532,6 +2533,7 @@ keyframes swiper-preloader-spin { 100%{
 							</div>
 						</a>
 					</c:forEach>
+			<!-- 티켓정보 끝 -->
 					<div class="view_box info_view_sty1">
 						<p class="view_box_title">티켓 유의사항</p>
 						<div class="in_box">
@@ -2591,10 +2593,18 @@ keyframes swiper-preloader-spin { 100%{
 		</div>
 		<script>
 			$(function() {
-/* 				$('#reservelink').click(function() {
-			     	$('#reserveform').submit();
-				}); */
+				$.fn.priceBuilder = function(price) {
+					// 금액에 천단위 콤마 추가해주는 정규표현식
+					return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				}
+
+				$(".product-price").each(function(idx) {
+					// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+					var value = $(this).text();
+					$(this).text($.fn.priceBuilder(value) + ' 원');
+				});
 				
+				// 이용권 클릭시 form post 전송
 				$("a[id=reservelink]").each(
 					function(){
 						$(this).click(function(){

@@ -30,6 +30,7 @@ background: '#F85959';
 	color: black;
 		 font-family: Jua;
 	 font-size: 19px;
+	cursor: pointer;
 }
 </style>
 
@@ -58,24 +59,24 @@ background: '#F85959';
 					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
 						<li class="selecthead selected">
-						<a >예약내역</a></li>
+						<a href="javascript:void(0);" onclick="restpye(1)">예약내역</a></li>
 						<li class="selecthead">
-						<a >이용완료</a></li>
+						<a href="javascript:void(0);" onclick="restpye(2)">이용완료</a></li>
 						<li class="selecthead">
-						<a >취소환불</a></li>
+						<a href="javascript:void(0);" onclick="restpye(3)">취소환불</a></li>
 					</ul>
 					
 				</section>
 			</div>
 				
-					<div class="row reservationlist"style="margin-top: 3%">
+					<div id="reservationtarget" class="row reservationlist"style="margin-top: 3%">
 					
 					<c:forEach var="r" items="${rlist}">
 						<div class="col-md-4 ftco-animate ">
 							<div class="destination">
-								<a href="hotel-single.jsp"
+								<a href="itemdetail?hnum=${r.hostdto.hnum}"
 									class="img img-2 d-flex justify-content-center align-items-center"
-									style="background-image: url('${pageContext.request.contextPath}/resources/images/reservation/${r.hostdto.himage }');">
+									style="background-image: url('${pageContext.request.contextPath}/resources/images/${r.hostdto.himage }');">
 									<div class="icon d-flex justify-content-center align-items-center">
 										<span class="icon-search2"></span>
 									</div>
@@ -94,14 +95,13 @@ background: '#F85959';
 									<hr>
 									<p class="bottom-area d-flex">
 										<span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>${r.hostdto.haddr }</span> <span
-											class="ml-auto"><a href="#">상세보기</a></span>
+											class="ml-auto"><a href="itemdetail?hnum=${r.hostdto.hnum}">상세보기</a></span>
 									</p>
 								</div>
 							</div>
 						</div>
 						</c:forEach>
 
-				<!-- .col-md-8 -->
 			</div>
 		</div>
 	</section>
@@ -139,6 +139,21 @@ $(document).ready(function() {
 
 });
 
+
+function restpye(type) {
+	console.log(type)
+		$.ajax({
+			url : "my_reservationtype?type=" + type,
+			datatype : 'json',
+			success : function(data) {
+				$("#reservationtarget").html("")
+				$.each(data, function(key, value){
+						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='itemdetail?hnum="+value.hostdto.hnum+"' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/"+value.hostdto.himage+"\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='itemdetail?hnum="+value.hostdto.hnum+"'>"+value.hname+"</a></h3></div><div class='two'><span class='price per-price'>"+value.usedate+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.hostdto.haddr+"</span> <span class='ml-auto'><a href='#'>상세보기</a></span></p></div></div></div>");
+								});
+			}
+		});
+		
+	}
 
 
 </script>

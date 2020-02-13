@@ -2,6 +2,7 @@ package kr.co.teamd.mvc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
@@ -24,6 +26,8 @@ import kr.co.teamd.mvc.dto.ReservationDTO;
 public class MemberController {
 	@Autowired
 	private MemberInter mdao;
+	
+	
 	
 	@RequestMapping(value= "login") //로그인
 	public String login() {
@@ -36,8 +40,23 @@ public class MemberController {
 	
 	
 	
+<<<<<<< HEAD
 	
 //  -------------------------재민 영역 시작--------------------------------
+=======
+	@RequestMapping("kakao")
+	public ModelAndView kakao(String mid, HttpSession session, HttpServletRequest reqeust) {
+		
+		System.out.println("카카오 mid 들어왔나요? :" + mid);
+		ModelAndView mav = new ModelAndView();
+		session.setAttribute("mid", mid);
+		mav.setViewName("redirect:index");
+		return mav;
+	}
+
+	
+//  --------------재민 추가------------------------
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 	@RequestMapping(value= "addmember")  //회원가입 폼      
 	public String addmember() {    
 		return "member/addmember"; 
@@ -94,7 +113,10 @@ public class MemberController {
 		if (mid ==null) {
 			mav.setViewName("member/login");
 		}else {
-			List<ReservationDTO> reservationlist = mdao.myReservation(mid);
+			HashMap<Object, Object> map = new HashMap<Object, Object>();
+			map.put("mid", mid);
+			map.put("type", 0);
+			List<ReservationDTO> reservationlist = mdao.myReservation(map);
 			mav.addObject("rlist", reservationlist);
 			mav.setViewName("member/my_reservation");	
 		}
@@ -111,10 +133,10 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value= "my_myupdate")  //나의정보
+	@RequestMapping(value= "my_myupdate")  //나의정보 수정
 	public String myUpdate(HttpSession session, HttpServletResponse resp, MemberDTO mdto, HttpServletRequest req) {
-		
-		mdto.setMid("juju");
+		String mid = (String) session.getAttribute("mid");
+		mdto.setMid(mid);
 		mdao.myUpdate(mdto);
 		return "redirect:my_myinfo";
 	}
@@ -165,6 +187,7 @@ public class MemberController {
 		if (m != null) {
 			session.setAttribute("mid", m.getMid());
 			session.setAttribute("nickname", m.getMnickname());
+			session.setAttribute("m", m);
 			String mid = (String) session.getAttribute("mid");
 			mav.setViewName("redirect:index");
 			return mav;

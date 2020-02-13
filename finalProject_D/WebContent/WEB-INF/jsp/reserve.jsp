@@ -126,6 +126,23 @@ html, body {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+input[type=checkbox] {
+	display: none;
+}
+
+input[type=checkbox]+label {
+	display: inline-block;
+	cursor: pointer;
+	line-height: 22px;
+	padding-left: 22px;
+	background: url('resources/images/icon/checkbox.png') left/22px
+		no-repeat;
+}
+
+input[type=checkbox]:checked+label {
+	background-image: url('resources/images/icon/checkedbox.png');
+}
 </style>
 
 <!-- END nav -->
@@ -141,7 +158,7 @@ html, body {
 	style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
 	결제</p>
 <hr>
-<div class="talk_header" style="">
+<div class="talk_header" style="font-family: 'Poppins', Arial, sans-serif;">
 	<section class="ftco-section ftco-degree-bg" style="padding-top: 10px;">
 		<div class="noticeList_area container"
 			style="padding-top: 112px; padding-bottom: 80px;">
@@ -151,73 +168,33 @@ html, body {
 						<div class="tabContainer">
 							<div id="tab_notice" class="tabConents"></div>
 							<form action="resInsert" method="post" id="insertForm">
+								<input type="hidden" name="hnum" value="${host.hnum}"> <input
+									type="hidden" name="hgnum" value="${hostgoods.hgnum}">
+								<input type="hidden" name="rmoney" value="${hostgoods.hgmoney}">
 								<div style="width: 993px; height: 950px; margin: auto;"
 									id="totaldiv">
 									<div id=left
 										style="display: inline-block; float: left; width: 564px; height: 892px; margin-right: 88px; margin-top: 40px;">
-										<c:choose>
-											<c:when test="${id==null }">
-												<section>
-													<h3>예약자 정보</h3>
-													<br> <strong style="font-size: 18px;">예약자 이름</strong><br>
-													<p>
-														<input
-															style="width: 560px; height: 44px; font-size: 16px;"
-															type="text" placeholder="체크인 시 필요한 정보 입니다." id="nname"
-															class="reservid" name="nname"> <span
-															style="margin-top: -15px; font-size: 14px; color: red; visibility: hidden;"
-															id="here"><br>한글, 영문, 숫자만 입력이 가능합니다.</span>
-													</p>
-													<br> <strong style="font-size: 18px;">휴대폰 번호</strong>
-													<br> <span style="font-size: 14px;">개인 정보 보호를
-														위해 안심번호로 숙소에 전송됩니다.</span> <br> <input type="text"
-														id="nphone"
-														style="width: 454px; height: 44px; font-size: 16px"
-														placeholder="체크인 시 필요한 정보 입니다." name="nphone">
-													<button type="button"
-														style="width: 100px; height: 52px; background: #CCCCCC; color: white; border: 0; outline: 0; cursor: pointer;">인증번호
-														전송</button>
-												</section>
-												<br>
-												<br>
-												<br>
-												<br>
-												<br>
-												<div style="display: block;">
-													<a href="kloginForm"><img
-														src="resources/images/icon/reserv_detail.png"> </a>
-												</div>
-											</c:when>
-
-											<c:otherwise>
-												<section>
-													<h3>예약자 정보</h3>
-													<br> <strong style="font-size: 18px;">예약자 이름</strong><br>
-													<p>
-														<input
-															style="width: 560px; height: 44px; font-size: 16px;"
-															type="text" value="${name }" id="nname" class="reservid">
-														<input type="hidden" value="${id }" name="mid"> <span
-															style="margin-top: -15px; font-size: 14px; color: red; visibility: hidden;"
-															id="here"><br>한글, 영문, 숫자만 입력이 가능합니다.</span>
-													</p>
-													<br> <strong style="font-size: 18px;">휴대폰 번호</strong>
-													<br> <span style="font-size: 14px;">개인 정보 보호를
-														위해 안심번호로 숙소에 전송됩니다.</span> <br> <input type="text"
-														id="nphone"
-														style="width: 454px; height: 44px; font-size: 16px"
-														value="${phone }">
-													<button type="button"
-														style="width: 100px; height: 52px; background: #CCCCCC; color: white; border: 0; outline: 0; cursor: pointer;">인증번호
-														전송</button>
-												</section>
-												<br>
-												<br>
-												<br>
-												<br>
-												<br>
-											</c:otherwise>
-										</c:choose>
+										<section>
+											<h3>구매자 정보</h3>
+											<br> <strong style="font-size: 18px;">구매자 아이디</strong><br>
+											<p>
+												<input style="width: 560px; height: 44px; font-size: 16px;"
+													type="text" placeholder="입장 시 필요한 정보 입니다." id="mname"
+													class="reservid" name="mname" value="${sessionScope.m.mid}">
+												<span
+													style="margin-top: -15px; font-size: 14px; color: red; visibility: hidden;"
+													id="here"><br>한글, 영문, 숫자만 입력이 가능합니다.</span>
+											</p>
+											<br> <strong style="font-size: 18px;">사용일자</strong><br>
+											<p>	
+												<input style="width: 530px; height: 44px; font-size: 16px;" type="text" id="datepicker" name="usedate">
+										</section>
+										<br> <br> <br> <br> <br>
+										<div style="display: block;">
+											<a href=""><img
+												src="resources/images/icon/reserv_detail.png"> </a>
+										</div>
 										<section>
 											<h3>결제수단 선택</h3>
 											<select
@@ -237,7 +214,7 @@ html, body {
 											</p>
 											<p style="font-size: 18px;">
 												<input type="checkbox" id="rbox1" class="inp_chk_02"><label
-													for="rbox1">숙소이용규칙 및 취소/환불규정 동의 <b>(필수)</b>
+													for="rbox1">취소/환불규정 동의 <b>(필수)</b>
 												</label>
 
 											</p>
@@ -262,8 +239,8 @@ html, body {
 											<p class="name"
 												style="font-size: 20px; margin-left: 25px; margin-top: 40px;">
 												<strong style="color: rgba(0, 0, 0, 0.38); font-size: 18px">업체이름</strong><br>
-												${host.hname}<%-- <input type="hidden" value="${host.hname}"
-													id="hname" name="hname"><br> --%>
+												${host.hname}<input type="hidden" value="${host.hname}"
+													id="hname" name="hname"><br>
 											</p>
 											<p style="font-size: 20px; margin-left: 25px;">
 												<strong style="color: rgba(0, 0, 0, 0.38); font-size: 18px;">이용권</strong>
@@ -277,21 +254,21 @@ html, body {
 											<br>
 											<p style="font-size: 16px; margin-left: 25px;">
 												<strong> <b
-													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">결제 금액</b> (VAT 포함)
-												</strong> <br> <span style="font-size: 24px; color: #E61C51;"><b>${hostgoods.hgmoney} <%--<input
-														type="hidden" value="${hostgoods.hgmoney}" name="hgmoney"><br></b></span> --%>
+													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">결제
+														금액</b> (VAT 포함)
+												</strong> <br> <span style="font-size: 24px; color: #f85959;"
+													class="product-price"><b>${hostgoods.hgmoney} <br></b></span>
 											</p>
-
+											<hr style="width: 270px;">
 											<ul style="font-size: 16px;">
 												<li style="font-size: 16px; padding-right: 16px;">해당
-													결제금액은 세금, 이용료가 포함된 금액입니다</li>
-												<li style="font-size: 16px; padding-right: 16px;">결제완료
-													후 <span style="color: #E61C51;">예약자 이름</span>으로 바로 <span
-													style="color: #E61C51;">문의</span>하시면 됩니다.
+													결제금액은 세금, 이용료가 포함된 금액입니다.</li>
+													<li style="font-size: 16px; padding-right: 16px;">사용일자 당일에 사용이 가능합니다.</li>
+												<li style="font-size: 16px; padding-right: 16px;">티켓사용: <span style="color: #f85959;">티켓 후제시</span>(결제 시 제시)
 												</li>
 											</ul>
 											<button type="button" id="insert"
-												style="width: 310px; height: 56px; border: 0; outline: 0; cursor: pointer; color: #FFFFFF; font: 15px; background-color: #F2114C; margin-top: 90px; font-size: 15px;">결제하기
+												style="width: 310px; height: 56px; border: 0; outline: 0; cursor: pointer; color: #FFFFFF; font: 15px; background-color: #f85959; margin-top: 90px; font-size: 15px;">결제하기
 											</button>
 										</section>
 									</div>
@@ -303,8 +280,101 @@ html, body {
 			</section>
 		</div>
 	</section>
+</div>
 	<!-- .section -->
 
+	<script>
+		$(function() {
+			$.fn.priceBuilder = function(price) {
+				// 금액에 천단위 콤마 추가해주는 정규표현식
+				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+
+			$(".product-price").each(function(idx) {
+				// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+				var value = $(this).text();
+				$(this).text($.fn.priceBuilder(value) + ' 원');
+			});
+
+			$('#insert').click(
+					function() {
+						var name = $("#mname").val();
+						var nphone = $('#mphone').val();
+
+						if (name !== "" && nphone !== ""
+								&& $('#rbox1').prop("checked")
+								&& $('#rbox2').prop("checked")
+								&& $('#rbox3').prop("checked")
+								&& $('#rbox4').prop("checked")) {
+							$('#agreebtn').attr("disabled", false);
+							var form = $("#insertForm").serialize();
+							var result = confirm("구매하시겠습니까?");
+							if (result) {
+								$("#insertForm").submit();
+							} else {
+								alert("취소되었습니다.");
+							}
+						} else {
+							if (!($('#rbox1').prop("checked"))
+									|| !($('#rbox2').prop("checked"))
+									|| !($('#rbox3').prop("checked"))
+									|| !($('#rbox4').prop("checked"))) {
+								$('#agreebtn').attr("disabled", false);
+								alert('필수 선택사항이 있습니다.');
+							} else {
+								alert('입력하지 않은 사항이 있습니다.');
+							}
+
+						}
+					});
+			$('#mname').keyup(
+							function() {
+								var reservid = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+								var str = $('#mname').val()
+
+								if (reservid.test(str) == true) {
+									$("#here").append(
+													"<br><span style='margin-top: -15px; font-size: 14px; font-color: red;'>한글, 영문, 숫자만 입력이 가능합니다.</span>");
+									document.getElementById("here").innerHTML = "<span style='margin-top: -15px; font-size: 14px; color: red;'>한글, 영문, 숫자만 입력이 가능합니다.</span>";
+									$('#here').css('visibility', 'visible');
+								} else {
+									document.getElementById("here").innerHTML = "";
+									$('#here').css('visibility', 'hidden');
+								}
+
+							});
+			$('#rbox0').click(function() {
+				if ($('#rbox0').prop("checked")) {
+					$('.inp_chk_02').prop("checked", true);
+				} else {
+					$('.inp_chk_02').prop("checked", false);
+				}
+
+			});
+			
+			// datepicker에 대한 공통 옵션 설정
+            $.datepicker.setDefaults({
+                dateFormat: 'yy-mm-dd' //Input Display Format 변경
+                ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+                ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+                ,changeYear: true //콤보박스에서 년 선택 가능
+                ,changeMonth: true //콤보박스에서 월 선택 가능
+                ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+                ,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
+                ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
+                ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
+                ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+                ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
+                ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
+                ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
+                ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트                  
+            });
+ 
+            //input을 datepicker로 선언
+            $("#datepicker").datepicker();                    
+            $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+		});
+	</script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 	<script
@@ -338,5 +408,7 @@ html, body {
 	<script
 		src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	</body>
 </html>
