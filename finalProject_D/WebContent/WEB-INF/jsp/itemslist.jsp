@@ -1457,11 +1457,7 @@ li {
 				// 금액에 천단위 콤마 추가해주는 정규표현식
 				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
-			
-<<<<<<< HEAD
-			
-=======
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
+
 			$(".product-price").each(function(idx) {
 				// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
 				var value = $(this).text();
@@ -1475,7 +1471,7 @@ li {
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
-						$("#hostlistdiv").html("")
+						$("#hostlistdiv").html("");
 						$.each(data, function(key, value) {
 							var star = "";
 							for(i = 0; i < 5; i++) {
