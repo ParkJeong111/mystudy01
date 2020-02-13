@@ -11,18 +11,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
-import kr.co.teamd.mvc.dao.HostDaoInter;
+import kr.co.teamd.mvc.dao.AdminHostDaoInter;
 import kr.co.teamd.mvc.dto.AdminlogDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostregDTO;
+import kr.co.teamd.mvc.service.ServiceInter;
 
 @Controller
 public class AdminController {
 	
 	@Autowired
-	private HostDaoInter hdao;
+	private ServiceInter service;
 	
+	@Autowired
+	private AdminHostDaoInter hdao;
+	
+
 	
 	@RequestMapping(value= "admin") //admin Home
 	public String adminMethod() {
@@ -34,9 +38,7 @@ public class AdminController {
 		return "admin/a_dashboard";
 	}
 	
-	
-	
-	
+
 	@RequestMapping(value= "admin_scheduler") //관리자 스케쥴러
 	public String adminScheduler() {
 		return "admin/a_scheduler";
@@ -65,10 +67,10 @@ public class AdminController {
 		mav.addObject("list", list);
 		return mav;
 	}
-	
+
 	@RequestMapping("hostinsert") //가맹점 등록
 	
-	public String hostinsert(HostDTO hdto, HttpServletRequest request) {
+	public String hostinsert(HostregDTO hrdto, HostDTO hdto, HttpServletRequest request) throws Exception {
 		String img_path = "resources/admin/images/hostimages/";
 		String r_path = request.getRealPath("/");
 		
@@ -91,12 +93,14 @@ public class AdminController {
 		}
 
 		hdto.setHimage(hdto.getHfile().getOriginalFilename());
-	
-		hdao.hostinsert(hdto);
+		System.out.println("첫번째 방문");
+		service.addhostUpdatehrstatus(hdto);
+		System.out.println("다섯번째 방문");
+		//hdao.hostinsert(hdto);
 
 		return "redirect:admin_hostapply";
 	}
-	
+
 	@RequestMapping(value= "admin_host") //가맹점 관리
 	public ModelAndView adminHost(HostDTO hdto) {
 		ModelAndView mav = new ModelAndView("admin/a_host");

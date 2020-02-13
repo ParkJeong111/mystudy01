@@ -12,7 +12,7 @@ import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostregDTO;
 
 @Repository
-public class HostDaoImple implements HostDaoInter{
+public class AdminHostDaoImple implements AdminHostDaoInter{
 	
 	@Autowired
 	private SqlSessionTemplate ss;
@@ -24,8 +24,7 @@ public class HostDaoImple implements HostDaoInter{
 	}
 
 	@Override
-	public void hostinsert(HostDTO hdto) {
-		System.out.println("두번째로");
+	public void hostinsert(HostDTO hdto) { //가맹점 등록
 		System.out.println(hdto.getHname());
 		System.out.println(hdto.getHceo());
 		System.out.println(hdto.getHphone());
@@ -36,16 +35,27 @@ public class HostDaoImple implements HostDaoInter{
 		System.out.println(hdto.getHguide());
 		
 		ss.insert("admin.hostinsert", hdto);
+		System.out.println("세번째 방문");
 		
 	}
 
+
 	@Override
-	public List<HostDTO> hostalllist() {
+	public void updatehrstatus(HostDTO hdto) {
+		ss.update("admin.updatehrstatus", hdto);
+		System.out.println("네번째 방문");
+	}
+
+	
+	
+	
+	@Override
+	public List<HostDTO> hostalllist() { //가맹점 리스트
 		return ss.selectList("admin.hostalllist");
 	}
 
 	@Override
-	public HostDTO hostinfo(String hname) {
+	public HostDTO hostinfo(String hname) { //가맹점 상세정보
 		return ss.selectOne("admin.hostinfo", hname);
 	}
 
@@ -61,7 +71,6 @@ public class HostDaoImple implements HostDaoInter{
 		return ss.selectList("admin.adminloglist");
 	}
 
-	
 	
 	
 	

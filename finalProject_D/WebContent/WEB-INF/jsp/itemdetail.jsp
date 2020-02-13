@@ -1467,6 +1467,11 @@
 	top: -5px
 }
 
+.reserveclick:hover {
+	border-color: #f85959;
+	cursor: pointer;
+}
+
 .view_area .reserve_area_off .count_pic {
 	background: #b5b5b5;
 	border: 1px solid #b5b5b5;
@@ -2495,7 +2500,6 @@ keyframes swiper-preloader-spin { 100%{
 					<img
 						src="${pageContext.request.contextPath}/resources/images/${host.himage }"
 						alt="" style="width: 65%; float: left;">
-
 					<!-- 업체 정보 -->
 					<div class="profile_info col-md-4">
 						<dl class="clearfix">
@@ -2518,13 +2522,13 @@ keyframes swiper-preloader-spin { 100%{
 				class="view_info view_info_reserve view_contents">
 				<section>
 					<c:forEach items="${hglist}" var="e">
-						<a class="reserve_area view_box " data-gi-type="4"
-							data-gi-key="2181410" href="#">
+						<a class="reserve_area view_box reserveclick" data-gi-type="4" data-num="${e.hgnum}"
+							data-gi-key="2181410" id="reservelink">
 							<div class="reserve_con">
 								<h2 class="reserve_title">${e.hgname }</h2>
 								<div class="reserve_price">
 									<p class="sale_pay">
-										${e.hgmoney }<span>원</span>
+										<span class="product-price">${e.hgmoney }</span>
 									</p>
 								</div>
 								<div class="reserve_dot">
@@ -2590,6 +2594,36 @@ keyframes swiper-preloader-spin { 100%{
 				</section>
 			</div>
 		</div>
+		<script>
+			$(function() {
+				$.fn.priceBuilder = function(price) {
+					// 금액에 천단위 콤마 추가해주는 정규표현식
+					return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				}
+
+				$(".product-price").each(function(idx) {
+					// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+					var value = $(this).text();
+					$(this).text($.fn.priceBuilder(value) + ' 원');
+				});
+				
+				$("a[id=reservelink]").each(
+					function(){
+						$(this).click(function(){
+							var hg = $(this).attr('data-num');
+							 var $form = $('<form></form>');
+							 $form.attr('action', 'reserve');
+						     $form.attr('method', 'post');
+						     $form.appendTo('body');
+						     var hnum = $('<input type="hidden" value="${host.hnum}" name="hnum">');
+						     var hgnum = $('<input type="hidden" value="' + hg + '" name="hgnum">');
+						     $form.append(hnum).append(hgnum);
+						     $form.submit();
+						});
+					}
+				);
+			});
+		</script>
 		<!-- .section -->
 		<script
 			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>

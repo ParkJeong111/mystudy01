@@ -2,6 +2,7 @@ package kr.co.teamd.mvc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,18 +57,11 @@ public class MemberController {
 	public String board() {
 		return "member/my_board";
 	}
-	
-	
-	
-	
-	
-	
-	
+		
 	//김채은 영역 시작
 	
 	
-	
-		//김채은 영역 끝
+	//김채은 영역 끝
 		
 
 		//권세진 영역 시작
@@ -84,7 +78,10 @@ public class MemberController {
 		if (mid ==null) {
 			mav.setViewName("member/login");
 		}else {
-			List<ReservationDTO> reservationlist = mdao.myReservation(mid);
+			HashMap<Object, Object> map = new HashMap<Object, Object>();
+			map.put("mid", mid);
+			map.put("type", 5);
+			List<ReservationDTO> reservationlist = mdao.myReservation(map);
 			mav.addObject("rlist", reservationlist);
 			mav.setViewName("member/my_reservation");	
 		}
@@ -155,6 +152,7 @@ public class MemberController {
 		if (m != null) {
 			session.setAttribute("mid", m.getMid());
 			session.setAttribute("nickname", m.getMnickname());
+			session.setAttribute("m", m);
 			String mid = (String) session.getAttribute("mid");
 			mav.setViewName("redirect:index");
 			return mav;

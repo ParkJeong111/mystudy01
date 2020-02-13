@@ -1,6 +1,10 @@
 package kr.co.teamd.mvc.controller;
 
+import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,24 +14,33 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardDaoInter;
-import kr.co.teamd.mvc.dao.HostDaoInter;
+import kr.co.teamd.mvc.dao.MemberInter;
+import kr.co.teamd.mvc.dao.AdminHostDaoInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
+
+
+
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
+import kr.co.teamd.mvc.dto.ReservationDTO;
 
 
 @RestController
 public class JsonController {
 
 	@Autowired
-	private HostDaoInter hdao;
+	private AdminHostDaoInter hdao;
 	@Autowired
 	private BoardDaoInter bdao; 
 	
 	@Autowired
 	private AdminQnaDAO qdao;
+	
+	@Autowired
+	private MemberInter mdao;
+	
 	
 	
 	
@@ -54,5 +67,16 @@ public class JsonController {
 		QnaDTO qdto = qdao.qnainfo(qnum);
 		return qdto;
 	}
-
+	
+	
+	@RequestMapping(value= "my_reservationtype")  //예약내역버튼 선택
+	public List<ReservationDTO> reservationtype(@RequestParam("type") int type,HttpSession session, HttpServletResponse resp) {
+		String mid = (String) session.getAttribute("mid");
+		HashMap<Object, Object> map = new HashMap<Object, Object>();
+			map.put("mid", mid);
+			map.put("type", type);
+			List<ReservationDTO> rlist = mdao.myReservation(map);
+		return rlist;
+	}
+	
 }

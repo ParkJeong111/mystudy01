@@ -29,26 +29,31 @@
            </association>
     </resultMap>
 		<!-- 기본 예약내역 -->
-	<select id="myreservation" parameterType="String" resultMap="myreservationResult">
-	select r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate, r.rmoney from host h, reservation r where h.hname = r.hname and r.mid=#{mid} 
-	and 
-		<choose>
-			<when test="num==1">
-			r.usedate >= to_char(sysdate)
-			</when>
-			<when test="num==2">
-			r.usedate &lt; to_char(sysdate)
-			</when>
-			<when test="num==3">
-			r.rmoney == '0'
-			</when>
-			<otherwise>
-			usedate > to_char(sysdate)
-			</otherwise>
-		</choose> 
-		 order by r.usedate desc
+	<!-- <select id="myreservation" parameterType="string" resultMap="myreservationResult">
+	select r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate, r.rmoney 
+	from host h, reservation r where h.hname = r.hname and r.mid=#{mid} order by r.usedate desc
+	</select>
+	 -->
+	 
+	<select id="myreservation" parameterType="java.util.HashMap" resultMap="myreservationResult">
+	select r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate, r.rmoney 
+	from host h, reservation r where h.hname = r.hname and r.mid=#{mid} 
+	<choose>
+		<when test="type==1">and r.usedate > to_char(sysdate+6)</when>
+		<when test="type==2">and r.usedate &lt; to_char(sysdate+6)</when>
+		<when test="type==3">and r.rmoney = 0</when>
+		<otherwise>and r.usedate > to_char(sysdate+6)</otherwise>
+	</choose>
+	 order by r.usedate desc
 	</select>
 	
+	
+	
+	
+	
+	
+	
+
 		<!-- 고객정보 확인 -->
 	<select id="myinfo" parameterType="String" resultType="mdto">
 	select mid, mpwd, memail, mnickname, mphone, maddr1, maddr2 from member where mid=#{mid}
@@ -63,7 +68,7 @@
 	</select>
 		<!-- 로그인을 위한 아이디, 비밀번호 체크 -->
 	<select id="idcheck" parameterType="mdto" resultType="mdto">
-	select mid, mnickname from member where mid=#{mid} and mpwd=#{mpwd}
+	select mid, mnickname, mphone from member where mid=#{mid} and mpwd=#{mpwd}
 	</select>
 	<!-- 박정연 영역 끝  -->
 	
@@ -79,7 +84,8 @@
 	</insert>
 	<!-- id 중복 확인 -->
 	<select id="idchk" parameterType="String" resultType="int">
-		select mnum(*) mnum from member where mid = #{mid}
+		select count(*) mnum from member 
+		where mid = #{mid}
 	</select>
 
   </mapper>
