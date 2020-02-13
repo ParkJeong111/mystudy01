@@ -6,13 +6,20 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
 @Repository
 public class BoardDaoImple implements BoardDaoInter{
+
 	@Autowired
 	private SqlSessionTemplate ss;
+	
+	@Override
+	public void myboardAdd(BoardDTO bdto) {
+		ss.insert("talk.addboard", bdto);     // talk = mapper allias/이름명 , addboard는 mapper id가져온거
+	}
 	
 	@Override
 	public List<BoardListAjaxDTO> boardAlllist() {

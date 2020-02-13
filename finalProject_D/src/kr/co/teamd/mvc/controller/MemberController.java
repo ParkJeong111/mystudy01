@@ -13,10 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
 import kr.co.teamd.mvc.dao.MemberInter;
+import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
@@ -36,8 +38,6 @@ public class MemberController {
 		return "member/passwordfind";
 	}
 	
-	
-	
 	@RequestMapping("kakao")
 	public ModelAndView kakao(String mid, HttpSession session, HttpServletRequest reqeust) {
 		
@@ -48,8 +48,6 @@ public class MemberController {
 		return mav;
 	}
 
-	
-//  --------------재민 추가------------------------
 	@RequestMapping(value= "addmember")  //회원가입 폼      
 	public String addmember() {    
 		return "member/addmember"; 
@@ -62,17 +60,29 @@ public class MemberController {
 		System.out.println(mdto.getMaddr1());
 		return "redirect:login"; 
 	}
-//  ----------------------------------------------
+	
+//	@RequestMapping(value = "my_board", method = RequestMethod.POST) // 내글쓰기 게시글 작성
+//	public String insertmyboard(BoardDTO bdto) {
+//		return "member/my_board";
+//	}
+
+	@RequestMapping(value= "my_board") //내글쓰기
+	public String board() {
+		return "member/my_board";
+	}
+	
+//  ------------------------------재민 영역 끝---------------------------------------
+	
+	
+	
+	
 	
 	@RequestMapping(value= "my_point") //나의 쿠폰
 	public String coupon() {
 		return "member/my_point";
 	}
 	
-	@RequestMapping(value= "my_board") //내글쓰기
-	public String board() {
-		return "member/my_board";
-	}
+
 		
 	//김채은 영역 시작
 	
