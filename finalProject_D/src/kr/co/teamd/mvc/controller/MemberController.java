@@ -80,7 +80,7 @@ public class MemberController {
 		}else {
 			HashMap<Object, Object> map = new HashMap<Object, Object>();
 			map.put("mid", mid);
-			map.put("type", 5);
+			map.put("type", 0);
 			List<ReservationDTO> reservationlist = mdao.myReservation(map);
 			mav.addObject("rlist", reservationlist);
 			mav.setViewName("member/my_reservation");	
@@ -98,10 +98,10 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value= "my_myupdate")  //나의정보
+	@RequestMapping(value= "my_myupdate")  //나의정보 수정
 	public String myUpdate(HttpSession session, HttpServletResponse resp, MemberDTO mdto, HttpServletRequest req) {
-		
-		mdto.setMid("juju");
+		String mid = (String) session.getAttribute("mid");
+		mdto.setMid(mid);
 		mdao.myUpdate(mdto);
 		return "redirect:my_myinfo";
 	}

@@ -30,6 +30,7 @@ public class itemslistController {
 	
 	@GetMapping(value = "itemdetail")
 	public ModelAndView hostDetail(int hnum) {
+		System.out.println(hnum);
 		ModelAndView mav = new ModelAndView("itemdetail");
 		HostDTO hdto = hostdao.hostDetail(hnum);
 		List<HostgoodsDTO> hgdtoList = hdto.getHgdto();
