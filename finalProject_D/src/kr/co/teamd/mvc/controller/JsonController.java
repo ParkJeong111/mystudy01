@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -81,6 +82,12 @@ public class JsonController {
 
 	@RequestMapping(value = "searchlist")
 	public List<HostlistDTO> searchList(HostSearchDTO hsdto) {
+		System.out.println("star : " + hsdto.getStar());
+		if (hsdto.getStar().equals("undefined")) {
+			hsdto.setStarnum(0);
+		} else {
+			hsdto.setStarnum(Integer.parseInt(hsdto.getStar()));
+		}
 		List<HostlistDTO> hostlist = hostdao.hostSearch(hsdto);
 		return hostlist;
 	}

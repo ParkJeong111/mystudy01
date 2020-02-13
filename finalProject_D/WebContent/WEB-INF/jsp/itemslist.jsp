@@ -1224,9 +1224,22 @@ li {
 		<div class="container" style="margin-top: -40%;"></div>
 	</div>
 	<!--  여기에 헤더부분 추가  -->
-	<p
-		style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
-		바다낚시</p>
+	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
+		<c:choose >
+			<c:when test="${type == 1}">
+				바다낚시
+			</c:when>
+			<c:when test="${type == 2}">
+				민물낚시
+			</c:when>
+			<c:when test="${type == 3}">
+				전문낚시
+			</c:when>
+			<c:when test="${type == 4}">
+				카페낚시
+			</c:when>
+		</c:choose>
+	</p>
 	<hr>
 	<div class="talk_header">
 		<div class="talk_tab_area">
@@ -1301,8 +1314,15 @@ li {
 							<h3 class="heading mb-4">별점</h3>
 							<form method="post" class="star-rating">
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input"
-										id="exampleCheck1"> <label class="form-check-label"
+									<input type="radio" class="form-check-input" name="star" value="0"> <label class="form-check-label"
+										for="exampleCheck1">
+										<p class="rate">
+											<span>상관없음</span>
+										</p>
+									</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" name="star" value="5"> <label class="form-check-label"
 										for="exampleCheck1">
 										<p class="rate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
@@ -1312,8 +1332,7 @@ li {
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input"
-										id="exampleCheck1"> <label class="form-check-label"
+									<input type="radio" class="form-check-input" name="star"  value="4"> <label class="form-check-label"
 										for="exampleCheck1">
 										<p class="rate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
@@ -1323,8 +1342,7 @@ li {
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input"
-										id="exampleCheck1"> <label class="form-check-label"
+									<input type="radio" class="form-check-input" name="star"  value="3"> <label class="form-check-label"
 										for="exampleCheck1">
 										<p class="rate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
@@ -1334,8 +1352,7 @@ li {
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input"
-										id="exampleCheck1"> <label class="form-check-label"
+									<input type="radio" class="form-check-input" name="star"  value="2"> <label class="form-check-label"
 										for="exampleCheck1">
 										<p class="rate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
@@ -1345,8 +1362,7 @@ li {
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input"
-										id="exampleCheck1"> <label class="form-check-label"
+									<input type="radio" class="form-check-input" name="star"  value="1"> <label class="form-check-label"
 										for="exampleCheck1">
 										<p class="rate">
 											<span><i class="icon-star"></i><i class="icon-star-o"></i><i
@@ -1431,6 +1447,9 @@ li {
 		</div>
 		<script>
 		$(function() {
+			
+			var star = 0;
+			
 			$.fn.priceBuilder = function(price) {
 				// 금액에 천단위 콤마 추가해주는 정규표현식
 				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -1443,8 +1462,10 @@ li {
 			});
 			
 			$("#searchbtn").click(function() {
+				star = $(':radio[name="star"]:checked').val();
 				$.ajax({
-					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() + "&maxprice=" + $('#maxprice').val(),
+					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() 
+							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + ${type},
 					datatype : 'json',
 					success : function(data) {
 						console.log(data)

@@ -26,6 +26,7 @@ public class itemslistController {
 		ModelAndView mav = new ModelAndView();
 		List<HostlistDTO> dto =  hostdao.hostlist(type);
 		mav.addObject("hostlist",dto);
+		mav.addObject("type", type);
 		mav.setViewName("itemslist");
 		return mav;
 	}
