@@ -82,6 +82,7 @@ public class JsonController {
 
 	@RequestMapping(value = "searchlist")
 	public List<HostlistDTO> searchList(HostSearchDTO hsdto) {
+		System.out.println("searchValue : " + hsdto.getSearchValue());
 		if (hsdto.getStar().equals("undefined")) {
 			hsdto.setStarnum(0);
 		} else {

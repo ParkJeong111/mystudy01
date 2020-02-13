@@ -1458,6 +1458,10 @@ li {
 				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
 			
+<<<<<<< HEAD
+			
+=======
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 			$(".product-price").each(function(idx) {
 				// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
 				var value = $(this).text();
@@ -1467,7 +1471,7 @@ li {
 			$("#searchbtn").click(function() {
 				star = $(':radio[name="star"]:checked').val();
 				$.ajax({
-					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() 
+					url : "searchlist?searchValue=" + encodeURI($('#searchValue').val(), "UTF-8") + "&minprice=" + $('#minprice').val() 
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
