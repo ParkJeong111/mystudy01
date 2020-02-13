@@ -863,7 +863,7 @@ input, select, button {
 							</div>
 
 			
-							<textarea name="sono_content" placeholder="최소 10자이상 문의글을 입력해주세요."></textarea>
+							<textarea name="qcontent" id="qcontent" placeholder="최소 10자이상 문의글을 입력해주세요."></textarea>
 
 							<div class="inq_check clearfix">
 								<div class="inq_select">
@@ -878,27 +878,14 @@ input, select, button {
 									</em>
 								</div>
 								<div class="inq_input">
-									<input type="tel" name="sono_phone"
+									<input type="tel" name="qphone" id="qphone" 
 										placeholder="답변 받을 연락처를 입력해주세요." maxlength="13"
 										data-phone-mask="">
 									<!-- <input type="email" placeholder="답변 받을 이메일주소를 입력해주세요." style="display:none"> -->
 								</div>
 							</div>
 
-							<div class="inqFile_area clearfix">
-								<input type="text" id="inqFile" class="inqFile_input"
-									readonly="readonly" placeholder="선택된 파일 없음">
-								<div class="inqFile_div">
-									<input type="button" value="찾아보기" class="inqFile_button">
-									<input type="file" name="sono_file" class="inqFile_hidden"
-										onchange="javascript: document.getElementById('inqFile').value = this.value"
-										accept="image/*">
-								</div>
-							</div>
-
-							<!-- // 파일첨부
-                    <input type="file" name="sono_file" value="" />
-                    -->
+					
 							<div class="service_btn submit_btn">
 								<a>문의하기</a>
 							</div>
