@@ -43,6 +43,7 @@
 			<otherwise></otherwise>
 		</choose>
 	</select>
+	
 	<select id="matchlist" resultType="mbdto">
 		select mbnum, mbtitle, mid, mbcontent, mbtag, mbperson, mblocation, mbimage,
 		to_char(mbstartdate,'YYYY-MM-DD') as mbstartdate, mbdate, mbreport
@@ -91,5 +92,17 @@
 	</select>
 	<!-- Host Reserve 끝 -->
 	
+	<!-- Host Search 시작 -->
+	<select id="searchlist" parameterType="hsdto" resultType="hldto">
+		select h.himage as himage,h.hname as hname
+		, h.hstar as hstar, hg.hgmoney as hgmoney, h.hnotice as hnotice
+		, h.haddr as haddr, h.hnum as hnum
+		from host h, (select hgname, hgmoney, hname from hostgoods where rownum <![CDATA[ < ]]> 2) hg
+        where hgmoney between #{minprice} and #{maxprice} 
+        <if test="searchValue != null">
+         	and h.hname like '%' || #{searchValue} || '%'
+        </if>
+	</select>	
+	<!-- Host Seach 끝 -->
 	<!-- 송용화 영역 끝 -->
 </mapper>
