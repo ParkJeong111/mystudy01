@@ -73,5 +73,7 @@
 		select count(*) mnum from member 
 		where mid = #{mid}
 	</select>
+	
+	
 
   </mapper>

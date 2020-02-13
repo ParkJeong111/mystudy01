@@ -1310,6 +1310,8 @@ li {
 								</div>
 							</form>
 						</div>
+						
+						
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
 								style="text-align: center; font-weight: bold;">리뷰 별점</h3>
@@ -1456,7 +1458,10 @@ li {
 				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
 			
+<<<<<<< HEAD
 			
+=======
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 			$(".product-price").each(function(idx) {
 				// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
 				var value = $(this).text();
@@ -1470,10 +1475,8 @@ li {
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
-						console.log(data)
 						$("#hostlistdiv").html("")
 						$.each(data, function(key, value) {
-							
 							var star = "";
 							for(i = 0; i < 5; i++) {
 								if(i < value.hstar) {
@@ -1482,7 +1485,6 @@ li {
 									star += '<i class="icon-star-o"></i>';
 								}
 							}
-							
 							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
 									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
