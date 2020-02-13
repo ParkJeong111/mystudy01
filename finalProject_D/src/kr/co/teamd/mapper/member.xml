@@ -28,12 +28,18 @@
                  <result property="himage" column="himage"/>
            </association>
     </resultMap>
-		<!-- 기본 예약내역 -->
-	<select id="myreservation" parameterType="String" resultMap="myreservationResult">
-	select r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate, r.rmoney 
-	from host h, reservation r where h.hname = r.hname and r.mid=#{mid} and r.usedate >= to_char(sysdate) order by r.usedate desc
+	<select id="myreservation" parameterType="java.util.HashMap" resultMap="myreservationResult">
+	select h.hnum, r.hname, h.haddr, h.himage, to_char(r.usedate, 'mm-dd') usedate, r.rmoney 
+	from host h, reservation r where h.hname = r.hname and r.mid=#{mid} 
+	<choose>
+		<when test="type==1">and r.usedate &gt;= to_char(sysdate)</when>
+		<when test="type==2">and r.usedate &lt; to_char(sysdate)</when>
+		<when test="type==3">and r.rmoney = 0</when>
+		<otherwise>and r.usedate > to_char(sysdate)</otherwise>
+	</choose>
+	 order by r.usedate desc
 	</select>
-
+	
 		<!-- 고객정보 확인 -->
 	<select id="myinfo" parameterType="String" resultType="mdto">
 	select mid, mpwd, memail, mnickname, mphone, maddr1, maddr2 from member where mid=#{mid}

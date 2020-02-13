@@ -1,5 +1,6 @@
 package kr.co.teamd.mvc.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -25,8 +26,8 @@ public class MemberImple implements MemberInter{
 	private SqlSessionTemplate ss;
 
 	@Override
-	public List<ReservationDTO> myReservation(String mid) { //나의 예약 내역확인
-		return ss.selectList("member.myreservation",mid);
+	public List<ReservationDTO> myReservation(HashMap<Object, Object> map) { //나의 예약 내역확인
+		return ss.selectList("member.myreservation",map);
 	}
 	
 	

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.ReservationDaoImple;
 import kr.co.teamd.mvc.dao.ReservationDaoInter;
 import kr.co.teamd.mvc.dao.hostinterdao;
 import kr.co.teamd.mvc.dto.HostDTO;
@@ -40,13 +39,6 @@ public class ReserveController {
 		HttpSession session = request.getSession();
 		MemberDTO member = (MemberDTO) session.getAttribute("m");
 		rdto.setMid(member.getMid());
-		System.out.println("mid : " + rdto.getMid());
-		System.out.println("hname : " + rdto.getHname());
-		System.out.println("hgnum : " + rdto.getHgnum());
-		System.out.println("rmoney : " + rdto.getRmoney());
-		System.out.println("rstar : " + rdto.getRstar());
-		System.out.println("userdate : " + rdto.getUsedate());
-		System.out.println("rdate : " + rdto.getRdate());
 		reservationdao.ReservationInsert(rdto);
 		return mav;
 	}

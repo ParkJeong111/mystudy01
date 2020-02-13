@@ -2464,11 +2464,7 @@ keyframes swiper-preloader-spin { 100%{
 	content: '';
 }
 </style>
-
-
-
 	<!-- END nav -->
-
 	<div class="hero-wrap js-fullheight"
 		style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_3.jpg');">
 
@@ -2517,7 +2513,7 @@ keyframes swiper-preloader-spin { 100%{
 				<!--// view_profile -->
 			</section>
 
-			<!-- 티켓정보 -->
+			<!-- 티켓정보 시작 -->
 			<div id="view_ticket"
 				class="view_info view_info_reserve view_contents">
 				<section>
@@ -2537,6 +2533,7 @@ keyframes swiper-preloader-spin { 100%{
 							</div>
 						</a>
 					</c:forEach>
+			<!-- 티켓정보 끝 -->
 					<div class="view_box info_view_sty1">
 						<p class="view_box_title">티켓 유의사항</p>
 						<div class="in_box">
@@ -2607,6 +2604,7 @@ keyframes swiper-preloader-spin { 100%{
 					$(this).text($.fn.priceBuilder(value) + ' 원');
 				});
 				
+				// 이용권 클릭시 form post 전송
 				$("a[id=reservelink]").each(
 					function(){
 						$(this).click(function(){

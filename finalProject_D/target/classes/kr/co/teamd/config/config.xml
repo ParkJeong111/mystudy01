@@ -20,9 +20,9 @@
 			<typeAlias type="kr.co.teamd.mvc.dto.RecenthostDTO" alias="rhdto"/>
 			<typeAlias type="kr.co.teamd.mvc.dto.ReservationDTO" alias="rdto"/>
 			<typeAlias type="kr.co.teamd.mvc.dto.SearchlogDTO" alias="sldto"/>
-			
 			<typeAlias type="kr.co.teamd.mvc.dto.BoardListAjaxDTO" alias="bldto"/>
 			<typeAlias type="kr.co.teamd.mvc.dto.MatchinglogDTO" alias="mldto"/>
   			<typeAlias type="kr.co.teamd.mvc.dto.HostlistDTO" alias="hldto"/>
+  			<typeAlias type="kr.co.teamd.mvc.dto.HostSearchDTO" alias="hsdto"/>
 	</typeAliases>
 </configuration>
