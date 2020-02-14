@@ -1435,7 +1435,7 @@ section {
 }
 
 .boardlisthead > a{
-	 font-family: Jua;
+	 font-family: sans-serif;
 	 font-size: 25px;
 	 }
 	 
@@ -1483,6 +1483,7 @@ section {
 					</ul>
 					
 				</section>
+
 			</div>
 			
 		</div>
@@ -1655,7 +1656,7 @@ section {
 					$("#talk_detail_list").html("")
 					$.each(data, function(key, value){
 							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong>"+value.mid+"</strong><p><a href='/' class='header_logo'> <img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' alt=''></a></p></div>"+
-										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?ibnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
+										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail2?ibnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
 										"<div class='talk_text'><strong>"+value.ibtitle+"</strong><p class='more'>"+value.ibcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.ibimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'></p><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
 										"<div class='talk_btn clearfix'><a class='talk_money_btn' href='#'>"+value.ibmoney+"원</a><a class='talk_comm_btn' style='width:50%;' href='talk_detail?ibnum="+value.ibnum+"#comment_box'>댓글쓰기</a></div></div></div>")
 					    });
