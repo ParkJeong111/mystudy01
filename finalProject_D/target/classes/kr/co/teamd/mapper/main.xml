@@ -10,7 +10,18 @@
 
 
 	<!-- 권세진 영역 시작  -->
+	<!-- 헤더 검색 부분 -->
+		<select id="mainsearchlist" parameterType="String" resultType="hldto">
+		select h.hname hname, h.himage himage, h.hstar hstar,
+		h.hnotice hnotice, h.htype htype, h.hservice hservice, h.haddr haddr,
+		h.hnum hnum, h.howner howner, h.hspecies hspecies, hg.hgmoney hgmoney
+		from host h, (select distinct hname, min(hgmoney) hgmoney
+		from hostgoods where hname like '%' || #{hname} || '%' group by hname) hg where h.hname=hg.hname
+	</select>
 	
+	<select id="autosearchlist" parameterType="String" resultType="hdto">
+		select hname from host where hname like '%' || #{hname} || '%'
+	</select>
 	<!-- 권세진 영역 끝  -->
 	
 	

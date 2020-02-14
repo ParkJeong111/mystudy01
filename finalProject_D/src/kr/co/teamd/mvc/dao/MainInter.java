@@ -1,11 +1,11 @@
 package kr.co.teamd.mvc.dao;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
+import kr.co.teamd.mvc.dto.HostlistDTO;
 import kr.co.teamd.mvc.dto.HostregDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
 
@@ -17,5 +17,6 @@ public interface MainInter {
 	public List<HostDTO> mainRec();//메인 추천가맹점
 	public void hostReg(HostregDTO hrdto); //가맹점 등록 요청
 	public void qnaInsert(QnaDTO qdto);// QNA 등록 요청
-
+	public List<HostlistDTO> mainsearchlist(String hname);
+	public List<HostDTO> autosearchlist(String hname);
 }
