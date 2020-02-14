@@ -1,5 +1,6 @@
 package kr.co.teamd.mvc.controller;
 
+import java.io.File;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -57,16 +58,51 @@ public class TalkController {
 	//---------------------------------재민 영역 시작-------------------------------------------
 	//--------------------------- 멤버 내글쓰기 게시글 작성--------------------------------------
 	@RequestMapping(value = "my_board", method = RequestMethod.POST) // 내글쓰기 게시글 작성
-	public ModelAndView insertmyboard(@ModelAttribute("bdto") BoardDTO bdto, HttpSession session, 
-			HttpServletRequest request) {
+	public ModelAndView insertmyboard(@ModelAttribute("bdto") BoardDTO bdto, HttpSession session, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		// 입력 값 출력되는지 테스트
+		System.out.println(bdto.getBtype1());
+		System.out.println(bdto.getBtype2());
+		System.out.println(bdto.getHname());
+		System.out.println(bdto.getBtitle());
+		// 게시글작성 type1, type2 컬럼값 지정
+		if (bdto.getBtype1().equals("0")) {
+			bdto.setBtype1("유저조행기");
+			if(bdto.getBtype2().equals("0")) {
+				bdto.setBtype2("바다조행기");
+			} else if(bdto.getBtype2().equals("1")) {
+				bdto.setBtype2("민물조행기");
+			}
+		} else if(bdto.getBtype1().equals("1")) {
+			bdto.setBtype1("유용한정보");
+			bdto.setBtype2("유용한정보");
+		} else if(bdto.getBtype1().equals("2")) {
+			bdto.setBtype1("낚시지식인");
+			bdto.setBtype2("낚시지식인");
+		} else if(bdto.getBtype1().equals("3")) {
+			bdto.setBtype1("자유게시판");
+			bdto.setBtype2("자유게시판");
+		} else {
+			
+		}
+		
+		// 이미지 업로드
+		String path = session.getServletContext().getRealPath("/resources/image/");
+		StringBuffer paths1 = new StringBuffer();
+		paths1.append(path);
+		paths1.append(bdto.getBimage());     //.getOriginalFilename()
+		File bimage = new File(paths1.toString());
+		/*
+		 * if() {
+		 * 
+		 * }
+		 */
+		
 			bdao.myboardAdd(bdto);
-			ModelAndView mav = new ModelAndView();
+			
 			mav.setViewName("member/my_board");
 		return mav;
 	}
-	
-	
-	
 	
 	//-----------------------------------재민 영역 끝-------------------------------------------
 	
