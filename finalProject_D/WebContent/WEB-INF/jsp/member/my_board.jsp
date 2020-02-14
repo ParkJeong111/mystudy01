@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 .service_area .service_tab {
 	border-bottom: 1px solid #e6e6e6
@@ -838,12 +839,8 @@ input, select, button {
 													<select name="btype1" id="tm" class="form-control"
 														placeholder="유저조행기" style="border-radius: 7px;">
 														<option value="0">유저조행기</option>
-<!-- 														<option value="1">동반출조</option> -->
-<!-- 														<option value="2">중고장터</option> -->
-<!-- 														<option value="3">물반동영상</option> -->
 														<option value="1" id="c1">유용한정보</option>
 														<option value="2" id="c2">낚시지식인</option>
-<!-- 														<option value="6">물반갤러리</option> -->
 														<option value="3" id="c3">자유게시판</option>
 													</select>
 												</div>
@@ -863,16 +860,30 @@ input, select, button {
 												</div>
 											</div>
 										</div>
-<!-- 										여기 별점, 가맹점 추가 -->
 										
-										<div class="col-md-6">
+									<!-- 	가맹점 불러오는곳 -->
+									<div class="col-md-6" style="float: left;">
+											<div class="form-group">
+												<div class="select-wrap one-third">
+													<div class="icon" id="dwnarrow">
+														<span class="ion-ios-arrow-down"></span>
+													</div>
+													<select id="hname" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;" >
+														<option value="0"> </option>   <%-- C:Foreach    ${ } 사용해서 hname 가져오기 --%>
+													</select>
+											</div>
+										</div>
+										
+										<!-- <div class="col-md-6">
 											<div class="form-group" style="float: left;">
 												<input type="text" class="form-control" id="hname" name="hname"
 													placeholder="가맹점 이름">
 											</div>
-										</div>
+										</div> -->
 										
-										<div class="star-rating">
+									<!-- 별점 평점  -->	
+										<div class="col-md-6 star-rating" style="float: left;">
+											<a>별점 평점:  </a>
 											<label class="form-check-label" for="exampleCheck1">
 												<p class="rate">
 													<span><i class="icon-star"></i><i class="icon-star"></i><i
@@ -881,19 +892,19 @@ input, select, button {
 												</p>
 											</label>
 										</div>
-										
 										<!-- 별점, 가맹점 끝 -->
+										
 										<!-- 이미지 업로드 -->
 										<div class="col-md-6">
 											<div class="form-group" style="float: left;">
-											<input type="file" name="bimage">
+											<input type="file" value="이미지" name="bimage">
 										</div>
 										
+										<!-- 제목 -->
 										<div class="col-md-6">
 											<div class="form-group" style="width: 870px;">
 												<input type="text" class="form-control" id="btitle" name="btitle"
-													placeholder="제목을 입력해 주세요(30자 이하)" required>
-												<input type="hidden" name="bwriter" value= "${sessionScope.mid}">	
+													placeholder="제목을 입력해 주세요(30자 이하)" required>	
 											</div>
 										</div>
 										&nbsp;<br>
@@ -904,9 +915,10 @@ input, select, button {
 
 											</div>
 										</div>
+										<!-- 취소, 올리기, 목록 버튼 -->
 										<div>
 											<div class="form-group"
-												style="margin-top: 50px; margin-left: 270px;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
+												style="margin-top: 50px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
 												<input type="reset" value="취소" id="cancelBtn"
 													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="submit" value="올리기" id="uploadBtn"

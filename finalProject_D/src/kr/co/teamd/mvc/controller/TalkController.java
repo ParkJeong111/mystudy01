@@ -1,5 +1,6 @@
 package kr.co.teamd.mvc.controller;
 
+import java.io.File;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -77,7 +78,11 @@ public class TalkController {
 		}
 		
 		// 이미지 업로드
-
+		String path = session.getServletContext().getRealPath("/resources/image/");
+		StringBuffer paths1 = new StringBuffer();
+		paths1.append(path);
+		paths1.append(bdto.getBimage());     //.getOriginalFilename()
+		File bimage = new File(paths1.toString());
 		/*
 		 * if() {
 		 * 
