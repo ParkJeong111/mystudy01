@@ -103,6 +103,16 @@
    }
  
     </style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs
+	/jquery/3.4.1/jquery.js"></script>
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
@@ -159,49 +169,57 @@
         </ul>
       </div>
     </div>
-     <script>
+
+  </nav>
+       <script>
   	$(function() {
   		var hname = 0;
 		$("#mainsearchlist").click(function() {
 			hname = $("#hname").val();
 			location.href = 'mainsearchlist?hname='+encodeURI($('#hname').val(),"EUC-KR");
 		});
-		console.log("아직 자동완성은 미완성입니다.");
-		$('#hname').autocomplete({
-			source: function(request, response) {
-					//$('#ranklist').hide();
-					console.log("ajax진입 전");
-					$.ajax({
-						dataType: "json",
-						url : "autosearchlist",
-						data : {hname : request.term},
-						success : function(data){
-							response(
-							$.map(data, function(item) {
-		                        	return {
-		                                label: item.data,
-		                                value: item.data
-		                            }
-		                    })
-							);
-							
-							console.log(data);
-						}
-					});
-				},
-				minLength : 1,
-				focus: function(event, ui){ return false;},
-				select: function(event, ui){
+
+
+	});
+	console.log("아직 자동완성은 미완성입니다.");
+	$(document).ready(function(){
+		$(function() {
+			$('#hname').autocomplete({
+				source: function(request, response) {
+						//$('#ranklist').hide();
+						console.log("ajax진입 전");
+						$.ajax({
+							dataType: "json",
+							url : "autosearchlist",
+							data : {hname : request.term},
+							success : function(data){
+								response(
+								$.map(data, function(item) {
+			                        	return {
+			                                label: item.data,
+			                                value: item.data
+			                            }
+			                    })
+								);
+								
+								console.log(data);
+							}
+						});
+					},
+					minLength : 1,
+					focus: function(event, ui){ return false;},
+					select: function(event, ui){
+						
+						location.href = 'mainsearchlist?hname='+encodeURI(ui.item.value,"EUC-KR");
+					}
 					
-					location.href = 'mainsearchlist?hname='+encodeURI(ui.item.value,"EUC-KR");
-				}
-				
-				
+					
+			});
 		});
-	})
+
+		
+	});
   </script>
-  </nav>
-  
   <script>
   		$(function(){
   			// 내글쓰기 페이지로 이동

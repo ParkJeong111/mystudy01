@@ -55,7 +55,6 @@ public class itemslistController {
 	//검색 후 업체 리스트
 	@GetMapping(value = "mainsearchlist")
 	public ModelAndView mainsearchlist(String hname) {
-		System.out.println("에이치네임 나오니?"+hname);
 		ModelAndView mav = new ModelAndView();
 		List<HostlistDTO> mainsearchlist = mainsearch.mainsearchlist(hname);
 		mav.addObject("mainsearchlist", mainsearchlist);
