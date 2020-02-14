@@ -16,6 +16,7 @@ import kr.co.teamd.mvc.dao.BoardDaoImple;
 import kr.co.teamd.mvc.dao.BoardDaoInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
+import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
 @Controller
 public class TalkController {
@@ -36,6 +37,14 @@ public class TalkController {
 	public ModelAndView talkDetail(int bnum) {
 		ModelAndView mav = new ModelAndView("talk/talk_detail");
 		BoardListAjaxDTO dto = bdao.boardInfo(bnum);
+		mav.addObject("dto", dto);
+		return mav;
+	}
+	
+	@RequestMapping(value= "talk_detail2")  //글 상세보기
+	public ModelAndView talkDetail2(int ibnum) {
+		ModelAndView mav = new ModelAndView("talk/talk_detail2");
+		ItemsboardDTO dto = bdao.itemsboardinfo(ibnum);
 		mav.addObject("dto", dto);
 		return mav;
 	}
