@@ -1471,7 +1471,7 @@ li {
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
-						$("#hostlistdiv").html("")
+						$("#hostlistdiv").html("");
 						$.each(data, function(key, value) {
 							var star = "";
 							for(i = 0; i < 5; i++) {

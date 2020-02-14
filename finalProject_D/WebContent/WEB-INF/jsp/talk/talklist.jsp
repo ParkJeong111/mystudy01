@@ -1435,7 +1435,7 @@ section {
 }
 
 .boardlisthead > a{
-	 font-family: Jua;
+	 font-family: sans-serif;
 	 font-size: 25px;
 	 }
 	 
@@ -1483,6 +1483,7 @@ section {
 					</ul>
 					
 				</section>
+
 			</div>
 			
 		</div>

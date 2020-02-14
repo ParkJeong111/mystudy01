@@ -339,18 +339,10 @@ input, select, button {
 }
 
 .inq_area .inq_select select {
-	outline: none;
-	width: 100%;
-	font-size: 18px;
-	color: #606060;
-	height: 58px;
 	border: none;
-	border-radius: 0.3rem;
-	padding: 0 20px;;
-	position: relative;
-	z-index: 1;
-	background: none;
-	padding: 0 10px;
+    height: 60px;
+    width: 100%;
+    font-size: 18px;
 }
 
 .inq_area .inq_select ins {
@@ -867,23 +859,18 @@ input, select, button {
 
 							<div class="inq_check clearfix">
 								<div class="inq_select">
-									<em> <select name="sono_cate_contact">
-											<option value="1">연락처</option>
-											<option value="2">이메일</option>
-									</select> <ins>
-											<img
-												src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/select_arrow_01.png"
-												alt="">
-										</ins>
+									<em> <select name="qphone" id="qphone" >
+									<option value="연락처" >연락처</option>
+									</select>
 									</em>
 								</div>
 								<div class="inq_input">
 									<input type="tel" name="qphone" id="qphone" 
 										placeholder="답변 받을 연락처를 입력해주세요." maxlength="13"
 										data-phone-mask="">
-									<!-- <input type="email" placeholder="답변 받을 이메일주소를 입력해주세요." style="display:none"> -->
 								</div>
 							</div>
+							
 
 					
 							<div class="service_btn submit_btn">
@@ -935,113 +922,7 @@ input, select, button {
 		$(document)
 				.ready(
 						function() {
-							// 휴대폰,이메일 셀렉트 박스 변경시
-							$(document)
-									.on(
-											'keyup',
-											'[data-phone-mask]',
-											function() {
-												$(this).val(
-														autoHypenPhone($(this)
-																.val()));
-											})
-									.on(
-											'change',
-											'#form select[name=sono_cate_contact]',
-											function() {
-												var value = $(this).val(), html = "";
-												if (value === '1') {
-													html += "<input type=\"tel\" name=\"sono_phone\" placeholder=\"답변 받을 연락처를 입력해주세요.\" maxlength=\"13\" data-phone-mask>";
-												} else if (value === '2') {
-													html += "<input type=\"email\" name=\"sono_email\" placeholder=\"답변 받을 이메일을 입력해주세요.\" maxlength=\"100\">";
-												}
-
-												$(".inq_input").children(
-														'input').remove();
-												$(".inq_input").append(html);
-											});
-
-							// 입력 유형 별 폼 설정
-							$('#form select[name=sono_cate]').change(
-									function() {
-										$('#company_info').hide();
-										if ($(this).val() === '6') {
-											$('#company_info').show();
-										}
-									});
-
-							function formatRepo(repo) {
-								if (repo.loading)
-									return repo.text;
-								var markup = "<div class='select2-result-repository company_info clearfix'>"
-										+ "<div class='c_title_img'><img src='" + repo.c_title_img + "' /></div>"
-										+
-										//"<div class='c_title_img'><img src='/favicon/logo_1024.png' /></div>" +
-										"<div class='info_area'>"
-										+ "<div class='cc_type'>"
-										+ repo.cc_type
-										+ "</div>"
-										+ "<div class='cc_name'>"
-										+ repo.cc_name
-										+ "</div>"
-										+ "<div class='c_name'>"
-										+ repo.c_name
-										+ "</div>"
-										+ "<div class='c_view_addr'>"
-										+ repo.c_view_addr
-										+ "</div>"
-										+ "</div>" + "</div>";
-								return markup;
-							}
-
-							function formatRepoSelection(repo) {
-								var markup = repo.text;
-								if (repo.cc_name) {
-									/*
-									markup = repo.cc_name + ' ' + repo.c_name + repo.c_view_addr;
-
-									markup = "<span class='company_info result'>" +
-									    "<span class='cc_name'>" + repo.cc_name + "</span>" +
-									    "<span class='c_name'>" + repo.c_name + "</span>" +
-									    "<span class='c_view_addr'><small>" + repo.c_view_addr + "</small></span>" +
-									"</span>";
-									 */
-									markup = repo.cc_name + ' - ' + repo.c_name;
-								}
-								return markup;
-							}
-
-							$(".company_search").select2({
-								language : 'ko',
-								ajax : {
-									url : "/service/company_search_form",
-									dataType : 'json',
-									delay : 250,
-									data : function(params) {
-										return {
-											srch_text : params.term, // search term
-											page : params.page
-										};
-									},
-									processResults : function(data, params) {
-										return {
-											results : data.list,
-											pagination : {
-												more : data.end
-											}
-										};
-									},
-									cache : true
-								},
-								escapeMarkup : function(markup) {
-									return markup;
-								}, // let our custom formatter work
-								minimumInputLength : 1,
-								templateResult : formatRepo, // omitted for brevity, see the source of this page
-								templateSelection : formatRepoSelection
-							// omitted for brevity, see the source of this page
-							});
-
+							
 							//비동기 처리
 							$('#form').ajaxForm(
 									{
