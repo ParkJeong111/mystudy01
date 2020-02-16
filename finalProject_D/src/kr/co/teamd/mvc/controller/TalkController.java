@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.teamd.mvc.dao.BoardDaoInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
+import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
 @Controller
 public class TalkController {
@@ -34,6 +35,15 @@ public class TalkController {
 	public ModelAndView talkDetail(int bnum) {
 		ModelAndView mav = new ModelAndView("talk/talk_detail");
 		BoardListAjaxDTO dto = bdao.boardInfo(bnum);
+		System.out.println("여기인가요?" +dto.getBtype2());
+		mav.addObject("dto", dto);
+		return mav;
+	}
+	
+	@RequestMapping(value= "itemstalk_detail")  //글 상세보기
+	public ModelAndView talkDetail2(int ibnum) {
+		ModelAndView mav = new ModelAndView("talk/itemstalk_detail");
+		ItemsboardDTO dto = bdao.itemsboardinfo(ibnum);
 		mav.addObject("dto", dto);
 		return mav;
 	}

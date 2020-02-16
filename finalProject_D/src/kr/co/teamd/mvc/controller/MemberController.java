@@ -40,8 +40,7 @@ public class MemberController {
 	
 	@RequestMapping("kakao")
 	public ModelAndView kakao(String mid, HttpSession session, HttpServletRequest reqeust) {
-		
-		System.out.println("카카오 mid 들어왔나요? :" + mid);
+	
 		ModelAndView mav = new ModelAndView();
 		session.setAttribute("mid", mid);
 		mav.setViewName("redirect:index");
@@ -202,9 +201,11 @@ public class MemberController {
 		session.removeAttribute("uname");
 		session.removeAttribute("mid");
 		ModelAndView mav = new ModelAndView();
+		System.out.println("로그아웃");
 		mav.setViewName("redirect:index");
 		return mav;
 	}
+
 	
 		//박정연 영역 끝
 

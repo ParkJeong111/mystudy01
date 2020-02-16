@@ -1,299 +1,33 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html lang="ko">
+<head>
 <style>
-li {
-	list-style: none;
-}
-
-img {
-	vertical-align: middle;
-	max-width: 100%;
-}
-
-.header_area {
-	background: #fff;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 990
-}
-
-.search_header_area {
-	position: fixed;
-	background: #fff;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 990
-}
-
-.mypage_header_area .header_title h1 a.home_btn {
-	display: none
-}
-
-.mypage_header_area .header_title .h_tit a.home_btn {
-	display: none
-}
-
-header {
-	border-bottom: 1px solid #e6e6e6;
-	background: #fff;
-}
-
-header a.header_logo {
-	float: left;
-	padding: 15.5px 0;
-	width: 124px
-}
-
-header a.header_logo2 {
-	display: none
-}
-
-header .header_menu {
-	float: right;
-}
-
-header .header_menu a {
-	float: left;
-	margin-left: 25px;
-	display: block
-}
-
-header .header_menu a.menu_search_btn {
-	padding: 18px 0;
-	margin-left: 0;
-	width: 20px
-}
-
-header .header_menu .search_header_box {
-	float: left;
-	border: 1px solid #e84418;
-	border-radius: 0.3rem;
-	padding: 6px 8px;
-	width: 230px;
-	margin: 12px 0;
-	font-size: 0
-}
-
-header .header_menu .search_header_box input {
-	border: none;
-	font-size: 13px;
-	letter-spacing: -0.7px;
-	vertical-align: top;
-	width: calc(100% - 20px);
-	outline: none
-}
-
-header .header_menu .search_header_box a {
-	float: right;
-	margin-left: 0;
-}
-
-header .header_menu .search_header_box img {
-	width: 19px
-}
-
-header .header_menu a.menu_txt {
-	padding: 19px 0 22px
-}
-
-header .header_menu a.menu_btn {
-	padding: 16px 0 20px 0;
-	width: 25px
-}
-
-header .location_setting {
-	font-size: 14px;
-	color: #848484;
-	letter-spacing: -0.6px;
-	float: left;
-	padding: 21px 30px 21px 0;
-	background:
-		url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/location_setting_ico_01.png')
-		top 17px right no-repeat;
-	background-size: 23px auto;
-	margin-left: 10px
-}
-
-.header_title {
-	border-bottom: 1px solid #e6e6e6;
-	background: #fff;
-}
-
-.header_title h1 {
-	font-size: 22px;
-	color: #333333;
-	font-weight: 500;
-	text-align: center;
-	padding: 10px 0;
-	margin: 0 auto
-}
-
-.header_title h1 .coupon_btn {
-	font-size: 15px;
-	border: 1px solid #333333;
-	border-radius: 3em;
-	padding: 4px 8px;
-	position: absolute;
-	top: 14px;
-	right: 0
-}
-
-.header_title .h_tit {
-	font-size: 35px;
-	color: #333333;
-	font-weight: bold;
-	text-align: center;
-	padding: 10px 0;
-	margin: 0 auto
-}
-
-.header_title .h_tit .coupon_btn {
-	font-size: 15px;
-	border: 1px solid #333333;
-	border-radius: 3em;
-	padding: 4px 8px;
-	position: absolute;
-	top: 14px;
-	right: 0
-}
-
-.header_title .filter_drop {
-	display: none;
-}
-
-.header_title .title_reserve_line {
-	display: none
-}
-
-.header_detail {
-	position: fixed;
-	top: 58px;
-	background: #fbfbfb;
-	z-index: 1;
-	width: 100%;
-	padding: 10px 0;
-	display: none
-}
-
-.header_detail.on {
-	display: block;
-}
-
-.header_detail h1.wrap_title {
-	display: none
-}
-
-.header_detail .wrap_title {
-	display: none
-}
-
-.header_detail .detail_title p {
-	font-size: 16px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	width: calc(100% - 120px);
-	font-weight: normal;
-	position: relative;
-}
-
-.header_detail .detail_title p.wide {
-	width: 100%
-}
-
-.header_detail .detail_title p.wide.jgo {
-	width: calc(100% - 130px)
-}
-
-.header_detail .detail_title a {
-	border: 1px solid #c0c0c0;
-	width: 56px;
-	height: 25px;
-	line-height: 23px;
-	text-align: center;
-	display: block;
-	float: right;
-	border-radius: 3rem;
-	font-size: 13px;
-	color: #aaaaaa;
-	letter-spacing: -0.5px;
-	font-weight: normal;
-	position: absolute;
-	top: 0;
-	right: 0
-}
-
-.header_detail .detail_title a.btn_talk_edit {
-	right: 60px;
-	position: absolute
-}
-
-.header_detail .detail_title a.btn_talk_del {
-	right: 0;
-	position: absolute
-}
-
-.header_detail .detail_title a.btn_talk_scrap {
-	width: 80px
-}
-
-.header_detail .header_menu a.menu_btn {
-	display: none
-}
-
-.header_title.title_none {
-	display: none
-}
-
-section {
-	width: 964px;
-	position: relative;
-	margin: 0 auto;
-}
-
-.block-20 {
-	width: 680px;
-}
-
-.clearfix {
-	margin-top : 10px;
-	display: block;
-	content: '';
-	clear: both
-}
-
-.clearfix:after {
-	display: block;
-	content: '';
-	clear: both
-}
-
 .talk_header {
 	border-bottom: 1px solid #e6e6e6;
 }
 
 .talk_header .talk_tab li {
 	float: left;
-	width: 19.1111%;
+	width: 11.1111%;
 	position: relative;
 	top: 1px;
 }
 
 .talk_header .talk_tab li a {
 	display: block;
-	font-size: 19px;
+	font-size: 16px;
+	color: #606060;
 	letter-spacing: -0.6px;
 	text-align: center;
 	height: 44px;
 	line-height: 42px;
-	color: black;
 }
 
-.talk_header .talk_tab li i {
+.talk_header .talk_tab li a i {
 	padding: 0 5px 0 4px;
 	height: 19px;
 	line-height: 17px;
@@ -309,9 +43,9 @@ section {
 	top: -2px;
 }
 
-.selected a{
-	border-bottom: 3px solid #F85959;
-	border-top: 3px solid #F85959;
+.talk_header .talk_tab li.active a {
+	color: #e84418;
+	border-bottom: 1px solid #e84418
 }
 
 .talk_header .talk_cate_tab {
@@ -394,7 +128,13 @@ section {
 	width: 25%
 }
 
+li {
+	list-style: none;
+}
+
+}
 .talk_area.container {
+	padding-top: 202px !important;
 	position: relative;
 	padding-bottom: 135px;
 }
@@ -437,7 +177,6 @@ section {
 	float: left;
 	position: relative;
 	padding-top: 45px;
-	margin-left: 180px;;
 }
 
 .talk_area .contents_list .talk_notice {
@@ -538,6 +277,7 @@ section {
 	background: #fff;
 	border: 1px solid #e6e6e6;
 	border-radius: 0.3rem;
+	margin-top: 15px;
 }
 
 .talk_area .talk_list .talk_box_area .profile_line {
@@ -645,11 +385,6 @@ section {
 	{
 	content: 'M';
 	background: linear-gradient(to bottom, #616161, #171717);
-}
-
-.talk_area .talk_list .talk_box_area .profile_line .profile_img p.lv98:before
-	{
-	background: linear-gradient(to bottom, #ffd848, #ff3600);
 }
 
 .talk_area .talk_list .talk_box_area .profile_line .profile_name {
@@ -772,10 +507,6 @@ section {
 	letter-spacing: -0.6px;
 	line-height: 1.3;
 	margin-top: 10px
-}
-
-.talk_area .talk_list .talk_box_area .talk_text p.more:after {
-	color: #c0c0c0;
 }
 
 .talk_area .talk_list .talk_box_area .talk_visual {
@@ -929,25 +660,11 @@ section {
 	color: #606060;
 	letter-spacing: -0.6px;
 	text-align: center;
-	width: 100%;
+	width: 33.3333%;
 	display: block;
 	float: left;
 	padding: 10px 0 15px 30px;
 }
-
-.talk_area .talk_list .talk_box_area .talk_btn .talk_money_btn {
-	
-	font-size: 18px;
-	color: #000000;
-	letter-spacing: -0.6px;
-	text-align: center;
-	width: 50%;
-	display: block;
-	float: left;
-	padding: 10px 0 15px 30px;
-    font-weight: 500;
-}
-
 
 .talk_area .talk_list .talk_box_area .talk_btn .talk_like_btn:before {
 	width: 27px;
@@ -1383,14 +1100,6 @@ section {
 	padding: 8px 0
 }
 
-.talk_area .talk_list .talk_box_area .talk_btn .talk_pay.deal:before {
-	font-size: 12px;
-	color: #606060;
-	display: block;
-	margin-bottom: 3px;
-	font-weight: normal;
-}
-
 .talk_area .talk_list .talk_box_area .talk_pic .sold {
 	background: #cccccc;
 	color: #fff
@@ -1420,288 +1129,381 @@ section {
 	opacity: .5
 }
 
-.talk_area .talk_list .talk_box_area.jgo_sold .talk_visual:after {
-	font-size: 22px;
-	color: #fff;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	z-index: 99;
-	background: rgba(0, 0, 0, 0.3);
-	height: 50px;
-	line-height: 48px;
-	text-align: center
+.talk_area .contents_pic {
+	float: right;
+	width: 324px;
+	padding-top: 45px;
 }
-
-.boardlisthead > a{
-	 font-family: sans-serif;
-	 font-size: 25px;
-	 }
-	 
-
 </style>
+<title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/animate.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/jquery.timepicker.css">
 
 
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/style.css">
+<!-- 경계선 -->
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
+	rel="stylesheet">
 
-<div class="hero-wrap js-fullheight"
-	style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_4.jpg');">
-	<div class="overlay"></div>
-	<div class="container" style="margin-top: -40%;"></div>
-</div>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/animate.css">
 
-<div class="wrap_area">
-	<div class="header_area" style="padding-top: 20px;">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/jquery.timepicker.css">
 
 
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/boot/css/style.css">
+</head>
+<body>
 
 
-<div class="header_area">
+	<!-- END nav -->
 
-	<div class="scrolling scroll_up">
-		
-
-		<div class="talk_header" style="display:">
-			<div class="talk_tab_area">
-				<section>
-			
-					<ul class="talk_tab clearfix" style="margin-top: 1%;">
-
-						<li class="on boardlisthead selected"><a data-talk_key="1" data-tc_key="0"
-							data-u_type="1" href='javasript:void(0);' onclick="boardAjax(1)" >유저조행기</a></li>
-
-						<li class="on boardlisthead"><a data-talk_key="11" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(2)">중고장터</a></li>
-
-						<li class="on boardlisthead"><a data-talk_key="2" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(3)">유용한정보</a></li>
-						<li class="on boardlisthead"><a data-talk_key="3" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(4)">낚시지식인</a></li>
-
-						<li class="on boardlisthead"><a data-talk_key="5" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(5)">자유게시판</a></li>
-					</ul>
-					
-				</section>
-
-			</div>
-			
-		</div>
+	<div class="hero-wrap js-fullheight"
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_3.jpg');">
+		<div class="overlay"></div>
+		<div class="container" style="margin-top: -40%;"></div>
 	</div>
+	<!--  여기에 헤더부분 추가  -->
+	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
 
-</div>
+				검색 결과
+	</p>
+	<hr>
+	<div class="talk_header">
 
-<div class="talk_area container bg_mp"
-	style="width: 1120px; height: 18677px;">
-
-	<section>
-		<div class="contents_list">
-
-			<div class="talk_list">
-
-				<div id="talk_detail_list" data-start_key="0" data-offset="0"
-					data-limit="30" data-last_offset="" data-is_work="">
-					<!-- 	<for문 사용하기> -->
-					<c:forEach var="e" items="${list}">
-						<div class="talk_box_area" id="talk_visual135516">
-							<div class="profile_line">
-								<div class="profile_img">
-									<p class="lv98">
-										<img
-											src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg"
-											class="profile" alt="">
-
-									</p>
-								</div>
-								<div class="profile_name">
-									<strong>${e.mid}</strong>
-									<p>
-										<a href="/" class="header_logo "> <img
-											src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg"
-											alt="">${e.haddr}
-										</a>
-									</p>
-								</div>
-								<div class="profile_date">
-									<p>${e.bdate}</p>
-								</div>
-							</div>
-							<!-- profile_line -->
-
-
-							<div class="talk_view_btn"
-								OnClick="location.href ='talk_detail?bnum=${e.bnum}'"
-								style="cursor: pointer;">
-
-								<p class="talk_pic">
-									<span class="manage">${e.btype2}</span>
-								</p>
-								<div class="talk_text">
-									<strong>${e.btitle}</strong>
-									<p class="more">${e.bcontent}</p>
-								</div>
-								<div class="img_box"
-									style="width: 608px;">
-								
-										<img
-											src="${pageContext.request.contextPath}/resources/images/${e.bimage}"
-											alt="">
-									
-								</div>
-
-
-
-
-							</div>
-
-							<div class="talk_count_btn">
-								<div class="talk_count clearfix">
-							
-									<div class="comm_mark_line">
-										<p class="comm_line">
-											댓글 <span>0</span>
-										</p>
-					
+		<section class="ftco-section ftco-degree-bg"
+			style="padding-top: 10px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 sidebar ftco-animate">
+						<div class="sidebar-wrap bg-light ftco-animate">
+							<h3 class="heading mb-4"
+								style="text-align: center; font-weight: bold;">상세 검색</h3>
+							<form action="searchlist" method="post">
+								<div class="fields">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="검색 할 컨텐츠" name="searchValue" id="searchValue">
+									</div>
+									<div class="form-group">
+										<div class="select-wrap one-third">
+											<div class="icon">
+												<span class="ion-ios-arrow-down"></span>
+											</div>
+											<select name="" id="" class="form-control">
+												<option value="">거리를 설정해주세요</option>
+												<option value="">100km</option>
+												<option value="">200km</option>
+												<option value="">300km</option>
+												<option value="">500km</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="range-slider">
+											<span> <input type="number" value="1000" min="0" name="minprice" id="minprice"
+												max="120000" />원 - <input type="number" value="50000" name="maxprice" id="maxprice"
+												min="0" max="120000" />원
+											</span> <input value="1000" min="0" max="120000" step="500"
+												type="range" /> <input value="50000" min="0" max="120000"
+												step="500" type="range" />
+										</div>
+									</div>
+									<div class="form-group">
+										<input type="button" value="검색" id="searchbtn"
+											class="btn btn-primary py-3 px-5">
 									</div>
 								</div>
-								<div class="talk_btn clearfix">
-									
-
-									<a class="talk_comm_btn" href="talk_detail?bnum=${e.bnum}#comment_box">댓글쓰기</a> 
-
-								</div>
-							</div>
+							</form>
 						</div>
-					</c:forEach>
-					<!--// talk_box_area -->
-
-
-
-
-
-
+						
+						
+						<div class="sidebar-wrap bg-light ftco-animate">
+							<h3 class="heading mb-4"
+								style="text-align: center; font-weight: bold;">리뷰 별점</h3>
+							<form method="post" class="star-rating">
+								<div class="form-check">
+									<input type="radio" class="form-check-input" name="star" value="0"> <label class="form-check-label"
+										for="exampleCheck1">
+										<p class="rate">
+											<span>&nbsp;상관없음</span>
+										</p>
+									</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" name="star" value="5"> <label class="form-check-label"
+										for="exampleCheck1">
+										<p class="rate">
+											<span><i class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star"></i></span>
+										</p>
+									</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" name="star"  value="4"> <label class="form-check-label"
+										for="exampleCheck1">
+										<p class="rate">
+											<span><i class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star-o"></i></span>
+										</p>
+									</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" name="star"  value="3"> <label class="form-check-label"
+										for="exampleCheck1">
+										<p class="rate">
+											<span><i class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star"></i><i class="icon-star-o"></i><i
+												class="icon-star-o"></i></span>
+										</p>
+									</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" name="star"  value="2"> <label class="form-check-label"
+										for="exampleCheck1">
+										<p class="rate">
+											<span><i class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star-o"></i><i class="icon-star-o"></i><i
+												class="icon-star-o"></i></span>
+										</p>
+									</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" name="star"  value="1"> <label class="form-check-label"
+										for="exampleCheck1">
+										<p class="rate">
+											<span><i class="icon-star"></i><i class="icon-star-o"></i><i
+												class="icon-star-o"></i><i class="icon-star-o"></i><i
+												class="icon-star-o"></i></span>
+										</p>
+									</label>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-9">
+						<div class="row" id="mainsearchlist">
+							<c:forEach items="${mainsearchlist }" var="mainsearchlist">
+								<div class="col-md-4 ftco-animate">
+									<div class="destination">
+										<a href="itemdetail?hnum=${mainsearchlist.hnum}"
+											class="img img-2 d-flex justify-content-center align-items-center"
+											style="background-image: url(${pageContext.request.contextPath}/resources/images/${mainsearchlist.himage });">
+											<div
+												class="icon d-flex justify-content-center align-items-center">
+												<span class="icon-search2"></span>
+											</div>
+										</a>
+										<div class="text p-3">
+											<div class="d-flex">
+												<div class="one">
+													<h3>
+														<a href="itemdetail?hnum=${mainsearchlist.hnum}">${mainsearchlist.hname }</a>
+													</h3>
+													<p class="rate starrate">
+													<c:forEach begin="0" end="4" varStatus="i">
+														<c:choose>
+															<c:when test="${i.current < mainsearchlist.hstar}">
+																<i class="icon-star"></i>
+															</c:when>
+															<c:otherwise>
+																<i class="icon-star-o"></i>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>		
+													<span style="font-size: 15px;">${mainsearchlist.hstar}</span>
+													</p>
+												</div>
+												<div class="two">
+													<span class="price product-price">${mainsearchlist.hgmoney }</span>
+												</div>
+											</div>
+											<p>${mainsearchlist.hnotice }</p>
+											<p class="days"></p>
+											<hr>
+											<p class="bottom-area d-flex">
+												<span><i class="icon-map-o"></i>${mainsearchlist.haddr } </span> 
+												<%-- <span class="ml-auto"><a href="#">예약하기</a></span> --%>
+											</p>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+						<!--  <div class="row mt-5">
+		          <div class="col text-center">
+		            <div class="block-27">
+		              <ul>
+		                <li><a href="#">&lt;</a></li>
+		                <li class="active"><span>1</span></li>
+		                <li><a href="#">2</a></li>
+		                <li><a href="#">3</a></li>
+		                <li><a href="#">4</a></li>
+		                <li><a href="#">5</a></li>
+		                <li><a href="#">&gt;</a></li>
+		              </ul>
+		            </div>
+		          </div>
+		        </div>-->
+					</div>
+					<!-- .col-md-8 -->
 				</div>
 			</div>
+		</section>
+		<!-- .section -->
 		</div>
-		<!--// contents_list -->
+		<script>
+		$(function() {
+			
+			var star = 0;
+			
+			$.fn.priceBuilder = function(price) {
+				// 금액에 천단위 콤마 추가해주는 정규표현식
+				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
 
-		<!-- 조황 리스트 -->
-	
-	</section>
-
-</div>
-
-
-
-<!-- script -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-
-<!-- loader -->
-
-
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.easing.1.3.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.stellar.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(".on").each(function() {
-			$(this).click(function() {
-				$(this).addClass("selected"); //클릭된 부분을 상단에 정의된 CCS인 selected클래스로 적용
-				$(this).siblings().removeClass("selected"); //siblings:형제요소들,    removeClass:선택된 클래스의 특성을 없앰
+			$(".product-price").each(function(idx) {
+				// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+				var value = $(this).text();
+				$(this).text($.fn.priceBuilder(value));
 			});
+			
+			$("#searchbtn").click(function() {
+				star = $(':radio[name="star"]:checked').val();
+				$.ajax({
+					url : "searchlist?searchValue=" + encodeURI($('#searchValue').val(), "UTF-8") + "&minprice=" + $('#minprice').val() 
+							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
+					datatype : 'json',
+					success : function(data) {
+						$("#mainsearchlist").html("");
+						$.each(data, function(key, value) {
+							var star = "";
+							for(i = 0; i < 5; i++) {
+								if(i < value.hstar) {
+									star += '<i class="icon-star"></i>';				
+								} else {
+									star += '<i class="icon-star-o"></i>';
+								}
+							}
+							$("#mainsearchlist").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+									+ "<div class='destination'>"
+									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<div class="icon d-flex justify-content-center align-items-center">'
+									+ '<span class="icon-search2"></span></div></a>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+								    + '<p class="rate">' + star
+								    + '<span style="font-size: 15px;">'+ value.hstar + '</span></p></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span></div></div>'
+									+ '<p>' + value.hnotice + '</p><p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>' + value.haddr + ' </span></p></div></div></div>'
+									);
+						});
+						$(".product-price").each(function(idx) {
+							var value = $(this).text();
+							$(this).text($.fn.priceBuilder(value));
+						});
+					}
+				});
+			});
+			
+			
+			
 		});
+		</script>
 
-	});
 
-	function boardAjax(check) {
-		console.log(check)
-		
-		if(check==1){
-
-			$.ajax({
-				url : "talkAjax?check=" + check,
-				datatype : 'json',
-				success : function(data) {
-					
-						$("#talk_detail_list").html("")
-						$.each(data, function(key,value) {
-							
-							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong>"+value.mid+"</strong><p><a href='/' class='header_logo'> <img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' alt=''>"+value.haddr+"</a></p></div>"+
-										"<div class='profile_date'><p>"+value.bdate+"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.bnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>"+value.btype2+"</span></p>"+
-										"<div class='talk_text'><strong>"+value.btitle+"</strong><p class='more'>"+value.bcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.bimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
-										"<div class='talk_btn clearfix'><a class='talk_comm_btn' href='talk_detail?bnum="+value.bnum+"#comment_box'>댓글쓰기</a></div></div></div>")
-							});
-					}
-			});
-		}
-		
-		else if(check==2){
-			
-			$.ajax({
-				url : "itemsboardAjax?check=" + check,
-				datatype : 'json',
-				success : function(data) {
-					
-					console.log(data +"중고장터")
-					$("#talk_detail_list").html("")
-					$.each(data, function(key, value){
-							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong style='margin-top:-20px;'>"+value.mid+"</strong></div>"+
-										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='itemstalk_detail?ibnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
-										"<div class='talk_text'><strong>"+value.ibtitle+"</strong><p class='more'>"+value.ibcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.ibimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'></p><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
-										"<div class='talk_btn clearfix'><a class='talk_money_btn' href='#'>"+value.ibmoney+"원</a><a class='talk_comm_btn' style='width:50%;' href='talk_detail?ibnum="+value.ibnum+"#comment_box'>댓글쓰기</a></div></div></div>")
-					    });
-				}
-			});
-			
-		}else{
-
-			$.ajax({
-				url : "talkAjax?check=" + check,
-				datatype : 'json',
-				success : function(data) {
-					
-						$("#talk_detail_list").html("")
-						$.each(data, function(key,value) {
-							
-							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong style='margin-top:-20px;'>"+value.mid+"</strong></div>"+
-										"<div class='profile_date'><p>"+value.bdate+"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.bnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>"+value.btype1+"</span></p>"+
-										"<div class='talk_text'><strong>"+value.btitle+"</strong><p class='more'>"+value.bcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.bimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
-										"<div class='talk_btn clearfix'><a class='talk_comm_btn' href='talk_detail?bnum="+value.bnum+"#comment_box'>댓글쓰기</a></div></div></div>")
-							});
-					}
-			});
-		}
-	}
-</script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.easing.1.3.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.stellar.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/range.js"></script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 </body>
 </html>

@@ -16,6 +16,7 @@ public class ItemsboardDTO {
 	private int ibreport;
 	private MultipartFile ibfile;
 	
+	
 	public int getIbnum() {
 		return ibnum;
 	}
@@ -83,4 +84,12 @@ public class ItemsboardDTO {
 		this.ibfile = ibfile;
 	}
 	
+private String mphone;
+	
+	public String getMphone() {
+		return mphone;
+	}
+	public void setMphone(String mphone) {
+		this.mphone = mphone;
+	}
 }

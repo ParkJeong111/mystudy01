@@ -4,6 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="talk">
 
+  	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
+	<insert id="addboard" parameterType="bdto">
+		insert into board values(board_seq.nextVal,	#{btype1}, #{btype2},
+		#{hname}, #{btitle}, #{mid}, #{bcontent}, null, sysdate, 0)
+	</insert>
+	
+	
 	<!-- 김채은 영역 시작  -->
 	<select id="boardAlllist" resultType="bldto">		
 		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
@@ -12,6 +19,7 @@
 	
   	</select>
   	
+<<<<<<< HEAD
   	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
 	<insert id="addboard" parameterType="bdto">
 		insert into board values(board_seq.nextVal,	#{btype1}, #{btype2},
@@ -20,6 +28,8 @@
 	</insert>
 	
 	
+=======
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 	
 	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
@@ -52,13 +62,19 @@
   	<select id="itemsboard" parameterType="int" resultType="ibdto">
   		select ibnum,ibtitle,ibname,mid,ibcontent,ibmoney,ibimage,ibstatus,ibdate,ibreport from itemsboard order by ibdate desc
   	</select>
-  	
+  	<!-- 글 상세정보 -->
   	<select id="boardInfo" parameterType="int" resultType="bldto">	<!-- 게시글 상세정보 -->	
 		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
 		from board b, host h, member m
 		where b.hname=h.hname and b.mid=m.mid and b.bnum=#{bnum}
-	
   	</select>
+  	<select id="itemsboardinfo" parameterType="int" resultType="ibdto">
+  		select ib.ibnum,  ib.ibtitle, ib.ibname, m.mid, m.mphone, ib.ibcontent, ib.ibmoney, ib.ibimage, ib.ibstatus, to_char(ib.ibdate,'yyyy-mm-dd') ibdate, ib.ibreport
+		from itemsboard ib, member m
+		where ib.mid=m.mid and ibnum=#{ibnum}
+  		
+  	</select>
+  	
   	
 	<!-- 김채은 영역 끝  -->
 

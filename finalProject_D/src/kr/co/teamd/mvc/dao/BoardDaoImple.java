@@ -25,12 +25,6 @@ public class BoardDaoImple implements BoardDaoInter{
 	public List<BoardListAjaxDTO> boardAlllist() {
 		return ss.selectList("talk.boardAlllist");
 	}
-	
-	
-	@Override
-	public BoardListAjaxDTO boardInfo(int bnum) {
-		return ss.selectOne("talk.boardInfo", bnum);
-	}
 
 	
 	@Override
@@ -43,6 +37,20 @@ public class BoardDaoImple implements BoardDaoInter{
 	public List<ItemsboardDTO> itemsboardAjax(int check) {
 		return ss.selectList("talk.itemsboard", check);
 	}
+	
+	
+	
+	@Override
+	public BoardListAjaxDTO boardInfo(int bnum) {
+		return ss.selectOne("talk.boardInfo", bnum);
+	}
+
+	@Override
+	public ItemsboardDTO itemsboardinfo(int ibnum) {
+		
+		return ss.selectOne("talk.itemsboardinfo", ibnum);
+	}
+
 
 
 

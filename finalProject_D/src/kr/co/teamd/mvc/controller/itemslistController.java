@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.teamd.mvc.dao.MainImple;
 import kr.co.teamd.mvc.dao.hostinterdao;
 import kr.co.teamd.mvc.dto.HostDTO;
+import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 
@@ -19,6 +21,9 @@ public class itemslistController {
 
 	@Autowired
 	private hostinterdao hostdao;
+	
+	@Autowired
+	private MainImple mainsearch;
 	
 	// 업체 리스트
 	@RequestMapping(value= "itemslist")
@@ -44,6 +49,16 @@ public class itemslistController {
 		mav.addObject("hglist", hgdtoList);
 		mav.addObject("hspeciesList", hspeciesList);
 		mav.addObject("hserviceList", hserviceList);
+		return mav;
+	}
+	
+	//검색 후 업체 리스트
+	@GetMapping(value = "mainsearchlist")
+	public ModelAndView mainsearchlist(String hname) {
+		ModelAndView mav = new ModelAndView();
+		List<HostlistDTO> mainsearchlist = mainsearch.mainsearchlist(hname);
+		mav.addObject("mainsearchlist", mainsearchlist);
+		mav.setViewName("mainsearchlist");
 		return mav;
 	}
 }

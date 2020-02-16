@@ -870,6 +870,14 @@ input, select, button {
 										data-phone-mask="">
 								</div>
 							</div>
+							<div class="req_area">
+						<div class="req_list">
+						 <em> <strong class="pic">연락처</strong> 
+							<input type="hrphone" name="hrphone" placeholder="답변 받을 연락처를 입력해주세요."
+								maxlength="13" data-phone-mask="">
+							</em> 
+						</div>
+					</div>
 							
 
 					

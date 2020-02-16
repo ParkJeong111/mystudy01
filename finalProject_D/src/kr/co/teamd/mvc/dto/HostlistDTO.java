@@ -1,7 +1,7 @@
 package kr.co.teamd.mvc.dto;
 
 public class HostlistDTO {
-	private String himage, hname, hnotice, haddr, hnum;
+	private String himage, hname, hnotice, haddr, hnum, type, hservice, howner,hspecies;
 	private int hstar, hgmoney;
 
 	public String getHnum() {
@@ -10,6 +10,38 @@ public class HostlistDTO {
 
 	public void setHnum(String hnum) {
 		this.hnum = hnum;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getHservice() {
+		return hservice;
+	}
+
+	public void setHservice(String hservice) {
+		this.hservice = hservice;
+	}
+
+	public String getHowner() {
+		return howner;
+	}
+
+	public void setHowner(String howner) {
+		this.howner = howner;
+	}
+
+	public String getHspecies() {
+		return hspecies;
+	}
+
+	public void setHspecies(String hspecies) {
+		this.hspecies = hspecies;
 	}
 
 	public String getHimage() {
