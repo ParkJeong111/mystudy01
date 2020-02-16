@@ -2,11 +2,22 @@ package kr.co.teamd.mvc.dto;
 
 public class HostSearchDTO {
 	private String searchValue;
+	private String hname;
+
+
 	private int minprice, maxprice;
 	private String star;
 	private int starnum;
 	private int type;
+	
+	
+	public String getHname() {
+		return hname;
+	}
 
+	public void setHname(String hname) {
+		this.hname = hname;
+	}
 	public String getSearchValue() {
 		return searchValue;
 	}

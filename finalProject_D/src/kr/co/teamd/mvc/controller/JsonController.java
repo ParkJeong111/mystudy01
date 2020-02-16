@@ -1,11 +1,16 @@
 package kr.co.teamd.mvc.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardDaoInter;
+import kr.co.teamd.mvc.dao.MainImple;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dao.hostinterdao;
 import kr.co.teamd.mvc.dao.AdminHostDaoInter;
@@ -43,6 +49,9 @@ public class JsonController {
 
 	@Autowired
 	private hostinterdao hostdao;
+	
+	@Autowired
+	private MainImple autodao;
 
 	@RequestMapping("talkAjax")
 	public List<BoardListAjaxDTO> boardAjax(@RequestParam("check") int check) {
@@ -89,5 +98,28 @@ public class JsonController {
 		}
 		List<HostlistDTO> hostlist = hostdao.hostSearch(hsdto);
 		return hostlist;
+	}
+	@RequestMapping("autosearchlist")
+	public void autosearchlist(HttpServletRequest request, HttpServletResponse response, @RequestParam("hname") String hname) {
+		response.setHeader("Content-Type", "text/xml; charset=EUC-KR");
+		JSONArray autosearchlist = new JSONArray();
+		JSONObject object = null;
+		List<HostDTO> hlist = autodao.autosearchlist(hname);
+		for(HostDTO e : hlist) {
+			object = new JSONObject();
+			object.put("data", e.getHname());
+			autosearchlist.add(object);
+		}
+		PrintWriter pw;
+		try {
+			pw = response.getWriter();
+			pw.print(autosearchlist);
+			pw.flush();
+			pw.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+
 	}
 }
