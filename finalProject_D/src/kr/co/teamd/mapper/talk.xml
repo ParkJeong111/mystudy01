@@ -58,9 +58,10 @@
 		where b.hname=h.hname and b.mid=m.mid and b.bnum=#{bnum}
   	</select>
   	<select id="itemsboardinfo" parameterType="int" resultType="ibdto">
-  		select ibnum, ibtitle,ibname, mid, ibcontent, ibmoney, ibimage, ibstatus,to_char(ibdate,'yyyy-mm-dd') ibdate, ibreport
-		from itemsboard
-        where ibnum=#{ibnum}
+  		select ib.ibnum,  ib.ibtitle, ib.ibname, m.mid, m.mphone, ib.ibcontent, ib.ibmoney, ib.ibimage, ib.ibstatus, to_char(ib.ibdate,'yyyy-mm-dd') ibdate, ib.ibreport
+		from itemsboard ib, member m
+		where ib.mid=m.mid and ibnum=#{ibnum}
+  		
   	</select>
   	
   	

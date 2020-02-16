@@ -38,13 +38,14 @@ public class TalkController {
 	public ModelAndView talkDetail(int bnum) {
 		ModelAndView mav = new ModelAndView("talk/talk_detail");
 		BoardListAjaxDTO dto = bdao.boardInfo(bnum);
+		System.out.println("여기인가요?" +dto.getBtype2());
 		mav.addObject("dto", dto);
 		return mav;
 	}
 	
-	@RequestMapping(value= "talk_detail2")  //글 상세보기
+	@RequestMapping(value= "itemstalk_detail")  //글 상세보기
 	public ModelAndView talkDetail2(int ibnum) {
-		ModelAndView mav = new ModelAndView("talk/talk_detail2");
+		ModelAndView mav = new ModelAndView("talk/itemstalk_detail");
 		ItemsboardDTO dto = bdao.itemsboardinfo(ibnum);
 		mav.addObject("dto", dto);
 		return mav;
