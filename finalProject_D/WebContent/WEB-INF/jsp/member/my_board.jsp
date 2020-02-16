@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 .service_area .service_tab {
 	border-bottom: 1px solid #e6e6e6
@@ -811,7 +812,7 @@ input, select, button {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto;" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; padding-left: 200px; margin-top: 50px;" >
 			<ol class="clearfix" style="text-align: center;">
 				<li class="active"><a href="my_board">게시글작성</a></li>
 				<li><a href="itemsboard">중고게시글작성</a></li>
@@ -821,6 +822,7 @@ input, select, button {
 		<section class="ftco-section ftco-degree-bg"
 			style="background: white;">
 			<div class="container">
+			<form method="post" action="my_board" enctype="multipart/form-data" >	
 				<div class="row">
 					<div class="col-lg-9">
 						<div class="row">
@@ -833,16 +835,13 @@ input, select, button {
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select name="t1" id="t1" class="form-control"
+													<input type="hidden" name="mid" value="${sessionScope.mid }"/>
+													<select name="btype1" id="tm" class="form-control"
 														placeholder="유저조행기" style="border-radius: 7px;">
-														<option value="0" id="tt">유저조행기</option>
-<!-- 														<option value="1">동반출조</option> -->
-<!-- 														<option value="2">중고장터</option> -->
-<!-- 														<option value="3">물반동영상</option> -->
-														<option value="1">유용한정보</option>
-														<option value="2">낚시지식인</option>
-<!-- 														<option value="6">물반갤러리</option> -->
-														<option value="3">자유게시판</option>
+														<option value="0">유저조행기</option>
+														<option value="1" id="c1">유용한정보</option>
+														<option value="2" id="c2">낚시지식인</option>
+														<option value="3" id="c3">자유게시판</option>
 													</select>
 												</div>
 											</div>
@@ -850,27 +849,41 @@ input, select, button {
 										<div class="col-md-6" style="float: right;">
 											<div class="form-group">
 												<div class="select-wrap one-third">
-													<div class="icon">
+													<div class="icon" id="dwnarrow">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select name="t2" id="t2" class="form-control"
+													<select name="btype2" id="tm2" class="form-control"
 														placeholder="카테고리를선택해주세요" style="border-radius: 7px;">
-														<option value="0" id="oc">바다조행기</option>
-														<option value="1" id="rv">민물조행기</option>
+														<option value="0">바다조행기</option>
+														<option value="1">민물조행기</option>
 													</select>
 												</div>
 											</div>
 										</div>
-<!-- 										여기 별점, 가맹점 추가 -->
 										
-										<div class="col-md-6">
+									<!-- 	가맹점 불러오는곳 -->
+									<div class="col-md-6" style="float: left;">
+											<div class="form-group">
+												<div class="select-wrap one-third">
+													<div class="icon" id="dwnarrow">
+														<span class="ion-ios-arrow-down"></span>
+													</div>
+													<select id="hname" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;" >
+														<option value="0"> </option>   <%-- C:Foreach    ${ } 사용해서 hname 가져오기 --%>
+													</select>
+											</div>
+										</div>
+										
+										<!-- <div class="col-md-6">
 											<div class="form-group" style="float: left;">
 												<input type="text" class="form-control" id="hname" name="hname"
 													placeholder="가맹점 이름">
 											</div>
-										</div>
+										</div> -->
 										
-										<div class="star-rating">
+									<!-- 별점 평점  -->	
+										<div class="col-md-6 star-rating" style="float: left;">
+											<a>별점 평점:  </a>
 											<label class="form-check-label" for="exampleCheck1">
 												<p class="rate">
 													<span><i class="icon-star"></i><i class="icon-star"></i><i
@@ -879,31 +892,38 @@ input, select, button {
 												</p>
 											</label>
 										</div>
-										
 										<!-- 별점, 가맹점 끝 -->
+										
+										<!-- 이미지 업로드 -->
+										<div class="col-md-6">
+											<div class="form-group" style="float: left;">
+											<input type="file" value="이미지" name="bimage">
+										</div>
+										
+										<!-- 제목 -->
 										<div class="col-md-6">
 											<div class="form-group" style="width: 870px;">
 												<input type="text" class="form-control" id="btitle" name="btitle"
-													placeholder="제목을 입력해 주세요(30자 이하)" required>
-												<input type="hidden" name="bwriter" value= "${sessionScope.mid}">	
+													placeholder="제목을 입력해 주세요(30자 이하)" required>	
 											</div>
 										</div>
 										&nbsp;<br>
 										<div class="col-md-6">
 											<div class="form-group">
-												<textarea style="width: 870px; height: 500px; resize: none;" name="bcontent" id="bcontent"
-													placeholder="TextArea입니다.">
-											
-											</textarea>
+												<textarea style="width: 870px; height: 500px;" name="bcontent" id="bcontent"
+													placeholder="TextArea입니다."></textarea>
 
 											</div>
 										</div>
+										<!-- 취소, 올리기, 목록 버튼 -->
 										<div>
 											<div class="form-group"
-												style="margin-top: 520px; margin-left: 205px;">
+												style="margin-top: 50px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
 												<input type="reset" value="취소" id="cancelBtn"
 													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="submit" value="올리기" id="uploadBtn"
+													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+												<input type="button" onclick="jacvascript:goListBtn()" value="목록" 
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 											</div>
 										</div>
@@ -914,6 +934,7 @@ input, select, button {
 					</div>
 					<!-- .col-md-8 -->
 				</div>
+				</form>
 			</div>
 		</section>
 	</div>
@@ -955,20 +976,47 @@ input, select, button {
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
 <script>
+
+//목록으로 이동
+function goListBtn(){
+	location="talklist?check=1";
+}
+
 	<%-- 게시글 작성 type1 & type2 (재민)--%>
 	$(function() {
-		$('#t1').click(
-			function(){
-				//console.log("나오나??");       여기 손보기~~~~!!! -_-;;;    로직 다시 짜야할듯.
-				if($('#t1') != $('#tt').val('#0')){
-					$("#t2").prop("hidden", true);
-					console.log("사용불가??");
-				}else if($("#t1") === $('#tt').val('#0')){
-					$("t2").prop("visible", true);
-					console.log("나오나??");
+		
+		$('#tm').click(
+				function(){
+					//console.log("여기 출력??? " + $('#tm').val())
+					//console.log("나오나??");       여기 손보기~~~~!!! -_-;;;    로직 다시 짜야할듯.
+					if($('#tm').val() == 0){
+						console.log("여기 출력??? " + $('#tm').val())
+						$("#tm2").prop("hidden", false);
+						$("#dwnarrow").prop("hidden", false);
+						console.log("사용가능!");
+
+					}else if($("#tm").val() == 1){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						console.log("사용불가??");
+						$('#tm').prop("유용한정보");
+						console.log("찍히나??? " + $('#tm').val());
+						
+					}else if($("#tm").val() == 2){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						console.log("사용불가??");
+						$('#tm').prop("낚시지식인");
+						console.log("찍히나??? " + $('#tm').val());
+						
+					}else if($("#tm").val() == 3){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						console.log("사용불가??");
+						$('#tm').prop("자유게시판");
+						console.log("찍히나??? " + $('#tm').val());
 				}
-			}	
-		)
+			})
 	});
 </script>
 
