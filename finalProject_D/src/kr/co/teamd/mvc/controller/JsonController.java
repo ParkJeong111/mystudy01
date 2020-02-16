@@ -119,7 +119,12 @@ public class JsonController {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+	}
+	
 
+	@RequestMapping("hnamechk")
+	public int hnamechk(String hname) {
+		System.out.println("유리가 봐주는 : "+hname);
+		return hdao.hnamechk(hname);
 	}
 }

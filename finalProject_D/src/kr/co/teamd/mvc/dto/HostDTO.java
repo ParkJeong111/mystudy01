@@ -31,6 +31,11 @@ public class HostDTO {
 	}
 
 	private int count;
+	private int cnt; //가맹점 이름 중복체크
+	
+	
+
+
 
 	public int getCount() {
 		return count;
@@ -39,7 +44,13 @@ public class HostDTO {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	public int getCnt() {
+		return cnt;
+	}
 
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public int getHnum() {
 		return hnum;
 	}
