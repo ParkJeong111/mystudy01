@@ -801,6 +801,35 @@ li {
 input, select, button {
 	vertical-align: middle
 }
+
+/* <!-- 스타일 별점 추가 (재민) --> */
+a {
+	text-decoration: none;
+	color: gray;
+}
+/*별점*/
+.star{
+  display:inline-block;
+  width: 15px; height: 30px;
+  cursor: pointer;
+}
+.star_left{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+  background-size: 30px; 
+  margin-right: -2px;
+}
+.star_right{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -15px 0; 
+  background-size: 30px; 
+  margin-left: -2px;
+}
+.star.on, .star_print.on{
+  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+}
+.star_print{
+	display:inline-block;
+  	width: 15px; height: 30px;
+}
 </style>
 
 <div class="hero-wrap js-fullheight"
@@ -829,13 +858,15 @@ input, select, button {
 							<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
 								<div class="fields">
 									<div class="row" style="width: 900px;">
-										<div class="col-md-6" style="float: left;">
+										<div class="col-md-6" style="float: left; align-content: center;">
 											<div class="form-group">
 												<div class="select-wrap one-third">
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
+													<%-- 아이디 세션 체크 --%>
 													<input type="hidden" name="mid" value="${sessionScope.mid }"/>
+													
 													<select name="btype1" id="tm" class="form-control"
 														placeholder="유저조행기" style="border-radius: 7px;">
 														<option value="0">유저조행기</option>
@@ -845,6 +876,7 @@ input, select, button {
 													</select>
 												</div>
 											</div>
+											
 										</div>
 										<div class="col-md-6" style="float: right;">
 											<div class="form-group">
@@ -869,11 +901,17 @@ input, select, button {
 														<span class="ion-ios-arrow-down"></span>
 													</div>
 													<select id="hname" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;" >
-														<option value="0"> </option>   <%-- C:Foreach    ${ } 사용해서 hname 가져오기 --%>
+														<option value="0">해적호</option>   <%-- C:Foreach    ${ } 사용해서 hname 가져오기 --%>
+														<option value="1">해적왕실내낚시카페(광명점)</option>
+														<option value="2">광명호</option>
+														<option value="3">대한낚시터</option>
+														<option value="4">화이팅낚시카페</option>
+														<option value="5">하나낚시</option>
+<%-- 													<c:forEach step="${bdto.hname }"></c:forEach> --%>
 													</select>
 											</div>
 										</div>
-										
+									</div>
 										<!-- <div class="col-md-6">
 											<div class="form-group" style="float: left;">
 												<input type="text" class="form-control" id="hname" name="hname"
@@ -882,31 +920,99 @@ input, select, button {
 										</div> -->
 										
 									<!-- 별점 평점  -->	
-										<div class="col-md-6 star-rating" style="float: left;">
-											<a>별점 평점:  </a>
+										<div class="col-md-6 star-rating" style="float: left;" id="tm3">
+											<!-- <a>별점 평점:  </a>
 											<label class="form-check-label" for="exampleCheck1">
-												<p class="rate">
+												<p class="rate" id="star_grade">
 													<span><i class="icon-star"></i><i class="icon-star"></i><i
 														class="icon-star"></i><i class="icon-star"></i><i
 														class="icon-star"></i></span>
+														<a href="#1" class="a.off">★</a>
+														<a href="#2" class="a.off">★</a> 
+														<a href="#3" class="a.off">★</a> 
+														<a href="#4" class="a.off">★</a> 
+														<a href="#5" class="a.off">★</a>
 												</p>
-											</label>
+												<input type="hidden" name="cstar" id="cstar">
+											</label> -->
+														<a>별점</a> <br>  <!-- 등록하는거 -->
+														<div class="star-box" id="star-box">
+															<a class="star star_left" href="#1"></a> 
+															<a class="star star_right" href="#2"></a> 
+															<a class="star star_left" href="#3"></a> 
+															<a class="star star_right" href="#4"></a> 
+															<a class="star star_left" href="#5"></a> 
+															<a class="star star_right" href="#6"></a> 
+															<a class="star star_left" href="#7"></a> 
+															<a class="star star_right" href="#8"></a> 
+															<a class="star star_left" href="#9"></a> 
+															<a class="star star_right" href="#0"></a>
+															<input type="hidden" value="" name="bstar" id="bstr">
+														</div>
 										</div>
+										<!-- 별점 값을 등록하는거 -->
+													<script>
+															var bstar = "<c:out value="${e.bstar}"/>";
+															var bnum = "<c:out value="${e.bnum}"/>";
+															var j = 0;
+															for (var i = 0.5; i <= rgrade; i += 0.5) {
+																$('#star-box'+bnum+' span').eq(j).addClass("on");
+																j++;
+															}
+														
+															$("#star-box a").on('click', function() {
+																var idx = $(this).index();
+																
+																$(".star").removeClass("on");
+																
+																for (var i = 0; i <= idx; i++) {
+																	$(".star").eq(i).addClass("on");
+																}
+																
+																if ($(this).attr("href") === "#1") {
+																	bstar = 0.5 * 1;
+																} else if ($(this).attr("href") === "#2") {
+																	bstar = 1 * 1;
+																} else if ($(this).attr("href") === "#3") {
+																	bstar = 1.5 * 1;
+																} else if ($(this).attr("href") === "#4") {
+																	bstar = 2 * 1;
+																} else if ($(this).attr("href") === "#5") {
+																	bstar = 2.5 * 1;
+																} else if ($(this).attr("href") === "#6") {
+																	bstar = 3 * 1;
+																} else if ($(this).attr("href") === "#7") {
+																	bstar = 3.5 * 1;
+																} else if ($(this).attr("href") === "#8") {
+																	bstar = 4 * 1;
+																} else if ($(this).attr("href") === "#9") {
+																	bstar = 4.5 * 1;
+																} else if ($(this).attr("href") === "#0") {
+																	bstar = 5 * 1;
+																} else {
+
+																}
+																$("#bstr").attr("value", bstar)
+															});
+													</script>
 										<!-- 별점, 가맹점 끝 -->
 										
 										<!-- 이미지 업로드 -->
-										<div class="col-md-6">
-											<div class="form-group" style="float: left;">
-											<input type="file" value="이미지" name="bimage">
-										</div>
+										
+										<div class="col-md-6" style="float: left;">
+											<div class="form-group">
+											<input type="file" value="이미지" name="bfile">
+											</div>
+										</div>	
 										
 										<!-- 제목 -->
 										<div class="col-md-6">
-											<div class="form-group" style="width: 870px;">
+											<div class="form-group">
 												<input type="text" class="form-control" id="btitle" name="btitle"
 													placeholder="제목을 입력해 주세요(30자 이하)" required>	
 											</div>
 										</div>
+										
 										&nbsp;<br>
 										<div class="col-md-6">
 											<div class="form-group">
@@ -914,6 +1020,7 @@ input, select, button {
 													placeholder="TextArea입니다."></textarea>
 
 											</div>
+										</div>
 										</div>
 										<!-- 취소, 올리기, 목록 버튼 -->
 										<div>
@@ -927,8 +1034,8 @@ input, select, button {
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 											</div>
 										</div>
-									</div>
 								</div>
+								<!-- fields ends here -->
 							</div>
 						</div>
 					</div>
@@ -994,6 +1101,7 @@ function goListBtn(){
 						$("#tm2").prop("hidden", false);
 						$("#dwnarrow").prop("hidden", false);
 						console.log("사용가능!");
+						$("#tm3").prop("hidden", false);
 
 					}else if($("#tm").val() == 1){
 						$("#tm2").prop("hidden", true);
@@ -1001,6 +1109,7 @@ function goListBtn(){
 						console.log("사용불가??");
 						$('#tm').prop("유용한정보");
 						console.log("찍히나??? " + $('#tm').val());
+						$("#tm3").prop("hidden", true);
 						
 					}else if($("#tm").val() == 2){
 						$("#tm2").prop("hidden", true);
@@ -1008,6 +1117,7 @@ function goListBtn(){
 						console.log("사용불가??");
 						$('#tm').prop("낚시지식인");
 						console.log("찍히나??? " + $('#tm').val());
+						$("#tm3").prop("hidden", true);
 						
 					}else if($("#tm").val() == 3){
 						$("#tm2").prop("hidden", true);
@@ -1015,7 +1125,9 @@ function goListBtn(){
 						console.log("사용불가??");
 						$('#tm').prop("자유게시판");
 						console.log("찍히나??? " + $('#tm').val());
-				}
+						$("#tm3").prop("hidden", true);
+						
+					} 
 			})
 	});
 </script>

@@ -15,7 +15,8 @@
   	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
 	<insert id="addboard" parameterType="bdto">
 		insert into board values(board_seq.nextVal,	#{btype1}, #{btype2},
-		#{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, #{bstar})
+		#{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, 0)    
+		<!-- 맨마지막 #{bstar} -->
 	</insert>
 	
 	
