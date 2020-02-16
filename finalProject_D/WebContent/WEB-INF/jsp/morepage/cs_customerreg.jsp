@@ -850,7 +850,7 @@ input, select, button {
 
 						<div class="req_list">
 						<em> <strong class="pic">구분</strong> 
-							<select id="hrtype" name="">
+							<select id="hrtype" name="hrtype">
 								<option value="바다">바다</option>
 								<option value="민물">민물</option>
 						</select>
@@ -863,7 +863,7 @@ input, select, button {
 						<em> <strong  class="pic">대표자명</strong>
 							 <input type="text" id="hrceo" name="hrceo" placeholder="대표님 성함을 입력해주세요.">
 							</em> <em> <strong class="pic">연락처</strong> 
-							<input type="hrphone" name="hrphone" placeholder="연락처를 입력해주세요."
+							<input type="text" id="hrphone" name="hrphone" placeholder="연락처를 입력해주세요."
 								maxlength="13" data-phone-mask="">
 							</em> <em> <strong class="pic">주소</strong> 
 							<input type="text" id="hraddr" name="hraddr" placeholder="주소를 정확하게 입력해주세요.">
