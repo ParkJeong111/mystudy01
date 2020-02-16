@@ -912,12 +912,6 @@ a {
 											</div>
 										</div>
 									</div>
-										<!-- <div class="col-md-6">
-											<div class="form-group" style="float: left;">
-												<input type="text" class="form-control" id="hname" name="hname"
-													placeholder="가맹점 이름">
-											</div>
-										</div> -->
 										
 									<!-- 별점 평점  -->	
 										<div class="col-md-6 star-rating" style="float: left;" id="tm3">
@@ -941,7 +935,7 @@ a {
 															var bstar = "<c:out value="${e.bstar}"/>";
 															var bnum = "<c:out value="${e.bnum}"/>";
 															var j = 0;
-															for (var i = 0.5; i <= rgrade; i += 0.5) {
+															for (var i = 0.5; i <= bstar; i += 0.5) {
 																$('#star-box'+bnum+' span').eq(j).addClass("on");
 																j++;
 															}

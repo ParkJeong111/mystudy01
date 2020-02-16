@@ -1439,7 +1439,29 @@ section {
 	 font-size: 25px;
 	 }
 	 
-
+/*º°Á¡*/
+.star{
+  display:inline-block;
+  width: 15px; height: 30px;
+  cursor: pointer;
+}
+.star_left{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+  background-size: 30px; 
+  margin-right: -2px;
+}
+.star_right{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -15px 0; 
+  background-size: 30px; 
+  margin-left: -2px;
+}
+.star.on, .star_print.on{
+  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+}
+.star_print{
+	display:inline-block;
+  	width: 15px; height: 30px;
+}
 </style>
 
 

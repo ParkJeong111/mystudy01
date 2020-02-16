@@ -3,13 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="talk">
-
-  	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
-	<insert id="addboard" parameterType="bdto">
-		insert into board values(board_seq.nextVal,	#{btype1}, #{btype2},
-		#{hname}, #{btitle}, #{mid}, #{bcontent}, null, sysdate, 0)
-	</insert>
-	
 	
 	<!-- 김채은 영역 시작  -->
 	<select id="boardAlllist" resultType="bldto">		
@@ -23,7 +16,8 @@
   	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
 	<insert id="addboard" parameterType="bdto">
 		insert into board values(board_seq.nextVal,	#{btype1}, #{btype2},
-		#{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, #{bstar})    
+		#{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, 0)
+		<!--  #{bstar} 마지막 추가 -->    
 	</insert>
 	
 
