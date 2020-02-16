@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="header.jsp"%>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- Poppins -->
 <style>
 li {
 	list-style: none;
@@ -309,9 +310,13 @@ section {
 	top: -2px;
 }
 
-.selected a{
-	border-bottom: 3px solid #F85959;
-	border-top: 3px solid #F85959;
+.selected{
+	/* border-bottom: 3px solid #F85959;
+	border-top: 3px solid #F85959; */
+	font-family:Poppins ;
+	border-bottom: 1px solid #f85959;
+	color: #f85959
+
 }
 
 .talk_header .talk_cate_tab {
@@ -1439,7 +1444,29 @@ section {
 	 font-size: 25px;
 	 }
 	 
-
+/*º°Á¡*/
+.star{
+  display:inline-block;
+  width: 15px; height: 30px;
+  cursor: pointer;
+}
+.star_left{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+  background-size: 30px; 
+  margin-right: -2px;
+}
+.star_right{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -15px 0; 
+  background-size: 30px; 
+  margin-left: -2px;
+}
+.star.on, .star_print.on{
+  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+}
+.star_print{
+	display:inline-block;
+  	width: 15px; height: 30px;
+}
 </style>
 
 

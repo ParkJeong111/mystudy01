@@ -100,6 +100,7 @@ public class JsonController {
 		return hostlist;
 	}
 	@RequestMapping("autosearchlist")
+
 	public void autosearchlist(HttpServletRequest request, HttpServletResponse response, @RequestParam("hname") String hname) {
 		response.setHeader("Content-Type", "text/xml; charset=EUC-KR");
 		JSONArray autosearchlist = new JSONArray();
@@ -121,6 +122,12 @@ public class JsonController {
 		}
 	}
 	
+
+	public List<HostDTO> autosearchlist(@RequestParam("hname") String hname) {
+		List<HostDTO> autosearchlist = autodao.autosearchlist(hname);
+
+		return autosearchlist;
+	}
 
 	@RequestMapping("hnamechk")
 	public int hnamechk(String hname) {

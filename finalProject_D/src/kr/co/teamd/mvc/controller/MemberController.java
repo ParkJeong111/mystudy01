@@ -47,6 +47,7 @@ public class MemberController {
 		return mav;
 	}
 
+//  ------------------------------재민 영역 시작---------------------------------------
 	@RequestMapping(value= "addmember")  //회원가입 폼      
 	public String addmember() {    
 		return "member/addmember"; 
@@ -102,6 +103,7 @@ public class MemberController {
 		String mid = (String) session.getAttribute("mid");
 		if (mid ==null) {
 			mav.setViewName("member/login");
+			session.setAttribute("vn", "redirect:my_reservation");
 		}else {
 			HashMap<Object, Object> map = new HashMap<Object, Object>();
 			map.put("mid", mid);
@@ -131,10 +133,11 @@ public class MemberController {
 		return "redirect:my_myinfo";
 	}
 
-	@RequestMapping(value= "my_passwordcheck") //비밀번호 체크페이지로 이동
+	@RequestMapping(value= "my_passwordcheck") //나의 정보 확인전 비밀번호 체크페이지로 이동
 	public String myPasswordCheck(HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
 		if (mid ==null) {
+			session.setAttribute("vn", "redirect:my_myinfo");
 			return "member/login";
 		}else {
 		return "member/my_passwordcheck";
@@ -179,9 +182,15 @@ public class MemberController {
 			session.setAttribute("nickname", m.getMnickname());
 			session.setAttribute("m", m);
 			String mid = (String) session.getAttribute("mid");
-			mav.setViewName("redirect:index");
-			return mav;
-		
+					if(session.getAttribute("vn")==null) {
+						mav.setViewName("redirect:index");
+										
+					}else {
+						mav.setViewName((String) session.getAttribute("vn"));
+						session.setAttribute("vn",null);
+					}
+						return mav;
+				
 		} else {
 			PrintWriter out;
 			try {

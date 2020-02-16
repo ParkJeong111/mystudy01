@@ -19,8 +19,6 @@ text-align: center;
       <div class="container" >
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate" data-scrollax=" properties: { translateY: '70%' }" >
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="margin-top:350px; font-family: Gugi;"><strong>어부지리 <br></strong> 고기자바</h1>
-            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find great places to fishing</p>
             <div class="block-17 my-4">
             </div> 
           </div>
