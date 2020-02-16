@@ -858,15 +858,15 @@ input, select, button {
 						</em>
 							<em> <strong class="pic">업체명</strong> 
 							<input type="text" id="hrname" name="hrname" placeholder="업체명을 입력해주세요."
-							class="valid">
+							class="valid" required="required">
 						</em> 
 						<em> <strong  class="pic">대표자명</strong>
-							 <input type="text" id="hrceo" name="hrceo" placeholder="대표님 성함을 입력해주세요.">
+							 <input type="text" id="hrceo" name="hrceo" placeholder="대표님 성함을 입력해주세요." required="required">
 							</em> <em> <strong class="pic">연락처</strong> 
-							<input type="text" id="hrphone" name="hrphone" placeholder="연락처를 입력해주세요."
+							<input type="text" id="hrphone" name="hrphone" placeholder="연락처를 입력해주세요." required="required"
 								maxlength="13" data-phone-mask="">
 							</em> <em> <strong class="pic">주소</strong> 
-							<input type="text" id="hraddr" name="hraddr" placeholder="주소를 정확하게 입력해주세요.">
+							<input type="text" id="hraddr" name="hraddr" placeholder="주소를 정확하게 입력해주세요." required="required">
 							</em>   
 						</div>
 
@@ -895,7 +895,6 @@ input, select, button {
 	<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
@@ -903,7 +902,21 @@ input, select, button {
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 	<script>
 	function submita() {
+		if($('#hrname').val().length==0){
+			alert("가맹점명을 입력해 주세요");
+			$('#hrname').focus();
+		}else if($('#hrceo').val().length==0){
+			alert("대표자명을 입력해 주세요");
+			$('#hrceo').focus();
+		}else if($('#hrphone').val().length==0){
+			alert("연락처를 입력해 주세요");
+			$('#hrphone').focus();
+		}else if($('#hraddr').val().length==0){
+			alert("주소를 입력해 주세요");
+			$('#hraddr').focus();
+		}else{
 		$('#form').submit();
+		}
 	};
 		
 	$(document).ready(function() {

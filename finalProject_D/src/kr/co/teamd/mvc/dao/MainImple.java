@@ -35,17 +35,23 @@ public class MainImple implements MainInter {
 	}
 
 	@Override
-	public void hostReg(HostregDTO hrdto) {
+	public void hostReg(HostregDTO hrdto) { //가맹점 등록 요청
 		ss.insert("morepage.hostreg",hrdto);
 		
 	}
 
 	@Override
-	public void qnaInsert(QnaDTO qdto) {
+	public void qnaInsert(QnaDTO qdto) { //qna 등록 
 		ss.insert("morepage.qnainsert", qdto);
 		
 	}
 
+	@Override
+	public List<QnaDTO> qnaList(String mid) { //qna 내역
+		return ss.selectList("morepage.qnalist", mid);
+	}
+
+	
 	@Override
 	public List<HostlistDTO> mainsearchlist(String hname) {
 		return ss.selectList("main.mainsearchlist", hname);
@@ -56,6 +62,7 @@ public class MainImple implements MainInter {
 		return ss.selectList("main.autosearchlist",hname);
 	}
 
+	
 	
 
 }

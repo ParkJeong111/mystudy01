@@ -16,17 +16,22 @@
 
 
 	<!-- 박정연 영역 시작 -->
-	<insert id="hostreg" parameterType="hrdto">
+	<insert id="hostreg" parameterType="hrdto">  <!-- host 요청 -->
 		insert into hostreg
 		values(hostreg_seq.nextVal,
 		#{hrtype},#{hrname},#{hrceo},#{hrphone},#{hraddr},'대기')
 	</insert>
 
-	<insert id="qnainsert" parameterType="qdto">
+	<insert id="qnainsert" parameterType="qdto"> <!-- qna 등록 -->
 		insert into qna
 		values(qna_seq.nextVal, #{mid}, #{qcategory},#{qcontent}
 		,#{qphone},sysdate,null,null,null)
 	</insert>
+	
+	<select id="qnalist" parameterType="String" resultType="qdto"> <!-- qna 내역 -->
+	select mid, qcategory, qcontent, qdate, qanswer, qadate from qna where mid=#{mid} order by qdate desc
+	</select>
+	
 	<!-- 박정연 영역 끝 -->
 
 
