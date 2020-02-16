@@ -15,6 +15,15 @@ public class BoardDTO {
 	private String bdate;
 	private int breport;
 	private MultipartFile bfile;
+	private double bstar;
+
+	public double getBstar() {
+		return bstar;
+	}
+
+	public void setBstar(double bstar) {
+		this.bstar = bstar;
+	}
 
 	private HostDTO hostdto; // resultMap사용으로 HostDTO 추가
 

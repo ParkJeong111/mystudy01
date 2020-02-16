@@ -2,6 +2,8 @@ package kr.co.teamd.mvc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,10 +11,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamd.mvc.dao.MainInter;
 import kr.co.teamd.mvc.dto.HostregDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
+import kr.co.teamd.mvc.dto.ReservationDTO;
 @Controller
 public class MorePageController {
 
@@ -62,10 +66,7 @@ public class MorePageController {
 	public String faq() {
 		return "morepage/cs_faq";
 	}
-	@RequestMapping(value= "cs_mtmqna")  //1:1문의
-	public String qna() {
-		return "morepage/cs_mtmqna";
-	}
+	
 	
 	//김채은 영역 시작
 	
@@ -111,8 +112,27 @@ public class MorePageController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			session.setAttribute("mid", mid);
 			return "morepage/cs_mtmqna";
 		}
+		
+		
+		@RequestMapping(value= "cs_mtmqna")  //1:1문의
+		public ModelAndView qna(HttpSession session) {
+			ModelAndView mav = new ModelAndView();
+			String mid = (String) session.getAttribute("mid");
+			if (mid ==null) {
+				mav.setViewName("member/login");
+			}else {
+				mav.setViewName("morepage/cs_mtmqna");	
+				List<QnaDTO> qlist = mdao.qnaList(mid);
+				mav.addObject("qlist", qlist);
+			}
+			return mav;
+		}
+		
+		
+		
 		
 		//박정연 영역 끝
 
