@@ -107,8 +107,8 @@
 #autosearchlist {
 	cursor: pointer;
 	float: left;
-	width: 50px;
-	height: 380px;
+	width: 292.67px;
+	height: auto;
 }
 .autosearchlist:hover {
 	color: red;
@@ -132,12 +132,11 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
       <input id="hname" type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%" value="" name="hname">
-      <input id="mainsearchlist" type="button" class="search-submit btn btn-primary" value="Search">
-      <div id="location">
-      	<div style="background-color: white; border-radius: 4px;" id="autosearchlist" class="divBox shadow">
+<!--       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
-      	</div>
-      </div>
+      	</div> -->
+      <input id="mainsearchlist" type="button" class="search-submit btn btn-primary" value="Search">
+
       
       <ul class="navbar-nav ml-auto" >
           <li class="nav-item"><a href="itemslist?type=1" class="nav-link">바다</a></li>
@@ -180,9 +179,15 @@
           </li>
         </ul>
       </div>
+      
     </div>
+ 
 
   </nav>
+       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+      		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
+      	</div> 
+
        <script>
      //메인검색창에서 검색 후 이동
   	$(function() {
@@ -197,20 +202,27 @@
 		//검색어 자동완성 및 자동완성된 검색어 클릭 시 이동
 		$('#hname').on("propertychange change keyup paste input",function(){
 			searchhname = $(this).val();
-			$('#autosearchlist').text("");
-			$.ajax({
-				url:"autosearchlist?hname="+encodeURI($('#hname').val(),"UTF-8"),
-				dataType : 'json',
-				cache:false,
-				success:function(data){
-					
-					for(var i in data){
-						$('#autosearchlist').append('<p class="autosearchlist"><a href="mainsearchlist?hname='+encodeURI(data[i].hname,"UTF-8")+'"'+'>'+data[i].hname+"</a></p>");
+			console.log($(this).val());
+			if($(this).val() === ""){
+				$('#autosearchlist').hide();
+			}else{
+				$('#autosearchlist').show();
+				$('#autosearchlist').empty();
+				$.ajax({
+					url:"autosearchlist?hname="+encodeURI($('#hname').val(),"UTF-8"),
+					dataType : 'json',
+					cache:false,
+					success:function(data){
+						var auto = "";
+						for(var i in data){
+							if(i < 5){
+							$('#autosearchlist').append('<p class="autosearchlist"><a href="mainsearchlist?hname='+encodeURI(data[i].hname,"UTF-8")+'"'+'>'+data[i].hname+"</a></p>");
+						}
 					}
-			}
+				}
 			});
 
-			
+			}
 		});
 
 		});

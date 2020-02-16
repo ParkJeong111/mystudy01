@@ -102,9 +102,7 @@ public class JsonController {
 	@RequestMapping("autosearchlist")
 	public List<HostDTO> autosearchlist(@RequestParam("hname") String hname) {
 		List<HostDTO> autosearchlist = autodao.autosearchlist(hname);
-		for(HostDTO e : autosearchlist) {
-			System.out.println(e.getHname());
-		}
+
 		return autosearchlist;
 
 	}
