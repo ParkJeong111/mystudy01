@@ -132,9 +132,9 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
       <input id="hname" type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%" value="" name="hname">
-      	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+<!--       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
-      	</div>
+      	</div> -->
       <input id="mainsearchlist" type="button" class="search-submit btn btn-primary" value="Search">
 
       
@@ -184,9 +184,9 @@
  
 
   </nav>
-<!--       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
-      	</div> -->
+      	</div> 
 
        <script>
      //메인검색창에서 검색 후 이동
