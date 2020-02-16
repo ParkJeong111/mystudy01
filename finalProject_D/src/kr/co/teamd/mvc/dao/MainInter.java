@@ -17,6 +17,7 @@ public interface MainInter {
 	public List<HostDTO> mainRec();//메인 추천가맹점
 	public void hostReg(HostregDTO hrdto); //가맹점 등록 요청
 	public void qnaInsert(QnaDTO qdto);// QNA 등록 요청
+	public List<QnaDTO> qnaList(String mid); //QNA 내역
 	public List<HostlistDTO> mainsearchlist(String hname);
 	public List<HostDTO> autosearchlist(String hname);
 }
