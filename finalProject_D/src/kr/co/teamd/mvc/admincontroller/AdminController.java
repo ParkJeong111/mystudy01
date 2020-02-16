@@ -95,7 +95,7 @@ public class AdminController {
 		hdto.setHimage(hdto.getHfile().getOriginalFilename());
 		System.out.println("첫번째 방문");
 		service.addhostUpdatehrstatus(hdto);
-		System.out.println("다섯번째 방문");
+		
 		//hdao.hostinsert(hdto);
 
 		return "redirect:admin_hostapply";
