@@ -213,7 +213,7 @@
 					dataType : 'json',
 					cache:false,
 					success:function(data){
-					
+						var auto = "";
 						for(var i in data){
 							if(i < 5){
 							$('#autosearchlist').append('<p class="autosearchlist"><a href="mainsearchlist?hname='+encodeURI(data[i].hname,"UTF-8")+'"'+'>'+data[i].hname+"</a></p>");
