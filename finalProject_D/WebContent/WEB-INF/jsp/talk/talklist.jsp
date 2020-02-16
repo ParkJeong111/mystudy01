@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="header.jsp"%>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- Poppins -->
 <style>
 li {
 	list-style: none;
@@ -309,9 +310,13 @@ section {
 	top: -2px;
 }
 
-.selected a{
-	border-bottom: 3px solid #F85959;
-	border-top: 3px solid #F85959;
+.selected{
+	/* border-bottom: 3px solid #F85959;
+	border-top: 3px solid #F85959; */
+	font-family:Poppins ;
+	border-bottom: 1px solid #f85959;
+	color: #f85959
+
 }
 
 .talk_header .talk_cate_tab {
