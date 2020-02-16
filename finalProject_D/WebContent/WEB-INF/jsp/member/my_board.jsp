@@ -901,7 +901,7 @@ a {
 														<span class="ion-ios-arrow-down"></span>
 													</div>
 													<select id="hname" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;" >
-														<option value="0">해적호</option>   <%-- C:Foreach    ${ } 사용해서 hname 가져오기 --%>
+														<option value="0">해적호</option>   <%-- C:Foreach    ${ } 사용해서 hname 가져오기 데이터에서 확인해서 가져오게끔...--%>
 														<option value="1">해적왕실내낚시카페(광명점)</option>
 														<option value="2">광명호</option>
 														<option value="3">대한낚시터</option>
@@ -921,20 +921,6 @@ a {
 										
 									<!-- 별점 평점  -->	
 										<div class="col-md-6 star-rating" style="float: left;" id="tm3">
-											<!-- <a>별점 평점:  </a>
-											<label class="form-check-label" for="exampleCheck1">
-												<p class="rate" id="star_grade">
-													<span><i class="icon-star"></i><i class="icon-star"></i><i
-														class="icon-star"></i><i class="icon-star"></i><i
-														class="icon-star"></i></span>
-														<a href="#1" class="a.off">★</a>
-														<a href="#2" class="a.off">★</a> 
-														<a href="#3" class="a.off">★</a> 
-														<a href="#4" class="a.off">★</a> 
-														<a href="#5" class="a.off">★</a>
-												</p>
-												<input type="hidden" name="cstar" id="cstar">
-											</label> -->
 														<a>별점</a> <br>  <!-- 등록하는거 -->
 														<div class="star-box" id="star-box">
 															<a class="star star_left" href="#1"></a> 
