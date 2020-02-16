@@ -20,7 +20,7 @@
 	</select>
 	
 	<select id="autosearchlist" parameterType="String" resultType="hdto">
-		select hname from host where hname like '%' || #{hname} || '%'
+		select distinct hname from host where hname like '%' || #{hname} || '%'
 	</select>
 	<!-- 권세진 영역 끝  -->
 	
