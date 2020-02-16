@@ -10,7 +10,7 @@
 
 
 	<!-- 권세진 영역 시작  -->
-	<!-- 헤더 검색 부분 -->
+	<!-- 헤더 검색 부분, 중복된 내용을 제거하고 모든 컬럼의 내용이 있는 대표 하나만 출력 -->
 		<select id="mainsearchlist" parameterType="String" resultType="hldto">
 		select h.hname hname, h.himage himage, h.hstar hstar,
 		h.hnotice hnotice, h.htype htype, h.hservice hservice, h.haddr haddr,
@@ -19,6 +19,7 @@
 		from hostgoods where hname like '%' || #{hname} || '%' group by hname) hg where h.hname=hg.hname
 	</select>
 	
+	<!-- 검새겅 자동완성을 위한 검색어에 따른 hname 출력을 위한 부분 -->
 	<select id="autosearchlist" parameterType="String" resultType="hdto">
 		select distinct hname from host where hname like '%' || #{hname} || '%'
 	</select>

@@ -184,6 +184,7 @@
 
   </nav>
        <script>
+     //메인검색창에서 검색 후 이동
   	$(function() {
   		var hname = 0;
 		$("#mainsearchlist").click(function() {
@@ -193,8 +194,7 @@
 		
 
 
-		
-		console.log("아직 자동완성은 미완성입니다.");
+		//검색어 자동완성 및 자동완성된 검색어 클릭 시 이동
 		$('#hname').on("propertychange change keyup paste input",function(){
 			searchhname = $(this).val();
 			$('#autosearchlist').text("");
@@ -203,7 +203,7 @@
 				dataType : 'json',
 				cache:false,
 				success:function(data){
-
+					
 					for(var i in data){
 						$('#autosearchlist').append('<p class="autosearchlist"><a href="mainsearchlist?hname='+encodeURI(data[i].hname,"UTF-8")+'"'+'>'+data[i].hname+"</a></p>");
 					}
@@ -212,13 +212,7 @@
 
 			
 		});
-/* 		$('.autosearchlist').each(function(){
-			$(this).click(function(){
-				hname = $('.autosearchlist').next().text();
-				console.log(hname);
-				location.href = 'mainsearchlist?hname='+encodeURI($(this).next().text(),"UTF-8");
-			});
-		}); */
+
 		});
 
   		$(function(){
