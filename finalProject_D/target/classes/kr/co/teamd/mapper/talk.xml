@@ -19,6 +19,14 @@
 	
   	</select>
   	
+
+  	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
+	<insert id="addboard" parameterType="bdto">
+		insert into board values(board_seq.nextVal,	#{btype1}, #{btype2},
+		#{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, #{bstar})    
+	</insert>
+	
+
 	
 	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
@@ -58,9 +66,10 @@
 		where b.hname=h.hname and b.mid=m.mid and b.bnum=#{bnum}
   	</select>
   	<select id="itemsboardinfo" parameterType="int" resultType="ibdto">
-  		select ibnum, ibtitle,ibname, mid, ibcontent, ibmoney, ibimage, ibstatus,to_char(ibdate,'yyyy-mm-dd') ibdate, ibreport
-		from itemsboard
-        where ibnum=#{ibnum}
+  		select ib.ibnum,  ib.ibtitle, ib.ibname, m.mid, m.mphone, ib.ibcontent, ib.ibmoney, ib.ibimage, ib.ibstatus, to_char(ib.ibdate,'yyyy-mm-dd') ibdate, ib.ibreport
+		from itemsboard ib, member m
+		where ib.mid=m.mid and ibnum=#{ibnum}
+  		
   	</select>
   	
   	

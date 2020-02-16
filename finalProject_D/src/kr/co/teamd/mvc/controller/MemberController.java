@@ -47,6 +47,7 @@ public class MemberController {
 		return mav;
 	}
 
+//  ------------------------------재민 영역 시작---------------------------------------
 	@RequestMapping(value= "addmember")  //회원가입 폼      
 	public String addmember() {    
 		return "member/addmember"; 
