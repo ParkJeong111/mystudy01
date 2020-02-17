@@ -55,9 +55,8 @@
 							<td>${e.htype}</td>
 							<td style="cursor: pointer;" class="hlistname">${e.hname}</td>
 							<td class="center" style="text-align: center;">${e.count}</td>
-							<td class="center">
-							
-								<c:forEach var="i" begin="1" end="5" step="1">
+							<td class="center"><c:forEach var="i" begin="1" end="5"
+									step="1">
 									<c:choose>
 										<c:when test="${i <= e.hstar }">
 											<a class="on" style="font-size: 18px">★</a>
@@ -66,9 +65,8 @@
 											<a class="off" style="font-size: 18px"></a>
 										</c:otherwise>
 									</c:choose>
-								</c:forEach>
-							</td>
-							
+								</c:forEach></td>
+
 							<td class="center"><a class="btn btn-success" href="#">
 									<i class="halflings-icon white zoom-in"></i>
 							</a> <a class="btn btn-info" href="#"> <i
@@ -76,16 +74,16 @@
 							</a> <a class="btn btn-danger" href="#"> <i
 									class="halflings-icon white trash"></i>
 							</a></td>
-							
-							
-						
+
+
+
 						</tr>
 					</c:forEach>
 
 				</tbody>
 			</table>
-	
-		
+
+
 		</div>
 	</div>
 	<!--/span-->
@@ -126,41 +124,45 @@
 					<div class="control-group">
 						<label class="control-label" for="focusedInput">가맹점 이름</label>
 						<div class="controls">
-							<input class="input-xlarge focused" id="hname" name="hname" type="text">
+							<input class="input-xlarge focused" id="hname" name="hname"
+								type="text">
 						</div>
 					</div>
 					<div class="control-group warning">
 						<label class="control-label" for="inputWarning">대표자명</label>
 						<div class="controls">
-							<input type="text" id="hceo">
+							<input type="text" id="hceo" name="hceo">
 
 						</div>
 					</div>
 					<div class="control-group error">
 						<label class="control-label" for="inputError">연락처</label>
 						<div class="controls">
-							<input type="text" id="hphone">
+							<input type="text" id="hphone" name="hphone">
 
 						</div>
 					</div>
 					<div class="control-group success">
 						<label class="control-label" for="inputSuccess">주소</label>
 						<div class="controls">
-							<input type="text" id="haddr">
+							<input type="text" id="haddr" name="haddr">
 							<!--  <span class="help-inline">Woohoo!</span> -->
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label">이미지등록</label>
 						<div class="controls">
-							<input multiple="multiple" type="file" id="himage">
+							<input multiple="multiple" type="file" id="himage" name="hfile"
+								 value="">
+							<span id="imagename"></span>
+							
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="selectError1">어종선택</label>
 						<div class="controls">
-							<select class="value" multiple data-rel="chosen"
-								id="hspecies" name="hspecies">
+							<select class="value" multiple data-rel="chosen" id="hspecies"
+								name="hspecies" required="required">
 								<option value="고등어">고등어</option>
 								<option value="참치">참치</option>
 								<option>방어</option>
@@ -193,24 +195,27 @@
 								name="hguide"></textarea>
 						</div>
 					</div>
+					
 					<div class="control-group error">
 						<label class="control-label" for="inputError">편의시설</label>
+						<div id="cover">
 						<div class="controls">
 							<select class="value" id="" multiple data-rel="chosen"
 								id="hservice" name="hservice">
 								<option value="화장실">화장실</option>
 								<option value="소화기">소화기</option>
-								<option >그늘막</option>
+								<option>그늘막</option>
 								<option>구명조끼</option>
 								<option>휴게실</option>
 							</select>
+						</div>
 						</div>
 					</div>
 
 
 					<div class="form-actions">
 						<button type="submit" class="btn btn-primary" id="hmodify">수정</button>
-						<button class="btn" id="hdelete">삭제</button>
+						<button type="button" class="btn" id="hdelete">삭제</button>
 					</div>
 				</fieldset>
 			</form>
@@ -267,61 +272,99 @@
 
 <script>
 	$(function() {
-		
-		
-		
-		$(".hlistname").click(function(){
-			$(".chzn-choices").html = ""		
-			var value = $(this).text();
-			
-			$.ajax({
-				url : "hostinfo?hname="+encodeURI($(this).text(),"UTF-8"),
-				datatype:'json',
-				success:function(data){
-				
-			
-					if(data !=null){
-						if (data.htype == '바다') {
-							$("#hostTypeSelect").find("option:eq(0)").prop(
-									"selected", true);
-						} else if (data.htype == '민물') {
-							$("#hostTypeSelect").find("option:eq(1)").prop(
-									"selected", true);
-						}
-						
-						
-						$('#hnum').attr("value", data.hnum);
-						$('#hname').attr("value", data.hname);
-						$('#hceo').attr("value",data.hceo);
-						$('#hphone').attr("value", data.hphone);
-						$('#haddr').attr("value",data.haddr);
-						
-						
-						$('#hnotice').attr("value",data.hnotice);
-						$('#howner').attr("value",data.howner);
-						$('#hguide').attr("value", data.hguide);
+<%-- 이 부분은 Ajax를 이용한 가맹점 상세정보 내역 //// -> 이후 수정,삭제를 위함 --%>
+	$('table > tbody > tr > td').click(
+				function() {
 					
-						
-					
-						
-					}				
-					
-			}	
+					$(".chzn-choices").html = ""
+					var value = $(this).text();
 
-		});
+					$.ajax({
+						url : "hostinfo?hname="
+								+ encodeURI($(this).text(), "UTF-8"),
+						datatype : 'json',
+						success : function(data) {
+
+							if (data != null) {
+								if (data.htype == '바다') {
+									$("#hostTypeSelect").find("option:eq(0)")
+											.prop("selected", true);
+								} else if (data.htype == '민물') {
+									$("#hostTypeSelect").find("option:eq(1)")
+											.prop("selected", true);
+								}
+
+								$('#hnum').attr("value", data.hnum);
+								$('#hname').attr("value", data.hname);
+								$('#hceo').attr("value", data.hceo);
+								$('#hphone').attr("value", data.hphone);
+								$('#haddr').attr("value", data.haddr);
+								$("#himage").val("")
+								$('#imagename').text(data.himage);
+								
+
+								$('#hnotice').attr("value", data.hnotice);
+								$('#howner').attr("value", data.howner);
+								$('#hguide').attr("value", data.hguide);
+								
+								var content='';
+								hspecies =  data.hspecies.split(',');
+							
+								for(var i in hspecies ){
+									content += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'+hspecies[i]+ '</span>'
+										+ '<a href="javascript:void(0)" class="search-choice-close" rel="0"></a></li>' 
+								}
+								
+								$('#hspecies_chzn > ul').html("");
+								$('#hspecies_chzn > ul').append(content);
+								
+								var content2='';
+								hservice =  data.hservice.split(',');
+							
+								for(var i in hservice ){
+									content2 += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'+hservice[i]+ '</span>'
+										+ '<a href="javascript:void(0)" class="search-choice-close" rel="0"></a></li>' 
+								}
+								
+								$('#cover > div > div > ul').html("");
+								$('#cover > div > div > ul').append(content2);
+								
+								
+							
+							}
+
+						}
+
+					});
 			
-	});
+				});
+	
+	$('input[name="hfile"]').click(function() {
+		$('#imagename').text("");
 		
+	});
+
 		var hostform = $("form[role='hostform']");
+	
+		$("#hmodify").click(function() {
+			if($('input[name=hnum]').val()==''){
+				console.log("123" + $('input[name=hnum]').val())
+				alert('가맹점을 선택해주세요.')
+			}else{
+				hostform.attr('action', 'hostupdate');
+				hostform.attr('method', 'POST');
+				hostform.submit();
+			}
+		 
+		});
+		
 		$("#hdelete").click(function() {
-			hostform.attr('action','hostdelete');
-			hostform.attr('method','POST');
+			hostform.attr('action', 'hostdelete');
+			hostform.attr('method', 'POST');
 			hostform.submit();
 		});
-		
-	
-});
 
+	});
 </script>
 
 <%@ include file="a_footer.jsp"%>

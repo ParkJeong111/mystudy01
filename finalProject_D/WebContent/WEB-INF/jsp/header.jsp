@@ -36,6 +36,8 @@
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"> <!--  추가 폰트  Noto Sans KR -->
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  추가 폰트  Do Hyeon -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- 추가 폰트 Poppins -->
+
     <style>
     .nav-link{font-family: Jua;}
     .form-controla{
@@ -172,7 +174,7 @@
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
           	  	<hr>
-                <li class="nav-link"><a href="#" id="my_board">내글쓰기</a></li>
+                <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
               </ul>
           
           
@@ -226,20 +228,6 @@
 
 			}
 		});
-
 		});
-
-     	// ----------------------------- 재민 추가 부분 --------------------------
-  		$(function(){
-  			// 내글쓰기 페이지로 이동
-  			$('#my_board').click(function(){
-  				if("${sessionScope.mid}"===null || "${sessionScope.mid}"===""){
-  					alert("로그인 후 이용 가능합니다.")
-  				}else{
-  					location='my_board';
-  				}
-  				
-  			});
-  		})
   </script>
     <!-- Header End -->

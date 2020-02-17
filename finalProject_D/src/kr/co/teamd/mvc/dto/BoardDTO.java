@@ -15,13 +15,13 @@ public class BoardDTO {
 	private String bdate;
 	private int breport;
 	private MultipartFile bfile;
-	private double bstar;
+	private int bstar;
 
-	public double getBstar() {
+	public int getBstar() {
 		return bstar;
 	}
 
-	public void setBstar(double bstar) {
+	public void setBstar(int bstar) {
 		this.bstar = bstar;
 	}
 

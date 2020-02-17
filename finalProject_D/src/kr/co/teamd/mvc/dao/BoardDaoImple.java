@@ -16,7 +16,7 @@ public class BoardDaoImple implements BoardDaoInter{
 	@Autowired
 	private SqlSessionTemplate ss;
 	
-	@Override
+	@Override   // 재민 		-- 게시글 작성 --
 	public void myboardAdd(BoardDTO bdto) {
 		ss.insert("talk.addboard", bdto);     // talk = mapper allias/이름명 , addboard는 mapper id가져온거
 	}
@@ -49,6 +49,11 @@ public class BoardDaoImple implements BoardDaoInter{
 	public ItemsboardDTO itemsboardinfo(int ibnum) {
 		
 		return ss.selectOne("talk.itemsboardinfo", ibnum);
+	}
+
+	@Override  // 재민          -- 중고 게시판 글 작성 --
+	public void itemboardAdd(ItemsboardDTO itbdto) {
+		ss.insert("talk.additboard", itbdto);
 	}
 
 

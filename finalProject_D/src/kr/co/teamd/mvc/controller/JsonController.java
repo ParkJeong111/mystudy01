@@ -108,4 +108,11 @@ public class JsonController {
 		return autosearchlist;
 	}
 
+<<<<<<< HEAD
+=======
+	@RequestMapping("hnamechk")
+	public int hnamechk(String hname) {
+		return hdao.hnamechk(hname);
+	}
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 }
