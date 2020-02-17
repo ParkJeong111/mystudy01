@@ -821,8 +821,7 @@ input, select, button {
 			</div>
 
 			<section >
-				<form action="qnainsert" method="post" id="form"
-					novalidate="novalidate">
+				<form action="qnainsert" method="post" id="form" novalidate="novalidate">
 					<!-- 1:1 문의하기 -->
 					<div class="inq_area">
 						<p class="service_title">
@@ -869,14 +868,7 @@ input, select, button {
 							</div>
 						</div>
 						
-						
-						
-						
-						
-						
-						
 						<!-- 문의 내역  -->
-					
 							
 								<div class="inq_form_area" id="qnalist" style="display: none;">
 								<c:forEach items="${qlist }" var="q">
@@ -891,8 +883,8 @@ input, select, button {
 										
 										<div class="req_area">
 									<div class="req_list" style="margin-top: -5%">
-									 <em> <strong >문의일/답변일</strong> 
-										<input type="text" readonly="readonly" value="${q.qdate} / ${q.qadate}">
+									 <em> <strong >문의일 / 답변일</strong> 
+										<input type="text" readonly="readonly" value="${q.qdate} &nbsp;/&nbsp; ${q.qadate}">
 										</em> 
 										 <em> <strong >답변</strong> 
 										<input type="text" readonly="readonly" value="${q.qanswer }">

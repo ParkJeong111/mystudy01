@@ -3,6 +3,7 @@
 	pageEncoding="EUC-KR"%>
 <html lang="ko">
 <%@ include file="header.jsp"%>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- Poppins -->
 <style>
 tp {
 	font-weight: bold;
@@ -129,6 +130,10 @@ html, body {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+body{
+font-family: "Poppins", Arial, sans-serif;
+
+}
 </style>
 
 	<!-- END nav -->
@@ -150,7 +155,7 @@ html, body {
 		<section class="ftco-section ftco-degree-bg"
 			style="padding-top: 10px;">
 			<div class="noticeList_area container"
-				style="padding-top: 112px; padding-bottom: 80px;">
+				style=" padding-bottom: 5%;">
 				<section>
 					<div class="middle notice_wrap">
 						<div class="sectionArea">

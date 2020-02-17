@@ -48,11 +48,12 @@ public class TalkController {
 		return mav;
 	}
 
-	@RequestMapping(value = "itemsboard") // 중고거래
-	public String itemsboard() {
-		return "talk/itemsboard";
-	}
-
+	
+	  @RequestMapping(value = "itemsboard") // 중고거래
+	  public String itemsboard() {
+	  return "member/itemsboard"; 
+	  }
+	 
 	// ---------------------------------재민 영역
 	// 시작-------------------------------------------
 	// --------------------------- 멤버 내글쓰기 게시글
@@ -124,22 +125,15 @@ public class TalkController {
 
 		bdao.myboardAdd(bdto);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/my_board");
 		mav.setViewName("redirect:talklist?check=1");
 		return mav;
 	}
 
 	/*---------------------------중고 게시글-----------------------------------*/
-	@RequestMapping(value = "itemsboard", method = RequestMethod.POST) // 내글쓰기 게시글 작성
+	@RequestMapping(value = "itemsboardadd", method = RequestMethod.POST) // 내글쓰기 게시글 작성
 	public ModelAndView insertitboard(@ModelAttribute("itbdto") ItemsboardDTO itbdto, HttpSession session,
 			HttpServletRequest request) {
-
-		System.out.println(itbdto.getIbtitle());
-		System.out.println(itbdto.getIbname());
-		System.out.println(itbdto.getIbmoney());
-		System.out.println(itbdto.getIbimage());
-		System.out.println(itbdto.getIbcontent());
-
+	
 		// 이미지 업로드
 		String path = session.getServletContext().getRealPath("/resources/images/"); // session.getServletContext().getRealPath("/resources/images/")
 
@@ -157,7 +151,6 @@ public class TalkController {
 
 		bdao.itemboardAdd(itbdto);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("talk/itemsboard");
 		mav.setViewName("redirect:talklist?check=2");
 		return mav;
 	}

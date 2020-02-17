@@ -29,8 +29,8 @@
 }
 
 .service_area .service_tab li.active a {
-	border-bottom: 1px solid #e84418;
-	color: #e84418
+	border-bottom: 1px solid #f85959;
+	color: #f85959
 }
 
 .service_area section {
@@ -87,7 +87,7 @@
 	display: block;
 	text-align: center;
 	border-radius: 0.3rem;
-	background: #e84418;
+	background: #f85959;
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;
@@ -828,7 +828,7 @@ input, select, button {
 						<div class="row">
 							<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
 								<div class="fields">
-									<form action="itemsboard" method="post" enctype="multipart/form-data">
+									<form action="itemsboardadd" method="post" enctype="multipart/form-data">
 										<div class="row" style="width: 900px;">
 											<div class="col-md-6" style="float: left;">
 												<div class="form-group" style="width: 250px;">

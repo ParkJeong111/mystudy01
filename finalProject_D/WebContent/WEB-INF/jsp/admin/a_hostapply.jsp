@@ -83,48 +83,48 @@
 				role="hostform" action="hostinsert" method="post">
 				<fieldset>
 					<div class="control-group">
-						<label class="control-label" for="inputType">유형</label>
+						<label class="control-label" for="inputType">*유형</label>
 						<div class="controls">
-							<select class="value" id="hostTypeSelect" name="htype" required>
+							<select class="value" id="hostTypeSelect" name="htype" required="required">
 								<option value="바다">바다</option>
 								<option value="민물">민물</option>
 							</select>
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="focusedInput">가맹점 이름</label>
+						<label class="control-label" for="focusedInput">*가맹점 이름</label>
 						<div class="controls">
 							<input class="input-xlarge focused, value" type="text" id="focusedInput" name="hname"
 								placeholder="가맹점을 선택해주세요" required="required" value="">
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label">대표자명</label>
+						<label class="control-label">*대표자명</label>
 						<div class="controls">
 							<input class="value" type="text" id="hceo" name="hceo" placeholder="대표자명" required="required">
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label">연락처</label>
+						<label class="control-label">*연락처</label>
 						<div class="controls">
 							<input class="value" type="text" id="hphone" name="hphone" placeholder="연락처" required="required">
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label">주소</label>
+						<label class="control-label">*주소</label>
 						<div class="controls">
 							<input class="value" type="text" id="haddr" name="haddr" placeholder="주소" required="required">
 						</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label">이미지등록</label>
+						<label class="control-label">*이미지등록</label>
 						<div class="controls">
 							<input class="value" multiple="multiple" type="file" id="hfile" name="hfile" required="required">
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="selectError1">어종선택</label>
+						<label class="control-label" for="selectError1">*어종선택</label>
 						<div class="controls">
 							<select class="value" id="" multiple data-rel="chosen" id="hspecies" name="hspecies" required="required">
 								<!-- <option value="고등어">고등어</option>
@@ -219,7 +219,7 @@
 		
 		
 		var hostform = $("form[role='hostform']");
-		console.log(hostform)
+		
 
 		$('#hsave').click(function() {
 			var hname = $("#focusedInput").val()
@@ -231,6 +231,7 @@
 					if (data == 1) {
 						console.log("Json1 " + data)
 						alert("이미 등록된 가맹점입니다.");
+						location.href='admin_hostapply'
 					} else {
 						console.log("Json2 " +data)
 						return false;

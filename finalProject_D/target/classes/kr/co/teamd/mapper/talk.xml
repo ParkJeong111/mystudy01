@@ -6,7 +6,7 @@
 	
 	<!-- 김채은 영역 시작  -->
 	<select id="boardAlllist" resultType="bldto">		
-		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
+		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
 		from board b, host h, member m
 		where b.hname=h.hname and b.mid=m.mid
 	
@@ -16,7 +16,12 @@
   	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
 	<insert id="addboard" parameterType="bdto">
 		insert into board values(board_seq.nextVal,	#{btype1}, #{btype2},
-		#{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, #{bstar})   
+		#{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, 
+		<choose>
+			<when test="bstar==0">0</when>
+			<otherwise>#{bstar}</otherwise>
+		</choose>
+		)   
 	</insert>
 	<!-- ==============================  중고 게시글 작성  (재민) ============================== -->
 	<insert id="additboard" parameterType="bdto">
@@ -28,7 +33,7 @@
  	<!-- 게시글 리스트(Dynamic & Ajax) 
  	parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
   	<select id="boardAjax" parameterType="int" resultType="bldto">		
-		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
+		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
 		from board b, host h, member m
 		where b.hname=h.hname and b.mid=m.mid
 		

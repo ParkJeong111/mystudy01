@@ -13,8 +13,15 @@ public class BoardListAjaxDTO {
 	private String hname;
 	private String haddr;
 	private String mid;
+	private String mnickname;
 	
 	
+	public String getMnickname() {
+		return mnickname;
+	}
+	public void setMnickname(String mnickname) {
+		this.mnickname = mnickname;
+	}
 	public int getBnum() {
 		return bnum;
 	}
