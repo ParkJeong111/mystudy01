@@ -508,7 +508,7 @@ section {
 	float: left;
 	border: 1px solid #dadada;
 	border-radius: 0.3rem;
-	width: 125px;
+	width: 80%x;
 	height: 30px;
 	line-height: 28px;
 	font-size: 16px;
@@ -1520,6 +1520,16 @@ color: #606060;}
 .selected a b {
 color: #f85959;}
 
+.boardtitle{
+font-size: 24px;
+margin: 3%;
+}
+
+.board_date{margin-left: 3%;
+margin-right:3%;
+margin-top: -3%;}
+
+
 </style>
 
 
@@ -1570,7 +1580,7 @@ color: #f85959;}
 </div>
 
 <div class="talk_area container bg_mp"
-	style="width: 1120px; height: 18677px;">
+	style="width: 80%;">
 
 	<section>
 		<div class="contents_list">
@@ -1582,53 +1592,39 @@ color: #f85959;}
 					<!-- 	<for문 사용하기> -->
 					<c:forEach var="e" items="${list}">
 						<div class="talk_box_area" id="talk_visual135516">
-							<div class="profile_line">
-								<div class="profile_img">
-									<p class="lv98">
-										<img
-											src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg"
-											class="profile" alt="">
-
-									</p>
+							<div class="boardtitle" >
+										<strong><b>${e.btitle}</b></strong> 
+							</div>
+							<div class="board_date">
+							<div class="profile_name" style="float: left;">
+									<p>	${e.haddr}</p>
 								</div>
-								<div class="profile_name">
-									<strong>${e.mid}</strong>
-									<p>
-										<a href="/" class="header_logo "> <img
-											src="https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg"
-											alt="">${e.haddr}
-										</a>
-									</p>
-								</div>
-								<div class="profile_date">
+								<div class="profile_date" style="float: right">
 									<p>${e.bdate}</p>
 								</div>
 							</div>
-							<!-- profile_line -->
 
 
 							<div class="talk_view_btn"
 								OnClick="location.href ='talk_detail?bnum=${e.bnum}'"
-								style="cursor: pointer;">
-
-								<p class="talk_pic">
+								style="cursor: pointer; margin-top: 10%">
+								<div>
+								<p class="talk_pic" style="float: left;">
 									<span class="manage">${e.btype2}</span>
-								</p>
-								<div class="talk_text">
-									<strong>${e.btitle}</strong>
-									<p class="more">${e.bcontent}</p>
+								</p><p style="float: right;margin-right: 3%">${e.mid}</p>
 								</div>
+								
 								<div class="img_box"
-									style="width: 608px;">
+									style="width: 100%;">
 								
 										<img
 											src="${pageContext.request.contextPath}/resources/images/${e.bimage}"
 											alt="">
-									
 								</div>
 
-
-
+								<div class="talk_text" style="margin-top: 5%;">
+									<p class="more">${e.bcontent}</p>
+								</div>
 
 							</div>
 
@@ -1643,27 +1639,17 @@ color: #f85959;}
 									</div>
 								</div>
 								<div class="talk_btn clearfix">
-									
-
 									<a class="talk_comm_btn" href="talk_detail?bnum=${e.bnum}#comment_box">댓글쓰기</a> 
 
 								</div>
 							</div>
 						</div>
 					</c:forEach>
-					<!--// talk_box_area -->
-
-
-
-
-
 
 				</div>
 			</div>
 		</div>
-		<!--// contents_list -->
 
-		<!-- 조황 리스트 -->
 	
 	</section>
 
@@ -1724,7 +1710,26 @@ color: #f85959;}
 	function boardAjax(check) {
 		console.log(check)
 		
-		if(check==1){
+		if(check==2){
+			
+			$.ajax({
+				url : "itemsboardAjax?check=" + check,
+				datatype : 'json',
+				success : function(data) {
+					
+					console.log(data +"중고장터")
+					$("#talk_detail_list").html("")
+					$.each(data, function(key, value){
+							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong style='margin-top:-20px;'>"+value.mid+"</strong></div>"+
+										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='itemstalk_detail?ibnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
+										"<div class='talk_text'><strong>"+value.ibtitle+"</strong><p class='more'>"+value.ibcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.ibimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'></p><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
+										"<div class='talk_btn clearfix'><a class='talk_money_btn' href='#'>"+value.ibmoney+"원</a><a class='talk_comm_btn' style='width:50%;' href='talk_detail?ibnum="+value.ibnum+"#comment_box'>댓글쓰기</a></div></div></div>")
+					    });
+				}
+			});
+			
+		}
+		else{
 
 			$.ajax({
 				url : "talkAjax?check=" + check,
@@ -1743,42 +1748,7 @@ color: #f85959;}
 			});
 		}
 		
-		else if(check==2){
-			
-			$.ajax({
-				url : "itemsboardAjax?check=" + check,
-				datatype : 'json',
-				success : function(data) {
-					
-					console.log(data +"중고장터")
-					$("#talk_detail_list").html("")
-					$.each(data, function(key, value){
-							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong style='margin-top:-20px;'>"+value.mid+"</strong></div>"+
-										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='itemstalk_detail?ibnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
-										"<div class='talk_text'><strong>"+value.ibtitle+"</strong><p class='more'>"+value.ibcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.ibimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'></p><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
-										"<div class='talk_btn clearfix'><a class='talk_money_btn' href='#'>"+value.ibmoney+"원</a><a class='talk_comm_btn' style='width:50%;' href='talk_detail?ibnum="+value.ibnum+"#comment_box'>댓글쓰기</a></div></div></div>")
-					    });
-				}
-			});
-			
-		}else{
-
-			$.ajax({
-				url : "talkAjax?check=" + check,
-				datatype : 'json',
-				success : function(data) {
-					
-						$("#talk_detail_list").html("")
-						$.each(data, function(key,value) {
-							
-							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong style='margin-top:-20px;'>"+value.mid+"</strong></div>"+
-										"<div class='profile_date'><p>"+value.bdate+"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.bnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>"+value.btype1+"</span></p>"+
-										"<div class='talk_text'><strong>"+value.btitle+"</strong><p class='more'>"+value.bcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.bimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
-										"<div class='talk_btn clearfix'><a class='talk_comm_btn' href='talk_detail?bnum="+value.bnum+"#comment_box'>댓글쓰기</a></div></div></div>")
-							});
-					}
-			});
-		}
+		
 	}
 </script>
 </body>
