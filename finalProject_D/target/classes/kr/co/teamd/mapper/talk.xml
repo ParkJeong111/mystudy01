@@ -6,7 +6,7 @@
 	
 	<!-- 김채은 영역 시작  -->
 	<select id="boardAlllist" resultType="bldto">		
-		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
+		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
 		from board b, host h, member m
 		where b.hname=h.hname and b.mid=m.mid
 	
@@ -30,7 +30,7 @@
  	<!-- 게시글 리스트(Dynamic & Ajax) 
  	parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
   	<select id="boardAjax" parameterType="int" resultType="bldto">		
-		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
+		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
 		from board b, host h, member m
 		where b.hname=h.hname and b.mid=m.mid
 		
