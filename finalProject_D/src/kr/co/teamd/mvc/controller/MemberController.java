@@ -55,20 +55,23 @@ public class MemberController {
 	
 	@RequestMapping(value= "insertmember")  //회원가입 (멤버 추가)      
 	public String insertmember(MemberDTO mdto) {  
-		mdao.addMember(mdto);   
-		System.out.println(mdto.getMname());
-		System.out.println(mdto.getMaddr1());
-		return "redirect:login"; 
+		mdao.addMember(mdto);   					
+//		System.out.println(mdto.getMname());        // just to check if it gets member name
+//		System.out.println(mdto.getMaddr1());
+		return "redirect:login";                  // go to login page
 	}
-	
-//	@RequestMapping(value = "my_board", method = RequestMethod.POST) // 내글쓰기 게시글 작성
-//	public String insertmyboard(BoardDTO bdto) {
-//		return "member/my_board";
-//	}
 
 	@RequestMapping(value= "my_board") //내글쓰기
-	public String board() {
-		return "member/my_board";
+	public ModelAndView board(HttpSession session) {   // apply session here
+		ModelAndView mav = new ModelAndView();
+		String mid = (String) session.getAttribute("mid");   // check mid in session
+		if (mid ==null) {									// if mid = null
+			mav.setViewName("member/login");				// go to login page
+			session.setAttribute("vn", "redirect:my_board");   // when user login redirect page to my_board
+		}else {												// if mid is logged in and in session 
+			mav.setViewName("member/my_board");				//  then it goes straight to my_board page
+		}
+		return mav;										// return model and view
 	}
 	
 //  ------------------------------재민 영역 끝---------------------------------------
@@ -184,7 +187,6 @@ public class MemberController {
 			String mid = (String) session.getAttribute("mid");
 					if(session.getAttribute("vn")==null) {
 						mav.setViewName("redirect:index");
-										
 					}else {
 						mav.setViewName((String) session.getAttribute("vn"));
 						session.setAttribute("vn",null);
