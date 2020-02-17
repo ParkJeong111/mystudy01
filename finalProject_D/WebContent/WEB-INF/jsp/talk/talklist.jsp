@@ -1710,7 +1710,38 @@ margin-top: -3%;}
 	function boardAjax(check) {
 		console.log(check)
 		
-		if(check==2){
+		if(check==1){
+
+			$.ajax({
+				url : "talkAjax?check=" + check,
+				datatype : 'json',
+				success : function(data) {
+					
+						$("#talk_detail_list").html("")
+						$.each(data, function(key,value) {
+						
+						$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+														+value.btitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
+														+value.haddr+'</p></div><div class="profile_date" style="float: right"><p>'
+														+value.bdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
+														+value.bnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
+														+value.btype2+'</span></p><p style="float: right;margin-right: 3%">'
+														+value.mnickname+'</p></div><div class="img_box" style="width: 100%;"><img src="${pageContext.request.contextPath}/resources/images/'
+														+value.bimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
+														+value.bcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
+														+'<p class="comm_line">¥Ò±€ <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
+														+value.bnum+'#comment_box">¥Ò±€æ≤±‚</a></div></div></div>');
+						
+						
+						
+						
+						});
+						
+						
+						
+					}
+			});
+		}else if(check==2){
 			
 			$.ajax({
 				url : "itemsboardAjax?check=" + check,
@@ -1723,7 +1754,7 @@ margin-top: -3%;}
 							   
 							$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
 										+value.ibtitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-										+value.ihaddr+'</p></div><div class="profile_date" style="float: right"><p>'
+										+'</p></div><div class="profile_date" style="float: right"><p>'
 										+value.ibdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 										+value.ibnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
 										+'¡ﬂ∞Ì¿Â≈Õ</span></p><p style="float: right;margin-right: 3%">'
@@ -1751,7 +1782,7 @@ margin-top: -3%;}
 						
 						$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
 														+value.btitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-														+value.haddr+'</p></div><div class="profile_date" style="float: right"><p>'
+														+'</p></div><div class="profile_date" style="float: right"><p>'
 														+value.bdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 														+value.bnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
 														+value.btype2+'</span></p><p style="float: right;margin-right: 3%">'
