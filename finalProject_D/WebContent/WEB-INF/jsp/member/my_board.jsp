@@ -663,7 +663,7 @@
 	display: table;
 	width: 100%;
 	padding: 30px 20px;
-	border-bottom: 1px solid #e6e6e6
+	border-bottom: 1px solid #e6e6e6;
 }
 
 .select2-result-repository.company_info .c_title_img {
