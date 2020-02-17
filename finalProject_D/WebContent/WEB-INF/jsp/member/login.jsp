@@ -113,7 +113,7 @@
 							<div>
 								<a id="kakao-login-btn"></a> <a
 									href="http://developers.kakao.com/logout"></a>
-									<a>  이자리에 네이버api</a>
+									<a></a>
 							</div>
 							
 					</form>
