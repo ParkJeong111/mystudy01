@@ -68,8 +68,8 @@ public class TalkController {
 //		System.out.println(bdto.getBtitle());
 //		System.out.println(bdto.getBimage());
 //		System.out.println(bdto.getBfile());
-		System.out.println(bdto.getBcontent());
-		System.out.println(bdto.getBstar());
+//		System.out.println(bdto.getBcontent());
+//		System.out.println(bdto.getBstar());
 		// 게시글작성 type1, type2 컬럼값 지정
 		if (bdto.getBtype1().equals("0")) {
 			bdto.setBtype1("유저조행기");
@@ -129,23 +129,40 @@ public class TalkController {
 		return mav;
 	}
 
-// -----------------------------------재민 영역
-// 끝-------------------------------------------
+	/*---------------------------중고 게시글-----------------------------------*/
+	@RequestMapping(value = "itemsboard", method = RequestMethod.POST) // 내글쓰기 게시글 작성
+	public ModelAndView insertitboard(@ModelAttribute("itbdto") ItemsboardDTO itbdto, HttpSession session,
+			HttpServletRequest request) {
 
-// 김채은 영역 시작
+		System.out.println(itbdto.getIbtitle());
+		System.out.println(itbdto.getIbname());
+		System.out.println(itbdto.getIbmoney());
+		System.out.println(itbdto.getIbimage());
+		System.out.println(itbdto.getIbcontent());
 
-// 김채은 영역 끝
+		// 이미지 업로드
+		String path = session.getServletContext().getRealPath("/resources/images/"); // session.getServletContext().getRealPath("/resources/images/")
 
-// 권세진 영역 시작
+		StringBuffer upload = new StringBuffer();
+		upload.append(path);
+		upload.append(itbdto.getIbfile().getOriginalFilename());
+		File img2 = new File(upload.toString());
+		try {
+			itbdto.getIbfile().transferTo(img2);
+		} catch (IllegalStateException | IOException e) {
+			// e.printStackTrace();
+		}
+		// DB로 들어갈 파일명으로 변경
+		itbdto.setIbimage(itbdto.getIbfile().getOriginalFilename());
 
-// 권세진 영역 끝
-
-// 박정연 영역 시작
-
-// 박정연 영역 끝
-
-// 주성중 영역 시작
-
-// 주성중 영역 끝
+		bdao.itemboardAdd(itbdto);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("talk/itemsboard");
+		mav.setViewName("redirect:talklist?check=2");
+		return mav;
+	}
 
 }
+
+// -----------------------------------재민 영역
+// 끝-------------------------------------------

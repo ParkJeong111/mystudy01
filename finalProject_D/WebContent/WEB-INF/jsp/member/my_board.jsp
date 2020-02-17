@@ -910,11 +910,20 @@ a {
 									</div>
 										
 										<!-- 이미지 업로드 -->
-										<div class="col-md-6" style="float: left;">
+										<!-- <div class="col-md-6" style="float: left;">
 											<div class="form-group">
 											<input type="file" value="이미지" name="bfile">
 											</div>
-										</div>	
+										</div> -->	
+										
+										<div class="col-md-6"
+												style="margin-left: 450px; margin-top: -68px;">
+												<div class="form-group" style="width: 250px;">
+													<input multiple="multiple" type="file" id="bfile" name="bfile" value="이미지"
+														class="form-control" placeholder="사진을 등록해주세요."
+														style="border-radius: 7px;">
+												</div>
+											</div>
 										
 										<!-- 제목 -->
 										<div class="col-md-6">
@@ -985,7 +994,7 @@ a {
 										<!-- 취소, 올리기, 목록 버튼 -->
 										<div>
 											<div class="form-group"
-												style="margin-top: 50px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
+												style="margin-top: 20px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
 												<input type="reset" value="취소" id="cancelBtn"
 													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="submit" value="올리기" id="uploadBtn"
@@ -1041,46 +1050,6 @@ a {
 function goListBtn(){
 	location="talklist?check=1";
 }
-
-	<%-- 게시글 작성 type1 & type2 (재민)--%>
-	$(function() {
-		
-		$('#tm').click(
-				function(){
-					if($('#tm').val() == 0){
-						console.log("여기 출력??? " + $('#tm').val())
-						$("#tm2").prop("hidden", false);
-						$("#dwnarrow").prop("hidden", false);
-						console.log("사용가능!");
-						$("#tm3").prop("hidden", false);
-
-					}else if($("#tm").val() == 1){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("유용한정보");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-						
-					}else if($("#tm").val() == 2){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("낚시지식인");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-						
-					}else if($("#tm").val() == 3){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("자유게시판");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-						
-					} 
-			})
-	});
 </script>
 
 </body>
