@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="header.jsp"%>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- Poppins -->
 <style>
 li {
 	list-style: none;
@@ -290,7 +291,7 @@ section {
 	text-align: center;
 	height: 44px;
 	line-height: 42px;
-	color: black;
+
 }
 
 .talk_header .talk_tab li i {
@@ -309,9 +310,13 @@ section {
 	top: -2px;
 }
 
-.selected a{
-	border-bottom: 3px solid #F85959;
-	border-top: 3px solid #F85959;
+.selected{
+	/* border-bottom: 3px solid #F85959;
+	border-top: 3px solid #F85959; */
+	font-family:Poppins ;
+	border-bottom: 2px solid #f85959;
+	color: #f85959;
+
 }
 
 .talk_header .talk_cate_tab {
@@ -1434,11 +1439,86 @@ section {
 	text-align: center
 }
 
-.boardlisthead > a{
-	 font-family: sans-serif;
+.boardlisthead {
+	 font-family: "Poppins", Arial, sans-serif;
 	 font-size: 25px;
+	 font: bolder;
+	 color: #606060;
+	 padding: 24px;
+	 margin-bottom: -16px;
+	 
 	 }
 	 
+/*별점*/
+.star{
+  display:inline-block;
+  width: 15px; height: 30px;
+  cursor: pointer;
+}
+.star_left{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+  background-size: 30px; 
+  margin-right: -2px;
+}
+.star_right{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -15px 0; 
+  background-size: 30px; 
+  margin-left: -2px;
+}
+.star.on, .star_print.on{
+  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+}
+.star_print{
+	display:inline-block;
+  	width: 15px; height: 30px;
+}
+
+
+
+.service_area .service_tab {
+	border-bottom: 1px solid #e6e6e6
+}
+
+.service_area .service_tab ol {
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.service_area .service_tab li {
+	float: left;
+	width: 33.3333%;
+	position: relative;
+	top: 1px
+}
+
+.service_area .service_tab li a {
+	display: block;
+	font-size: 20px;
+	color: #606060;
+	text-align: center;
+	padding: 24px 0;
+	border-bottom: 1px solid #e6e6e6;
+	
+}
+
+.service_area .service_tab li.active a {
+	border-bottom: 1px solid #f85959;
+	color: #f85959;
+}
+
+.service_area section {
+	width: 80%;
+	margin: 0 auto;
+	font-family: "Poppins", Arial, sans-serif;
+
+}
+
+.talk_tab li a{
+color: #606060;}
+
+.selected a b {
+color: #f85959;}
 
 </style>
 
@@ -1450,8 +1530,6 @@ section {
 	<div class="container" style="margin-top: -40%;"></div>
 </div>
 
-<div class="wrap_area">
-	<div class="header_area" style="padding-top: 20px;">
 
 
 
@@ -1461,27 +1539,27 @@ section {
 	<div class="scrolling scroll_up">
 		
 
-		<div class="talk_header" style="display:">
+		<div class="talk_header" >
 			<div class="talk_tab_area">
-				<section>
-			
-					<ul class="talk_tab clearfix" style="margin-top: 1%;">
+				<section >
+			<div class="service_tab service_area">
+					<ul class="talk_tab clearfix service_area" style="margin-top: 1%;">
 
 						<li class="on boardlisthead selected"><a data-talk_key="1" data-tc_key="0"
-							data-u_type="1" href='javasript:void(0);' onclick="boardAjax(1)" >유저조행기</a></li>
+							data-u_type="1" href='javasript:void(0);' onclick="boardAjax(1)" ><strong><b>유저조행기</b></strong></a></li>
 
 						<li class="on boardlisthead"><a data-talk_key="11" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(2)">중고장터</a></li>
+							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(2)"><strong><b>중고장터</b></strong></a></li>
 
 						<li class="on boardlisthead"><a data-talk_key="2" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(3)">유용한정보</a></li>
+							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(3)"><strong><b>유용한정보</b></strong></a></li>
 						<li class="on boardlisthead"><a data-talk_key="3" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(4)">낚시지식인</a></li>
+							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(4)"><strong><b>낚시지식인</b></strong></a></li>
 
 						<li class="on boardlisthead"><a data-talk_key="5" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(5)">자유게시판</a></li>
+							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(5)"><strong><b>자유게시판</b></strong></a></li>
 					</ul>
-					
+					</div>
 				</section>
 
 			</div>
@@ -1534,7 +1612,7 @@ section {
 								style="cursor: pointer;">
 
 								<p class="talk_pic">
-									<span class="manage">${e.btype1}</span>
+									<span class="manage">${e.btype2}</span>
 								</p>
 								<div class="talk_text">
 									<strong>${e.btitle}</strong>
@@ -1645,7 +1723,27 @@ section {
 
 	function boardAjax(check) {
 		console.log(check)
-		if(check==2){
+		
+		if(check==1){
+
+			$.ajax({
+				url : "talkAjax?check=" + check,
+				datatype : 'json',
+				success : function(data) {
+					
+						$("#talk_detail_list").html("")
+						$.each(data, function(key,value) {
+							
+							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong>"+value.mid+"</strong><p><a href='/' class='header_logo'> <img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' alt=''>"+value.haddr+"</a></p></div>"+
+										"<div class='profile_date'><p>"+value.bdate+"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.bnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>"+value.btype2+"</span></p>"+
+										"<div class='talk_text'><strong>"+value.btitle+"</strong><p class='more'>"+value.bcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.bimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
+										"<div class='talk_btn clearfix'><a class='talk_comm_btn' href='talk_detail?bnum="+value.bnum+"#comment_box'>댓글쓰기</a></div></div></div>")
+							});
+					}
+			});
+		}
+		
+		else if(check==2){
 			
 			$.ajax({
 				url : "itemsboardAjax?check=" + check,
@@ -1655,8 +1753,8 @@ section {
 					console.log(data +"중고장터")
 					$("#talk_detail_list").html("")
 					$.each(data, function(key, value){
-							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong>"+value.mid+"</strong><p><a href='/' class='header_logo'> <img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' alt=''></a></p></div>"+
-										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail2?ibnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
+							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong style='margin-top:-20px;'>"+value.mid+"</strong></div>"+
+										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='itemstalk_detail?ibnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>중고장터</span></p>"+
 										"<div class='talk_text'><strong>"+value.ibtitle+"</strong><p class='more'>"+value.ibcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.ibimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'></p><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
 										"<div class='talk_btn clearfix'><a class='talk_money_btn' href='#'>"+value.ibmoney+"원</a><a class='talk_comm_btn' style='width:50%;' href='talk_detail?ibnum="+value.ibnum+"#comment_box'>댓글쓰기</a></div></div></div>")
 					    });
@@ -1673,7 +1771,7 @@ section {
 						$("#talk_detail_list").html("")
 						$.each(data, function(key,value) {
 							
-							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong>"+value.mid+"</strong><p><a href='/' class='header_logo'> <img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' alt=''>"+value.haddr+"</a></p></div>"+
+							$("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong style='margin-top:-20px;'>"+value.mid+"</strong></div>"+
 										"<div class='profile_date'><p>"+value.bdate+"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.bnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>"+value.btype1+"</span></p>"+
 										"<div class='talk_text'><strong>"+value.btitle+"</strong><p class='more'>"+value.bcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.bimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'><div class='comm_mark_line'><p class='comm_line'>댓글 <span>0</span></p></div></div>"+
 										"<div class='talk_btn clearfix'><a class='talk_comm_btn' href='talk_detail?bnum="+value.bnum+"#comment_box'>댓글쓰기</a></div></div></div>")

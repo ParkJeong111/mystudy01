@@ -22,7 +22,15 @@ public class AdminHostDaoImple implements AdminHostDaoInter{
 		
 		return ss.selectList("admin.hostreglist");
 	}
+	
 
+	@Override
+	public int hnamechk(String hname) {
+		// TODO Auto-generated method stub
+		return ss.selectOne("admin.hnamechk", hname);
+	}
+
+	
 	@Override
 	public void hostinsert(HostDTO hdto) { //가맹점 등록
 		System.out.println(hdto.getHname());
@@ -31,8 +39,11 @@ public class AdminHostDaoImple implements AdminHostDaoInter{
 		System.out.println(hdto.getHaddr());
 		System.out.println(hdto.getHimage());
 		System.out.println(hdto.getHspecies());
-		System.out.println(hdto.getHservice());
-		System.out.println(hdto.getHguide());
+		System.out.println("공지 : "+hdto.getHnotice());
+		System.out.println("사장님한마디 : "+hdto.getHowner());
+		System.out.println("편의시설 : "+hdto.getHservice());
+		System.out.println("이용안내 : " + hdto.getHguide());
+		System.out.println("다섯번째 방문");
 		
 		ss.insert("admin.hostinsert", hdto);
 		System.out.println("세번째 방문");

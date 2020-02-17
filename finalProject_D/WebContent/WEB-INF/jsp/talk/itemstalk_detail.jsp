@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
-    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
 <style>
 html,body{width: 100%;height:100%;-webkit-text-size-adjust: 100%;}
 html{overflow-y:scroll; overflow-x:none;}
@@ -39,9 +38,87 @@ section:after{display:block;content:'';clear:both}
 section{width:964px;position:relative;margin:0 auto;}
 
 
-.clearfix{display:block;content:'';clear:both;}
+.clearfix{display:block;content:'';clear:both}
 .clearfix:after{display:block;content:'';clear:both}
 
+
+
+
+
+.jgo_manage_detail{margin:30px 0 51px;}
+.jgo_manage_detail .jgo_thumbnail{width:435px;height:380px;overflow:hidden;position:relative;float:left;background:#eee url('https://img.moolban.com/unsafe/asset/common/img/low_404image.png') top 50% left no-repeat;background-size:100% auto;}
+.jgo_manage_detail .jgo_thumbnail:after{font-size:14px;color:#fff;letter-spacing:-0.7px;width:71px;height:28px;line-height:26px;text-align:center;background:rgba(0, 0, 0, 0.7);position:absolute;bottom:0;left:0;z-index:1;}
+.jgo_manage_detail .jgo_thumbnail .img_box{position:relative;width:100%;height:0;padding-bottom:380px;}
+.jgo_manage_detail .jgo_thumbnail .img_box .buy_default:before{width:100%;height:100%;background:rgba(0, 0, 0, 0.45);position:absolute;top:0;left:0;z-index:1;content:'';}
+.jgo_manage_detail .jgo_thumbnail .img_box .buy_default:after{transform:translate(-50%,-50%);position:absolute;top:50%;left:50%;z-index:2;width:130px;height:130px;content:'';background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/talk/jgo_ico_buy.png') no-repeat;background-size:100% auto;}
+.jgo_manage_detail .jgo_thumbnail .img_box img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:auto}
+.jgo_manage_detail .jgo_info_con{float:right;width:calc(100% - 464px);}
+.jgo_manage_detail .jgo_info_con .jgo_pic{margin-bottom:10px;}
+.jgo_manage_detail .jgo_info_con .jgo_pic span{height:28px;line-height:26px;padding:0 8px;font-size:15px;letter-spacing:-0.6px;border-radius:0.3rem;}
+.jgo_manage_detail .jgo_info_con .jgo_pic span.sell{color:#2663e2;border:1px solid #dadada}
+.jgo_manage_detail .jgo_info_con .jgo_pic span.buy{color:#267b96;border:1px solid #dadada}
+.jgo_manage_detail .jgo_info_con .jgo_pic span.sold{color:#fff;border:#ccc;background:#ccc;}
+.jgo_manage_detail .jgo_info_con dt{font-size:20px;color:#5e5e5e;letter-spacing:-1px;height:58px;}
+.jgo_manage_detail .jgo_info_con dd{font-size:24px;color:#333333;font-weight:bold;margin-top:3px;}
+.jgo_manage_detail .jgo_info_con dd span{font-size:20px}
+.jgo_manage_detail .jgo_info_con dd span.jgo_nego{font-size:16px;font-weight:normal;}
+.jgo_manage_detail .jgo_info_con dd a{font-weight:300;height:21px;line-height:21px;background:#b4b4b4;border-radius:0.2rem;display:inline-block;padding:0 5px;font-size:12px;color:#fff;letter-spacing:-0.7px;margin-left:8px;position:relative;top:-3px;}
+.jgo_manage_detail .jgo_info_con dd a img{width:5px;display:inline-block;position:relative;margin-left:5px;top:-1px;}
+.jgo_manage_detail .jgo_info_con .info_box{margin-top:15px;}
+.jgo_manage_detail .jgo_info_con .info_box p{font-size:15px;color:#606060;letter-spacing:-0.8px;padding-top:18px;}
+.jgo_manage_detail .jgo_info_con .info_box p span{color:#989898;width:100px;display:inline-block;}
+.jgo_manage_detail .jgo_info_con .info_btn_box{text-align:center;font-size:0;margin-top:80px; border-top: 1px solid #e6e6e6;}
+.jgo_manage_detail .jgo_info_con .info_btn_box a{margin-top:30px; font-size:18px;letter-spacing:-0.8px;width:160px;height:50px;line-height:48px;border-radius:0.3rem;text-align:center;display:inline-block;border-radius:0.3rem;}
+.jgo_manage_detail .jgo_info_con .info_btn_box a.btn01{background:#e84418;color:#fff}
+.jgo_manage_detail .jgo_info_con .info_btn_box a.btn01.active{background:#a9847a;}
+.jgo_manage_detail .jgo_info_con .info_btn_box a.btn02{background:#fff;border:1px solid #cacaca;color:#606060;margin:0 10px}
+.jgo_manage_detail .jgo_info_con .info_btn_box a.btn03{background:#fff;border:1px solid #cacaca;color:#606060}
+
+.jgo_manage_notice{border:1px solid #e2e6e7;background:#fbfdfd;padding:15px 20px}
+.jgo_manage_notice strong{font-size:15px;color:#889498;letter-spacing:-0.5px;display:block;font-weight:500;margin-bottom:5px;}
+.jgo_manage_notice li{font-size:13px;color:#889498;letter-spacing:-0.5px;margin-left:8px;}
+.jgo_manage_notice li:before{width:3px;height:3px;border-radius:100%;background:#889498;content:'';display:inline-block;margin-right:5px;margin-left:-8px;position:relative;top:-4px}
+
+.view_info_manage_detail .manage_detail .change_manage_detail{margin-bottom:50px;}
+.view_info_manage_detail .manage_detail .change_manage_detail p{font-size:16px;color:#000;margin:15px 0}
+.view_info_manage_detail .manage_detail .change_manage_detail strong{font-weight:500;display:block;font-size:16px;color:#000;}
+.view_area  .view_info_comment{background:#fff;padding-top:0}
+.view_info_comment .check_title{padding:30px 0;border-bottom:1px solid #e6e6e6}
+.view_info_comment .check_title p{float:left;font-size:18px;color:#8c8c8c;}
+.view_info_comment .check_title p span{color:#ff724c}
+.view_info_comment .check_title .check_radio{float:right}
+.view_info_comment .check_title .check_radio label{float:left;position:relative;margin-left:20px;font-size:0}
+.view_info_comment .check_title .check_radio label input{position:absolute;z-index:-99999;opacity:0;}
+.view_info_comment .check_title .check_radio label input + ins{color:#606060;font-size:18px;}
+.view_info_comment .check_title .check_radio label input:checked + ins{color:#ff724c}
+.view_info_comment .comment_list_box{border-bottom:1px solid #e6e6e6;padding:30px 20px;}
+.view_info_comment .comment_list_box.tcm_best{background:#fafafa}
+.view_info_comment .comment_profile{width:50px;height:50px;position:relative;border-radius:100%;overflow:hidden;float:left;}
+.view_info_comment .comment_profile:before{width:100%;height:20px;position:absolute;bottom:0;left:0;display:block;color:#fff;font-size:12px;text-align:center;z-index:1;line-height:18px}
+.view_info_comment .comment_profile.lv0:before{content:'lv.0';background:#dc967c}
+.view_info_comment .comment_profile.lv1:before{content:'lv.1';background:#ec440b}
+.view_info_comment .comment_profile.lv2:before{content:'lv.2';background:#ffba12}
+.view_info_comment .comment_profile.lv3:before{content:'lv.3';background:#55b44d}
+.view_info_comment .comment_profile.lv4:before{content:'lv.4';background:#4595ec}
+.view_info_comment .comment_profile.lv5:before{content:'lv.5';background:#4c65d5}
+.view_info_comment .comment_profile.lv6:before{content:'lv.6';background:#845bbd}
+.view_info_comment .comment_profile.lv7:before{content:'lv.7';background:#bb4e4e}
+.view_info_comment .comment_profile.lv8:before{content:'lv.8';background:linear-gradient(to right, #a8f5ff, #d6faff 28%, #40bcd3 77%, #218092);}
+.view_info_comment .comment_profile.lv9:before{content:'lv.9';background:linear-gradient(to right, #ffbf16, #ffe4b2 33%, #f2ad4e 69%, #ffe151);}
+.view_info_comment .comment_profile.lv10:before{content:'lv.10';background:linear-gradient(to right, #e06e6e, #fadb25 33%, #9eda51 68%, #486ce8);}
+.view_info_comment .comment_profile.lv99:before{content:'M';background:linear-gradient(to bottom, #616161, #171717);}
+.view_info_comment .comment_profile.lv98:before{background:linear-gradient(to bottom, #ffd848, #ff3600);}
+.view_info_comment .comment_profile img{position:absolute;width:auto;height:100%}
+.view_info_comment .comment_box{width:calc(100% - 60px);margin-left:10px;float:left;padding-top:12px;}
+.view_info_comment .comment_box .comment_name{font-size:18px;color:#333333;}
+.view_info_comment .comment_box .comment_txt{font-size:20px;margin:10px 0}
+.view_info_comment .comment_box .comment_txt img{display:block;margin:10px 0;}
+.view_info_comment .comment_box .comment_txt .hash_tag_txt{color:#004f9d}
+.view_info_comment .comment_box .comment_date span{display:inline-block;color:#8c8c8c;font-size:16px;}
+.view_info_comment .comment_box .comment_date span:first-child:before{display:none}
+.view_info_comment .comment_box .comment_date span:before{width:4px;height:4px;margin:0 10px;position:relative;top:-4px;content:'';display:inline-block;border-radius:100%;background:#8c8c8c}
+.view_info_comment .recomment_list_box{padding:30px 20px 30px 70px;position:relative;border-bottom:1px solid #e6e6e6}
+.view_info_comment .recomment_list_box:before{width:15px;height:15px;background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_comm01.png') no-repeat;background-size:100% auto;content:'';position:absolute;top:30px;left:28px}
 
 
 .manage_tab_area{background:#fff;padding-top:30px;padding-bottom:30px}
@@ -73,7 +150,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage .manage_list_area li .profile_box .profile_img.lv9:before{content:'lv.9';background:linear-gradient(to right, #ffbf16, #ffe4b2 33%, #f2ad4e 69%, #ffe151);}
 .view_info_manage .manage_list_area li .profile_box .profile_img.lv10:before{content:'lv.10';background:linear-gradient(to right, #e06e6e, #fadb25 33%, #9eda51 68%, #486ce8);}
 .view_info_manage .manage_list_area li .profile_box .profile_img.lv99:before{content:'M';background:linear-gradient(to bottom, #616161, #171717);}
-.view_info_manage .manage_list_area li .profile_box .profile_img.lv98:before{content:'사장';background:linear-gradient(to bottom, #ffd848, #ff3600);}
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv98:before{background:linear-gradient(to bottom, #ffd848, #ff3600);}
 .view_info_manage .manage_list_area li .profile_box .profile_img img{width:100%;height:100%;}
 .view_info_manage .manage_list_area li .profile_box .profile_name{width:calc(100% - 45px);float:left;margin-left:10px;font-size:15px;padding-top:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:28px;}
 .view_info_manage .manage_list_area li .manage_title_img{overflow:hidden;width:100%;padding-bottom:56.26%;height:0;position:relative;}
@@ -85,7 +162,6 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage .manage_list_area li .manage_date{font-size:14px;color:#8c8c8c;position:absolute;bottom:15px}
 
 
-/* 조황상세 */
 .view_detail{padding-bottom:0}
 .view_info_manage_detail .detail_profile{background:#fbfbfb;border-bottom:1px solid #e6e6e6;padding:10px 0}
 .view_info_manage_detail .detail_profile .prf_box{float:left;width:35px;height:35px;border-radius:100%;margin-right:10px;overflow:hidden;position:relative;}
@@ -102,7 +178,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .detail_profile .prf_box.lv9:before{content:'lv.9';background:linear-gradient(to right, #ffbf16, #ffe4b2 33%, #f2ad4e 69%, #ffe151);}
 .view_info_manage_detail .detail_profile .prf_box.lv10:before{content:'lv.10';background:linear-gradient(to right, #e06e6e, #fadb25 33%, #9eda51 68%, #486ce8);}
 .view_info_manage_detail .detail_profile .prf_box.lv99:before{content:'M';background:linear-gradient(to bottom, #616161, #171717);}
-.view_info_manage_detail .detail_profile .prf_box.lv98:before{content:'사장';background:linear-gradient(to bottom, #ffd848, #ff3600);}
+.view_info_manage_detail .detail_profile .prf_box.lv98:before{background:linear-gradient(to bottom, #ffd848, #ff3600);}
 
 .view_info_manage_detail .detail_profile p{font-size:16px;float:left;padding-top:5px;width:calc(100% - 170px)}
 .view_info_manage_detail .detail_profile p.wide{width:calc(100% - 45px);}
@@ -121,7 +197,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .detail_title .detail_title_date{display:table;width:100%}
 .view_info_manage_detail .detail_title .detail_title_date dt{font-size:18px;display:table-cell;line-height:1.3;color:#333;font-weight:500;letter-spacing:-0.9px}
 .view_info_manage_detail .detail_title .detail_title_date dt h1{font-size:18px;font-weight:500}
-.view_info_manage_detail .detail_title .detail_title_date dd{font-size:15px;color:#8c8c8c;display:table-cell;width:250px;text-align:right}
+.view_info_manage_detail .detail_title .detail_title_date dd{font-size:15px;color:#8c8c8c;display:table-cell;width:215px;text-align:right}
 .view_info_manage_detail .detail_title .detail_title_date dd.wide{width:120px;}
 .view_info_manage_detail .detail_title .detail_title_date dd a{color:#8c8c8c;font-size:15px;}
 .view_info_manage_detail .detail_title .detail_title_date dd a:before{width:1px;height:11px;background:#d8d8d8;display:inline-block;content:'';margin:0 10px}
@@ -198,7 +274,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .manage_like a.like_more{font-size:14px;color:#ff724c;height:24px;line-height:22px;padding:0 10px;border:1px solid #ff724c;border-radius:3rem;display:block;float:right;margin-top:8px}
 /* .view_info_manage_detail .manage_like a.like_more:after{display:none}
 .view_info_manage_detail .manage_like a.like_more.show{font-size:0}
-.view_info_manage_detail .manage_like .like_more.show:after{content:'접기';display:block;width:100%;position:absolute;top:0;left:0;font-size:14px;text-align:center;color:#fff} */
+.view_info_manage_detail .manage_like .like_more.show:after{display:block;width:100%;position:absolute;top:0;left:0;font-size:14px;text-align:center;color:#fff} */
 
 .view_info_manage_detail .view_profile{border:1px solid #d5d5d5;padding:0;margin-top:50px;position:relative;}
 .view_info_manage_detail .view_profile .profile_slide{width:481px;height:275px;position:relative;float:right;}
@@ -227,12 +303,15 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .view_detail_profile .map_coyp_area a img{margin-right:10px}
 .view_info_manage_detail .view_detail_ad{margin-top:80px}
 
+
+
 .view_info_manage_detail .slide_ad_sty1 .ad_title{padding-bottom:15px;border-bottom:1px solid #e6e6e6}
 .view_info_manage_detail .slide_ad_sty1 .slide_area li{width:278px;}
 .view_info_comment .comment_box .comment_date{position:relative;margin-top:15px}
 .view_info_comment .comment_box .comment_date .comment_date_like{width:33px;height:25px;background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/talk_like_off.png') no-repeat;background-size:100% auto;display:block;position:absolute;top:2px;right:0}
 .view_info_comment .comment_box .comment_date .comment_date_like.on{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/talk_like_on.png') no-repeat;background-size:100% auto;}
 .view_detail .view_info_comment{margin-bottom:60px}
+.view_detail .view_info_comment .check_title{padding:80px 0 15px}
 .view_detail .view_info_comment .check_title p{font-size:17px;color:#333;font-weight:500;letter-spacing:-0.7px;}
 .view_detail .view_info_comment .check_title .refresh_btn{width:18px;margin-left:10px;display:block;float:left;margin-top:3px;}
 .view_detail .view_info_comment .check_title .check_radio label input + ins{font-size:15px}
@@ -357,43 +436,17 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_list_btn{margin-top:27px;}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_list_btn a{background:#fff;width:120px;height:40px;line-height:38px;border-radius:3rem;border:1px solid #e6e6e6;box-shadow:0 0 5px 0 rgba(0, 0, 0, 0.15);text-align:center;font-size:16px;color:#ff724c;letter-spacing:-0.5px;display:block;margin:0 auto;}
 
-.view_area  .view_info_comment{background:#fff;padding-top:0}
-.view_info_comment .check_title{padding:30px 0;border-bottom:1px solid #e6e6e6}
-.view_info_comment .check_title p{float:left;font-size:18px;color:#8c8c8c;}
-.view_info_comment .check_title p span{color:#ff724c}
-.view_info_comment .check_title .check_radio{float:right}
-.view_info_comment .check_title .check_radio label{float:left;position:relative;margin-left:20px;font-size:0}
-.view_info_comment .check_title .check_radio label input{position:absolute;z-index:-99999;opacity:0;}
-.view_info_comment .check_title .check_radio label input + ins{color:#606060;font-size:18px;}
-.view_info_comment .check_title .check_radio label input:checked + ins{color:#ff724c}
-.view_info_comment .comment_list_box{border-bottom:1px solid #e6e6e6;padding:30px 20px;}
-.view_info_comment .comment_list_box.tcm_best{background:#fafafa}
-.view_info_comment .comment_profile{width:50px;height:50px;position:relative;border-radius:100%;overflow:hidden;float:left;}
-.view_info_comment .comment_profile:before{width:100%;height:20px;position:absolute;bottom:0;left:0;display:block;color:#fff;font-size:12px;text-align:center;z-index:1;line-height:18px}
-.view_info_comment .comment_profile.lv0:before{content:'lv.0';background:#dc967c}
-.view_info_comment .comment_profile.lv1:before{content:'lv.1';background:#ec440b}
-.view_info_comment .comment_profile.lv2:before{content:'lv.2';background:#ffba12}
-.view_info_comment .comment_profile.lv3:before{content:'lv.3';background:#55b44d}
-.view_info_comment .comment_profile.lv4:before{content:'lv.4';background:#4595ec}
-.view_info_comment .comment_profile.lv5:before{content:'lv.5';background:#4c65d5}
-.view_info_comment .comment_profile.lv6:before{content:'lv.6';background:#845bbd}
-.view_info_comment .comment_profile.lv7:before{content:'lv.7';background:#bb4e4e}
-.view_info_comment .comment_profile.lv8:before{content:'lv.8';background:linear-gradient(to right, #a8f5ff, #d6faff 28%, #40bcd3 77%, #218092);}
-.view_info_comment .comment_profile.lv9:before{content:'lv.9';background:linear-gradient(to right, #ffbf16, #ffe4b2 33%, #f2ad4e 69%, #ffe151);}
-.view_info_comment .comment_profile.lv10:before{content:'lv.10';background:linear-gradient(to right, #e06e6e, #fadb25 33%, #9eda51 68%, #486ce8);}
-.view_info_comment .comment_profile.lv99:before{content:'M';background:linear-gradient(to bottom, #616161, #171717);}
-.view_info_comment .comment_profile.lv98:before{background:linear-gradient(to bottom, #ffd848, #ff3600);}
-.view_info_comment .comment_profile img{position:absolute;width:auto;height:100%}
-.view_info_comment .comment_box{width:calc(100% - 60px);margin-left:10px;float:left;padding-top:12px;}
-.view_info_comment .comment_box .comment_name{font-size:18px;color:#333333;}
-.view_info_comment .comment_box .comment_txt{font-size:20px;margin:10px 0}
-.view_info_comment .comment_box .comment_txt img{display:block;margin:10px 0;}
-.view_info_comment .comment_box .comment_txt .hash_tag_txt{color:#004f9d}
-.view_info_comment .comment_box .comment_date span{display:inline-block;color:#8c8c8c;font-size:16px;}
-.view_info_comment .comment_box .comment_date span:first-child:before{display:none}
-.view_info_comment .comment_box .comment_date span:before{width:4px;height:4px;margin:0 10px;position:relative;top:-4px;content:'';display:inline-block;border-radius:100%;background:#8c8c8c}
-.view_info_comment .recomment_list_box{padding:30px 20px 30px 70px;position:relative;border-bottom:1px solid #e6e6e6}
-.view_info_comment .recomment_list_box:before{width:15px;height:15px;background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_comm01.png') no-repeat;background-size:100% auto;content:'';position:absolute;top:30px;left:28px}
+
+
+.manage_tab_area{background:#fff;padding-top:30px;padding-bottom:30px}
+.manage_tab_area li{float:left;width:calc(33.333% - 10px);}
+.manage_tab_area li a{border:1px solid #8c8c8c;font-size:16px;padding:10px 0;color:#8c8c8c;text-align:center;display:block;border-radius:0.3rem}
+.manage_tab_area li:nth-child(2){margin:0 15px}
+.manage_tab_area li.active a{border:1px solid #ff724c;color:#ff724c}
+.manage_tab_area li:hover a{border:1px solid #ff724c}
+
+.view_area .view_contents.view_info_manage{background:#fff}
+
 
 </style>
   
@@ -405,40 +458,28 @@ section{width:964px;position:relative;margin:0 auto;}
 		</div>
     </div>
 
-<div class="view_detail container" style="padding-top: 58px;">
+<div class="view_detail container" style="padding-top: 58.941px;">
 	<div class="view_info_manage_detail">
 		<div class="detail_profile clearfix">
 			<section>
-				<div class="prf_box lv98">
-					<img src="https://img.moolban.com/unsafe/50x50/filters:no_upscale()/profile_aws/default.png?date=1495791343" class="profile" alt="">
+				<div class="prf_box lv1">
+					<img src="https://img.moolban.com/unsafe/50x50/filters:no_upscale()/profile_aws/default.png?date=1547538854" class="profile" alt="">
 				</div>
-				<p class="wide">${dto.mid}</p><!-- p태그-  내가 쓴글이 아닐때 .wide 추가  -->
+				<p class="wide jgo">${dto.mid}</p><!-- p태그-  내가 쓴글이 아닐때 .wide 추가  -->
+									<a class="btn_talk_scrap talk_scrap_add_btn" data-key="137420" data-scrap_chk="N" data-user_key="381162" style="display:">
+						스크랩하기					</a>
+				
 							</section>
 		</div><!--// detail_profile -->
 
 		<div class="detail_title">
 			<section>
 				<div class="inner">
-					<p class="detail_pic">
-						<span class="live_tag" style="display:none">현장실시간</span>
-						<c:choose>
-						<c:when test="${dto.btype2=='바다 조행기' || dto.btype2=='민물조행기'}">
-						<span class="fishlist_tag">
-						<c:set var = "string1" value = "${dto.btype2}"/>
-   						<c:set var = "string2" value = "${fn:substring(string1, 0, 2)}" />
-						${string2} 조황
-						 </span>
-						</c:when>
-						<c:otherwise>
-						</c:otherwise>
-						</c:choose>
-						
-					</p>
 					<dl class="detail_title_date">
-						<dt>${dto.btitle}</dt>
-						<dd>${dto.bdate}
-						<a href="/mypage/login?redirect=/talk/view/135505"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
-																						<!--
+						<dt>${dto.ibtitle}</dt>
+						<dd>${dto.ibdate}
+																																		<a class="btn_auth_report"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
+																															<!--
 							<a class="btn_report"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
 							-->
 						</dd><!-- 내가 쓴글이 아닐때 .wide 추가  -->
@@ -449,21 +490,64 @@ section{width:964px;position:relative;margin:0 auto;}
 		<!--// detail_title -->
 	</div>
 	<section>
-<!-- For each 태그 사용해서 상세정보 가져오기 -->
-		<div class="view_info_manage_detail">
-						
-			
-			<div class="manage_detail">
-									<div class=""><img src="${pageContext.request.contextPath}/resources/images/person_2.jpg">
-								<div class="talk_qt_box clearfix"></div></div><br>	
-								<p style="text-align:">${dto.bcontent}</p><br>
-							
-						
-
+		<div class="jgo_manage_detail clearfix">
+			<div class="jgo_thumbnail">
+				<div class="img_box">
+																<img src="https://img.moolban.com/unsafe/870x760/talk/20200205/temp_20200205_640519502.jpg?date=1581676448" alt="">
+									</div>
 			</div>
+			<div class="jgo_info_con">
+									<p class="jgo_pic"><span class="sell">팝니다</span></p>
+				
+				<dl>
+					<dt>${dto.ibname}</dt>
+					<dd>
+												<fmt:formatNumber value="${dto.ibmoney}" pattern="#,###"/>원
+												<a href="http://search.danawa.com/dsearch.php?query=벵퀴시 40 카디프 하드케이스 포함 17&amp;tab=main" target="_blank">시세검색<img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/link_arrow_07.png" alt=""></a>
+					</dd>
+				</dl>
+				<div class="info_box">
+										
+										
+										<p><span>판매자 전화번호</span>${dto.mphone}</p>
+									
+										
+				
+			
+				</div>
+				<div class="info_btn_box">
+				
+				
+										<c:choose>
+										<c:when test="${dto.ibstatus==0}">
+										<a class="btn01 btn05 btn_auth_phone">판매중</a> <!-- OFF시 클래스 .active 추가 -->
+										</c:when>
+										<c:otherwise>
+										<a class="btn01 btn05 btn_auth_phone">거래완료</a> <!-- OFF시 클래스 .active 추가 -->
+										</c:otherwise>
+										</c:choose>
+																										
+							
+																						
+				</div>
+			</div>
+		</div>
+
+		<div class="jgo_manage_notice">
+			<strong>[거래 전 필독!!]</strong>
+			<ol>
+				<li>거래 전 연락처 및 계좌번호로 거래자 사기이력을 조회해보세요.</li>
+				<li>작성자 전화번호는 본인인증을 받은 물반고기반 회원에게만 노출됩니다.</li>
+				<li>작성자가 상품상태를 판매완료 또는 구매완료로 변경 시 전화번호가 노출되지 않습니다.</li>
+				<li>물반고기반 중고장터에서 표시되는 가격은 작성자의 자유의지로 정해진 가격입니다.</li>
+				<li>참고하고자 하는 가격대가 필요하다면 시세검색을 이용해보세요.</li>
+			</ol>
+		</div>
+
+		<div class="view_info_manage_detail">
+		
 			<!--// manage_detail -->
 
-				
 						<!-- 포인트 주변 업체 //-->
 						<!--// 포인트 주변 업체 -->
 
@@ -471,7 +555,7 @@ section{width:964px;position:relative;margin:0 auto;}
 			<div class="view_info_comment view_contents" id="comment_box">
 				<section>
 					<div class="check_title clearfix">
-						<p>댓글 <span id="reply_total_cnt">0</span></p>
+						<p>댓글 <span id="reply_total_cnt">2</span></p>
 						<a class="refresh_btn"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_refresh.png" alt=""></a>
 						<div class="check_radio">
 
@@ -491,24 +575,23 @@ section{width:964px;position:relative;margin:0 auto;}
 					<div class="comment_text_area">
 					    <form id="talkCommentForm" name="talkCommentForm" method="post">
 					    <input type="hidden" name="mode" value="add">
-					    <input type="hidden" name="user_key" value="0">
-					    <input type="hidden" name="tl_key" value="135505">
+					    <input type="hidden" name="user_key" value="381162">
+					    <input type="hidden" name="tl_key" value="137420">
 					    <input type="hidden" name="tcm_key" value="0">
 					    <div class="file_textarea">
-					        <textarea name="tcm_comment" class="tcm_comment" placeholder="댓글 내용을 입력해주세요."></textarea>
-
+							<textarea name="tcm_comment" class="tcm_comment" placeholder="댓글 내용을 입력해주세요."></textarea>
 					        <div class="imgefile_upload">
-					            <img class="original" src="" style="background-color: rgb(247, 247, 247);">
+					            <img class="original" src="#" style="background-color: rgb(247, 247, 247);">
 								<div class="upload_close"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_photo03.png" alt=""></div>
 					        </div>
 					    </div>
 
 					    <div class="comment_upload_box clearfix">
 					        <label for="">
-																	<span class="photo_btn">사진 첨부</span>
+																	<input type="file" class="imgefile" id="imgefile1" name="talk_files">
+									<span class="photo_btn">사진 첨부</span>
 													        </label>
 					        <a class="comm_btn btn_comm">등록하기</a>
-					        
 					    </div>
 					    </form>
 					</div>
@@ -519,7 +602,7 @@ section{width:964px;position:relative;margin:0 auto;}
 $(document).ready(function(){
     $('.talk_more').click(function(){
         var p_user_key = $(this).attr('data-p_user_key');
-        var user_key = "0";
+        var user_key = "381162";
         var tcm_key = $(this).attr('data-tcm_key');
         if(p_user_key == user_key){
             $('#delete_tcm_key').val(tcm_key);
@@ -617,7 +700,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var tl_key = $(this).attr('data-tl_key');
         var tcm_key = $('#delete_tcm_key').val();
-        var user_key = "0";
+        var user_key = "381162";
 		var mode = "del";
         var reply_total_cnt = $('#reply_total_cnt').html();
 		$.ajax({
@@ -740,16 +823,11 @@ $(document).ready(function(){
 
 </script>
 
-<script>
-    $('.comment_list_more, .comment_list_best_box').show();
-    $('.comment_list_more_box').hide();
-</script>
-<div class="comment_list_area comment_list_best_box">
-    </div>
 
 
-
-<div class="comment_list_area comment_list_more_box" style="display: none;">
+<div class="comment_list_area comment_list_more_box">
+          
+        
     
     <!--
 
@@ -757,6 +835,24 @@ $(document).ready(function(){
 </div>
 
 
+<!-- 스크랩및신고 팝업 -->
+<div class="popupsm_opacity popup_choice" id="report_box" style="display:none">
+    <input type="hidden" name="tcm_key" id="report_tcm_key" value="">
+	<div class="popup_choice_inner">
+					<a class="btn_talk_comm_report" data-tl_key="137420" data-user_key="381162">신고하기</a>
+		
+		<a class="wrap_close">닫기</a>
+	</div>
+</div>
+
+<div class="popupsm_opacity popup_choice" id="delete_box" style="display:none">
+    <input type="hidden" name="tcm_key" id="delete_tcm_key" value="">
+	<div class="popup_choice_inner">
+		<a class="btn_talk_comm_del" data-tl_key="137420">삭제하기</a>
+		<a class="wrap_close">닫기</a>
+	</div>
+</div>
+<!--// 스크랩및신고 팝업 -->
 </div><!--// comment_list_area -->
 					<!--// 댓글목록 -->
 
@@ -767,10 +863,7 @@ $(document).ready(function(){
 		</div>
 		<!--// view_info_manage_detail -->
 	</section>
-
-	
-	</div>
-
+</div>
   
 
   <!-- loader -->

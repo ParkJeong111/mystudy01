@@ -9,6 +9,7 @@ import kr.co.teamd.mvc.dto.HostregDTO;
 
 public interface AdminHostDaoInter {
 	public List<HostregDTO> hostreglist(); //가맹점 요청 리스트
+	public int hnamechk(String hname);
 	public void hostinsert(HostDTO hdto); // 가맹점 등록
 	public void updatehrstatus(HostDTO hdto); //가맹점 요청 수정
 	public List<HostDTO> hostalllist(); //가맹점 리스트

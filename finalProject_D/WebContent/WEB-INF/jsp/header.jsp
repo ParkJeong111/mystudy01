@@ -36,6 +36,8 @@
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"> <!--  추가 폰트  Noto Sans KR -->
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  추가 폰트  Do Hyeon -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- 추가 폰트 Poppins -->
+
     <style>
     .nav-link{font-family: Jua;}
     .form-controla{
@@ -101,20 +103,29 @@
    .submenumore > li > a:hover{
    color: #f85959;
    }
- 
+ .shadow {
+	box-shadow: 2px 2px 5px #999;
+}
+#autosearchlist {
+	cursor: pointer;
+	float: left;
+	width: 292.67px;
+	height: auto;
+}
+.autosearchlist > a:hover {
+	color: #f85959;
+}
+.autosearchlist > a{
+	color : black;
+	cursor: pointer;
+	margin-left: 7px;
+	
+}
     </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs
 	/jquery/3.4.1/jquery.js"></script>
-<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
-<link
-	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
-	rel="stylesheet">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -127,6 +138,8 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
       <input id="hname" type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%" value="" name="hname">
       <input id="mainsearchlist" type="button" class="search-submit btn btn-primary" value="Search">
+
+      
       <ul class="navbar-nav ml-auto" >
           <li class="nav-item"><a href="itemslist?type=1" class="nav-link">바다</a></li>
           <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
@@ -168,59 +181,56 @@
           </li>
         </ul>
       </div>
+      
     </div>
+ 
 
   </nav>
+  <div>
+       	<div style="color:black; background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+      		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
+      	</div> 
+</div>
        <script>
+     //메인검색창에서 검색 후 이동
   	$(function() {
   		var hname = 0;
 		$("#mainsearchlist").click(function() {
 			hname = $("#hname").val();
-			location.href = 'mainsearchlist?hname='+encodeURI($('#hname').val(),"EUC-KR");
+			location.href = 'mainsearchlist?hname='+encodeURI($('#hname').val(),"UTF-8");
 		});
-
-
-	});
-	console.log("아직 자동완성은 미완성입니다.");
-	$(document).ready(function(){
-		$(function() {
-			$('#hname').autocomplete({
-				source: function(request, response) {
-						//$('#ranklist').hide();
-						console.log("ajax진입 전");
-						$.ajax({
-							dataType: "json",
-							url : "autosearchlist",
-							data : {hname : request.term},
-							success : function(data){
-								response(
-								$.map(data, function(item) {
-			                        	return {
-			                                label: item.data,
-			                                value: item.data
-			                            }
-			                    })
-								);
-								
-								console.log(data);
-							}
-						});
-					},
-					minLength : 1,
-					focus: function(event, ui){ return false;},
-					select: function(event, ui){
-						
-						location.href = 'mainsearchlist?hname='+encodeURI(ui.item.value,"EUC-KR");
-					}
-					
-					
-			});
-		});
-
 		
-	});
-  </script>
-  <script>
+
+
+		//검색어 자동완성 및 자동완성된 검색어 클릭 시 이동
+		$('#hname').on("propertychange change keyup paste input",function(){
+			searchhname = $(this).val();
+			console.log($(this).val());
+			if($(this).val() === ""){
+				$('#autosearchlist').hide();
+			}else{
+				$('#autosearchlist').show();
+				$('#autosearchlist').empty();
+				$.ajax({
+					url:"autosearchlist?hname="+encodeURI($('#hname').val(),"UTF-8"),
+					dataType : 'json',
+					cache:false,
+					success:function(data){
+						var auto = "";
+						for(var i in data){
+							if(i < 5){
+							$('#autosearchlist').append('<p class="autosearchlist"><a href="mainsearchlist?hname='+encodeURI(data[i].hname,"UTF-8")+'"'+'>'+data[i].hname+"</a></p>");
+						}
+					}
+				}
+			});
+
+			}
+		});
+
+		});
+
+     	// ----------------------------- 재민 추가 부분 --------------------------
   		$(function(){
   			// 내글쓰기 페이지로 이동
   			$('#my_board').click(function(){

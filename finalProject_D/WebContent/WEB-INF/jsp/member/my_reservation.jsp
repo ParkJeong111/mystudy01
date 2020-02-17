@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp" %>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- Poppins -->
 <style>
 .active{
 background: '#F85959';
 }
 
 
-.selected a{
-	border-bottom: 3px solid #F85959;
-	border-top: 3px solid #F85959;
+.selected {
+	border-bottom: 2px solid #F85959;
+	color: #F85959;
+}
+
+.selected a b{
+	color: #F85959;
 }
 
 .talk_tab li {
@@ -27,11 +32,18 @@ background: '#F85959';
 	text-align: center;
 	height: 44px;
 	line-height: 42px;
-	color: black;
-		 font-family: Arial;
+	color: #606060;;
+	font-family: "Poppins", Arial, sans-serif;
 	 font-size: 19px;
 	cursor: pointer;
+	
 }
+
+.talk_tab{
+border-bottom: 1px solid #e6e6e6;
+}
+
+
 </style>
 
 
@@ -59,11 +71,11 @@ background: '#F85959';
 					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
 						<li class="selecthead selected">
-						<a href="javascript:void(0);" onclick="restpye(1)">예약내역</a></li>
+						<a href="javascript:void(0);" onclick="restpye(1)"><strong><b>예약내역</b></strong></a></li>
 						<li class="selecthead">
-						<a href="javascript:void(0);" onclick="restpye(2)">이용완료</a></li>
+						<a href="javascript:void(0);" onclick="restpye(2)"><strong><b>이용완료</b></strong></a></li>
 						<li class="selecthead">
-						<a href="javascript:void(0);" onclick="restpye(3)">취소환불</a></li>
+						<a href="javascript:void(0);" onclick="restpye(3)"><strong><b>취소환불</b></strong></a></li>
 					</ul>
 					
 				</section>
@@ -94,8 +106,7 @@ background: '#F85959';
 									</div>
 									<hr>
 									<p class="bottom-area d-flex">
-										<span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>${r.hostdto.haddr }</span> <span
-											class="ml-auto"><a href="itemdetail?hnum=${r.hostdto.hnum}">상세보기</a></span>
+										<span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>${r.hostdto.haddr }</span> 
 									</p>
 								</div>
 							</div>
@@ -103,6 +114,8 @@ background: '#F85959';
 						</c:forEach>
 
 			</div>
+		</div>
+		</div>
 		</div>
 	</section>
 
@@ -148,7 +161,7 @@ function restpye(type) {
 			success : function(data) {
 				$("#reservationtarget").html("")
 				$.each(data, function(key, value){
-						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='itemdetail?hnum="+value.hostdto.hnum+"' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/"+value.hostdto.himage+"\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='itemdetail?hnum="+value.hostdto.hnum+"'>"+value.hname+"</a></h3></div><div class='two'><span class='price per-price'>"+value.usedate+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.hostdto.haddr+"</span> <span class='ml-auto'><a href='#'>상세보기</a></span></p></div></div></div>");
+						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='itemdetail?hnum="+value.hostdto.hnum+"' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/"+value.hostdto.himage+"\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='itemdetail?hnum="+value.hostdto.hnum+"'>"+value.hname+"</a></h3></div><div class='two'><span class='price per-price'>"+value.usedate+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.hostdto.haddr+"</span> </p></div></div></div>");
 								});
 			}
 		});

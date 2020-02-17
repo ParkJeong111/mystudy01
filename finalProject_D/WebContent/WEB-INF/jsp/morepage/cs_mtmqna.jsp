@@ -820,24 +820,24 @@ input, select, button {
 				</ol>
 			</div>
 
-			<section>
-				<form class="" action="qnainsert" method="post" id="form"
+			<section >
+				<form action="qnainsert" method="post" id="form"
 					novalidate="novalidate">
 					<!-- 1:1 문의하기 -->
 					<div class="inq_area">
 						<p class="service_title">
-							<span>INQ</span><b>1:1 문의하기</b><strong><b>필수항목입니다.</b></strong>
+							<span>INQ</span><b>1:1 문의하기</b>
 						</p>
 
 						<div class="inq_tab">
 							<ul class="clearfix">
-								<li class="active"><a href="/service/inq_form">문의하기</a></li>
-								<li><a href="/service/inq_form/list">문의내역</a></li>
+								<li id="addbtn" class="active"><a href="javascript:void(0)" onclick="qnaadd()">문의하기</a></li>
+								<li id="listbtn" ><a href="javascript:void(0)" onclick="qnalist()">문의내역</a></li>
 							</ul>
 						</div>
 
 						<!-- 문의하기 -->
-						<div class="inq_form_area">
+						<div class="inq_form_area" id="qnaadd" >
 							<div class="inq_select">
 								<em> <select name="qcategory" id="qcategory">
 									<option value="예약/결제">예약/결제</option>
@@ -853,35 +853,71 @@ input, select, button {
 									</ins>
 								</em>
 							</div>
-
 			
 							<textarea name="qcontent" id="qcontent" placeholder="최소 10자이상 문의글을 입력해주세요."></textarea>
-
-							<div class="inq_check clearfix">
-								<div class="inq_select">
-									<em> <select name="qphone" id="qphone" >
-									<option value="연락처" >연락처</option>
-									</select>
-									</em>
-								</div>
-								<div class="inq_input">
-									<input type="tel" name="qphone" id="qphone" 
-										placeholder="답변 받을 연락처를 입력해주세요." maxlength="13"
-										data-phone-mask="">
-								</div>
-							</div>
 							
-
-					
+							<div class="req_area">
+						<div class="req_list" style="margin-top: -5%">
+						 <em> <strong >연락처</strong> 
+							<input type="text" id="qphone" name="qphone" placeholder="답변 받을 연락처를 입력해주세요."
+								maxlength="13" data-phone-mask="">
+							</em> 
+						</div>
+					</div>
 							<div class="service_btn submit_btn">
-								<a>문의하기</a>
+								<a href="javascript:void(0)" onclick="qnasubmit()">문의하기</a>
 							</div>
 						</div>
-						<!--// 문의하기 -->
+						
+						
+						
+						
+						
+						
+						
+						<!-- 문의 내역  -->
+					
+							
+								<div class="inq_form_area" id="qnalist" style="display: none;">
+								<c:forEach items="${qlist }" var="q">
+								<div class="req_area">
+									<div class="req_list" style="margin-top: -8%">
+									 <em> <strong >구분</strong> 
+										<input type="text" readonly="readonly" value="${q.qcategory }">
+										</em> 
+									</div>
+								</div>
+										<textarea readonly="readonly"> ${q.qcontent }</textarea>
+										
+										<div class="req_area">
+									<div class="req_list" style="margin-top: -5%">
+									 <em> <strong >문의일/답변일</strong> 
+										<input type="text" readonly="readonly" value="${q.qdate} / ${q.qadate}">
+										</em> 
+										 <em> <strong >답변</strong> 
+										<input type="text" readonly="readonly" value="${q.qanswer }">
+										</em> 
+									</div>
+									<hr>
+								</div>
+								</c:forEach>
+								</div>
+					
+						
+				
+						
+						
+						
+						
+						
+						
 					</div>
-					<!--// 1:1 문의하기 -->
 				</form>
 			</section>
+			
+			
+			
+			
 		</div>
 	</section>
 	<!-- .section -->
@@ -900,112 +936,36 @@ input, select, button {
 	<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 	<script>
-		<script>
 		$(document).ready(function() {
-			$(".ps_gobtn a").attr({
-				"target" : "_blank"
-			});
-
-			$(document).on('click', '#more_content', function() {
-				location.href = "/mypage/login";
-			});
+			
 		});
+		
+	function qnasubmit() {
+		$('#form').submit();
+		console.log("클릭은 되는지 확인해봅시다");
+	}	
+	function qnaadd() {
+		$('#qnaadd').show();
+		$('#qnalist').hide();
+		$('#addbtn').addClass("active");
+		$('#listbtn').removeClass("active");
+		
+		
+	}
+	function qnalist() {
+		$('#qnaadd').hide();
+		$('#qnalist').show();
+		$('#addbtn').removeClass("active");
+		$('#listbtn').addClass("active");
+
+	}
 	</script>
-	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-							
-							//비동기 처리
-							$('#form').ajaxForm(
-									{
-										dataType : 'json',
-										success : function(res) {
-											return $.toastAlert(res.msg, true,
-													'/service/inq_form/list');
-										},
-										error : function(res) {
-											if (res.responseText) {
-												location.reload(true);
-											}
-										}
-									});
-
-							$.validator.addMethod("space_chk", function(value,
-									element) {
-								return value == '' || value.trim().length > 9;
-							}, "공백은 입력이 불가능합니다.");
-
-							//유효성 검사
-							var validate_options = {
-								rules : {
-									/*sono_title : { required : true },*/
-									/*sono_email : { required : true, email : true },*/
-									sono_cate : {
-										required : true
-									},
-									c_key : {
-										required : function(element) {
-											return $(
-													'#form select[name=sono_cate]')
-													.val() === '6';
-										}
-									},
-									sono_content : {
-										required : true,
-										minlength : 10,
-										space_chk : true
-									}
-								},
-								messages : {
-									/*sono_title : { required : "문의 제목을 입력해주세요." },*/
-									/*sono_email : { required : "연락받으실 이메일을 입력해주세요." },*/
-									sono_cate : {
-										required : "문의 항목을 선택해주세요."
-									},
-									c_key : {
-										required : "업체명을 입력해주세요."
-									},
-									sono_content : {
-										required : "문의 내용을 입력해주세요.",
-										minlength : $.validator
-												.format("최소 {0}자이상 문의글을 입력해주세요.")
-									}
-								},
-								invalidHandler : function(form, validator) {
-									var errors = validator.numberOfInvalids();
-									if (errors) {
-										return $
-												.toastAlert(validator.errorList[0].message);
-										validator.errorList[0].element.focus();
-									}
-								}
-							};
-							$('#form').validate(
-									$.extend($.default_validate,
-											validate_options));
-
-							//문의 등록 하기
-							var submit_func = function() {
-								var $form = $(this).parents('form');
-
-								if ($('#form').valid()) {
-									$("#form").submit();
-								}
-								$('#form .submit_btn')
-										.one('click', submit_func);
-							};
-							$('#form .submit_btn').one('click', submit_func);
-
-						});
-	</script>
-
+	
 </body>
 </html>
