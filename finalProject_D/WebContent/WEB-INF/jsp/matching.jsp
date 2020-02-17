@@ -1622,10 +1622,11 @@ li {
 				$('#perid').html(val);
 			}			
 		}
+		
 		$('#reset').click(function() {
 			location.href = "matching"
 			
-		})
+		});
 		$(function() {
 			
 		});
