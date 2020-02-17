@@ -107,20 +107,7 @@ div {
 	이벤트
 	</p>
 	<hr>
-	<!--  
-	<div class="talk_header" style="">
-					<div class="talk_tab_area" >
-						<section>
-							<ul class="talk_tab clearfix" style = "font-weight: bold; ">
-								<li class="" style = "margin-left: 70px;"><a href = "" data-talk_key="6" data-tc_key="0"
-									data-u_type="1">진행중인 이벤트</a></li>
-								<li class="" style = "margin-right: 70px;"><a href = "" data-talk_key="1" data-tc_key="0"
-									data-u_type="1">종료된 이벤트</a></li>
-							</ul>
-							<hr>
-						</section>
-					</div> -->
-					<!--  <li class="active">-->
+	
 		<section>
 		<div class="eventNotice"><!-- // 통이미지 사용 !-->
 									<div class="eventBox">
@@ -132,26 +119,14 @@ div {
 					</div>
 										<a href="/more/event_info/207">
 						<img data-orig="https://img.moolban.com/unsafe/admin/event/20200113/6aaf4fdc7fc4397185a77f371eed1ae4.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20200113/6aaf4fdc7fc4397185a77f371eed1ae4.jpg" style="">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20200113/6aaf4fdc7fc4397185a77f371eed1ae4.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20200113/6aaf4fdc7fc4397185a77f371eed1ae4.jpg" style="">
+						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191129/87f600627fc063f00a5e474f1d5c120e.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191129/87f600627fc063f00a5e474f1d5c120e.jpg" style="">
+					
 					</a>
 				</div>
 				
 
 								</div><!-- // eventBox !-->
-									<div class="eventBox">
-				<div class="opc_bg">
-										<div class="boxState">
-						<div class="msg">
-							<i class="icon"></i>
-						</div>
-					</div>
-										<a href="/more/event_info/197">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191129/87f600627fc063f00a5e474f1d5c120e.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191129/87f600627fc063f00a5e474f1d5c120e.jpg" style="">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191129/87f600627fc063f00a5e474f1d5c120e.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191129/87f600627fc063f00a5e474f1d5c120e.jpg" style="">
-					</a>
-				</div>
-
-								</div><!-- // eventBox !-->
+							
 									<div class="eventBox winner">
 				<div class="opc_bg">
 										<div class="boxState">
@@ -161,30 +136,14 @@ div {
 					</div>
 										<a href="/more/event_info/201">
 						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191213/7568d14d16fd2b77859a958451f3b4df.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191213/7568d14d16fd2b77859a958451f3b4df.jpg" style="">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191213/7568d14d16fd2b77859a958451f3b4df.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191213/7568d14d16fd2b77859a958451f3b4df.jpg" style="">
-					</a>
+						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191202/85d96b69da295b0471a12d0d61e3edc0.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191202/85d96b69da295b0471a12d0d61e3edc0.jpg" style="">
+						</a>
 				</div>
 
 								<div class="eventUrlBox" style="">
 				</div>
 								</div><!-- // eventBox !-->
-									<div class="eventBox winner">
-				<div class="opc_bg">
-										<div class="boxState">
-						<div class="msg">
-							<i class="icon"></i>
-						</div>
-					</div>
-										<a href="/more/event_info/198">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191202/85d96b69da295b0471a12d0d61e3edc0.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191202/85d96b69da295b0471a12d0d61e3edc0.jpg" style="">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191202/85d96b69da295b0471a12d0d61e3edc0.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191202/85d96b69da295b0471a12d0d61e3edc0.jpg" style="">
-						
-					</a>
-				</div>
-
-								<div class="eventUrlBox" style="">
-				</div>
-								</div><!-- // eventBox !-->
+									
 									<div class="eventBox winner">
 				<div class="opc_bg">
 										<div class="boxState">
@@ -194,22 +153,6 @@ div {
 					</div>
 										<a href="/more/event_info/194">
 						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191121/9d70cf9e05e1c2bb52d67dfac05d4dba.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191121/9d70cf9e05e1c2bb52d67dfac05d4dba.jpg" style="">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191121/9d70cf9e05e1c2bb52d67dfac05d4dba.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191121/9d70cf9e05e1c2bb52d67dfac05d4dba.jpg" style="">
-					</a>
-				</div>
-
-								<div class="eventUrlBox" style="">
-				</div>
-								</div><!-- // eventBox !-->
-									<div class="eventBox winner">
-				<div class="opc_bg">
-										<div class="boxState">
-						<div class="msg">
-							<i class="icon"></i>
-						</div>
-					</div>
-										<a href="/more/event_info/187">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191030/f852df74eec510fc5ca49a07e3094aed.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191030/f852df74eec510fc5ca49a07e3094aed.jpg" style="">
 						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191030/f852df74eec510fc5ca49a07e3094aed.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191030/f852df74eec510fc5ca49a07e3094aed.jpg" style="">
 					</a>
 				</div>
@@ -217,7 +160,7 @@ div {
 								<div class="eventUrlBox" style="">
 				</div>
 								</div><!-- // eventBox !-->
-									<div class="eventBox winner">
+					<div class="eventBox winner">
 				<div class="opc_bg">
 										<div class="boxState">
 						<div class="msg">
@@ -226,22 +169,6 @@ div {
 					</div>
 										<a href="/more/event_info/186">
 						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191029/2eac1d5b1c6c0ebcd1bc602e04451f8b.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191029/2eac1d5b1c6c0ebcd1bc602e04451f8b.jpg" style="">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191029/2eac1d5b1c6c0ebcd1bc602e04451f8b.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191029/2eac1d5b1c6c0ebcd1bc602e04451f8b.jpg" style="">
-					</a>
-				</div>
-
-								<div class="eventUrlBox" style="">
-				</div>
-								</div><!-- // eventBox !-->
-									<div class="eventBox winner">
-				<div class="opc_bg">
-										<div class="boxState">
-						<div class="msg">
-							<i class="icon"></i>
-						</div>
-					</div>
-										<a href="/more/event_info/185">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191025/be0fe7bfd9a4d0cb8e609f989a82671d.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191025/be0fe7bfd9a4d0cb8e609f989a82671d.jpg" style="">
 						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191025/be0fe7bfd9a4d0cb8e609f989a82671d.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191025/be0fe7bfd9a4d0cb8e609f989a82671d.jpg" style="">
 					</a>
 				</div>
@@ -249,6 +176,7 @@ div {
 								<div class="eventUrlBox" style="">
 				</div>
 								</div><!-- // eventBox !-->
+									
 									<div class="eventBox winner">
 				<div class="opc_bg">
 										<div class="boxState">
@@ -258,33 +186,16 @@ div {
 					</div>
 										<a href="/more/event_info/183">
 						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191014/74577988885044bb3e0cf1c0a7a2d1f3.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191014/74577988885044bb3e0cf1c0a7a2d1f3.jpg" style="">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191014/74577988885044bb3e0cf1c0a7a2d1f3.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191014/74577988885044bb3e0cf1c0a7a2d1f3.jpg" style="">
+						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191004/a9ee9f87aab5256cdc1654d35c390046.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191004/a9ee9f87aab5256cdc1654d35c390046.jpg" style="">
 					</a>
 				</div>
 
 								<div class="eventUrlBox" style="">
 				</div>
 								</div><!-- // eventBox !-->
-									<div class="eventBox winner">
-				<div class="opc_bg">
-										<div class="boxState">
-						<div class="msg">
-							<i class="icon"></i>
-						</div>
+									
 					</div>
-										<a href="/more/event_info/181">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191004/a9ee9f87aab5256cdc1654d35c390046.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191004/a9ee9f87aab5256cdc1654d35c390046.jpg" style="">
-						<img data-orig="https://img.moolban.com/unsafe/admin/event/20191004/a9ee9f87aab5256cdc1654d35c390046.jpg" class="lazy" src="https://img.moolban.com/unsafe/admin/event/20191004/a9ee9f87aab5256cdc1654d35c390046.jpg" style="">
-					</a>
-				</div>
-
-								<div class="eventUrlBox" style="">
-				</div>
-								</div><!-- // eventBox !-->
-									<!-- // eventBox !-->
-					</div><!-- // eventNotice !-->
 	</section>
-		<!-- .section -->
 
 		
 

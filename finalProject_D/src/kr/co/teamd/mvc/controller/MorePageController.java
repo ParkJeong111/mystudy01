@@ -99,7 +99,8 @@ public class MorePageController {
 	
 		
 		@RequestMapping("qnainsert")  //QnA 등록
-		public String qnaInsert(QnaDTO qdto, HttpServletResponse resp,HttpSession session) {
+		public ModelAndView qnaInsert(QnaDTO qdto, HttpServletResponse resp,HttpSession session) {
+			ModelAndView mav = new ModelAndView();
 			String mid = (String) session.getAttribute("mid");
 			qdto.setMid(mid);
 			mdao.qnaInsert(qdto);
@@ -112,17 +113,19 @@ public class MorePageController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			session.setAttribute("mid", mid);
-			return "morepage/cs_mtmqna";
+			mav.setViewName("morepage/cs_mtmqna");
+			return mav;
 		}
 		
 		
 		@RequestMapping(value= "cs_mtmqna")  //1:1문의
 		public ModelAndView qna(HttpSession session) {
+			System.out.println("1:1문의 진입 확인용 로그");
 			ModelAndView mav = new ModelAndView();
 			String mid = (String) session.getAttribute("mid");
 			if (mid ==null) {
 				mav.setViewName("member/login");
+				session.setAttribute("vn", "redirect:cs_mtmqna");
 			}else {
 				mav.setViewName("morepage/cs_mtmqna");	
 				List<QnaDTO> qlist = mdao.qnaList(mid);

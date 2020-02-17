@@ -30,8 +30,8 @@
 }
 
 .service_area .service_tab li.active a {
-	border-bottom: 1px solid #e84418;
-	color: #e84418
+	border-bottom: 1px solid #f85959;
+	color: #f85959
 }
 
 .service_area section {
@@ -88,7 +88,7 @@
 	display: block;
 	text-align: center;
 	border-radius: 0.3rem;
-	background: #e84418;
+	background: #f85959;
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;
@@ -834,10 +834,10 @@ a {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; padding-left: 200px; margin-top: 50px;" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; padding-left:20%; " >
 			<ol class="clearfix" style="text-align: center;">
-				<li class="active"><a href="my_board">게시글작성</a></li>
-				<li><a href="itemsboard">중고게시글작성</a></li>
+				<li class="active"><a href="my_board"><b><strong>게시글작성</strong></b></a></li>
+				<li><a href="itemsboard"><b><strong>중고 게시글작성</strong></b></a></li>
 			</ol>
 		</div>
 
@@ -886,10 +886,19 @@ a {
 											</div>
 										</div>
 										
+										<!-- 이미지 업로드 -->						
+										<div class="col-md-6" style="float: left;" >
+												<div class="form-group" >
+													<input multiple="multiple" type="file" id="bfile" name="bfile" value="이미지"
+														class="form-control" placeholder="사진을 등록해주세요."
+														style="border-radius: 7px;">
+												</div>
+											</div>
+										
 									<!-- 	가맹점 불러오는곳 -->
-									<div class="col-md-6" style="float: left;">
+									<div class="col-md-6" >
 											<div class="form-group">
-												<div class="select-wrap one-third">
+												<div class="select-wrap one-third" id="hostlist_div">
 													<div class="icon" id="dwnarrow">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
@@ -906,15 +915,6 @@ a {
 										</div>
 									</div>
 										
-										<!-- 이미지 업로드 -->						
-										<div class="col-md-6"
-												style="margin-left: 450px; margin-top: -68px;">
-												<div class="form-group" style="width: 250px;">
-													<input multiple="multiple" type="file" id="bfile" name="bfile" value="이미지"
-														class="form-control" placeholder="사진을 등록해주세요."
-														style="border-radius: 7px;">
-												</div>
-											</div>
 										
 										<!-- 제목 -->
 										<div class="col-md-6">
@@ -933,7 +933,7 @@ a {
 															<a class="star star_click" href="#2"></a>
 															<a class="star star_click" href="#3"></a>
 															<a class="star star_click" href="#4"></a>
-															<input type="hidden" value="" name="bstar" id="bstr">
+															<input type="hidden" value="0" name="bstar" id="bstr">
 														</div>
 										</div>
 										<!-- 별점 값을 등록하는거 -->
@@ -942,7 +942,7 @@ a {
 															var bnum = "<c:out value="${e.bnum}"/>";
 															var j = 0;
 															for (var i = 1; i <= bstar; i += 1) {
-																$('#star-box'+bnum+' span').eq(j).addClass("on");
+																$('#star-box'+bnum+' span').eq(j).addClass("icon-star-o");
 																j++;
 															}
 														
@@ -1049,12 +1049,14 @@ function goListBtn(){
 						console.log("여기 출력??? " + $('#tm').val())
 						$("#tm2").prop("hidden", false);
 						$("#dwnarrow").prop("hidden", false);
+						$('#hostlist_div').prop("hidden", false);
 						console.log("사용가능!");
 						$("#tm3").prop("hidden", false);
 
 					}else if($("#tm").val() == 1){
 						$("#tm2").prop("hidden", true);
 						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
 						console.log("사용불가??");
 						$('#tm').prop("유용한정보");
 						console.log("찍히나??? " + $('#tm').val());
@@ -1063,6 +1065,7 @@ function goListBtn(){
 					}else if($("#tm").val() == 2){
 						$("#tm2").prop("hidden", true);
 						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
 						console.log("사용불가??");
 						$('#tm').prop("낚시지식인");
 						console.log("찍히나??? " + $('#tm').val());
@@ -1071,6 +1074,7 @@ function goListBtn(){
 					}else if($("#tm").val() == 3){
 						$("#tm2").prop("hidden", true);
 						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
 						console.log("사용불가??");
 						$('#tm').prop("자유게시판");
 						console.log("찍히나??? " + $('#tm').val());

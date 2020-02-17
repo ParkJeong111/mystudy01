@@ -1720,11 +1720,7 @@ margin-top: -3%;}
 					console.log(data +"Áß°íÀåÅÍ")
 					$("#talk_detail_list").html("")
 					$.each(data, function(key, value){
-							/* $("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong style='margin-top:-20px;'>"+value.mid+"</strong></div>"+
-										"<div class='profile_date'><p>"+ value.ibdate +"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='itemstalk_detail?ibnum="+value.ibnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>Áß°íÀåÅÍ</span></p>"+
-										"<div class='talk_text'><strong>"+value.ibtitle+"</strong><p class='more'>"+value.ibcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.ibimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'></p><div class='comm_mark_line'><p class='comm_line'>´ñ±Û <span>0</span></p></div></div>"+
-										"<div class='talk_btn clearfix'><a class='talk_money_btn' href='#'>"+value.ibmoney+"¿ø</a><a class='talk_comm_btn' style='width:50%;' href='talk_detail?ibnum="+value.ibnum+"#comment_box'>´ñ±Û¾²±â</a></div></div></div>")
-		 */			   
+							   
 							$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
 										+value.ibtitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
 										+value.ihaddr+'</p></div><div class="profile_date" style="float: right"><p>'
@@ -1752,12 +1748,6 @@ margin-top: -3%;}
 					
 						$("#talk_detail_list").html("")
 						$.each(data, function(key,value) {
-							
-							/* $("#talk_detail_list").append("	<div class='talk_box_area' id='talk_visual135516'> <div class='profile_line'><div class='profile_img'><p class='lv98'><img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' class='profile' alt=''></p></div><div class='profile_name'><strong>"+value.mid+"</strong><p><a href='/' class='header_logo'> <img src='https://img.moolban.com/unsafe/750x390/filters:no_upscale()/company/${pageContext.request.contextPath}/resources/images/1558/e752118b6f4c77f6b71b4fa20ccc029c.jpg' alt=''>"+value.haddr+"</a></p></div>"+
-										"<div class='profile_date'><p>"+value.bdate+"</p></div></div><div class='talk_view_btn' OnClick=\"location.href ='talk_detail?bnum="+value.bnum+"'\" style='cursor: pointer;'><p class='talk_pic'><span class='manage'>"+value.btype2+"</span></p>"+
-										"<div class='talk_text'><strong>"+value.btitle+"</strong><p class='more'>"+value.bcontent+"</p></div><div class='img_box' style='width: 608px;'><img src='${pageContext.request.contextPath}/resources/images/"+value.bimage+"' alt=''></div></div><div class='talk_count_btn'><div class='talk_count clearfix'><div class='comm_mark_line'><p class='comm_line'>´ñ±Û <span>0</span></p></div></div>"+
-										"<div class='talk_btn clearfix'><a class='talk_comm_btn' href='talk_detail?bnum="+value.bnum+"#comment_box'>´ñ±Û¾²±â</a></div></div></div>")
-						 */
 						
 						$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
 														+value.btitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
