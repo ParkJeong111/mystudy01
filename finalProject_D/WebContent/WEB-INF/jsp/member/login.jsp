@@ -4,7 +4,6 @@
 	<%@ include file="header.jsp" %>
 <html lang="ko">
 <head>
-<script src="//developers.kakao.com/sdk/${pageContext.request.contextPath}/resources/js/kakao.min.js"></script>
 <style>
 *, *::before, *::after {
 	-webkit-box-sizing: border-box;
@@ -26,8 +25,9 @@
 }
 </style>
 <title>Login페이지</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
 	rel="stylesheet">
@@ -111,9 +111,15 @@
 							</div>
 							<hr>
 							<div>
+<<<<<<< HEAD
 								<a id="kakao-login-btn"></a> <a
 									href="http://developers.kakao.com/logout"></a>
 									<a></a>
+=======
+									<a id="kakao-login-btn"></a> <a
+					href="http://developers.kakao.com/logout">a</a>
+									<a>  이자리에 네이버api</a>
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01
 							</div>
 							
 					</form>
@@ -158,59 +164,38 @@
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
 </body>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type='text/javascript'>
-	//<![CDATA[
-	// 사용할 앱의 JavaScript 키를 설정해 주세요.
-	Kakao.init('6f4c6f3de3e26056bac5bd7d9faed18d'); //여기서 아까 발급받은 키 중 javascript키를 사용해준다.
-	// 카카오 로그인 버튼을 생성합니다.
-	Kakao.Auth.createLoginButton({
-		container : '#kakao-login-btn',
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('bb13ca7092cdd4aaf325f6a60fb053b1');
+    Kakao.Auth.createLoginButton({
+        container: '#kakao-login-btn',
+        success: function(authObj) {
+      	  Kakao.API.request({
+                url: '/v1/user/me',
+                success: function(res) {
+              	  console.log(res.properties.nickname)
+              	  console.log(res.id)
+              	  location.href = "kakao?mid="+res.id
+              
+              	
+              	  
+                },
+                fail: function(error) {
+                  alert(JSON.stringify(error));
+                }
+              });
+        },
+        fail: function(err) {
+           alert(JSON.stringify(err));
+        }
+      });
 
-		success : function(authObj) {
-
-			Kakao.API.request({
-
-				url : '/v1/user/me',
-				success : function(res) {
-					//document.write(res.properties.nickname+"님 환영합니다."+res.id+"아이디입니다.");
-
-					location.href = "kakao?mnickname= "
-							+ encodeURI(res.properties.nickname, "EUC-KR")
-							+ "&mid=" + res.id;
-
-					/*  alert(res.properties.nickname+"님 환영합니다.");
-					if(res.properties.nickname !== null){
-						console.log("적용됐어염");
-						location.href = 'main';
-					}else if(res.properties.nickname === null){
-						$("#kakao-login-btn").show();
-						
-						console.log("적용됐어염11");
-					} */
-					//alert(JSON.stringify(res)); //<---- kakao.api.request 에서 불러온 결과값 json형태로 출력
-					//alert(JSON.stringify(authObj)); //<----Kakao.Auth.createLoginButton에서 불러온 결과값 json형태로 출력
-					console.log(res.id);//<---- 콘솔 로그에 id 정보 출력(id는 res안에 있기 때문에  res.id 로 불러온다)
-					console.log(res.kaccount_email);//<---- 콘솔 로그에 email 정보 출력 
-					//console.log(res.profile_image);
-					//console.log(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근 
-					// res.properties.nickname으로도 접근 가능 )
-					//console.log(res.created);
-					//console.log(res.status);
-					//console.log(authObj.access_token);//<---- 콘솔 로그에 토큰값 출력
-					// $('#kakao_id').val(res.properties.id);
-					//$('#kakao_nickname').val(res.properties.nickname);  
-					/*   var d = new Date(); */
-					/*  
-						
-					}); */
-
-				}
-			})
-		},
-		fail : function(err) {
-			alert(JSON.stringify(err));
-		}
-	});
+	
 	$('#loginbtn').click(
 			function() {
 				$.ajax({
@@ -236,4 +221,6 @@
 				});
 			});
 </script>
+
+
 </html>

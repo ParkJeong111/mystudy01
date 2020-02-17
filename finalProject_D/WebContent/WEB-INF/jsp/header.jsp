@@ -101,12 +101,28 @@
    .submenumore > li > a:hover{
    color: #f85959;
    }
- 
-   
+ .shadow {
+	box-shadow: 2px 2px 5px #999;
+}
+#autosearchlist {
+	cursor: pointer;
+	float: left;
+	width: 292.67px;
+	height: auto;
+}
+.autosearchlist:hover {
+	color: red;
+}
+.autosearchlist {
+	margin-left: 7px;
+}
     </style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs
+	/jquery/3.4.1/jquery.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
   </head>
   <body>
-    
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="index" style="font-family: Gugi; font-size: 30px;"> 고기자바.</a>
@@ -115,8 +131,13 @@
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
-      <input type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%">
-      <input type="button" class="search-submit btn btn-primary" value="Search">
+      <input id="hname" type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%" value="" name="hname">
+<!--       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+      		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
+      	</div> -->
+      <input id="mainsearchlist" type="button" class="search-submit btn btn-primary" value="Search">
+
+      
       <ul class="navbar-nav ml-auto" >
           <li class="nav-item"><a href="itemslist?type=1" class="nav-link">바다</a></li>
           <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
@@ -151,13 +172,72 @@
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
           	  	<hr>
-                <li class="nav-link"><a href="my_board">내글쓰기</a></li>
+                <li class="nav-link"><a href="#" id="my_board">내글쓰기</a></li>
               </ul>
           
           
           </li>
         </ul>
       </div>
+      
     </div>
+ 
+
   </nav>
+       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+      		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
+      	</div> 
+
+       <script>
+     //메인검색창에서 검색 후 이동
+  	$(function() {
+  		var hname = 0;
+		$("#mainsearchlist").click(function() {
+			hname = $("#hname").val();
+			location.href = 'mainsearchlist?hname='+encodeURI($('#hname').val(),"UTF-8");
+		});
+		
+
+
+		//검색어 자동완성 및 자동완성된 검색어 클릭 시 이동
+		$('#hname').on("propertychange change keyup paste input",function(){
+			searchhname = $(this).val();
+			console.log($(this).val());
+			if($(this).val() === ""){
+				$('#autosearchlist').hide();
+			}else{
+				$('#autosearchlist').show();
+				$('#autosearchlist').empty();
+				$.ajax({
+					url:"autosearchlist?hname="+encodeURI($('#hname').val(),"UTF-8"),
+					dataType : 'json',
+					cache:false,
+					success:function(data){
+						var auto = "";
+						for(var i in data){
+							if(i < 5){
+							$('#autosearchlist').append('<p class="autosearchlist"><a href="mainsearchlist?hname='+encodeURI(data[i].hname,"UTF-8")+'"'+'>'+data[i].hname+"</a></p>");
+						}
+					}
+				}
+			});
+
+			}
+		});
+
+		});
+
+     	// ----------------------------- 재민 추가 부분 --------------------------
+  		$(function(){
+  			// 내글쓰기 페이지로 이동
+  			$('#my_board').click(function(){
+  				if("${sessionScope.mid}"===null || "${sessionScope.mid}"===""){
+  					alert("로그인 후 이용 가능합니다.")
+  				}else{
+  					location='my_board';
+  				}
+  				
+  			});
+  		})
+  </script>
     <!-- Header End -->

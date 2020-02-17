@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 .service_area .service_tab {
 	border-bottom: 1px solid #e6e6e6
@@ -800,6 +801,35 @@ li {
 input, select, button {
 	vertical-align: middle
 }
+
+/* <!-- 스타일 별점 추가 (재민) --> */
+a {
+	text-decoration: none;
+	color: gray;
+}
+/*별점*/
+.star{
+  display:inline-block;
+  width: 15px; height: 30px;
+  cursor: pointer;
+}
+.star_left{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+  background-size: 30px; 
+  margin-right: -2px;
+}
+.star_right{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -15px 0; 
+  background-size: 30px; 
+  margin-left: -2px;
+}
+.star.on, .star_print.on{
+  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+}
+.star_print{
+	display:inline-block;
+  	width: 15px; height: 30px;
+}
 </style>
 
 <div class="hero-wrap js-fullheight"
@@ -811,7 +841,7 @@ input, select, button {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto;" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; padding-left: 200px; margin-top: 50px;" >
 			<ol class="clearfix" style="text-align: center;">
 				<li class="active"><a href="my_board">게시글작성</a></li>
 				<li><a href="itemsboard">중고게시글작성</a></li>
@@ -821,91 +851,178 @@ input, select, button {
 		<section class="ftco-section ftco-degree-bg"
 			style="background: white;">
 			<div class="container">
+			<form method="post" action="my_board" enctype="multipart/form-data" >	
 				<div class="row">
 					<div class="col-lg-9">
 						<div class="row">
 							<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
 								<div class="fields">
 									<div class="row" style="width: 900px;">
-										<div class="col-md-6" style="float: left;">
+										<div class="col-md-6" style="float: left; align-content: center;">
 											<div class="form-group">
 												<div class="select-wrap one-third">
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select name="" id="" class="form-control"
+													<%-- 아이디 세션 체크 --%>
+													<input type="hidden" name="mid" value="${sessionScope.mid }"/>
+													
+													<select name="btype1" id="tm" class="form-control"
 														placeholder="유저조행기" style="border-radius: 7px;">
 														<option value="0">유저조행기</option>
-														<option value="1">동반출조</option>
-														<option value="2">중고장터</option>
-														<option value="3">물반동영상</option>
-														<option value="4">유용한정보</option>
-														<option value="5">낚시지식인</option>
-														<option value="6">물반갤러리</option>
-														<option value="7">자유게시판</option>
+														<option value="1" id="c1">유용한정보</option>
+														<option value="2" id="c2">낚시지식인</option>
+														<option value="3" id="c3">자유게시판</option>
 													</select>
 												</div>
 											</div>
+											
 										</div>
 										<div class="col-md-6" style="float: right;">
 											<div class="form-group">
 												<div class="select-wrap one-third">
-													<div class="icon">
+													<div class="icon" id="dwnarrow">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select name="" id="" class="form-control"
+													<select name="btype2" id="tm2" class="form-control"
 														placeholder="카테고리를선택해주세요" style="border-radius: 7px;">
 														<option value="0">바다조행기</option>
 														<option value="1">민물조행기</option>
-														<option value="2">배스조행기</option>
 													</select>
 												</div>
 											</div>
 										</div>
-										<div class="col-md-6" style="float: left;">
+										
+									<!-- 	가맹점 불러오는곳 -->
+									<div class="col-md-6" style="float: left;">
 											<div class="form-group">
-												<input type="text" id="checkin_date" class="form-control"
-													placeholder="Date from" style="border-radius: 7px;">
-											</div>
-										</div>
-										<div class="col-md-6" style="float: right;">
-											<div class="form-group">
-												<input type="text" id="checkin_date" class="form-control"
-													placeholder="Date to" style="border-radius: 7px;">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group" style="width: 870px;">
-												<input type="text" class="form-control"
-													placeholder="제목을 입력해 주세요(30자 이하)">
-											</div>
-										</div>
-										&nbsp;<br>
-										<div class="col-md-6">
-											<div class="form-group">
-												<textarea style="width: 870px; height: 500px; resize: none;"
-													placeholder="TextArea입니다.">
-											
-											</textarea>
-
-											</div>
-										</div>
-										<div>
-											<div class="form-group"
-												style="margin-top: 520px; margin-left: 205px;">
-												<input type="button" value="취소"
-													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
-												<input type="button" value="올리기"
-													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+												<div class="select-wrap one-third">
+													<div class="icon" id="dwnarrow">
+														<span class="ion-ios-arrow-down"></span>
+													</div>
+													<select id="hname" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;" >
+														<option value="0">해적호</option>   <%-- C:Foreach    ${ } 사용해서 hname 가져오기 데이터에서 확인해서 가져오게끔...--%>
+														<option value="1">해적왕실내낚시카페(광명점)</option>
+														<option value="2">광명호</option>
+														<option value="3">대한낚시터</option>
+														<option value="4">화이팅낚시카페</option>
+														<option value="5">하나낚시</option>
+<%-- 													<c:forEach step="${bdto.hname }"></c:forEach> --%>
+													</select>
 											</div>
 										</div>
 									</div>
+										
+									<!-- 별점 평점  -->
+										<c:forEach var="e" items="${bstar }"></c:forEach>	
+										<div class="col-md-6 star-rating" style="float: left;" id="tm3">
+														<a>별점</a> <br>  <!-- 등록하는거 -->
+														<div class="star-box" id="star-box">
+															<a class="star star_left" href="#1"></a> 
+															<a class="star star_right" href="#2"></a> 
+															<a class="star star_left" href="#3"></a> 
+															<a class="star star_right" href="#4"></a> 
+															<a class="star star_left" href="#5"></a> 
+															<a class="star star_right" href="#6"></a> 
+															<a class="star star_left" href="#7"></a> 
+															<a class="star star_right" href="#8"></a> 
+															<a class="star star_left" href="#9"></a> 
+															<a class="star star_right" href="#0"></a>
+															<input type="hidden" value="" name="bstar" id="bstr">
+														</div>
+										</div>
+										<!-- 별점 값을 등록하는거 -->
+													<script>
+															var bstar = "<c:out value="${e.bstar}"/>";
+															var bnum = "<c:out value="${e.bnum}"/>";
+															var j = 0;
+															for (var i = 0.5; i <= bstar; i += 0.5) {
+																$('#star-box'+bnum+' span').eq(j).addClass("on");
+																j++;
+															}
+														
+															$("#star-box a").on('click', function() {
+																var idx = $(this).index();
+																
+																$(".star").removeClass("on");
+																 console.log("별점" + bstar);
+																for (var i = 0; i <= idx; i++) {
+																	$(".star-box").eq(i).addClass("on");
+																}
+																
+																if ($(this).attr("href") === "#1") {
+																	bstar = 0.5 * 1;
+																} else if ($(this).attr("href") === "#2") {
+																	bstar = 1 * 1;
+																} else if ($(this).attr("href") === "#3") {
+																	bstar = 1.5 * 1;
+																} else if ($(this).attr("href") === "#4") {
+																	bstar = 2 * 1;
+																} else if ($(this).attr("href") === "#5") {
+																	bstar = 2.5 * 1;
+																} else if ($(this).attr("href") === "#6") {
+																	bstar = 3 * 1;
+																} else if ($(this).attr("href") === "#7") {
+																	bstar = 3.5 * 1;
+																} else if ($(this).attr("href") === "#8") {
+																	bstar = 4 * 1;
+																} else if ($(this).attr("href") === "#9") {
+																	bstar = 4.5 * 1;
+																} else if ($(this).attr("href") === "#0") {
+																	bstar = 5 * 1;
+																} else {
+
+																}
+																$("#bstr").attr("value", bstar)
+															});
+													</script>
+										<!-- 별점, 가맹점 끝 -->
+										
+										<!-- 이미지 업로드 -->
+										
+										<div class="col-md-6" style="float: left;">
+											<div class="form-group">
+											<input type="file" value="이미지" name="bfile">
+											</div>
+										</div>	
+										
+										<!-- 제목 -->
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="text" class="form-control" id="btitle" name="btitle"
+													placeholder="제목을 입력해 주세요(30자 이하)" required>	
+											</div>
+										</div>
+										
+										&nbsp;<br>
+										<div class="col-md-6">
+											<div class="form-group">
+												<textarea style="width: 870px; height: 500px;" name="bcontent" id="bcontent"
+													placeholder="TextArea입니다."></textarea>
+
+											</div>
+										</div>
+										</div>
+										<!-- 취소, 올리기, 목록 버튼 -->
+										<div>
+											<div class="form-group"
+												style="margin-top: 50px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
+												<input type="reset" value="취소" id="cancelBtn"
+													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+												<input type="submit" value="올리기" id="uploadBtn"
+													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+												<input type="button" onclick="jacvascript:goListBtn()" value="목록" 
+													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+											</div>
+										</div>
 								</div>
+								<!-- fields ends here -->
 							</div>
 						</div>
 					</div>
 					<!-- .col-md-8 -->
 				</div>
+				</form>
 			</div>
 		</section>
 	</div>
@@ -936,15 +1053,65 @@ input, select, button {
 	src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
+<!-- <script -->
+<%-- 	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script> --%>
 <script
 	src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
+<!-- <script -->
+<!-- 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
+<!-- <script -->
+<%-- 	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script> --%>
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+
+<script>
+
+//목록으로 이동
+function goListBtn(){
+	location="talklist?check=1";
+}
+
+	<%-- 게시글 작성 type1 & type2 (재민)--%>
+	$(function() {
+		
+		$('#tm').click(
+				function(){
+					//console.log("여기 출력??? " + $('#tm').val())
+					//console.log("나오나??");       여기 손보기~~~~!!! -_-;;;    로직 다시 짜야할듯.
+					if($('#tm').val() == 0){
+						console.log("여기 출력??? " + $('#tm').val())
+						$("#tm2").prop("hidden", false);
+						$("#dwnarrow").prop("hidden", false);
+						console.log("사용가능!");
+						$("#tm3").prop("hidden", false);
+
+					}else if($("#tm").val() == 1){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						console.log("사용불가??");
+						$('#tm').prop("유용한정보");
+						console.log("찍히나??? " + $('#tm').val());
+						$("#tm3").prop("hidden", true);
+						
+					}else if($("#tm").val() == 2){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						console.log("사용불가??");
+						$('#tm').prop("낚시지식인");
+						console.log("찍히나??? " + $('#tm').val());
+						$("#tm3").prop("hidden", true);
+						
+					}else if($("#tm").val() == 3){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						console.log("사용불가??");
+						$('#tm').prop("자유게시판");
+						console.log("찍히나??? " + $('#tm').val());
+						$("#tm3").prop("hidden", true);
+						
+					} 
+			})
+	});
+</script>
 
 </body>
 </html>

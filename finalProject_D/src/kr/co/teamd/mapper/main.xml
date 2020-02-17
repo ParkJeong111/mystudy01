@@ -10,7 +10,19 @@
 
 
 	<!-- 권세진 영역 시작  -->
+	<!-- 헤더 검색 부분, 중복된 내용을 제거하고 모든 컬럼의 내용이 있는 대표 하나만 출력 -->
+		<select id="mainsearchlist" parameterType="String" resultType="hldto">
+		select h.hname hname, h.himage himage, h.hstar hstar,
+		h.hnotice hnotice, h.htype htype, h.hservice hservice, h.haddr haddr,
+		h.hnum hnum, h.howner howner, h.hspecies hspecies, hg.hgmoney hgmoney
+		from host h, (select distinct hname, min(hgmoney) hgmoney
+		from hostgoods where hname like '%' || #{hname} || '%' group by hname) hg where h.hname=hg.hname
+	</select>
 	
+	<!-- 검새겅 자동완성을 위한 검색어에 따른 hname 출력을 위한 부분 -->
+	<select id="autosearchlist" parameterType="String" resultType="hdto">
+		select distinct hname from host where hname like '%' || #{hname} || '%'
+	</select>
 	<!-- 권세진 영역 끝  -->
 	
 	
@@ -32,15 +44,15 @@
         </resultMap>
         <!-- 메인에서 이용후기 출력, 바다와 민물을 다이나믹 쿼리로 구분 -->
         <select id="revieswList" resultMap="reviewsListResult" parameterType="String">
-        select hname, hstar, btitle, haddr, bimage, hspecies, bdate from 
-        (select b.hname, h.hstar, b.btitle, h.haddr, b.bimage, h.hspecies, b.bdate from host h, board b 
+        select hnum, hname, hstar, btitle, haddr, bimage, hspecies, bdate from 
+        (select h.hnum, b.hname, h.hstar, b.btitle, h.haddr, b.bimage, h.hspecies, b.bdate from host h, board b 
         where h.hname=b.hname and 
         <choose>
                 <when test="viewtype.equals('바다')">b.btype2='바다 조행기'</when>
                 <when test="viewtype.equals('민물')">b.btype2='민물 조행기'</when>
                 <otherwise></otherwise>
         </choose>
-        order by b.bdate desc) where rownum &lt;6
+        order by b.bdate desc) where rownum &lt;6 
         
         </select>
         
@@ -52,7 +64,7 @@
         
         <!-- 추천 가맹점 정보 (예약건 많은 순으로 정렬) -->
         <select id="mainrec" resultType="hdto">
-        select hname, hspecies , himage from (select h.hname, h.hspecies, h.himage,c.cnt from host h,
+        select hnum, hname, hspecies , himage from (select h.hnum, h.hname, h.hspecies, h.himage,c.cnt from host h,
         (select count(rnum)cnt, hname from reservation group by hname)c where h.hname = c.hname order by cnt desc) where ROWNUM &lt;7
         </select>
 	<!-- 박정연 영역 끝  -->

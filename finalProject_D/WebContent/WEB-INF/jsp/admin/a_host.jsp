@@ -54,7 +54,7 @@
 							<td id="hiddenVal">${e.hnum}</td>
 							<td>${e.htype}</td>
 							<td style="cursor: pointer;" class="hlistname">${e.hname}</td>
-							<td class="center"><span class="label label-success">5</span>${e.count}</td>
+							<td class="center" style="text-align: center;">${e.count}</td>
 							<td class="center">
 							
 								<c:forEach var="i" begin="1" end="5" step="1">

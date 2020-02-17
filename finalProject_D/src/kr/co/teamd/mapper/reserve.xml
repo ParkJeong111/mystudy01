@@ -5,7 +5,6 @@
 <mapper namespace="reserve">
 
 	<!-- 송용화 영역 시작 -->
-	
 	<!-- reserve Insert 시작 -->
 	<insert id="addreserve" parameterType="rdto">
 		insert into reservation values(reservation_seq.nextVal, #{mid}, #{hname}, #{hgnum},

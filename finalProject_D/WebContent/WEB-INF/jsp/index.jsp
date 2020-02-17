@@ -19,8 +19,6 @@ text-align: center;
       <div class="container" >
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate" data-scrollax=" properties: { translateY: '70%' }" >
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="margin-top:350px; font-family: Gugi;"><strong>어부지리 <br></strong> 고기자바</h1>
-            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find great places to fishing</p>
             <div class="block-17 my-4">
             </div> 
           </div>
@@ -100,7 +98,7 @@ text-align: center;
     					<c:forEach var="h" items="${hdto}">
     					<div class="item">
 		    				<div class="destination">
-		    					<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${h.himage});">
+		    					<a href="itemdetail?hnum=${h.hnum}" class="img d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${h.himage});">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -137,7 +135,7 @@ text-align: center;
     	<!-- 바다실시간 조황 for문 시작 5개만 돌려야함 -->
     			<div class="col-sm col-md-6 col-lg ftco-animate" >
     				<div class="destination">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${sea.bimage});">
+    					<a href="itemdetail?hnum=${sea.hostdto.hnum}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${sea.bimage});">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -147,16 +145,7 @@ text-align: center;
     							<div class="one" style="width:100%;">
 		    						<h3 style="text-overflow: ellipsis; width: 100%; height: 30%; display: inline-block; font-size: 20px;">
 		    						<a href="#" style="width:100%;">${sea.hname }</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>${sea.hostdto.hstar }점</span>
-		    						</p>
-	    						</div>
-
+		    				</div>
     						</div>
     						<p>${sea.btitle }</p>
     						<p class="days"><span>${sea.hostdto.hspecies} </span></p>
@@ -193,7 +182,7 @@ text-align: center;
     			<c:forEach items="${freshlist}" var="fresh" > 
     			<div class="col-sm col-md-6 col-lg ftco-animate">
     				<div class="destination" >
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${fresh.bimage});">
+    					<a href="itemdetail?hnum=${fresh.hostdto.hnum}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${fresh.bimage});">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -203,15 +192,7 @@ text-align: center;
     							<div class="one" style="width:100%;">
 		    						<h3 style="text-overflow: ellipsis; width: 100%; height: 30%; display: inline-block; font-size: 20px;">
 		    						<a href="#" style="width:100%;">${fresh.hname }</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>${fresh.hostdto.hstar }점</span>
-		    						</p>
-	    						</div>
+		    					</div>
 
     						</div>
     						<p>${fresh.btitle }</p>

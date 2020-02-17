@@ -85,7 +85,7 @@
 					<div class="control-group">
 						<label class="control-label" for="inputType">유형</label>
 						<div class="controls">
-							<select class="value" id="hostTypeSelect" name="htype">
+							<select class="value" id="hostTypeSelect" name="htype" required>
 								<option value="바다">바다</option>
 								<option value="민물">민물</option>
 							</select>
@@ -95,38 +95,38 @@
 						<label class="control-label" for="focusedInput">가맹점 이름</label>
 						<div class="controls">
 							<input class="input-xlarge focused, value" type="text" id="focusedInput" name="hname"
-								value="가맹점을 선택해주세요">
+								placeholder="가맹점을 선택해주세요" required="required" value="">
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label">대표자명</label>
 						<div class="controls">
-							<input class="value" type="text" id="hceo" name="hceo">
+							<input class="value" type="text" id="hceo" name="hceo" placeholder="대표자명" required="required">
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label">연락처</label>
 						<div class="controls">
-							<input class="value" type="text" id="hphone" name="hphone">
+							<input class="value" type="text" id="hphone" name="hphone" placeholder="연락처" required="required">
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label">주소</label>
 						<div class="controls">
-							<input class="value" type="text" id="haddr" name="haddr">
+							<input class="value" type="text" id="haddr" name="haddr" placeholder="주소" required="required">
 						</div>
 					</div>
 
 					<div class="control-group">
 						<label class="control-label">이미지등록</label>
 						<div class="controls">
-							<input class="value" multiple="multiple" type="file" id="hfile" name="hfile">
+							<input class="value" multiple="multiple" type="file" id="hfile" name="hfile" required="required">
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="selectError1">어종선택</label>
 						<div class="controls">
-							<select class="value" id="" multiple data-rel="chosen" id="hspecies" name="hspecies">
+							<select class="value" id="" multiple data-rel="chosen" id="hspecies" name="hspecies" required="required">
 								<!-- <option value="고등어">고등어</option>
 								<option value="참치">참치</option> -->
 								<option>고등어</option>
@@ -171,9 +171,9 @@
 					
 					
 					<div class="form-actions">
-						<button type="submit" class="btn btn-primary" id=hsave>Save
-							changes</button>
-						<button class="btn">Cancel</button>
+						<button type="submit" class="btn btn-primary" id=hsave> 등록
+							</button>
+						<button type="button" class="btn" id="cancel" onclick="location.href='admin_hostapply'">취소</button>
 					</div>
 				</fieldset>
 			</form>
@@ -222,37 +222,31 @@
 		console.log(hostform)
 
 		$('#hsave').click(function() {
-							
-		/* 	 var required = true;
-			 $('.value').each(function(){
-			        if ( $(this).is(':text, textarea, select') && $(this).val().length < 1 ) {
-			            alert('*은 필수 입력항목 입니다.');
-			            $(this).focus();
-			            required = false;
-			            return false;
-			        }
-			        else if ( $(this).is(':checkbox, :radio') && !$(this).parent().children('.required').is(':checked') ) {
-			            alert('*은 필수 입력항목 입니다.');
-			            $(this).focus();
-			            requiredFlag = false;
-			            return false;
-			        };
-			    });
-			 */
-			 
-			 
-			  console.log($("#hguide").val())
+			var hname = $("#focusedInput").val()
+	
+			$.ajax({
+				url : "hnamechk?hname=" + encodeURI(hname, "UTF-8"),
+				success : function(data) {
+					console.log(data);
+					if (data == 1) {
+						console.log("Json1 " + data)
+						alert("이미 등록된 가맹점입니다.");
+					} else {
+						console.log("Json2 " +data)
+						return false;
+					}
+						
+					}
+				
+			});   
 		
 
 
-			hostform.attr('action', 'hostinsert');
-			hostform.attr('method', 'POST');
-			hostform.submit();
-			return;
-
 		});
+		
+	
 
- });
+});
 </script>
 
 <%@ include file="a_footer.jsp"%>

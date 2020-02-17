@@ -1,6 +1,5 @@
 package kr.co.teamd.mvc.dao;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
+import kr.co.teamd.mvc.dto.HostlistDTO;
+import kr.co.teamd.mvc.dto.HostregDTO;
+import kr.co.teamd.mvc.dto.QnaDTO;
 @Repository
 public class MainImple implements MainInter {
 
@@ -32,6 +34,35 @@ public class MainImple implements MainInter {
 		return ss.selectList("main.mainrec");
 	}
 
+	@Override
+	public void hostReg(HostregDTO hrdto) { //가맹점 등록 요청
+		ss.insert("morepage.hostreg",hrdto);
+		
+	}
+
+	@Override
+	public void qnaInsert(QnaDTO qdto) { //qna 등록 
+		ss.insert("morepage.qnainsert", qdto);
+		
+	}
+
+	@Override
+	public List<QnaDTO> qnaList(String mid) { //qna 내역
+		return ss.selectList("morepage.qnalist", mid);
+	}
+
+	
+	@Override
+	public List<HostlistDTO> mainsearchlist(String hname) {
+		return ss.selectList("main.mainsearchlist", hname);
+	}
+
+	@Override
+	public List<HostDTO> autosearchlist(String hname) {
+		return ss.selectList("main.autosearchlist",hname);
+	}
+
+	
 	
 
 }

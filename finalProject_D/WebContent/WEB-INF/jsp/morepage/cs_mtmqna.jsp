@@ -77,8 +77,8 @@ input, select, button {
 }
 
 .service_area .service_tab li.active a {
-	border-bottom: 1px solid #e84418;
-	color: #e84418
+	border-bottom: 1px solid #f85959;
+	color: #f85959
 }
 
 .service_area section {
@@ -94,14 +94,14 @@ input, select, button {
 .service_area .service_title span {
 	font-weight: normal;
 	font-size: 18px;
-	color: #ff724c;
+	color: #f85959;
 	text-align: center;
 	display: inline-block;
 	margin-right: 10px;
 	width: 55px;
 	height: 31px;
 	line-height: 29px;
-	border: 1px solid #ff724c;
+	border: 1px solid #f85959;
 	border-radius: 0.3rem;
 }
 
@@ -116,7 +116,7 @@ input, select, button {
 	margin-right: 10px;
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	position: relative;
 	top: -3px;
@@ -135,7 +135,7 @@ input, select, button {
 	display: block;
 	text-align: center;
 	border-radius: 0.3rem;
-	background: #e84418;
+	background: #f85959;
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;
@@ -222,7 +222,7 @@ input, select, button {
 	margin-left: -18px;
 	width: 8px;
 	height: 8px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	display: inline-block;
 	position: relative;
@@ -279,7 +279,7 @@ input, select, button {
 .req_area .req_list strong.pic:before {
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	position: absolute;
 	top: 30px;
@@ -325,7 +325,7 @@ input, select, button {
 }
 
 .inq_area .inq_tab li.active a {
-	background: #ff724c;
+	background: #f85959;
 	color: #fff
 }
 
@@ -339,18 +339,10 @@ input, select, button {
 }
 
 .inq_area .inq_select select {
-	outline: none;
-	width: 100%;
-	font-size: 18px;
-	color: #606060;
-	height: 58px;
 	border: none;
-	border-radius: 0.3rem;
-	padding: 0 20px;;
-	position: relative;
-	z-index: 1;
-	background: none;
-	padding: 0 10px;
+    height: 60px;
+    width: 100%;
+    font-size: 18px;
 }
 
 .inq_area .inq_select ins {
@@ -381,7 +373,7 @@ input, select, button {
 	width: 8px;
 	height: 8px;
 	border-radius: 100%;
-	background: #ff724c;
+	background: #f85959;
 	content: '';
 	display: inline-block;
 	position: relative;
@@ -529,8 +521,8 @@ input, select, button {
 }
 
 .inq_area .inq_list_box li a span.complete {
-	border: 1px solid #ff724c;
-	color: #ff724c;
+	border: 1px solid #f85959;
+	color: #f85959;
 	background: #fff;
 }
 
@@ -577,8 +569,8 @@ input, select, button {
 }
 
 .inq_area .view_sty1 dd span.complete {
-	border: 1px solid #ff724c;
-	color: #ff724c;
+	border: 1px solid #f85959;
+	color: #f85959;
 	background: #fff;
 }
 
@@ -625,7 +617,7 @@ input, select, button {
 	margin-right: 10px;
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	display: inline-block;
 	position: relative;
@@ -741,10 +733,10 @@ input, select, button {
 .select2-result-repository.company_info .info_area .cc_name {
 	display: inline-block;
 	font-size: 18px;
-	color: #ff724c;
+	color: #f85959;
 	letter-spacing: -0.5px;
 	padding: 0 10px;
-	border: 1px solid #ff724c;
+	border: 1px solid #f85959;
 	border-radius: 0.3rem;
 	height: 33px;
 	line-height: 31px
@@ -771,7 +763,7 @@ input, select, button {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] .select2-result-repository.company_info
 	{
-	background: #ff724c
+	background: #f85959
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] .cc_type
@@ -818,124 +810,114 @@ input, select, button {
 
 	<section class="ftco-section"
 		style="background: white; ">
-		<div class="service_area container" style="padding-top: 112px;">
+		<div class="service_area container">
 
 			<div class="service_tab">
 				<ol class="clearfix">
-					<li><a href="cs_faq">자주하는질문</a></li>
-					<li><a href="cs_customerreg">업체등록요청</a></li>
-					<li class="active"><a href="cs_mtmqna">1:1 문의하기</a></li>
+					<li><strong><a href="cs_faq"><b>자주하는질문</b></a></strong></li>
+					<li><strong><a href="cs_customerreg"><b>업체등록요청</b></a></strong></li>
+					<li class="active"><strong><a href="cs_mtmqna"><b>1:1 문의하기</b></a></strong></li>
 				</ol>
 			</div>
 
-			<section>
-				<form class="" action="/service/inq_proc" method="post" id="form"
+			<section >
+				<form action="qnainsert" method="post" id="form"
 					novalidate="novalidate">
 					<!-- 1:1 문의하기 -->
 					<div class="inq_area">
 						<p class="service_title">
-							<span>INQ</span><b>1:1 문의하기</b><strong><b>필수항목입니다.</b></strong>
+							<span>INQ</span><b>1:1 문의하기</b>
 						</p>
 
 						<div class="inq_tab">
 							<ul class="clearfix">
-								<li class="active"><a href="/service/inq_form">문의하기</a></li>
-								<li><a href="/service/inq_form/list">문의내역</a></li>
+								<li id="addbtn" class="active"><a href="javascript:void(0)" onclick="qnaadd()">문의하기</a></li>
+								<li id="listbtn" ><a href="javascript:void(0)" onclick="qnalist()">문의내역</a></li>
 							</ul>
 						</div>
 
 						<!-- 문의하기 -->
-						<div class="inq_form_area">
+						<div class="inq_form_area" id="qnaadd" >
 							<div class="inq_select">
-								<em> <select name="sono_cate">
-										<option value="7">예약/결제</option>
-										<option value="2">정보수정</option>
-										<option value="4">기능개선</option>
-										<option value="8">이벤트</option>
-										<option value="9">회원정보</option>
-										<option value="1">기타</option>
-								</select> <ins>
+								<em> <select name="qcategory" id="qcategory">
+									<option value="예약/결제">예약/결제</option>
+									<option value="정보수정">정보수정</option>
+									<option value="기능개선">기능개선</option>
+									<option value="이벤트">이벤트</option>
+									<option value="회원정보">회원정보</option>
+									<option value="기타">기타</option>
+							</select> <ins>
 										<img
 											src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/select_arrow_01.png"
 											alt="">
 									</ins>
 								</em>
 							</div>
-
-							<div class="clearfix" id="company_info" style="display: none">
-								<div class="inq_in_box">
-									<div class="inqTi">
-										<p>업체명</p>
-									</div>
-
-									<div class="inqIn">
-										<!-- // 업체상세에서 바로 진입시 In_content 추가 !-->
-										<!--<div class="inqIn In_content"><!-- // 업체상세에서 바로 진입시 In_content 추가 !-->
-										<select class="company_search select2-hidden-accessible"
-											name="c_key" style="width: 100%; height: 100%;" tabindex="-1"
-											aria-hidden="true">
-											<option value="" selected="selected">업체명을 입력해주세요.</option>
-										</select><span
-											class="select2 select2-container select2-container--default"
-											dir="ltr" style="width: 100%;"><span class="selection"><span
-												class="select2-selection select2-selection--single"
-												role="combobox" aria-haspopup="true" aria-expanded="false"
-												tabindex="0" aria-labelledby="select2-c_key-2u-container"><span
-													class="select2-selection__rendered"
-													id="select2-c_key-2u-container" title="업체명을 입력해주세요.">업체명을
-														입력해주세요.</span><span class="select2-selection__arrow"
-													role="presentation"><b role="presentation"></b></span></span></span><span
-											class="dropdown-wrapper" aria-hidden="true"></span></span>
-									</div>
-									<!-- // reqIn !-->
-								</div>
-								<!-- // inq_in_box !-->
-							</div>
-							<textarea name="sono_content" placeholder="최소 10자이상 문의글을 입력해주세요."></textarea>
-
-							<div class="inq_check clearfix">
-								<div class="inq_select">
-									<em> <select name="sono_cate_contact">
-											<option value="1">연락처</option>
-											<option value="2">이메일</option>
-									</select> <ins>
-											<img
-												src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/select_arrow_01.png"
-												alt="">
-										</ins>
-									</em>
-								</div>
-								<div class="inq_input">
-									<input type="tel" name="sono_phone"
-										placeholder="답변 받을 연락처를 입력해주세요." maxlength="13"
-										data-phone-mask="">
-									<!-- <input type="email" placeholder="답변 받을 이메일주소를 입력해주세요." style="display:none"> -->
-								</div>
-							</div>
-
-							<div class="inqFile_area clearfix">
-								<input type="text" id="inqFile" class="inqFile_input"
-									readonly="readonly" placeholder="선택된 파일 없음">
-								<div class="inqFile_div">
-									<input type="button" value="찾아보기" class="inqFile_button">
-									<input type="file" name="sono_file" class="inqFile_hidden"
-										onchange="javascript: document.getElementById('inqFile').value = this.value"
-										accept="image/*">
-								</div>
-							</div>
-
-							<!-- // 파일첨부
-                    <input type="file" name="sono_file" value="" />
-                    -->
+			
+							<textarea name="qcontent" id="qcontent" placeholder="최소 10자이상 문의글을 입력해주세요."></textarea>
+							
+							<div class="req_area">
+						<div class="req_list" style="margin-top: -5%">
+						 <em> <strong >연락처</strong> 
+							<input type="text" id="qphone" name="qphone" placeholder="답변 받을 연락처를 입력해주세요."
+								maxlength="13" data-phone-mask="">
+							</em> 
+						</div>
+					</div>
 							<div class="service_btn submit_btn">
-								<a>문의하기</a>
+								<a href="javascript:void(0)" onclick="qnasubmit()">문의하기</a>
 							</div>
 						</div>
-						<!--// 문의하기 -->
+						
+						
+						
+						
+						
+						
+						
+						<!-- 문의 내역  -->
+					
+							
+								<div class="inq_form_area" id="qnalist" style="display: none;">
+								<c:forEach items="${qlist }" var="q">
+								<div class="req_area">
+									<div class="req_list" style="margin-top: -8%">
+									 <em> <strong >구분</strong> 
+										<input type="text" readonly="readonly" value="${q.qcategory }">
+										</em> 
+									</div>
+								</div>
+										<textarea readonly="readonly"> ${q.qcontent }</textarea>
+										
+										<div class="req_area">
+									<div class="req_list" style="margin-top: -5%">
+									 <em> <strong >문의일/답변일</strong> 
+										<input type="text" readonly="readonly" value="${q.qdate} / ${q.qadate}">
+										</em> 
+										 <em> <strong >답변</strong> 
+										<input type="text" readonly="readonly" value="${q.qanswer }">
+										</em> 
+									</div>
+									<hr>
+								</div>
+								</c:forEach>
+								</div>
+					
+						
+				
+						
+						
+						
+						
+						
+						
 					</div>
-					<!--// 1:1 문의하기 -->
 				</form>
 			</section>
+			
+			
+			
+			
 		</div>
 	</section>
 	<!-- .section -->
@@ -954,218 +936,36 @@ input, select, button {
 	<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 	<script>
-		<script>
 		$(document).ready(function() {
-			$(".ps_gobtn a").attr({
-				"target" : "_blank"
-			});
-
-			$(document).on('click', '#more_content', function() {
-				location.href = "/mypage/login";
-			});
+			
 		});
+		
+	function qnasubmit() {
+		$('#form').submit();
+		console.log("클릭은 되는지 확인해봅시다");
+	}	
+	function qnaadd() {
+		$('#qnaadd').show();
+		$('#qnalist').hide();
+		$('#addbtn').addClass("active");
+		$('#listbtn').removeClass("active");
+		
+		
+	}
+	function qnalist() {
+		$('#qnaadd').hide();
+		$('#qnalist').show();
+		$('#addbtn').removeClass("active");
+		$('#listbtn').addClass("active");
+
+	}
 	</script>
-	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-							// 휴대폰,이메일 셀렉트 박스 변경시
-							$(document)
-									.on(
-											'keyup',
-											'[data-phone-mask]',
-											function() {
-												$(this).val(
-														autoHypenPhone($(this)
-																.val()));
-											})
-									.on(
-											'change',
-											'#form select[name=sono_cate_contact]',
-											function() {
-												var value = $(this).val(), html = "";
-												if (value === '1') {
-													html += "<input type=\"tel\" name=\"sono_phone\" placeholder=\"답변 받을 연락처를 입력해주세요.\" maxlength=\"13\" data-phone-mask>";
-												} else if (value === '2') {
-													html += "<input type=\"email\" name=\"sono_email\" placeholder=\"답변 받을 이메일을 입력해주세요.\" maxlength=\"100\">";
-												}
-
-												$(".inq_input").children(
-														'input').remove();
-												$(".inq_input").append(html);
-											});
-
-							// 입력 유형 별 폼 설정
-							$('#form select[name=sono_cate]').change(
-									function() {
-										$('#company_info').hide();
-										if ($(this).val() === '6') {
-											$('#company_info').show();
-										}
-									});
-
-							function formatRepo(repo) {
-								if (repo.loading)
-									return repo.text;
-								var markup = "<div class='select2-result-repository company_info clearfix'>"
-										+ "<div class='c_title_img'><img src='" + repo.c_title_img + "' /></div>"
-										+
-										//"<div class='c_title_img'><img src='/favicon/logo_1024.png' /></div>" +
-										"<div class='info_area'>"
-										+ "<div class='cc_type'>"
-										+ repo.cc_type
-										+ "</div>"
-										+ "<div class='cc_name'>"
-										+ repo.cc_name
-										+ "</div>"
-										+ "<div class='c_name'>"
-										+ repo.c_name
-										+ "</div>"
-										+ "<div class='c_view_addr'>"
-										+ repo.c_view_addr
-										+ "</div>"
-										+ "</div>" + "</div>";
-								return markup;
-							}
-
-							function formatRepoSelection(repo) {
-								var markup = repo.text;
-								if (repo.cc_name) {
-									/*
-									markup = repo.cc_name + ' ' + repo.c_name + repo.c_view_addr;
-
-									markup = "<span class='company_info result'>" +
-									    "<span class='cc_name'>" + repo.cc_name + "</span>" +
-									    "<span class='c_name'>" + repo.c_name + "</span>" +
-									    "<span class='c_view_addr'><small>" + repo.c_view_addr + "</small></span>" +
-									"</span>";
-									 */
-									markup = repo.cc_name + ' - ' + repo.c_name;
-								}
-								return markup;
-							}
-
-							$(".company_search").select2({
-								language : 'ko',
-								ajax : {
-									url : "/service/company_search_form",
-									dataType : 'json',
-									delay : 250,
-									data : function(params) {
-										return {
-											srch_text : params.term, // search term
-											page : params.page
-										};
-									},
-									processResults : function(data, params) {
-										return {
-											results : data.list,
-											pagination : {
-												more : data.end
-											}
-										};
-									},
-									cache : true
-								},
-								escapeMarkup : function(markup) {
-									return markup;
-								}, // let our custom formatter work
-								minimumInputLength : 1,
-								templateResult : formatRepo, // omitted for brevity, see the source of this page
-								templateSelection : formatRepoSelection
-							// omitted for brevity, see the source of this page
-							});
-
-							//비동기 처리
-							$('#form').ajaxForm(
-									{
-										dataType : 'json',
-										success : function(res) {
-											return $.toastAlert(res.msg, true,
-													'/service/inq_form/list');
-										},
-										error : function(res) {
-											if (res.responseText) {
-												location.reload(true);
-											}
-										}
-									});
-
-							$.validator.addMethod("space_chk", function(value,
-									element) {
-								return value == '' || value.trim().length > 9;
-							}, "공백은 입력이 불가능합니다.");
-
-							//유효성 검사
-							var validate_options = {
-								rules : {
-									/*sono_title : { required : true },*/
-									/*sono_email : { required : true, email : true },*/
-									sono_cate : {
-										required : true
-									},
-									c_key : {
-										required : function(element) {
-											return $(
-													'#form select[name=sono_cate]')
-													.val() === '6';
-										}
-									},
-									sono_content : {
-										required : true,
-										minlength : 10,
-										space_chk : true
-									}
-								},
-								messages : {
-									/*sono_title : { required : "문의 제목을 입력해주세요." },*/
-									/*sono_email : { required : "연락받으실 이메일을 입력해주세요." },*/
-									sono_cate : {
-										required : "문의 항목을 선택해주세요."
-									},
-									c_key : {
-										required : "업체명을 입력해주세요."
-									},
-									sono_content : {
-										required : "문의 내용을 입력해주세요.",
-										minlength : $.validator
-												.format("최소 {0}자이상 문의글을 입력해주세요.")
-									}
-								},
-								invalidHandler : function(form, validator) {
-									var errors = validator.numberOfInvalids();
-									if (errors) {
-										return $
-												.toastAlert(validator.errorList[0].message);
-										validator.errorList[0].element.focus();
-									}
-								}
-							};
-							$('#form').validate(
-									$.extend($.default_validate,
-											validate_options));
-
-							//문의 등록 하기
-							var submit_func = function() {
-								var $form = $(this).parents('form');
-
-								if ($('#form').valid()) {
-									$("#form").submit();
-								}
-								$('#form .submit_btn')
-										.one('click', submit_func);
-							};
-							$('#form .submit_btn').one('click', submit_func);
-
-						});
-	</script>
-
+	
 </body>
 </html>

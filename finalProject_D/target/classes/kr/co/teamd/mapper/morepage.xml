@@ -11,11 +11,27 @@
 
 	<!-- 권세진 영역 시작 -->
 
+
 	<!-- 권세진 영역 끝 -->
 
 
 	<!-- 박정연 영역 시작 -->
+	<insert id="hostreg" parameterType="hrdto">  <!-- host 요청 -->
+		insert into hostreg
+		values(hostreg_seq.nextVal,
+		#{hrtype},#{hrname},#{hrceo},#{hrphone},#{hraddr},'대기')
+	</insert>
 
+	<insert id="qnainsert" parameterType="qdto"> <!-- qna 등록 -->
+		insert into qna
+		values(qna_seq.nextVal, #{mid}, #{qcategory},#{qcontent}
+		,#{qphone},sysdate,null,null,null)
+	</insert>
+	
+	<select id="qnalist" parameterType="String" resultType="qdto"> <!-- qna 내역 -->
+	select mid, qcategory, qcontent, qdate, qanswer, qadate from qna where mid=#{mid} order by qdate desc
+	</select>
+	
 	<!-- 박정연 영역 끝 -->
 
 
@@ -23,10 +39,14 @@
 
 	<select id="hostlist" parameterType="int" resultType="hldto">
 		select h.himage as himage,h.hname as hname
-		, h.hstar as hstar, hg.hgmoney as hgmoney, h.hnotice as hnotice
-		, h.haddr as haddr, h.hnum as hnum
-		from host h, hostgoods hg
-		where h.hname = hg.hname and
+		, h.hstar as hstar,
+		hg.hgmoney as hgmoney, h.hnotice as hnotice
+		, h.haddr as haddr, h.hnum
+		as hnum
+		from host h, (select hgname, hgmoney, hname from hostgoods
+		where rownum <![CDATA[ < ]]>
+		2) hg
+		where
 		<choose>
 			<when test="type == 1">
 				htype = '바다'
@@ -43,53 +63,92 @@
 			<otherwise></otherwise>
 		</choose>
 	</select>
+
 	<select id="matchlist" resultType="mbdto">
-		select mbnum, mbtitle, mid, mbcontent, mbtag, mbperson, mblocation, mbimage,
+		select mbnum, mbtitle, mid,
+		mbcontent, mbtag, mbperson, mblocation, mbimage,
 		to_char(mbstartdate,'YYYY-MM-DD') as mbstartdate, mbdate, mbreport
 		from matchingboard
 	</select>
 	<!-- 주성중 영역 끝 -->
 
 	<!-- 송용화 영역 시작 -->
-	
+
 	<!-- Host Detail 시작 -->
 	<resultMap type="hdto" id="hdto">
-		<result column="himage" property="himage"/>
-		<result column="hname" property="hname"/>
-		<result column="hstar" property="hstar"/>
-		<result column="hnotice" property="hnotice"/>
-		<result column="htype" property="htype"/>
-		<result column="haddr" property="haddr"/>
-		<result column="hnum" property="hnum"/>
-		<result column="howner" property="howner"/>
-		<result column="hspecies" property="hspecies"/>
-		<result column="hservice" property="hservice"/>
+		<result column="himage" property="himage" />
+		<result column="hname" property="hname" />
+		<result column="hstar" property="hstar" />
+		<result column="hnotice" property="hnotice" />
+		<result column="htype" property="htype" />
+		<result column="haddr" property="haddr" />
+		<result column="hnum" property="hnum" />
+		<result column="howner" property="howner" />
+		<result column="hspecies" property="hspecies" />
+		<result column="hservice" property="hservice" />
 		<collection property="hgdto" resultMap="hgdto"></collection>
 	</resultMap>
-	
+
 	<resultMap type="hgdto" id="hgdto">
-		<result column="hgname" property="hgname"/>
-		<result column="hginfo" property="hginfo"/>
-		<result column="hgmoney" property="hgmoney"/>
-		<result column="hgnum" property="hgnum"/>
+		<result column="hgname" property="hgname" />
+		<result column="hginfo" property="hginfo" />
+		<result column="hgmoney" property="hgmoney" />
+		<result column="hgnum" property="hgnum" />
 	</resultMap>
-	
+
 	<select id="hostdetail" parameterType="int" resultMap="hdto">
-		select h.himage as himage, h.hname as hname,
-		h.hstar as hstar, h.hnotice as hnotice, h.htype as htype, h.hservice as hservice,
-		h.haddr as haddr, h.hnum as hnum, h.howner as howner, h.hspecies as hspecies,
-        hg.hgname as hgname, hg.hginfo as hginfo, hg.hgmoney as hgmoney, hg.hgnum as hgnum
+		select
+		h.himage as himage, h.hname as hname,
+		h.hstar as hstar, h.hnotice as
+		hnotice, h.htype as htype, h.hservice as hservice,
+		h.haddr as haddr,
+		h.hnum as hnum, h.howner as howner, h.hspecies as hspecies,
+		hg.hgname
+		as hgname, hg.hginfo as hginfo, hg.hgmoney as hgmoney, hg.hgnum as
+		hgnum
 		from host h, hostgoods hg
-		where h.hname = hg.hname and h.hnum = #{hnum}
+		where h.hname = hg.hname and h.hnum =
+		#{hnum}
 	</select>
 	<!-- Host Detail 끝 -->
-	
+
 	<!-- Host Reserve 시작 -->
-	<select id="hostgoodsdetail" parameterType="int" resultType="hgdto">
+	<select id="hostgoodsdetail" parameterType="int"
+		resultType="hgdto">
 		select hgnum, hname, hgname, hginfo, hgmoney from hostgoods
 		where hgnum = #{hgnum}
 	</select>
 	<!-- Host Reserve 끝 -->
-	
+
+	<!-- Host Search 시작 -->
+	<select id="searchlist" parameterType="hsdto" resultType="hldto">
+		select h.himage as himage,h.hname as hname, h.hstar as hstar,
+		hg.hgmoney as hgmoney, h.hnotice as hnotice, h.haddr as haddr, h.hnum as hnum, h.hstar as hstar
+		from host h, (select hgname, hgmoney, hname
+		from hostgoods where rownum <![CDATA[ < ]]> 2) hg
+		where hgmoney between #{minprice} and #{maxprice}
+		<choose>
+			<when test="type == 1">
+				and htype = '바다'
+			</when>
+			<when test="type == 2">
+				and htype = '민물'
+			</when>
+			<when test="type == 3">
+				and htype = '전문'
+			</when>
+			<when test="type == 4">
+				and htype = '카페'
+			</when>
+			<otherwise></otherwise>
+		</choose>
+		<if test="searchValue != null">
+			and h.hname like '%' || #{searchValue} || '%'
+		</if>
+		<if test="starnum != 0">
+			and h.hstar = #{starnum}
+		</if>
+	</select>
+	<!-- Host Seach 끝 -->
 	<!-- 송용화 영역 끝 -->
 </mapper>

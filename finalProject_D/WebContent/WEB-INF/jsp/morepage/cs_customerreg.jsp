@@ -78,8 +78,8 @@ input, select, button {
 }
 
 .service_area .service_tab li.active a {
-	border-bottom: 1px solid #e84418;
-	color: #e84418
+	border-bottom: 1px solid #F85959;
+	color: #F85959
 }
 
 .service_area section {
@@ -95,14 +95,14 @@ input, select, button {
 .service_area .service_title span {
 	font-weight: normal;
 	font-size: 18px;
-	color: #ff724c;
+	color: #f85959;
 	text-align: center;
 	display: inline-block;
 	margin-right: 10px;
 	width: 55px;
 	height: 31px;
 	line-height: 29px;
-	border: 1px solid #ff724c;
+	border: 1px solid #f85959;
 	border-radius: 0.3rem;
 }
 
@@ -117,7 +117,7 @@ input, select, button {
 	margin-right: 10px;
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	position: relative;
 	top: -3px;
@@ -136,7 +136,7 @@ input, select, button {
 	display: block;
 	text-align: center;
 	border-radius: 0.3rem;
-	background: #e84418;
+	background: #F85959;
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;
@@ -223,7 +223,7 @@ input, select, button {
 	margin-left: -18px;
 	width: 8px;
 	height: 8px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	display: inline-block;
 	position: relative;
@@ -280,7 +280,7 @@ input, select, button {
 .req_area .req_list strong.pic:before {
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	position: absolute;
 	top: 30px;
@@ -326,7 +326,7 @@ input, select, button {
 }
 
 .inq_area .inq_tab li.active a {
-	background: #ff724c;
+	background: #f85959;
 	color: #fff
 }
 
@@ -382,7 +382,7 @@ input, select, button {
 	width: 8px;
 	height: 8px;
 	border-radius: 100%;
-	background: #ff724c;
+	background: #f85959;
 	content: '';
 	display: inline-block;
 	position: relative;
@@ -530,8 +530,8 @@ input, select, button {
 }
 
 .inq_area .inq_list_box li a span.complete {
-	border: 1px solid #ff724c;
-	color: #ff724c;
+	border: 1px solid #f85959;
+	color: #f85959;
 	background: #fff;
 }
 
@@ -578,8 +578,8 @@ input, select, button {
 }
 
 .inq_area .view_sty1 dd span.complete {
-	border: 1px solid #ff724c;
-	color: #ff724c;
+	border: 1px solid #f85959;
+	color: #f85959;
 	background: #fff;
 }
 
@@ -626,7 +626,7 @@ input, select, button {
 	margin-right: 10px;
 	width: 6px;
 	height: 6px;
-	background: #ff724c;
+	background: #f85959;
 	border-radius: 100%;
 	display: inline-block;
 	position: relative;
@@ -742,10 +742,10 @@ input, select, button {
 .select2-result-repository.company_info .info_area .cc_name {
 	display: inline-block;
 	font-size: 18px;
-	color: #ff724c;
+	color: #f85959;
 	letter-spacing: -0.5px;
 	padding: 0 10px;
-	border: 1px solid #ff724c;
+	border: 1px solid #f85959;
 	border-radius: 0.3rem;
 	height: 33px;
 	line-height: 31px
@@ -772,7 +772,7 @@ input, select, button {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] .select2-result-repository.company_info
 	{
-	background: #ff724c
+	background: #f85959
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] .cc_type
@@ -806,6 +806,16 @@ input, select, button {
 	position: relative;
 	top: -2px
 }
+
+.req_area .req_list select {
+    width: calc(100% - 188px);
+    float: left;
+    border: none;
+    padding: 0 20px;
+    height: 63px;
+    border-radius: 0 0.3rem 0.3rem 0;
+}
+
 </style>
 
 
@@ -819,19 +829,18 @@ input, select, button {
 
 	<section class="ftco-section"
 		style="background: white; ">
-		<div class="service_area container" style="padding-top: 112px;">
+		<div class="service_area container">
 
 			<div class="service_tab">
 				<ol class="clearfix">
-					<li><a href="cs_faq">자주하는질문</a></li>
-					<li class="active"><a href="cs_customerreg">업체등록요청</a></li>
-					<li><a href="cs_mtmqna">1:1 문의하기</a></li>
+					<li ><strong><a href="cs_faq"><b>자주하는질문</b></a></strong></li>
+					<li class="active"><strong><a href="cs_customerreg"><b>업체등록요청</b></a></strong></li>
+					<li ><strong><a href="cs_mtmqna"><b>1:1 문의하기</b></a></strong></li>
 				</ol>
 			</div>
 
 			<section>
-				<form class="" action="/service/company_reg_proc" method="post"
-					id="form" novalidate="novalidate">
+				<form class="" action="hostreg" method="post"	id="form" novalidate="novalidate">
 					<input type="hidden" name="service_type" value="">
 					<!-- 업체등록요청 -->
 					<div class="req_area">
@@ -840,25 +849,29 @@ input, select, button {
 						</p>
 
 						<div class="req_list">
-							<em> <strong class="pic">업체명</strong> <input type="text"
-								name="scr_name" placeholder="업체명을 입력해주세요." class="valid">
-							</em> <em> <strong class="pic">휴대폰번호</strong> <input type="tel"
-								name="scr_cell_phone" placeholder="휴대폰번호를 입력해주세요."
+						<em> <strong class="pic">구분</strong> 
+							<select id="hrtype" name="hrtype">
+								<option value="바다">바다</option>
+								<option value="민물">민물</option>
+						</select>
+
+						</em>
+							<em> <strong class="pic">업체명</strong> 
+							<input type="text" id="hrname" name="hrname" placeholder="업체명을 입력해주세요."
+							class="valid" required="required">
+						</em> 
+						<em> <strong  class="pic">대표자명</strong>
+							 <input type="text" id="hrceo" name="hrceo" placeholder="대표님 성함을 입력해주세요." required="required">
+							</em> <em> <strong class="pic">연락처</strong> 
+							<input type="text" id="hrphone" name="hrphone" placeholder="연락처를 입력해주세요." required="required"
 								maxlength="13" data-phone-mask="">
-							</em> <em> <strong class="pic">지역명</strong> <input type="text"
-								name="scr_area" placeholder="지역명을 입력해주세요. (ex.경기도)">
-							</em> <em> <strong>항구명</strong> <input type="text"
-								name="scr_port" placeholder="항구명을 입력해주세요.">
-							</em> <em> <strong>대표자명</strong> <input type="text"
-								name="scr_owner" placeholder="대표님 성함을 입력해주세요.">
-							</em> <em> <strong>전화번호</strong> <input type="tel"
-								name="scr_phone" placeholder="전화번호를 입력해주세요." maxlength="13"
-								data-phone-mask="">
-							</em>
+							</em> <em> <strong class="pic">주소</strong> 
+							<input type="text" id="hraddr" name="hraddr" placeholder="주소를 정확하게 입력해주세요." required="required">
+							</em>   
 						</div>
 
 						<div class="service_btn submit_btn">
-							<a>요청하기</a>
+							<a href="javascript:void(0)" onclick="submita()">요청하기</a>
 						</div>
 					</div>
 					<!--// 업체등록요청 -->
@@ -882,23 +895,34 @@ input, select, button {
 	<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 	<script>
-		<script>
-		$(document).ready(function() {
-			$(".ps_gobtn a").attr({
-				"target" : "_blank"
-			});
-
-			$(document).on('click', '#more_content', function() {
-				location.href = "/mypage/login";
-			});
-		});
+	function submita() {
+		if($('#hrname').val().length==0){
+			alert("가맹점명을 입력해 주세요");
+			$('#hrname').focus();
+		}else if($('#hrceo').val().length==0){
+			alert("대표자명을 입력해 주세요");
+			$('#hrceo').focus();
+		}else if($('#hrphone').val().length==0){
+			alert("연락처를 입력해 주세요");
+			$('#hrphone').focus();
+		}else if($('#hraddr').val().length==0){
+			alert("주소를 입력해 주세요");
+			$('#hraddr').focus();
+		}else{
+		$('#form').submit();
+		}
+	};
+		
+	$(document).ready(function() {
+		
+	});
+		
 	</script>
 
 </body>

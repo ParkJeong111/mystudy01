@@ -13,9 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import kr.co.teamd.mvc.dao.MemberInter;
+import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
@@ -23,6 +26,8 @@ import kr.co.teamd.mvc.dto.ReservationDTO;
 public class MemberController {
 	@Autowired
 	private MemberInter mdao;
+	
+	
 	
 	@RequestMapping(value= "login") //로그인
 	public String login() {
@@ -33,7 +38,16 @@ public class MemberController {
 		return "member/passwordfind";
 	}
 	
-//  --------------재민 추가------------------------
+	@RequestMapping("kakao")
+	public ModelAndView kakao(String mid, HttpSession session, HttpServletRequest reqeust) {
+	
+		ModelAndView mav = new ModelAndView();
+		session.setAttribute("mid", mid);
+		mav.setViewName("redirect:index");
+		return mav;
+	}
+
+//  ------------------------------재민 영역 시작---------------------------------------
 	@RequestMapping(value= "addmember")  //회원가입 폼      
 	public String addmember() {    
 		return "member/addmember"; 
@@ -46,17 +60,29 @@ public class MemberController {
 		System.out.println(mdto.getMaddr1());
 		return "redirect:login"; 
 	}
-//  ----------------------------------------------
+	
+//	@RequestMapping(value = "my_board", method = RequestMethod.POST) // 내글쓰기 게시글 작성
+//	public String insertmyboard(BoardDTO bdto) {
+//		return "member/my_board";
+//	}
+
+	@RequestMapping(value= "my_board") //내글쓰기
+	public String board() {
+		return "member/my_board";
+	}
+	
+//  ------------------------------재민 영역 끝---------------------------------------
+	
+	
+	
+	
 	
 	@RequestMapping(value= "my_point") //나의 쿠폰
 	public String coupon() {
 		return "member/my_point";
 	}
 	
-	@RequestMapping(value= "my_board") //내글쓰기
-	public String board() {
-		return "member/my_board";
-	}
+
 		
 	//김채은 영역 시작
 	
@@ -77,10 +103,11 @@ public class MemberController {
 		String mid = (String) session.getAttribute("mid");
 		if (mid ==null) {
 			mav.setViewName("member/login");
+			session.setAttribute("vn", "redirect:my_reservation");
 		}else {
 			HashMap<Object, Object> map = new HashMap<Object, Object>();
 			map.put("mid", mid);
-			map.put("type", 5);
+			map.put("type", 0);
 			List<ReservationDTO> reservationlist = mdao.myReservation(map);
 			mav.addObject("rlist", reservationlist);
 			mav.setViewName("member/my_reservation");	
@@ -98,18 +125,19 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value= "my_myupdate")  //나의정보
+	@RequestMapping(value= "my_myupdate")  //나의정보 수정
 	public String myUpdate(HttpSession session, HttpServletResponse resp, MemberDTO mdto, HttpServletRequest req) {
-		
-		mdto.setMid("juju");
+		String mid = (String) session.getAttribute("mid");
+		mdto.setMid(mid);
 		mdao.myUpdate(mdto);
 		return "redirect:my_myinfo";
 	}
 
-	@RequestMapping(value= "my_passwordcheck") //비밀번호 체크페이지로 이동
+	@RequestMapping(value= "my_passwordcheck") //나의 정보 확인전 비밀번호 체크페이지로 이동
 	public String myPasswordCheck(HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
 		if (mid ==null) {
+			session.setAttribute("vn", "redirect:my_myinfo");
 			return "member/login";
 		}else {
 		return "member/my_passwordcheck";
@@ -154,9 +182,15 @@ public class MemberController {
 			session.setAttribute("nickname", m.getMnickname());
 			session.setAttribute("m", m);
 			String mid = (String) session.getAttribute("mid");
-			mav.setViewName("redirect:index");
-			return mav;
-		
+					if(session.getAttribute("vn")==null) {
+						mav.setViewName("redirect:index");
+										
+					}else {
+						mav.setViewName((String) session.getAttribute("vn"));
+						session.setAttribute("vn",null);
+					}
+						return mav;
+				
 		} else {
 			PrintWriter out;
 			try {
@@ -176,9 +210,11 @@ public class MemberController {
 		session.removeAttribute("uname");
 		session.removeAttribute("mid");
 		ModelAndView mav = new ModelAndView();
+		System.out.println("로그아웃");
 		mav.setViewName("redirect:index");
 		return mav;
 	}
+
 	
 		//박정연 영역 끝
 
