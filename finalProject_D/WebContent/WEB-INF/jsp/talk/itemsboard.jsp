@@ -812,7 +812,7 @@ input, select, button {
 		</div>
 </div>
 <section class="ftco-section" style="background: white;">
-	<div class="service_area container" style="padding-top: 112px;">
+	<div class="service_area container" style="margin-top: -30px;">
 		<div class="service_tab" style="padding-left: 250px;">
 			<ol class="clearfix">
 				<li><a href="my_board">게시글작성</a></li>

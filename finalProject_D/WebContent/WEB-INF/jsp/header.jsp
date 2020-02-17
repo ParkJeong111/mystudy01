@@ -174,7 +174,7 @@
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
           	  	<hr>
-                <li class="nav-link"><a href="#" id="my_board">내글쓰기</a></li>
+                <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
               </ul>
           
           

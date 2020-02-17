@@ -55,7 +55,7 @@ public class MemberController {
 	
 	@RequestMapping(value= "insertmember")  //회원가입 (멤버 추가)      
 	public String insertmember(MemberDTO mdto) {  
-		mdao.addMember(mdto);   					
+		mdao.addMember(mdto);   				
 //		System.out.println(mdto.getMname());        // just to check if it gets member name
 //		System.out.println(mdto.getMaddr1());
 		return "redirect:login";                  // go to login page
@@ -187,6 +187,7 @@ public class MemberController {
 			String mid = (String) session.getAttribute("mid");
 					if(session.getAttribute("vn")==null) {
 						mav.setViewName("redirect:index");
+										
 					}else {
 						mav.setViewName((String) session.getAttribute("vn"));
 						session.setAttribute("vn",null);
