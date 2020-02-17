@@ -22,8 +22,6 @@
 	<insert id="additboard" parameterType="bdto">
 		insert into itemsboard values(itemsboard_seq.nextVal, #{ibtitle}, #{ibname},
 		#{mid}, #{ibcontent}, #{ibmoney}, #{ibimage}, 0, sysdate, 0) 
-		<!-- insert into itemsboard values(itemsboard_seq.nextVal, '낚시대 팔아요','낚시대',
-		'juju','싸게 팔아요',80000,'낚시대1.jpg','0',sysdate,0); -->  
 	</insert>
 	
 	

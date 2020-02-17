@@ -925,46 +925,6 @@ input, select, button {
 function goListBtn(){
 	location="talklist?check=1";
 }
-
-	<%-- 게시글 작성 type1 & type2 (재민)--%>
-	$(function() {
-		
-		$('#tm').click(
-				function(){
-					if($('#tm').val() == 0){
-						console.log("여기 출력??? " + $('#tm').val())
-						$("#tm2").prop("hidden", false);
-						$("#dwnarrow").prop("hidden", false);
-						console.log("사용가능!");
-						$("#tm3").prop("hidden", false);
-
-					}else if($("#tm").val() == 1){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("유용한정보");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-						
-					}else if($("#tm").val() == 2){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("낚시지식인");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-						
-					}else if($("#tm").val() == 3){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("자유게시판");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-						
-					} 
-			})
-	});
 </script>
 </body>
 </html>
