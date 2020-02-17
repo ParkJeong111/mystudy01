@@ -359,7 +359,7 @@ text-align: center;
 <h4 class="modal-title" id="myModalLabel">랜덤 매칭</h4>
 </div>
 <div class="modal-body">
-인원수 : 2<br>
+인원수 : 2 <br>
 <input type="radio" name="two" id="two" value="2">
 </div>
 <div class="modal-footer">
