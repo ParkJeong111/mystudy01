@@ -113,53 +113,53 @@
 				<fieldset>
 
 					<div class="control-group">
-						<label class="control-label" for="selectError3">*유형</label>
+						<label class="control-label" for="selectError3">유형</label>
 						<div class="controls">
-							<select id="hostTypeSelect" name="htype" required="required">
+							<select id="hostTypeSelect" name="htype">
 								<option>바다</option>
 								<option>민물</option>
 							</select>
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="focusedInput">*가맹점 이름</label>
+						<label class="control-label" for="focusedInput">가맹점 이름</label>
 						<div class="controls">
 							<input class="input-xlarge focused" id="hname" name="hname"
-								type="text" required="required">
+								type="text">
 						</div>
 					</div>
 					<div class="control-group warning">
-						<label class="control-label" for="inputWarning">*대표자명</label>
+						<label class="control-label" for="inputWarning">대표자명</label>
 						<div class="controls">
-							<input type="text" id="hceo" name="hceo" required="required">
+							<input type="text" id="hceo" name="hceo">
 
 						</div>
 					</div>
 					<div class="control-group error">
-						<label class="control-label" for="inputError">*연락처</label>
+						<label class="control-label" for="inputError">연락처</label>
 						<div class="controls">
-							<input type="text" id="hphone" name="hphone" required="required">
+							<input type="text" id="hphone" name="hphone">
 
 						</div>
 					</div>
 					<div class="control-group success">
-						<label class="control-label" for="inputSuccess">*주소</label>
+						<label class="control-label" for="inputSuccess">주소</label>
 						<div class="controls">
-							<input type="text" id="haddr" name="haddr" required="required">
+							<input type="text" id="haddr" name="haddr">
 							<!--  <span class="help-inline">Woohoo!</span> -->
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label">*이미지등록</label>
+						<label class="control-label">이미지등록</label>
 						<div class="controls">
 							<input multiple="multiple" type="file" id="himage" name="hfile"
-								required="required" value="">
+								 value="">
 							<span id="imagename"></span>
 							
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="selectError1">*어종선택</label>
+						<label class="control-label" for="selectError1">어종선택</label>
 						<div class="controls">
 							<select class="value" multiple data-rel="chosen" id="hspecies"
 								name="hspecies" required="required">
@@ -273,8 +273,9 @@
 <script>
 	$(function() {
 <%-- 이 부분은 Ajax를 이용한 가맹점 상세정보 내역 //// -> 이후 수정,삭제를 위함 --%>
-	$(".hlistname").click(
+	$('table > tbody > tr > td').click(
 				function() {
+					
 					$(".chzn-choices").html = ""
 					var value = $(this).text();
 
@@ -335,7 +336,7 @@
 						}
 
 					});
-
+			
 				});
 	
 	$('input[name="hfile"]').click(function() {
@@ -344,11 +345,17 @@
 	});
 
 		var hostform = $("form[role='hostform']");
-
+	
 		$("#hmodify").click(function() {
-			hostform.attr('action', 'hostupdate');
-			hostform.attr('method', 'POST');
-			hostform.submit();
+			if($('input[name=hnum]').val()==''){
+				console.log("123" + $('input[name=hnum]').val())
+				alert('가맹점을 선택해주세요.')
+			}else{
+				hostform.attr('action', 'hostupdate');
+				hostform.attr('method', 'POST');
+				hostform.submit();
+			}
+		 
 		});
 		
 		$("#hdelete").click(function() {

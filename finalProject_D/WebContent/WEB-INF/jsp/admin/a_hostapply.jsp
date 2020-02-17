@@ -219,7 +219,7 @@
 		
 		
 		var hostform = $("form[role='hostform']");
-		console.log(hostform)
+		
 
 		$('#hsave').click(function() {
 			var hname = $("#focusedInput").val()
@@ -231,6 +231,7 @@
 					if (data == 1) {
 						console.log("Json1 " + data)
 						alert("이미 등록된 가맹점입니다.");
+						location.href='admin_hostapply'
 					} else {
 						console.log("Json2 " +data)
 						return false;
