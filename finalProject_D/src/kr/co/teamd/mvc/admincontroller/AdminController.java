@@ -145,6 +145,7 @@ public class AdminController {
 		} else if (hdto.getHimage().equals("")) {
 			System.out.println("equals");
 		}
+		System.out.println("번호 : "+hdto.getHnum());
 
 		/*
 		 * System.out.println("---------가맹점 수정-------------");
