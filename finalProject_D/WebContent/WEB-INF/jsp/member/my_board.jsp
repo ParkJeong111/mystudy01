@@ -30,8 +30,8 @@
 }
 
 .service_area .service_tab li.active a {
-	border-bottom: 1px solid #e84418;
-	color: #e84418
+	border-bottom: 1px solid #f85959;
+	color: #f85959
 }
 
 .service_area section {
@@ -88,7 +88,7 @@
 	display: block;
 	text-align: center;
 	border-radius: 0.3rem;
-	background: #e84418;
+	background: #f85959;
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;
@@ -663,7 +663,7 @@
 	display: table;
 	width: 100%;
 	padding: 30px 20px;
-	border-bottom: 1px solid #e6e6e6
+	border-bottom: 1px solid #e6e6e6;
 }
 
 .select2-result-repository.company_info .c_title_img {
@@ -776,9 +776,6 @@ html {
 	overflow-x: none;
 }
 
-
-
-
 body {
 	background-color: #fff;
 	text-align: left;
@@ -802,34 +799,31 @@ input, select, button {
 	vertical-align: middle
 }
 
-/* <!-- 스타일 별점 추가 (재민) --> */
+/* <!------ 스타일 별점 추가 (재민) ------> */
 a {
 	text-decoration: none;
-	color: gray;
+	color: red;
 }
 /*별점*/
 .star{
   display:inline-block;
-  width: 15px; height: 30px;
+  width: 30px; height: 30px;
   cursor: pointer;
 }
-.star_left{
-  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
-  background-size: 30px; 
-  margin-right: -2px;
-}
-.star_right{
-  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -15px 0; 
+.star_click{
+  background: url('${pageContext.request.contextPath}/resources/images/icon/star0.png') no-repeat; 
   background-size: 30px; 
   margin-left: -2px;
 }
 .star.on, .star_print.on{
-  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+  background-image: url('${pageContext.request.contextPath}/resources/images/icon/star1.png');
+  
 }
 .star_print{
 	display:inline-block;
-  	width: 15px; height: 30px;
+  	width: 30px; height: 30px;
 }
+
 </style>
 
 <div class="hero-wrap js-fullheight"
@@ -841,10 +835,10 @@ a {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; padding-left: 200px; margin-top: 50px;" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; padding-left:20%; " >
 			<ol class="clearfix" style="text-align: center;">
-				<li class="active"><a href="my_board">게시글작성</a></li>
-				<li><a href="itemsboard">중고게시글작성</a></li>
+				<li class="active"><a href="my_board"><b><strong>게시글작성</strong></b></a></li>
+				<li><a href="itemsboard"><b><strong>중고 게시글작성</strong></b></a></li>
 			</ol>
 		</div>
 
@@ -893,10 +887,19 @@ a {
 											</div>
 										</div>
 										
+										<!-- 이미지 업로드 -->						
+										<div class="col-md-6" style="float: left;" >
+												<div class="form-group" >
+													<input multiple="multiple" type="file" id="bfile" name="bfile" value="이미지"
+														class="form-control" placeholder="사진을 등록해주세요."
+														style="border-radius: 7px;">
+												</div>
+											</div>
+										
 									<!-- 	가맹점 불러오는곳 -->
-									<div class="col-md-6" style="float: left;">
+									<div class="col-md-6" >
 											<div class="form-group">
-												<div class="select-wrap one-third">
+												<div class="select-wrap one-third" id="hostlist_div">
 													<div class="icon" id="dwnarrow">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
@@ -913,78 +916,6 @@ a {
 										</div>
 									</div>
 										
-									<!-- 별점 평점  -->
-										<c:forEach var="e" items="${bstar }"></c:forEach>	
-										<div class="col-md-6 star-rating" style="float: left;" id="tm3">
-														<a>별점</a> <br>  <!-- 등록하는거 -->
-														<div class="star-box" id="star-box">
-															<a class="star star_left" href="#1"></a> 
-															<a class="star star_right" href="#2"></a> 
-															<a class="star star_left" href="#3"></a> 
-															<a class="star star_right" href="#4"></a> 
-															<a class="star star_left" href="#5"></a> 
-															<a class="star star_right" href="#6"></a> 
-															<a class="star star_left" href="#7"></a> 
-															<a class="star star_right" href="#8"></a> 
-															<a class="star star_left" href="#9"></a> 
-															<a class="star star_right" href="#0"></a>
-															<input type="hidden" value="" name="bstar" id="bstr">
-														</div>
-										</div>
-										<!-- 별점 값을 등록하는거 -->
-													<script>
-															var bstar = "<c:out value="${e.bstar}"/>";
-															var bnum = "<c:out value="${e.bnum}"/>";
-															var j = 0;
-															for (var i = 0.5; i <= bstar; i += 0.5) {
-																$('#star-box'+bnum+' span').eq(j).addClass("on");
-																j++;
-															}
-														
-															$("#star-box a").on('click', function() {
-																var idx = $(this).index();
-																
-																$(".star").removeClass("on");
-																 console.log("별점" + bstar);
-																for (var i = 0; i <= idx; i++) {
-																	$(".star-box").eq(i).addClass("on");
-																}
-																
-																if ($(this).attr("href") === "#1") {
-																	bstar = 0.5 * 1;
-																} else if ($(this).attr("href") === "#2") {
-																	bstar = 1 * 1;
-																} else if ($(this).attr("href") === "#3") {
-																	bstar = 1.5 * 1;
-																} else if ($(this).attr("href") === "#4") {
-																	bstar = 2 * 1;
-																} else if ($(this).attr("href") === "#5") {
-																	bstar = 2.5 * 1;
-																} else if ($(this).attr("href") === "#6") {
-																	bstar = 3 * 1;
-																} else if ($(this).attr("href") === "#7") {
-																	bstar = 3.5 * 1;
-																} else if ($(this).attr("href") === "#8") {
-																	bstar = 4 * 1;
-																} else if ($(this).attr("href") === "#9") {
-																	bstar = 4.5 * 1;
-																} else if ($(this).attr("href") === "#0") {
-																	bstar = 5 * 1;
-																} else {
-
-																}
-																$("#bstr").attr("value", bstar)
-															});
-													</script>
-										<!-- 별점, 가맹점 끝 -->
-										
-										<!-- 이미지 업로드 -->
-										
-										<div class="col-md-6" style="float: left;">
-											<div class="form-group">
-											<input type="file" value="이미지" name="bfile">
-											</div>
-										</div>	
 										
 										<!-- 제목 -->
 										<div class="col-md-6">
@@ -993,12 +924,61 @@ a {
 													placeholder="제목을 입력해 주세요(30자 이하)" required>	
 											</div>
 										</div>
-										
+										<!-- 별점 평점  -->
+										<c:forEach var="e" items="${bstar }"></c:forEach>	
+										<div class="col-md-6 star-rating" style="float: left;" id="tm3">
+														<a>별점</a> <br>  <!-- 등록하는거 -->
+														<div class="star-box" id="star-box">
+															<a class="star star_click" href="#0"></a>
+															<a class="star star_click" href="#1"></a>
+															<a class="star star_click" href="#2"></a>
+															<a class="star star_click" href="#3"></a>
+															<a class="star star_click" href="#4"></a>
+															<input type="hidden" value="0" name="bstar" id="bstr">
+														</div>
+										</div>
+										<!-- 별점 값을 등록하는거 -->
+													<script>
+															var bstar = "<c:out value="${e.bstar}"/>";
+															var bnum = "<c:out value="${e.bnum}"/>";
+															var j = 0;
+															for (var i = 1; i <= bstar; i += 1) {
+																$('#star-box'+bnum+' span').eq(j).addClass("icon-star-o");
+																j++;
+															}
+														
+															$("#star-box a").on('click', function() {
+																var idx = $(this).index();
+																
+																$(".star").removeClass("on");
+																 
+																for (var i = 0; i <= idx; i++) {
+																	$(".star").eq(i).addClass("on");
+																}
+																
+																if ($(this).attr("href") === "#0") {
+																	bstar = 1 * 1;
+																} else if ($(this).attr("href") === "#1") {
+																	bstar = 2 * 1;
+																} else if ($(this).attr("href") === "#2") {
+																	bstar = 3 * 1;
+																} else if ($(this).attr("href") === "#3") {
+																	bstar = 4 * 1;
+																} else if ($(this).attr("href") === "#4") {
+																	bstar = 5 * 1;
+																} else{
+																}
+																
+																$("#bstr").attr("value", bstar);
+																 console.log("별점" + bstar);
+															});
+													</script>
+										<!-- 별점, 가맹점 끝 -->
 										&nbsp;<br>
 										<div class="col-md-6">
 											<div class="form-group">
 												<textarea style="width: 870px; height: 500px;" name="bcontent" id="bcontent"
-													placeholder="TextArea입니다."></textarea>
+													placeholder="내용을 입력해주세요."></textarea>
 
 											</div>
 										</div>
@@ -1006,7 +986,7 @@ a {
 										<!-- 취소, 올리기, 목록 버튼 -->
 										<div>
 											<div class="form-group"
-												style="margin-top: 50px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
+												style="margin-top: 20px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
 												<input type="reset" value="취소" id="cancelBtn"
 													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="submit" value="올리기" id="uploadBtn"
@@ -1053,40 +1033,31 @@ a {
 	src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-<!-- <script -->
-<%-- 	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script> --%>
 <script
 	src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
-<!-- <script -->
-<!-- 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
-<!-- <script -->
-<%-- 	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script> --%>
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
 <script>
-
 //목록으로 이동
 function goListBtn(){
 	location="talklist?check=1";
 }
-
 	<%-- 게시글 작성 type1 & type2 (재민)--%>
 	$(function() {
-		
 		$('#tm').click(
 				function(){
-					//console.log("여기 출력??? " + $('#tm').val())
-					//console.log("나오나??");       여기 손보기~~~~!!! -_-;;;    로직 다시 짜야할듯.
-					if($('#tm').val() == 0){
+					 if($('#tm').val() == 0){
 						console.log("여기 출력??? " + $('#tm').val())
 						$("#tm2").prop("hidden", false);
 						$("#dwnarrow").prop("hidden", false);
+						$('#hostlist_div').prop("hidden", false);
 						console.log("사용가능!");
 						$("#tm3").prop("hidden", false);
 
 					}else if($("#tm").val() == 1){
 						$("#tm2").prop("hidden", true);
 						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
 						console.log("사용불가??");
 						$('#tm').prop("유용한정보");
 						console.log("찍히나??? " + $('#tm').val());
@@ -1095,6 +1066,7 @@ function goListBtn(){
 					}else if($("#tm").val() == 2){
 						$("#tm2").prop("hidden", true);
 						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
 						console.log("사용불가??");
 						$('#tm').prop("낚시지식인");
 						console.log("찍히나??? " + $('#tm').val());
@@ -1103,12 +1075,12 @@ function goListBtn(){
 					}else if($("#tm").val() == 3){
 						$("#tm2").prop("hidden", true);
 						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
 						console.log("사용불가??");
 						$('#tm').prop("자유게시판");
 						console.log("찍히나??? " + $('#tm').val());
 						$("#tm3").prop("hidden", true);
-						
-					} 
+					}  
 			})
 	});
 </script>

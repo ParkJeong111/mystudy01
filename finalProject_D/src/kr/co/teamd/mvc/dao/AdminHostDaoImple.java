@@ -76,12 +76,20 @@ public class AdminHostDaoImple implements AdminHostDaoInter{
 		ss.delete("admin.hostdelete", hdto);
 		
 	}
+	
+	@Override
+	public void hostupdate(HostDTO hdto) {  // ∞°∏Õ¡° ªË¡¶
+		ss.update("admin.hostupdate", hdto);
+	}
+
 
 	@Override
 	public List<AdminlogDTO> adminloglist() {
 		return ss.selectList("admin.adminloglist");
 	}
 
+
+	
 	
 	
 	
