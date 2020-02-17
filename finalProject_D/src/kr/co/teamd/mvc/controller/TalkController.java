@@ -83,6 +83,7 @@ public class TalkController {
 			bdto.setBtype1("자유게시판");
 			bdto.setBtype2("자유게시판");
 		} 
+		
 		// 게시글 작성 낚시터 상호명 지정
 		if (bdto.getHname().equals("0")) {
 			bdto.setHname("해적호");
@@ -97,6 +98,9 @@ public class TalkController {
 		} else if (bdto.getHname().equals("5")) {
 			bdto.setHname("하나낚시");
 		}
+		
+		// 유저조행기 별점 평점
+//		bdto.getBstar()
 		
 		// 이미지 업로드
 		String path = session.getServletContext().getRealPath("/resources/images/");    //session.getServletContext().getRealPath("/resources/images/")

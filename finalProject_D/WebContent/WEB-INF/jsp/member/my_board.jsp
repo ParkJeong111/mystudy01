@@ -913,7 +913,8 @@ a {
 										</div>
 									</div>
 										
-									<!-- 별점 평점  -->	
+									<!-- 별점 평점  -->
+										<c:forEach var="e" items="${bstar }"></c:forEach>	
 										<div class="col-md-6 star-rating" style="float: left;" id="tm3">
 														<a>별점</a> <br>  <!-- 등록하는거 -->
 														<div class="star-box" id="star-box">
@@ -944,9 +945,9 @@ a {
 																var idx = $(this).index();
 																
 																$(".star").removeClass("on");
-																
+																 console.log("별점" + bstar);
 																for (var i = 0; i <= idx; i++) {
-																	$(".star").eq(i).addClass("on");
+																	$(".star-box").eq(i).addClass("on");
 																}
 																
 																if ($(this).attr("href") === "#1") {
