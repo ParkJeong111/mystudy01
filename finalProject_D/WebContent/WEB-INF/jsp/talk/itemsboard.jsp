@@ -809,11 +809,10 @@ input, select, button {
 	style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_5.jpg');">
 	<div class="overlay" ></div>
 		<div class="container" style="margin-top: -40%;">
-	
 		</div>
 </div>
 <section class="ftco-section" style="background: white;">
-	<div class="service_area container" style="padding-top: 112px;">
+	<div class="service_area container" style="margin-top: -30px;">
 		<div class="service_tab" style="padding-left: 250px;">
 			<ol class="clearfix">
 				<li><a href="my_board">게시글작성</a></li>
@@ -829,32 +828,34 @@ input, select, button {
 						<div class="row">
 							<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
 								<div class="fields">
-									<form action="" method="" enctype="multipart/form-data">
+									<form action="itemsboard" method="post" enctype="multipart/form-data">
 										<div class="row" style="width: 900px;">
 											<div class="col-md-6" style="float: left;">
 												<div class="form-group" style="width: 250px;">
-													<input type="text" id="" class="form-control"
+													<%-- 아이디 세션 체크 --%>
+													<input type="hidden" name="mid" value="${sessionScope.mid }"/>
+													<input type="text" id="ibname" name="ibname" class="form-control"
 														placeholder="상품명을 입력해주세요." style="border-radius: 7px;">
 												</div>
 											</div>
 											<div class="col-md-6"
 												style="float: right; margin-left: -140px;">
 												<div class="form-group" style="width: 250px;">
-													<input type="text" id="" class="form-control"
+													<input type="text" id="ibmoney" name="ibmoney" class="form-control"
 														placeholder="가격을 입력해주세요." style="border-radius: 7px;">
 												</div>
 											</div>
 											<div class="col-md-6"
 												style="float: right; margin-left: 620px; margin-top: -68px;">
 												<div class="form-group" style="width: 250px;">
-													<input multiple="multiple" type="file" id="ibimage"
+													<input multiple="multiple" type="file" id="ibfile" name="ibfile"
 														class="form-control" placeholder="사진을 등록해주세요."
 														style="border-radius: 7px;">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group" style="width: 870px;">
-													<input type="text" class="form-control"
+													<input type="text" class="form-control" id="ibtitle" name="ibtitle"
 														placeholder="제목을 입력해 주세요(30자 이하)">
 												</div>
 											</div>
@@ -863,20 +864,20 @@ input, select, button {
 											<div class="col-md-6">
 												<div class="form-group">
 													<textarea
-														style="width: 870px; height: 500px; resize: none;"
-														placeholder="TextArea입니다.">
-											
-											</textarea>
+														style="width: 870px; height: 500px; resize: none;" id="ibcontent" name="ibcontent"
+														placeholder="상품 내용을 입력해주세요."></textarea>
 
 												</div>
 											</div>
 
 											<div>
 												<div class="form-group"
-													style="margin-top: 520px; margin-left: 205px;">
-													<input type="button" value="취소"
+													style="margin-top: 20px; margin-left: 265px;">
+													<input type="reset" value="취소"
 														style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
-													<input type="button" value="올리기"
+													<input type="submit" value="올리기"
+														style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+													<input type="button" onclick="jacvascript:goListBtn()" value="목록" 
 														style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												</div>
 											</div>
@@ -892,8 +893,6 @@ input, select, button {
 		</section>
 	</div>
 </section>
-
-
 
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
@@ -918,15 +917,14 @@ input, select, button {
 	src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-<!-- <script -->
-<%-- 	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script> --%>
 <script
 	src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
-<!-- <script -->
-<!-- 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
-<!-- <script -->
-<%-- 	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script> --%>
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-
+<script>
+//목록으로 이동
+function goListBtn(){
+	location="talklist?check=1";
+}
+</script>
 </body>
 </html>

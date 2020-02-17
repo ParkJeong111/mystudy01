@@ -36,6 +36,8 @@
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"> <!--  추가 폰트  Noto Sans KR -->
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  추가 폰트  Do Hyeon -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- 추가 폰트 Poppins -->
+
     <style>
     .nav-link{font-family: Jua;}
     .form-controla{
@@ -110,11 +112,14 @@
 	width: 292.67px;
 	height: auto;
 }
-.autosearchlist:hover {
-	color: red;
+.autosearchlist > a:hover {
+	color: #f85959;
 }
-.autosearchlist {
+.autosearchlist > a{
+	color : black;
+	cursor: pointer;
 	margin-left: 7px;
+	
 }
     </style>
 <script
@@ -132,9 +137,6 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
       <input id="hname" type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%" value="" name="hname">
-<!--       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
-      		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
-      	</div> -->
       <input id="mainsearchlist" type="button" class="search-submit btn btn-primary" value="Search">
 
       
@@ -172,7 +174,7 @@
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
           	  	<hr>
-                <li class="nav-link"><a href="#" id="my_board">내글쓰기</a></li>
+                <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
               </ul>
           
           
@@ -184,10 +186,11 @@
  
 
   </nav>
-       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+  <div>
+       	<div style="color:black; background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
       	</div> 
-
+</div>
        <script>
      //메인검색창에서 검색 후 이동
   	$(function() {
@@ -224,20 +227,6 @@
 
 			}
 		});
-
 		});
-
-     	// ----------------------------- 재민 추가 부분 --------------------------
-  		$(function(){
-  			// 내글쓰기 페이지로 이동
-  			$('#my_board').click(function(){
-  				if("${sessionScope.mid}"===null || "${sessionScope.mid}"===""){
-  					alert("로그인 후 이용 가능합니다.")
-  				}else{
-  					location='my_board';
-  				}
-  				
-  			});
-  		})
   </script>
     <!-- Header End -->
