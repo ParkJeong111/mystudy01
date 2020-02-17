@@ -776,9 +776,6 @@ html {
 	overflow-x: none;
 }
 
-
-
-
 body {
 	background-color: #fff;
 	text-align: left;
@@ -909,13 +906,7 @@ a {
 										</div>
 									</div>
 										
-										<!-- 이미지 업로드 -->
-										<!-- <div class="col-md-6" style="float: left;">
-											<div class="form-group">
-											<input type="file" value="이미지" name="bfile">
-											</div>
-										</div> -->	
-										
+										<!-- 이미지 업로드 -->						
 										<div class="col-md-6"
 												style="margin-left: 450px; margin-top: -68px;">
 												<div class="form-group" style="width: 250px;">
