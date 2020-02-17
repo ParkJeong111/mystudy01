@@ -115,52 +115,52 @@
 				<fieldset>
 
 					<div class="control-group">
-						<label class="control-label" for="selectError3">유형</label>
+						<label class="control-label" for="selectError3">*유형</label>
 						<div class="controls">
-							<select id="hostTypeSelect" name="htype">
+							<select id="hostTypeSelect" name="htype" required="required">
 								<option>바다</option>
 								<option>민물</option>
 							</select>
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="focusedInput">가맹점 이름</label>
+						<label class="control-label" for="focusedInput">*가맹점 이름</label>
 						<div class="controls">
-							<input class="input-xlarge focused" id="hname" name="hname" type="text">
+							<input class="input-xlarge focused" id="hname" name="hname" type="text" required="required">
 						</div>
 					</div>
 					<div class="control-group warning">
-						<label class="control-label" for="inputWarning">대표자명</label>
+						<label class="control-label" for="inputWarning">*대표자명</label>
 						<div class="controls">
-							<input type="text" id="hceo">
+							<input type="text" id="hceo" required="required">
 
 						</div>
 					</div>
 					<div class="control-group error">
-						<label class="control-label" for="inputError">연락처</label>
+						<label class="control-label" for="inputError">*연락처</label>
 						<div class="controls">
-							<input type="text" id="hphone">
+							<input type="text" id="hphone" required="required">
 
 						</div>
 					</div>
 					<div class="control-group success">
-						<label class="control-label" for="inputSuccess">주소</label>
+						<label class="control-label" for="inputSuccess">*주소</label>
 						<div class="controls">
-							<input type="text" id="haddr">
+							<input type="text" id="haddr" required="required">
 							<!--  <span class="help-inline">Woohoo!</span> -->
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label">이미지등록</label>
+						<label class="control-label">*이미지등록</label>
 						<div class="controls">
-							<input multiple="multiple" type="file" id="himage">
+							<input multiple="multiple" type="file" id="himage" required="required">
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="selectError1">어종선택</label>
+						<label class="control-label" for="selectError1">*어종선택</label>
 						<div class="controls">
 							<select class="value" multiple data-rel="chosen"
-								id="hspecies" name="hspecies">
+								id="hspecies" name="hspecies" required="required">
 								<option value="고등어">고등어</option>
 								<option value="참치">참치</option>
 								<option>방어</option>
