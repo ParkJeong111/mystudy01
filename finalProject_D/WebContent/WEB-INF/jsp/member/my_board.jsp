@@ -811,12 +811,13 @@ a {
   cursor: pointer;
 }
 .star_click{
-  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat; 
+  background: url('${pageContext.request.contextPath}/resources/images/icon/star0.png') no-repeat; 
   background-size: 30px; 
   margin-left: -2px;
 }
 .star.on, .star_print.on{
-  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+  background-image: url('${pageContext.request.contextPath}/resources/images/icon/star1.png');
+  
 }
 .star_print{
 	display:inline-block;
