@@ -174,7 +174,7 @@
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
           	  	<hr>
-                <li class="nav-link"><a href="#" id="my_board">내글쓰기</a></li>
+                <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
               </ul>
           
           
@@ -227,20 +227,6 @@
 
 			}
 		});
-
 		});
-
-     	// ----------------------------- 재민 추가 부분 --------------------------
-  		$(function(){
-  			// 내글쓰기 페이지로 이동
-  			$('#my_board').click(function(){
-  				if("${sessionScope.mid}"===null || "${sessionScope.mid}"===""){
-  					alert("로그인 후 이용 가능합니다.")
-  				}else{
-  					location='my_board';
-  				}
-  				
-  			});
-  		})
   </script>
     <!-- Header End -->
