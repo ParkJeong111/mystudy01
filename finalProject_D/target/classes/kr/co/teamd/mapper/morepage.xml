@@ -55,10 +55,10 @@
 				htype = '민물'
 			</when>
 			<when test="type == 3">
-				htype = '전문'
+				h.hname like '%'||'전문'||'%'
 			</when>
 			<when test="type == 4">
-				htype = '카페'
+				h.hname like '%'||'카페'||'%'
 			</when>
 			<otherwise></otherwise>
 		</choose>
