@@ -9,11 +9,50 @@
 		select
 		hrnum,hrtype,hrname,hrceo,hrphone,hraddr,hrstatus from hostreg
 	</select>
-
+	<!-- 가맹점 이름 중복처리 -->
+	<select id="hnamechk" parameterType="String" resultType="int">
+		select count(hname) cnt from host where hname=#{hname} 
+	</select>
+	<!-- 가맹점 등록시 #{hnotice} #{howner} #{hservice} #{hguide} null일 경우 다이나믹 쿼리로 처리-->
 	<insert id="hostinsert" parameterType="hdto">
 		insert into host values(host_seq.nextVal, #{htype},
-		#{hname},#{hceo},#{hphone},#{haddr},#{himage},#{hspecies}, #{hnotice},
-		#{howner},#{hservice},#{hguide},0)
+		#{hname},#{hceo},#{hphone},#{haddr},#{himage},#{hspecies}, 
+		<choose>
+		<when test="hnotice==''">
+		null
+		</when>
+		<otherwise>
+		#{hnotice}
+		</otherwise>
+		</choose>
+		,
+		<choose>
+		<when test="howner==''">
+		null
+		</when>
+		<otherwise>
+		#{howner}
+		</otherwise>
+		</choose>
+		,
+		<choose>
+		<when test="hservice==null">
+		null
+		</when>
+		<otherwise>
+		#{hservice}
+		</otherwise>
+		</choose>
+		,
+		<choose>
+		<when test="hguide==''">
+		2
+		</when>
+		<otherwise>
+		#{hguide}
+		</otherwise>
+		</choose>
+		,0)
 	</insert>
 	<update id="updatehrstatus" parameterType="hdto">
 		update hostreg set hrstatus = '완료' where hrname = #{hname}
