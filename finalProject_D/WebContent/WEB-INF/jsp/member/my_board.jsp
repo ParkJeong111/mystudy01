@@ -1032,18 +1032,11 @@ a {
 	src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-<!-- <script -->
-<%-- 	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script> --%>
 <script
 	src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
-<!-- <script -->
-<!-- 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
-<!-- <script -->
-<%-- 	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script> --%>
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
 <script>
-
 //목록으로 이동
 function goListBtn(){
 	location="talklist?check=1";
@@ -1054,8 +1047,6 @@ function goListBtn(){
 		
 		$('#tm').click(
 				function(){
-					//console.log("여기 출력??? " + $('#tm').val())
-					//console.log("나오나??");       여기 손보기~~~~!!! -_-;;;    로직 다시 짜야할듯.
 					if($('#tm').val() == 0){
 						console.log("여기 출력??? " + $('#tm').val())
 						$("#tm2").prop("hidden", false);

@@ -16,7 +16,7 @@ public class BoardDaoImple implements BoardDaoInter{
 	@Autowired
 	private SqlSessionTemplate ss;
 	
-	@Override
+	@Override   // 재민 
 	public void myboardAdd(BoardDTO bdto) {
 		ss.insert("talk.addboard", bdto);     // talk = mapper allias/이름명 , addboard는 mapper id가져온거
 	}
