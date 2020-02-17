@@ -291,7 +291,7 @@ section {
 	text-align: center;
 	height: 44px;
 	line-height: 42px;
-	color: black;
+
 }
 
 .talk_header .talk_tab li i {
@@ -314,8 +314,8 @@ section {
 	/* border-bottom: 3px solid #F85959;
 	border-top: 3px solid #F85959; */
 	font-family:Poppins ;
-	border-bottom: 1px solid #f85959;
-	color: #f85959
+	border-bottom: 2px solid #f85959;
+	color: #f85959;
 
 }
 
@@ -1439,9 +1439,14 @@ section {
 	text-align: center
 }
 
-.boardlisthead > a{
-	 font-family: sans-serif;
+.boardlisthead {
+	 font-family: "Poppins", Arial, sans-serif;
 	 font-size: 25px;
+	 font: bolder;
+	 color: #606060;
+	 padding: 24px;
+	 margin-bottom: -16px;
+	 
 	 }
 	 
 /*별점*/
@@ -1467,6 +1472,54 @@ section {
 	display:inline-block;
   	width: 15px; height: 30px;
 }
+
+
+
+.service_area .service_tab {
+	border-bottom: 1px solid #e6e6e6
+}
+
+.service_area .service_tab ol {
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.service_area .service_tab li {
+	float: left;
+	width: 33.3333%;
+	position: relative;
+	top: 1px
+}
+
+.service_area .service_tab li a {
+	display: block;
+	font-size: 20px;
+	color: #606060;
+	text-align: center;
+	padding: 24px 0;
+	border-bottom: 1px solid #e6e6e6;
+	
+}
+
+.service_area .service_tab li.active a {
+	border-bottom: 1px solid #f85959;
+	color: #f85959;
+}
+
+.service_area section {
+	width: 80%;
+	margin: 0 auto;
+	font-family: "Poppins", Arial, sans-serif;
+
+}
+
+.talk_tab li a{
+color: #606060;}
+
+.selected a b {
+color: #f85959;}
+
 </style>
 
 
@@ -1477,8 +1530,6 @@ section {
 	<div class="container" style="margin-top: -40%;"></div>
 </div>
 
-<div class="wrap_area">
-	<div class="header_area" style="padding-top: 20px;">
 
 
 
@@ -1488,27 +1539,27 @@ section {
 	<div class="scrolling scroll_up">
 		
 
-		<div class="talk_header" style="display:">
+		<div class="talk_header" >
 			<div class="talk_tab_area">
-				<section>
-			
-					<ul class="talk_tab clearfix" style="margin-top: 1%;">
+				<section >
+			<div class="service_tab service_area">
+					<ul class="talk_tab clearfix service_area" style="margin-top: 1%;">
 
 						<li class="on boardlisthead selected"><a data-talk_key="1" data-tc_key="0"
-							data-u_type="1" href='javasript:void(0);' onclick="boardAjax(1)" >유저조행기</a></li>
+							data-u_type="1" href='javasript:void(0);' onclick="boardAjax(1)" ><strong><b>유저조행기</b></strong></a></li>
 
 						<li class="on boardlisthead"><a data-talk_key="11" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(2)">중고장터</a></li>
+							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(2)"><strong><b>중고장터</b></strong></a></li>
 
 						<li class="on boardlisthead"><a data-talk_key="2" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(3)">유용한정보</a></li>
+							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(3)"><strong><b>유용한정보</b></strong></a></li>
 						<li class="on boardlisthead"><a data-talk_key="3" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(4)">낚시지식인</a></li>
+							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(4)"><strong><b>낚시지식인</b></strong></a></li>
 
 						<li class="on boardlisthead"><a data-talk_key="5" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(5)">자유게시판</a></li>
+							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(5)"><strong><b>자유게시판</b></strong></a></li>
 					</ul>
-					
+					</div>
 				</section>
 
 			</div>
