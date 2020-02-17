@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp"%>
@@ -1355,10 +1354,9 @@ li {
 	<!--  여기에 헤더부분 추가  -->
 	<p
 		style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
-		매칭을위한페이지</p>
+		함께자바</p>
 	<hr>
 	<div class="talk_header">
-
 		<section class="ftco-section ftco-degree-bg"
 			style="padding-top: 10px;">
 			<div class="container">
@@ -1394,13 +1392,15 @@ li {
 							<br>
 							<div>
 								<div style="display: inline;">
-									<strong style="margin-left: 20px; color: gray;">인원</strong> <input
+									<strong style="margin-left: 20px; color: gray;">인원</strong>
+									<input
 										type="button" onClick="changeperminus()" value="-"
 										class="per_Btn" style="margin-left: 60px;"> <strong>
 										<span id="perid"
 										style="color: #E51048; font: bold; margin-left: 27px; margin-right: 27px; font-size: 18px; display: inline-block; width: 50px; text-align: center;">2</span>
-									</strong> <input type="button" onClick="changeperplus()" value="+"
-										class="per_Btn">
+									</strong> 
+									<input type="button" onClick="changeperplus()" value="+"
+										class="per_Btn" >
 								</div>
 							</div>
 						</div>
@@ -1503,7 +1503,7 @@ li {
 							</section>
 						</div>
 					</div>
-					<div class="col-lg-9">
+					<div class="col-lg-9" >
 						<div class="row" style="padding-left: 80px;">
 							<c:forEach items = "${matchlist }" var = "matchlist">
 							<div class="col-md-4 ftco-animate">
@@ -1565,7 +1565,7 @@ li {
 		</section>
 		<!-- .section -->
 
-
+		
 
 
 		<script
@@ -1601,5 +1601,35 @@ li {
 		<script
 			src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-</body>
-</html>
+		<script>
+		
+		function changeperminus(){
+			var val = $('#perid').html();
+				if(val > 2){
+					val = val;
+					val = val - 2;
+					console.log(val);
+					$('#perid').html(val);
+				}
+		}
+		
+		function changeperplus(){
+			if(val < 6){
+				var val = $('#perid').html();
+				val = val;
+				val = val + 2;
+				console.log(val);
+				$('#perid').html(val);
+			}			
+		}
+		
+		$('#reset').click(function() {
+			location.href = "matching"
+			
+		});
+		$(function() {
+			
+		});
+        
+		</script>
+		
