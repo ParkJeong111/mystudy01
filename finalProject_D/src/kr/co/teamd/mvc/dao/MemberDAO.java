@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.teamd.mvc.dto.LoginlogDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 @Repository
@@ -50,6 +51,12 @@ public class MemberDAO implements MemberInter{
 	@Override
 	public MemberDTO idCheck(MemberDTO mdto) { //로그인 시 아이디, 비밀번호 체크
 		return ss.selectOne("member.idcheck",mdto);
+	}
+
+	@Override
+	public void loginLogInsert(LoginlogDTO logdto) {
+		ss.insert("member.memberloginlog", logdto);
+		
 	}
 
 }

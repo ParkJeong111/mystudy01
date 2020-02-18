@@ -3,6 +3,7 @@ package kr.co.teamd.mvc.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import kr.co.teamd.mvc.dto.LoginlogDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
@@ -15,4 +16,5 @@ public interface MemberInter {
 	public MemberDTO idCheck(MemberDTO mdto); //로그인 시 아이디, 비밀번호 체크
 	public void addMember(MemberDTO mdto);  // 회원 가입 (재민)
 	public int idChk(String id);  // 회원가입(아이디 중복확인)
+	public void loginLogInsert(LoginlogDTO logdto); //로그인 로그
 }
