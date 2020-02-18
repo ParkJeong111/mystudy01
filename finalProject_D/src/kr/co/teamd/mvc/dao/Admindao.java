@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.teamd.mvc.dto.AdminDTO;
 
 @Repository
-public class AdminDAO implements Admininterdao {
+public class Admindao implements AdminInter {
 	
 	@Autowired
 	private SqlSessionTemplate ss;

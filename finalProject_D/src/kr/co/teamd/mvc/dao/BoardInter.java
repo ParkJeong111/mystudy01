@@ -5,7 +5,7 @@ import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
-public interface BoardDaoInter {
+public interface BoardInter {
 	public List<BoardListAjaxDTO> boardAlllist(); 
 	public List<BoardListAjaxDTO> boardAjax(int check); // 글 리스트
 	public List<ItemsboardDTO> itemsboardAjax(int check); //중고장터리스트

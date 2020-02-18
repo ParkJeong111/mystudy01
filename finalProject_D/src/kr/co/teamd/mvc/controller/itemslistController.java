@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+<<<<<<< HEAD
 import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dao.hostinterdao;
+=======
+import kr.co.teamd.mvc.dao.MainImple;
+import kr.co.teamd.mvc.dao.HostInter;
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
@@ -20,7 +25,7 @@ import kr.co.teamd.mvc.dto.HostlistDTO;
 public class itemslistController {
 
 	@Autowired
-	private hostinterdao hostdao;
+	private HostInter hostdao;
 	
 	@Autowired
 	private MainDAO mainsearch;
