@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+			<typeAlias type="kr.co.teamd.mvc.dto.AdminDTO" alias="adto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.AdminlogDTO" alias="aldto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.AdminschedulerDTO" alias="asdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.BoardcommentDTO" alias="bcdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.BoardDTO" alias="bdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.HostDTO" alias="hdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.HostgoodsDTO" alias="hgdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.HostregDTO" alias="hrdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.ItemsboardDTO" alias="ibdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.ItemscommentDTO" alias="icdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.LoginlogDTO" alias="ldto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.MatchingboardDTO" alias="mbdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.MatchingcommentDTO" alias="mcdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.MemberDTO" alias="mdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.QnaDTO" alias="qdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.RecenthostDTO" alias="rhdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.ReservationDTO" alias="rdto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.SearchlogDTO" alias="sldto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.BoardListAjaxDTO" alias="bldto"/>
+			<typeAlias type="kr.co.teamd.mvc.dto.MatchinglogDTO" alias="mldto"/>
+  			<typeAlias type="kr.co.teamd.mvc.dto.HostlistDTO" alias="hldto"/>
+  			<typeAlias type="kr.co.teamd.mvc.dto.HostSearchDTO" alias="hsdto"/>
+  			<typeAlias type="kr.co.teamd.mvc.dto.RandomMatchingDTO" alias="rmdto"/>
+	</typeAliases>
+</configuration>

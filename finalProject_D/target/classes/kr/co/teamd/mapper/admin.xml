@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+
+	<!-- 김채은 영역 시작 -->
+	<select id="hostreglist" resultType="hrdto">
+		select
+		hrnum,hrtype,hrname,hrceo,hrphone,hraddr,hrstatus from hostreg
+	</select>
+	<!-- 가맹점 이름 중복처리 -->
+	<select id="hnamechk" parameterType="String" resultType="int">
+		select
+		count(hname) cnt from host where hname=#{hname}
+	</select>
+	<!-- 가맹점 등록시 #{hnotice} #{howner} #{hservice} #{hguide} null일 경우 다이나믹 쿼리로 
+		처리 insert문 ,(콤마) 기준으로 null or #{해당값} 삽입하기 -->
+	<insert id="hostinsert" parameterType="hdto">
+		insert into host values(host_seq.nextVal, #{htype},
+		#{hname},#{hceo},#{hphone},#{haddr},#{himage},#{hspecies},
+		<choose>
+			<when test="hnotice==''">
+				null
+			</when>
+			<otherwise>
+				#{hnotice}
+			</otherwise>
+		</choose>
+		,
+		<choose>
+			<when test="howner==''">
+				null
+			</when>
+			<otherwise>
+				#{howner}
+			</otherwise>
+		</choose>
+		,
+		<choose>
+			<when test="hservice==null">
+				null
+			</when>
+			<otherwise>
+				#{hservice}
+			</otherwise>
+		</choose>
+		,
+		<choose>
+			<when test="hguide==''">
+				2
+			</when>
+			<otherwise>
+				#{hguide}
+			</otherwise>
+		</choose>
+		,0)
+	</insert>
+	<update id="updatehrstatus" parameterType="hdto">
+		update hostreg set
+		hrstatus = '완료' where hrname = #{hname}
+	</update>
+
+	<select id="hostalllist" resultType="hdto">
+		select
+		h.hnum,h.htype,h.hname,h.hceo,h.hphone,h.haddr,h.himage,h.hspecies,h.hnotice,h.howner,h.hservice,h.hguide,h.hstar,count(r.hname)
+		count
+		from host h, reservation r
+		where h.hname=r.hname(+)
+		group by
+		h.hnum,h.htype,h.hname,h.hceo,h.hphone,h.haddr,h.himage,h.hspecies,h.hnotice,h.howner,h.hservice,h.hguide,h.hstar
+	</select>
+	<select id="hostinfo" parameterType="String" resultType="hdto">
+		select *
+		from host where hname=#{hname}
+	</select>
+
+	<delete id="hostdelete" parameterType="hdto">
+		delete from host where
+		hname=#{hname}
+	</delete>
+
+	<update id="hostupdate" parameterType="hdto">
+		update host set
+		htype=#{htype},
+		hname=#{hname},
+		hceo=#{hceo},
+		hphone=#{hphone},
+		haddr=#{haddr},
+		<if test="himage != ''">
+			himage=#{himage},
+		</if>
+		hnotice=#{hnotice},
+		howner=#{howner},
+		hguide=#{hguide}
+		where
+		hnum=#{hnum}
+	</update>
+
+
+	<select id="adminloglist" resultType="aldto">
+		select
+		al.alnum,a.aid,al.altype,al.alwork,al.altarget,al.aldate from
+		adminlog
+		al, admin a
+		where al.aid = a.aid
+	</select>
+
+
+
+
+
+
+	<!-- 김채은 영역 끝 -->
+
+
+	<!-- 권세진 영역 시작 -->
+
+	<!-- 관리자_회원관리_회원 리스트 출력 -->
+	<select id="memberlist" resultType="mdto">
+		select
+		m.mnum,m.mname,m.mid,(2020-to_char(m.mbirth,'yyyy')+1)
+		mbirth,m.msex,m.using,to_char(m.mjoin,'yyyy"-"mm"-"dd') mjoin,
+		to_char(m.mdrop,'yyyy"-"mm"-"dd') mdrop,
+		(nvl(m.breport,0)+nvl(sum(ibreport),0)) report from
+		(select m.mnum,
+		m.mname, m.mid, m.mbirth, m.msex, m.using, m.mjoin, m.mdrop,
+		sum(b.breport) breport from
+		(select m.mnum, m.mname,m.mid, m.mbirth,
+		m.msex, count(r.mid) using ,
+		m.mjoin, m.mdrop from
+		member m, reservation
+		r where m.mid=r.mid(+) group by m.mnum, m.mname,m.mid,
+		m.mbirth,
+		m.msex, m.mjoin, m.mdrop) m, board b where m.mid=b.mid(+)
+		group by
+		m.mnum, m.mname, m.mid, m.mbirth, m.msex, m.using, m.mjoin,
+		m.mdrop) m,
+		itemsboard ib where m.mid=ib.mid(+) group by
+		m.mnum,m.mname,m.mid,to_char(m.mbirth,'yyyy'),m.msex,m.using,m.mjoin,m.mdrop,m.breport
+		order by 1
+	</select>
+
+	<!-- 관리자_회원관리_회원탈퇴시 상태 업데이트 -->
+	<!-- 어드민 로그인 기능 구현 되면 연동해야함. -->
+	<update id="memberupdate" parameterType="int">
+		update member set
+		mname='탈퇴한 회원입니다.',mdrop=sysdate where mnum=#{mnum}
+	</update>
+
+	<!-- 관리자_1:1문의_1:1문의글 리스트 -->
+	<select id="qnalist" resultType="qdto">
+		select
+		qnum,qcategory,mid,qphone,to_char(qdate,'yyyy"-"mm"-"dd')
+		qdate,to_char(qadate,'yyyy"-"mm"-"dd') qadate,qadmin from qna
+	</select>
+
+	<!-- 관리자_1:1문의_1:1문의글 상세보기 -->
+	<select id="qnainfo" resultType="qdto" parameterType="int">
+		select
+		qnum,qcategory,mid,qcontent,qphone,qdate,qcontent,qanswer from qna
+		where qnum=#{qnum}
+	</select>
+
+	<!-- 관리자_1:1문의_답변작성 -->
+	<!-- 어드민 로그인 기능 구현 되면 연동해야함. -->
+	<update id="qnaanswer" parameterType="qdto">
+		update qna set
+		qanswer=#{qanswer},qadate=sysdate,qadmin='김채은이다' where
+		qnum=#{qnum}
+	</update>
+	<!-- 권세진 영역 끝 -->
+
+
+	<!-- 박정연 영역 시작 -->
+
+	<!-- 박정연 영역 끝 -->
+
+
+	<!-- 주성중 영역 시작 -->
+
+	<select id="matchingboard" parameterType="mbdto"
+		resultType="mbdto">
+		select mbnum,mbtitle,mid,mbdate,mbreport from matchingboard
+	</select>
+	<delete id="matchingdelete">
+		delete from matchingboard where mbnum = #{mbnum}
+	</delete>
+	<select id="matchinglog" parameterType="mldto"
+		resultType="mldto">
+		select mbnum,mltitle,mlperson,mllocation,mlstartdate from
+		matchinglog
+	</select>
+	<delete id="matchlogdelete">
+		delete from matchinglog where mbnum = #{mbnum}
+	</delete>
+	<select id="boardlist" parameterType="bdto" resultType="bdto">
+		select
+		bnum,btype1,btype2,hname,btitle,mid,bcontent,bimage,bdate,breport
+		from
+		board
+	</select>
+	<delete id="boarddelete">
+		delete from board where bnum = #{bnum}
+	</delete>
+	<select id="itemsboardlist" parameterType="ibdto"
+		resultType="ibdto">
+		select
+		ibnum,ibtitle,ibname,mid,ibmoney,ibstatus,ibdate,ibreport from
+		itemsboard
+	</select>
+	<delete id="itemsdelete">
+		delete from itemsboard where ibnum = #{ibnum}
+	</delete>
+	<select id="adminlist" resultType="adto">
+		select anum,aname,aid,apwd
+		from admin
+	</select>
+	<delete id="admindelete" parameterType="String">
+		delete from admin where
+		aid = #{aid}
+	</delete>
+	<select id="admininfo" parameterType="String" resultType="adto">
+		select
+		anum,aname,aid,apwd from admin where aid = #{aid}
+	</select>
+	<insert id="admininsert" parameterType="adto">
+		insert into admin
+		values(admin_seq.nextVal, #{aname}, #{aid}, #{apwd})
+	</insert>
+	<!-- 주성중 영역 끝 -->
+
+</mapper>
