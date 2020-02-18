@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.teamd.mvc.dto.MatchingboardDTO;
 
 @Repository
-public class Matchingdao implements Matchinginterdao {
+public class MatchingDAO implements Matchinginterdao {
 	
 	@Autowired
 	private SqlSessionTemplate ss;

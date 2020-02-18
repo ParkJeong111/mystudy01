@@ -11,7 +11,7 @@ import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
 @Repository
-public class BoardDaoImple implements BoardDaoInter{
+public class BoardDAO implements BoardDaoInter{
 
 	@Autowired
 	private SqlSessionTemplate ss;

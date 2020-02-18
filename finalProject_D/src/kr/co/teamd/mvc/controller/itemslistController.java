@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.MainImple;
+import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dao.hostinterdao;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostSearchDTO;
@@ -23,7 +23,7 @@ public class itemslistController {
 	private hostinterdao hostdao;
 	
 	@Autowired
-	private MainImple mainsearch;
+	private MainDAO mainsearch;
 	
 	// 업체 리스트
 	@RequestMapping(value= "itemslist")

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 @Repository
-public class MemberImple implements MemberInter{
+public class MemberDAO implements MemberInter{
 	
 	@Override    // 회원가입 (아이디 중복확인)
 	public int idChk(String id) {
