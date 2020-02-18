@@ -153,7 +153,9 @@
 	<!-- 송용화 영역 끝 -->
 	<!-- RandomMatching 부분 -->
 	<insert id="randominsert" parameterType="rmdto">  <!-- host 요청 -->
-
+		insert into randommatching
+		values(randommatching_seq.nextVal
+		,#{rmid},#{sumtype},#{count})
 	</insert>
 	
 </mapper>
