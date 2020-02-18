@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
-
+	
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
@@ -30,11 +30,14 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet"> <!-- 로고폰트  Gugi -->
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"> <!--  추가 폰트  Noto Sans KR -->
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  추가 폰트  Do Hyeon -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- 추가 폰트 Poppins -->
+
     <style>
     .nav-link{font-family: Jua;}
     .form-controla{
@@ -100,22 +103,43 @@
    .submenumore > li > a:hover{
    color: #f85959;
    }
- 
-   
+ .shadow {
+	box-shadow: 2px 2px 5px #999;
+}
+#autosearchlist {
+	cursor: pointer;
+	float: left;
+	width: 292.67px;
+	height: auto;
+}
+.autosearchlist:hover {
+	color: red;
+}
+.autosearchlist {
+	color : black;
+	cursor: pointer;
+	margin-left: 7px;
+	
+}
     </style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs
+	/jquery/3.4.1/jquery.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
   </head>
   <body>
-    
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index" style="font-family: Gugi; font-size: 30px;"> 고기자바.</a>
+      <a class="navbar-brand" href="index" style="font-family: Gugi; font-size: 30px;"><img alt="" src="${pageContext.request.contextPath}/resources/images/icon/logo.png"> 고기자바.</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
-      <input type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%">
-      <input type="button" class="search-submit btn btn-primary" value="Search">
+      <input id="hname" type="text" class="form-controla" placeholder="검색어를 입력해주세요" style="margin-left: 2%; width: 30%" value="" name="hname">
+      <input id="mainsearchlist" type="button" class="search-submit btn btn-primary" value="Search">
+
+      
       <ul class="navbar-nav ml-auto" >
           <li class="nav-item"><a href="itemslist?type=1" class="nav-link">바다</a></li>
           <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
@@ -150,26 +174,60 @@
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
           	  	<hr>
-                <li class="nav-link"><a href="my_board" id="writeM">내글쓰기</a></li>
+                <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
               </ul>
           
           
           </li>
         </ul>
       </div>
+      
     </div>
-  </nav>
 
-<script>
-	$(function(){
-		$('#writeM').click(function(){
-			if("${sessionScope.mid}"===null || "${sessionScope.mid}"===""){
-				alert("로그인 후 이용 가능합니다.")
+
+  </nav>
+     <div>
+       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+      		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
+      	</div> 
+	</div>
+
+       <script>
+     //메인검색창에서 검색 후 이동
+  	$(function() {
+  		var hname = 0;
+		$("#mainsearchlist").click(function() {
+			hname = $("#hname").val();
+			location.href = 'mainsearchlist?hname='+encodeURI($('#hname').val(),"UTF-8");
+		});
+		
+
+
+		//검색어 자동완성 및 자동완성된 검색어 클릭 시 이동
+		$('#hname').on("propertychange change keyup paste input",function(){
+			searchhname = $(this).val();
+			console.log($(this).val());
+			if($(this).val() === ""){
+				$('#autosearchlist').hide();
 			}else{
-				location='my_board';
+				$('#autosearchlist').show();
+				$('#autosearchlist').empty();
+				$.ajax({
+					url:"autosearchlist?hname="+encodeURI($('#hname').val(),"UTF-8"),
+					dataType : 'json',
+					cache:false,
+					success:function(data){
+						var auto = "";
+						for(var i in data){
+							if(i < 5){
+							$('#autosearchlist').append('<p class="autosearchlist"><a href="mainsearchlist?hname='+encodeURI(data[i].hname,"UTF-8")+'"'+'>'+data[i].hname+"</a></p>");
+						}
+					}
+				}
+			});
+
 			}
 		});
-	});
-</script>
-
+		});
+  </script>
     <!-- Header End -->

@@ -100,7 +100,7 @@ input[type=checkbox]+label {
 	cursor: pointer;
 	line-height: 22px;
 	padding-left: 22px;
-	background: url('resources/images/icon/checkbox.png') left/22px
+	background: url('${pageContext.request.contextPath}/resources/images/icon/checkbox.png') left/22px
 		no-repeat;
 }
 
