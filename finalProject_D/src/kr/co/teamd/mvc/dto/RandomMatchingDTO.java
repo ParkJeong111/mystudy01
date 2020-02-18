@@ -1,8 +1,25 @@
 package kr.co.teamd.mvc.dto;
 
+import java.util.ArrayList;
+
 public class RandomMatchingDTO {
 	private int count,age;
-	private String location,type,time,sex;
+	private String location,type,time,sex,sumtype;
+	private ArrayList<String> rmid;
+	
+	public String getSumtype() {
+		return sumtype;
+	}
+	public void setSumtype(String sumtype) {
+		this.sumtype = sumtype;
+	}
+	public ArrayList<String> getRmid() {
+		return rmid;
+	}
+	public void setRmid(ArrayList<String> rmid) {
+		this.rmid = rmid;
+	}
+	
 	
 	public int getCount() {
 		return count;

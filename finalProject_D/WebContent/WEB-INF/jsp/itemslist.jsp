@@ -1,17 +1,15 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html lang="ko">
-<head>
+
 <style>
 .talk_header {
 	border-bottom: 1px solid #e6e6e6;
 }
 
 .talk_header .talk_tab li {
-	float: left;
+
 	width: 11.1111%;
 	position: relative;
 	top: 1px;
@@ -1134,86 +1132,11 @@ li {
 	width: 324px;
 	padding-top: 45px;
 }
+
+.itemslistheader{
+display: inline-block;
+}
 </style>
-<title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/animate.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/style.css">
-<!-- 경계선 -->
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/animate.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/style.css">
-</head>
-<body>
 
 
 	<!-- END nav -->
@@ -1244,24 +1167,17 @@ li {
 	<div class="talk_header">
 		<div class="talk_tab_area">
 			<section>
-				<ul class="talk_tab clearfix" style="font-weight: bold;">
+				<ul class="talk_tab clearfix" style="font-weight: bold; width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
 					<!--  <li class="active">-->
-					<li class=""><a href="" data-talk_key="6" data-tc_key="0"
-						data-u_type="1">바다 홈</a></li>
-					<li class=""><a href="" data-talk_key="1" data-tc_key="0"
-						data-u_type="1">선상</a></li>
-					<li class=""><a href="" data-talk_key="12" data-tc_key="0"
-						data-u_type="1">낚시터</a></li>
-					<li class=""><a href="" data-talk_key="11" data-tc_key="0"
-						data-u_type="1">갯바위</a></li>
-					<li class=""><a href="" data-talk_key="10" data-tc_key="0"
-						data-u_type="1">요트</a></li>
-					<li class=""><a href="" data-talk_key="2" data-tc_key="0"
-						data-u_type="1">항구정보</a></li>
-					<li class=""><a href="" data-talk_key="3" data-tc_key="0"
-						data-u_type="1">공지사항</a></li>
-					<li class=""><a href="" data-talk_key="4" data-tc_key="0"
-						data-u_type="1">이벤트</a></li>
+					<li class="itemslistheader"><a href="" data-talk_key="6" data-tc_key="0"
+						data-u_type="1">바다</a></li>
+					<li class="itemslistheader"><a href="" data-talk_key="1" data-tc_key="0"
+						data-u_type="1">민물</a></li>
+					<li class="itemslistheader"><a href="" data-talk_key="12" data-tc_key="0"
+						data-u_type="1">전문</a></li>
+					<li class="itemslistheader"><a href="" data-talk_key="11" data-tc_key="0"
+						data-u_type="1">카페</a></li>
+					
 				</ul>
 				<hr>
 			</section>

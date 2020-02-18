@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.AdminHostDaoInter;
+import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dto.AdminlogDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostregDTO;
@@ -24,7 +24,7 @@ public class AdminController {
 	private ServiceInter service;
 
 	@Autowired
-	private AdminHostDaoInter hdao;
+	private AdminHostInter hdao;
 
 	@RequestMapping(value = "admin") // admin Home
 	public String adminMethod() {

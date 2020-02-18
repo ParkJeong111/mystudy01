@@ -5,14 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.MainImple;
-import kr.co.teamd.mvc.dao.hostinterdao;
+import kr.co.teamd.mvc.dao.HostInter;
+import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dto.HostDTO;
-import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 
@@ -20,10 +18,10 @@ import kr.co.teamd.mvc.dto.HostlistDTO;
 public class itemslistController {
 
 	@Autowired
-	private hostinterdao hostdao;
+	private HostInter hostdao;
 	
 	@Autowired
-	private MainImple mainsearch;
+	private MainDAO mainsearch;
 	
 	// 업체 리스트
 	@RequestMapping(value= "itemslist")

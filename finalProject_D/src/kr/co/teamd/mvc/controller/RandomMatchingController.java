@@ -4,14 +4,19 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.teamd.mvc.dao.RandomMatchinginter;
 import kr.co.teamd.mvc.dto.RandomMatchingDTO;
 
 @Controller
 public class RandomMatchingController {
+	
+	@Autowired
+	private RandomMatchinginter randommatching;
 	
 	// 상황에 따른 배열 생성을 위한 작업
 	private ArrayList<String> twomatching;
@@ -52,6 +57,11 @@ public class RandomMatchingController {
 					System.out.print(e+"/");
 				}
 			}else {
+				dto.setSumtype(dto.getCount()+"/"+dto.getLocation()+"/"
+						+dto.getType()+"/"+dto.getAge()+"/"+dto.getTime()+"/"
+						+dto.getSex());
+				dto.setRmid(twomatching);
+				randommatching.randommatchinginsert(dto);
 				System.out.println("배열의 크기가 2를 넘었기에 제거합니다");
 				twomatching.removeAll(twomatching);
 			}

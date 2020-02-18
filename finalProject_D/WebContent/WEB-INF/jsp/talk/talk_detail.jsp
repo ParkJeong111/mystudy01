@@ -409,9 +409,7 @@ section{width:964px;position:relative;margin:0 auto;}
 	<div class="view_info_manage_detail">
 		<div class="detail_profile clearfix">
 			<section>
-				<div class="prf_box lv98">
-					<img src="https://img.moolban.com/unsafe/50x50/filters:no_upscale()/profile_aws/default.png?date=1495791343" class="profile" alt="">
-				</div>
+				
 				<p class="wide">${dto.mid}</p><!-- p태그-  내가 쓴글이 아닐때 .wide 추가  -->
 							</section>
 		</div><!--// detail_profile -->
@@ -454,7 +452,7 @@ section{width:964px;position:relative;margin:0 auto;}
 						
 			
 			<div class="manage_detail">
-									<div class=""><img src="${pageContext.request.contextPath}/resources/images/person_2.jpg">
+									<div class=""><img src="${pageContext.request.contextPath}/resources/images/${dto.bimage}">
 								<div class="talk_qt_box clearfix"></div></div><br>	
 								<p style="text-align:">${dto.bcontent}</p><br>
 							
