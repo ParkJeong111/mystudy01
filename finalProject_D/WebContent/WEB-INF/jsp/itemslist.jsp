@@ -1169,13 +1169,13 @@ display: inline-block;
 			<section>
 				<ul class="talk_tab clearfix" style="font-weight: bold; width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
 					<!--  <li class="active">-->
-					<li class="itemslistheader"><a href="" data-talk_key="6" data-tc_key="0"
+					<li class="itemslistheader"><a href="itemslist?type=1" data-talk_key="6" data-tc_key="0"
 						data-u_type="1">바다</a></li>
-					<li class="itemslistheader"><a href="" data-talk_key="1" data-tc_key="0"
+					<li class="itemslistheader"><a href="itemslist?type=2" data-talk_key="1" data-tc_key="0"
 						data-u_type="1">민물</a></li>
-					<li class="itemslistheader"><a href="" data-talk_key="12" data-tc_key="0"
+					<li class="itemslistheader"><a href="itemslist?type=3" data-talk_key="12" data-tc_key="0"
 						data-u_type="1">전문</a></li>
-					<li class="itemslistheader"><a href="" data-talk_key="11" data-tc_key="0"
+					<li class="itemslistheader"><a href="itemslist?type=4" data-talk_key="11" data-tc_key="0"
 						data-u_type="1">카페</a></li>
 					
 				</ul>
