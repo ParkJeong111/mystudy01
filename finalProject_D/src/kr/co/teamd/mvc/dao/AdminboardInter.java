@@ -5,7 +5,7 @@ import java.util.List;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
-public interface Adminboardrinterdao {
+public interface AdminboardInter {
 	public List<BoardDTO> board();
 	public List<ItemsboardDTO> itemsboard();
 	//public List<board> matchinglog();

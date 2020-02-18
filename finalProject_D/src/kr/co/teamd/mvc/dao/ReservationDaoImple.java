@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
 @Repository
-public class ReservationDaoImple implements ReservationDaoInter {
+public class ReservationDaoImple implements ReservationInter {
 
 	@Autowired
 	private SqlSessionTemplate ss;

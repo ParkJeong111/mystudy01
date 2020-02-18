@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
-import kr.co.teamd.mvc.dao.BoardDaoInter;
+import kr.co.teamd.mvc.dao.BoardInter;
 import kr.co.teamd.mvc.dao.MainImple;
 import kr.co.teamd.mvc.dao.MemberInter;
-import kr.co.teamd.mvc.dao.hostinterdao;
-import kr.co.teamd.mvc.dao.AdminHostDaoInter;
+import kr.co.teamd.mvc.dao.HostInter;
+import kr.co.teamd.mvc.dao.AdminHostInter;
 
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
@@ -36,10 +36,10 @@ import kr.co.teamd.mvc.dto.ReservationDTO;
 public class JsonController {
 
 	@Autowired
-	private AdminHostDaoInter hdao;
+	private AdminHostInter hdao;
 
 	@Autowired
-	private BoardDaoInter bdao;
+	private BoardInter bdao;
 
 	@Autowired
 	private AdminQnaDAO qdao;
@@ -48,7 +48,7 @@ public class JsonController {
 	private MemberInter mdao;
 
 	@Autowired
-	private hostinterdao hostdao;
+	private HostInter hostdao;
 	
 	@Autowired
 	private MainImple autodao;

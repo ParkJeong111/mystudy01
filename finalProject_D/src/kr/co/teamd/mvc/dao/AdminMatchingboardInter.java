@@ -5,7 +5,7 @@ import java.util.List;
 import kr.co.teamd.mvc.dto.MatchingboardDTO;
 import kr.co.teamd.mvc.dto.MatchinglogDTO;
 
-public interface AdminMatchingboardrinterdao {
+public interface AdminMatchingboardInter {
 	public List<MatchingboardDTO> matchingboard();
 	public List<MatchinglogDTO> matchinglog();
 	public void matching_delete(String mbnum);

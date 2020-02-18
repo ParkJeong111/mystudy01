@@ -4,7 +4,7 @@ import java.util.List;
 
 import kr.co.teamd.mvc.dto.AdminDTO;
 
-public interface Admininterdao {
+public interface AdminInter {
 	public List<AdminDTO> Adminlist();
 	public void Admin_delete(String aid);
 	public AdminDTO admininject(String aid); 
