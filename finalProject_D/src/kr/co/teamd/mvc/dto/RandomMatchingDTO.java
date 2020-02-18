@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class RandomMatchingDTO {
 	private int count,age;
 	private String location,type,time,sex,sumtype;
+	private ArrayList<String> rmid;
 	
 	public String getSumtype() {
 		return sumtype;
@@ -18,7 +19,7 @@ public class RandomMatchingDTO {
 	public void setRmid(ArrayList<String> rmid) {
 		this.rmid = rmid;
 	}
-	private ArrayList<String> rmid;
+	
 	
 	public int getCount() {
 		return count;
