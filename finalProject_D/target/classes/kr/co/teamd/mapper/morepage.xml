@@ -151,4 +151,9 @@
 	</select>
 	<!-- Host Seach 끝 -->
 	<!-- 송용화 영역 끝 -->
+	<!-- RandomMatching 부분 -->
+	<insert id="randominsert" parameterType="rmdto">  <!-- host 요청 -->
+
+	</insert>
+	
 </mapper>

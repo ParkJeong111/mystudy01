@@ -15,6 +15,7 @@ public class RandomMatchingDAO implements RandomMatchinginter {
 	@Override
 	public void randommatchinginsert(RandomMatchingDTO dto) {
 		ss.insert("morepage.randominsert", dto);
+		System.out.println("random¸ÅÄª insert ¿Ï·á!");
 	}
 
 
