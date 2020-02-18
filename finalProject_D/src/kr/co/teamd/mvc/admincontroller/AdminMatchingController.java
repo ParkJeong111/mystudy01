@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.AdminMatchingboardrinterdao;
+import kr.co.teamd.mvc.dao.AdminMatchingboardInter;
 import kr.co.teamd.mvc.dto.MatchingboardDTO;
 import kr.co.teamd.mvc.dto.MatchinglogDTO;
 
@@ -15,7 +15,7 @@ import kr.co.teamd.mvc.dto.MatchinglogDTO;
 public class AdminMatchingController {
 
 	@Autowired
-	private AdminMatchingboardrinterdao matchingdao;
+	private AdminMatchingboardInter matchingdao;
 	
 	@RequestMapping(value= "admin_matching")
 	public ModelAndView adminMatching() {

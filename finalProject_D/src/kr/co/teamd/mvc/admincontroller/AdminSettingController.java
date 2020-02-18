@@ -7,14 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.Admininterdao;
+import kr.co.teamd.mvc.dao.AdminInter;
 import kr.co.teamd.mvc.dto.AdminDTO;
 
 @Controller
 public class AdminSettingController {
 	
 	@Autowired
-	private Admininterdao Admindao;
+	private AdminInter Admindao;
 	
 	@RequestMapping(value= "admin_settings")
 	public ModelAndView adminlist() {

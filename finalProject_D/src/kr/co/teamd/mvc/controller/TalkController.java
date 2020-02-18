@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import kr.co.teamd.mvc.dao.BoardDaoInter;
+import kr.co.teamd.mvc.dao.BoardInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
@@ -20,7 +20,7 @@ import kr.co.teamd.mvc.dto.ItemsboardDTO;
 public class TalkController {
 
 	@Autowired
-	private BoardDaoInter bdao;
+	private BoardInter bdao;
 
 	@RequestMapping(value = "talklist") // 게시판리스트
 	public ModelAndView boardtalk(int check) {

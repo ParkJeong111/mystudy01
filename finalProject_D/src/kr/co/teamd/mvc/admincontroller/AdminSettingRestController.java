@@ -5,14 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.Admininterdao;
+import kr.co.teamd.mvc.dao.AdminInter;
 import kr.co.teamd.mvc.dto.AdminDTO;
 
 @RestController
 public class AdminSettingRestController {
 	
 	@Autowired
-	private Admininterdao Admindao;
+	private AdminInter Admindao;
 	
 	@RequestMapping("admininject")
 	public AdminDTO admininsert(String aid) {

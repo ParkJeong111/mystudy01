@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.co.teamd.mvc.dao.AdminHostDaoInter;
+import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dto.HostDTO;
 
 
@@ -14,7 +14,7 @@ import kr.co.teamd.mvc.dto.HostDTO;
 public class ServiceImple implements ServiceInter{
 	
 	@Autowired
-	private AdminHostDaoInter hdao;
+	private AdminHostInter hdao;
 	
 	@Override
 	public void addhostUpdatehrstatus(HostDTO hdto) throws Exception {

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.ReservationDaoInter;
-import kr.co.teamd.mvc.dao.hostinterdao;
+import kr.co.teamd.mvc.dao.ReservationInter;
+import kr.co.teamd.mvc.dao.HostInter;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
@@ -19,9 +19,9 @@ import kr.co.teamd.mvc.dto.ReservationDTO;
 public class ReserveController {
 
 	@Autowired
-	private hostinterdao hostdao;
+	private HostInter hostdao;
 	@Autowired
-	private ReservationDaoInter reservationdao;
+	private ReservationInter reservationdao;
 	
 	// 결제페이지 이동
 	@RequestMapping(value = "reserve")

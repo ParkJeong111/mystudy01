@@ -61,13 +61,13 @@ text-align: center;
               </div>
             </div></a> 
          </div>
-         <div class="fishicon_center" id = "openModalBtn">   
+         <div class="fishicon_center" id = "openModalBtn" style = "cursor: pointer;">   
             <!--  <a href = "randommatching">--><div class="media block-6 services d-block text-center" style="height: 70%">
               <div class="d-flex justify-content-center">
               <div class="icon">
               <span class="fishing_icon_link" style="content: url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0xMTUuOTk5LDI5Mi4wMDJjLTE2LjU0MiwwLTMwLDEzLjQ1OC0zMCwzMHMxMy40NTgsMzAsMzAsMzBzMzAtMTMuNDU4LDMwLTMwUzEzMi41NDEsMjkyLjAwMiwxMTUuOTk5LDI5Mi4wMDJ6ICAgICBNMTE1Ljk5OSwzMzIuMDAxYy01LjUxNCwwLTEwLTQuNDg2LTEwLTEwczQuNDg2LTEwLDEwLTEwczEwLDQuNDg2LDEwLDEwUzEyMS41MTMsMzMyLjAwMSwxMTUuOTk5LDMzMi4wMDF6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMTE1Ljk5OSw0MTIuMDAxYy0xNi41NDIsMC0zMCwxMy40NTgtMzAsMzBjMCwxNi41NDIsMTMuNDU4LDMwLDMwLDMwczMwLTEzLjQ1OCwzMC0zMCAgICBDMTQ1Ljk5OSw0MjUuNDU5LDEzMi41NDEsNDEyLjAwMSwxMTUuOTk5LDQxMi4wMDF6IE0xMTUuOTk5LDQ1MmMtNS41MTQsMC0xMC00LjQ4Ni0xMC0xMGMwLTUuNTE0LDQuNDg2LTEwLDEwLTEwczEwLDQuNDg2LDEwLDEwICAgIEMxMjUuOTk5LDQ0Ny41MTQsMTIxLjUxMyw0NTIsMTE1Ljk5OSw0NTJ6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMjM1Ljk5OCwyOTIuMDAyYy0xNi41NDIsMC0zMCwxMy40NTgtMzAsMzBzMTMuNDU4LDMwLDMwLDMwYzE2LjU0MiwwLDMwLTEzLjQ1OCwzMC0zMFMyNTIuNTQsMjkyLjAwMiwyMzUuOTk4LDI5Mi4wMDJ6ICAgICBNMjM1Ljk5OCwzMzIuMDAxYy01LjUxNCwwLTEwLTQuNDg2LTEwLTEwczQuNDg2LTEwLDEwLTEwYzUuNTE0LDAsMTAsNC40ODYsMTAsMTBTMjQxLjUxMiwzMzIuMDAxLDIzNS45OTgsMzMyLjAwMXoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00NzcuMjA3LDE1MC4yMTJMMzM1Ljc4OCw4Ljc5NGMtMTEuNzIxLTExLjcyMy0zMC42OTYtMTEuNzI3LTQyLjQyMi0wLjAwMUwxNTEuOTUyLDE1MC4yMDggICAgYy0xMS43MywxMS43MTQtMTEuNzQ2LDMwLjctMC4wMDUsNDIuNDI1bDU5LjM2Myw1OS4zN0g3NS45OTljLTE2LjU0MiwwLTMwLDEzLjQ1OC0zMCwzMFY0ODJjMCwxNi41NDIsMTMuNDU4LDMwLDMwLDMwaDE5OS45OTggICAgYzE2LjU0MiwwLDMwLTEzLjQ1OCwzMC0zMFYzNDEuNjAyYzEwLjI1MSwzLjA0NiwyMS43MzcsMC41MTQsMjkuNzkxLTcuNTVsMTQxLjQxOC0xNDEuNDE5ICAgIEM0ODguOTI5LDE4MC45MTIsNDg4LjkzMywxNjEuOTM4LDQ3Ny4yMDcsMTUwLjIxMnogTTI4NS45OTgsNDgyYzAsNS41MTQtNC40ODYsMTAtMTAsMTBINzUuOTk5Yy01LjUxNCwwLTEwLTQuNDg2LTEwLTEwVjI4Mi4wMDIgICAgYzAtNS41MTQsNC40ODYtMTAsMTAtMTBoMTU5LjQ0NmMwLjAwMiwwLDAuMDAzLDAsMC4wMDUsMGg0MC41NDhjNS41MTQsMCwxMCw0LjQ4NiwxMCwxMFY0ODJ6IE00NjMuMDY0LDE3OC40OUwzMjEuNjQyLDMxOS45MTUgICAgYy0zLjg5NywzLjkwMi0xMC4yMSwzLjkyMy0xNC4xNDEtMC4wMTNsLTEuNTA0LTEuNXYtMzYuNDAxYzAtMTYuNTQyLTEzLjQ1OC0zMC0zMC0zMEgyMzkuNTlsLTczLjUwNS03My41MTUgICAgYy0zLjkwNy0zLjkwMy0zLjkxNS0xMC4yMTksMC4wMDUtMTQuMTMzTDMwNy41MSwyMi45MzVjMy45MDQtMy45MDQsMTAuMjI4LTMuOTA5LDE0LjEzNywwLjAwMWwxNDEuNDIsMTQxLjQxOSAgICBDNDY2Ljk3LDE2OC4yNTksNDY2Ljk3NSwxNzQuNTgzLDQ2My4wNjQsMTc4LjQ5eiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTI1MC45NCwxNTAuMjEyYy0xMS43MjYtMTEuNzI0LTMwLjcwNy0xMS43MjctNDIuNDMyLDBjLTExLjcyMiwxMS43Mi0xMS43MjgsMzAuNjk2LTAuMDAxLDQyLjQyMSAgICBjMTEuNzI1LDExLjcyNywzMC43MDYsMTEuNzI2LDQyLjQzMywwLjAwMUMyNjIuNjM1LDE4MC45MzcsMjYyLjYzNSwxNjEuOTA4LDI1MC45NCwxNTAuMjEyeiBNMjM2Ljc5NywxNzguNDkgICAgYy0zLjkwOCwzLjkwOC0xMC4yMzgsMy45MS0xNC4xNDgsMGMtMy45MDUtMy45MDUtMy45MDktMTAuMjI3LDAuMDAxLTE0LjEzOGMzLjkwOS0zLjkwOSwxMC4yMzktMy45MDcsMTQuMTQ3LDAuMDAxICAgIEMyNDAuNjk0LDE2OC4yNTIsMjQwLjY5NCwxNzQuNTk0LDIzNi43OTcsMTc4LjQ5eiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTMzNS43ODgsMTUwLjIxM2MtMTEuNzIzLTExLjcyNS0zMC42OTYtMTEuNzI4LTQyLjQyMS0wLjAwMWMtMTEuNzI1LDExLjcyMy0xMS43MjgsMzAuNjk2LTAuMDAxLDQyLjQyMSAgICBjMTEuNzIzLDExLjcyNSwzMC42OTYsMTEuNzI4LDQyLjQyMSwwLjAwMWMwLDAsMCwwLDAuMDAxLTAuMDAxQzM0Ny41MTMsMTgwLjkwOSwzNDcuNTEzLDE2MS45MzYsMzM1Ljc4OCwxNTAuMjEzeiAgICAgTTMyMS42NDcsMTc4LjQ5Yy0zLjkwOCwzLjkwOC0xMC4yMjgsMy45MS0xNC4xMzksMGMtMy45MDctMy45MDctMy45MDktMTAuMjI3LDAuMDAxLTE0LjEzOCAgICBjMy45MDctMy45MDcsMTAuMjI3LTMuOTA5LDE0LjEzOCwwLjAwMUMzMjUuNTU0LDE2OC4yNjIsMzI1LjU1NiwxNzQuNTgzLDMyMS42NDcsMTc4LjQ5eiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQyMC42MzksMTUwLjIxMmMtMTEuNzI3LTExLjcyNC0zMC42OTctMTEuNzI2LTQyLjQyMywwYy0xMS42OTUsMTEuNjk2LTExLjY5NSwzMC43MjYsMCw0Mi40MjEgICAgYzExLjcyNSwxMS43MjcsMzAuNjk2LDExLjcyNiw0Mi40MjMsMC4wMDFDNDMyLjMzNCwxODAuOTM3LDQzMi4zMzQsMTYxLjkwOCw0MjAuNjM5LDE1MC4yMTJ6IE00MDYuNDk2LDE3OC40OSAgICBjLTMuOTA4LDMuOTA4LTEwLjIyOSwzLjkxLTE0LjEzOCwwYy0zLjg5Ny0zLjg5Ny0zLjg5Ny0xMC4yMzksMC0xNC4xMzhjMy45MDktMy45MDksMTAuMjI5LTMuOTA3LDE0LjEzOCwwLjAwMSAgICBDNDEwLjM5MywxNjguMjUyLDQxMC4zOTMsMTc0LjU5NCw0MDYuNDk2LDE3OC40OXoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0yMzUuOTk4LDQxMi4wMDFjLTE2LjU0MiwwLTMwLDEzLjQ1OC0zMCwzMGMwLDE2LjU0MiwxMy40NTgsMzAsMzAsMzBjMTYuNTQyLDAsMzAtMTMuNDU4LDMwLTMwICAgIEMyNjUuOTk4LDQyNS40NTksMjUyLjU0LDQxMi4wMDEsMjM1Ljk5OCw0MTIuMDAxeiBNMjM1Ljk5OCw0NTJjLTUuNTE0LDAtMTAtNC40ODYtMTAtMTBjMC01LjUxNCw0LjQ4Ni0xMCwxMC0xMCAgICBjNS41MTQsMCwxMCw0LjQ4NiwxMCwxMEMyNDUuOTk4LDQ0Ny41MTQsMjQxLjUxMiw0NTIsMjM1Ljk5OCw0NTJ6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNNDM1Ljk5NywzMjYuMDAxYy01LjUyMiwwLTEwLDQuNDc4LTEwLDEwYzAsNDkuNjI2LTQwLjM3NCw4OS45OTktODkuOTk5LDg5Ljk5OWMtNS41MjIsMC0xMCw0LjQ3OC0xMCwxMCAgICBjMCw1LjUyMiw0LjQ3OCwxMCwxMCwxMGM2MC42NTQsMCwxMDkuOTk5LTQ5LjM0NiwxMDkuOTk5LTEwOS45OTlDNDQ1Ljk5NywzMzAuNDc4LDQ0MS41MTksMzI2LjAwMSw0MzUuOTk3LDMyNi4wMDF6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMzk1Ljk5NywzMjYuMDAxYy01LjUyMiwwLTEwLDQuNDc4LTEwLDEwYzAsMjcuNTctMjIuNDMsNTAtNTAsNTBjLTUuNTIyLDAtMTAsNC40NzgtMTAsMTBjMCw1LjUyMiw0LjQ3OCwxMCwxMCwxMCAgICBjMzguNTk4LDAsNjkuOTk5LTMxLjQwMiw2OS45OTktNjkuOTk5QzQwNS45OTcsMzMwLjQ3OSw0MDEuNTE5LDMyNi4wMDEsMzk1Ljk5NywzMjYuMDAxeiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTEzNS45OTksNDAuMDA0Qzc1LjM0NSw0MC4wMDQsMjYsODkuMzQ5LDI2LDE1MC4wMDNjMCw1LjUyMiw0LjQ3OCwxMCwxMCwxMGM1LjUyMiwwLDEwLTQuNDc4LDEwLTEwICAgIGMwLTQ5LjYyNiw0MC4zNzQtODkuOTk5LDg5Ljk5OS04OS45OTljNS41MjIsMCwxMC00LjQ3OCwxMC0xMFMxNDEuNTIxLDQwLjAwNCwxMzUuOTk5LDQwLjAwNHoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0xMzUuOTk5LDgwLjAwM2MtMzguNTk4LDAtNjkuOTk5LDMxLjQwMi02OS45OTksNjkuOTk5YzAsNS41MjIsNC40NzgsMTAsMTAsMTBzMTAtNC40NzgsMTAtMTBjMC0yNy41NywyMi40My01MCw1MC01MCAgICBjNS41MjIsMCwxMC00LjQ3OCwxMC0xMFMxNDEuNTIxLDgwLjAwMywxMzUuOTk5LDgwLjAwM3oiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K')"></span></div></div>
               <div class="media-body p-2 mt-2">
-              <h3 class="heading mb-3" style="font-family: Jua;">랜덤매칭</h3>
+              <h3 class="heading mb-3" style="font-family: Jua; ">랜덤매칭</h3>
               </div>
             </div></a> 
  		</div>    
@@ -328,24 +328,64 @@ text-align: center;
         </div>
       </div>
     </footer>
-    <!-- 모달을 열기 위한 버튼 -->
-<button type="button" class="btn btn-primary btn-lg" id="openModalBtn">
-모달 보기 버튼
-</button>
 <!-- 모달 영역 -->
 <div id="modalBox" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-<h4 class="modal-title" id="myModalLabel">랜덤 매칭</h4>
+<h4 class="modal-title" id="myModalLabel" style = "margin: auto;">랜덤 매칭</h4>
 </div>
+<form action="randommatching" method="post">
 <div class="modal-body">
-인원수 : 2 <br>
-<input type="radio" name="two" id="two" value="2">
+<p>인원수</p>
+<input type = "radio" name = "count" value="2" checked="checked">&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;
+<input type = "radio" name = "count" value="4">&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;
+<input type = "radio" name = "count" value="6">&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>지역</p>
+<input type="radio" name = "location" value="seoul" checked="checked">&nbsp;서울&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="Gyeonggi">&nbsp;경기&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="Incheon">&nbsp;인천&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="Gangwon">&nbsp;강원&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="Chungbuk">&nbsp;충북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="Chungnam">&nbsp;충남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="Gyeongbuk">&nbsp;경북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="Gyeongnam">&nbsp;경남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value=" Jeolbuk">&nbsp;전북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="Jeolnam">&nbsp;전남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="jeju">&nbsp;제주&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "location"  value="every">&nbsp;무관&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>유형</p>
+<input type="radio" name = "type" value="sea" checked="checked">&nbsp;바다&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "type"  value="freshwater">&nbsp;민물&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "type"  value="fishingcafe">&nbsp;낚시카페&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "type"  value="every">&nbsp;무관&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>나이</p>
+<input type="radio" name = "age" value="20" checked="checked">&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "age"  value="30">&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "age"  value="40">&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "age"  value="50">&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "age"  value="60">&nbsp;60이상&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>시간대</p>
+<input type="radio" name = "time" value="am" checked="checked">&nbsp;오전&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "time"  value="pm">&nbsp;오후&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "time"  value="night">&nbsp;야간&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "time"  value="every">&nbsp;무관&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>성별</p>
+<input type="radio" name = "sex" value="man" checked="checked">&nbsp;남자&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "sex"  value="woman">&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "sex"  value="every">&nbsp;무관&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<button type="submit" class="btn btn-primary" >매칭하기</button>
+<button type="button" class="btn btn-default" id="closeModalBtn" >매칭취소</button>
+</div>
 </div>
 <div class="modal-footer">
-<button type="button" class="btn btn-primary">확인</button>
-<button type="button" class="btn btn-default" id="closeModalBtn">취소</button>
+</form>
 </div>
 </div>
 </div>
@@ -359,6 +399,7 @@ $('#modalBox').modal('show');
 $('#closeModalBtn').on('click', function(){
 $('#modalBox').modal('hide');
 });
+
 </script>
 
 <%@ include file="footer.jsp" %>

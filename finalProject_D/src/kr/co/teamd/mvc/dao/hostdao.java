@@ -12,7 +12,7 @@ import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 
 @Repository
-public class hostdao implements hostinterdao {
+public class hostdao implements HostInter {
 	
 	@Autowired
 	private SqlSessionTemplate ss;

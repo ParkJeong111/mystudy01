@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import kr.co.teamd.mvc.dao.Adminboardrinterdao;
+import kr.co.teamd.mvc.dao.AdminboardInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
@@ -16,7 +16,7 @@ import kr.co.teamd.mvc.dto.ItemsboardDTO;
 public class AdminBoardController {
 
 	@Autowired
-	private Adminboardrinterdao boardrdao;
+	private AdminboardInter boardrdao;
 	
 	@RequestMapping(value= "admin_board")
 	public ModelAndView adminMatching() {

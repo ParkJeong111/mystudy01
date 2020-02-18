@@ -1,26 +1,24 @@
 package kr.co.teamd.mvc.dao;
 
-import java.util.List;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.teamd.mvc.dto.MatchingboardDTO;
+import kr.co.teamd.mvc.dto.RandomMatchingDTO;
 
 @Repository
-public class Matchingdao implements MatchingInter {
+public class RandomMatchingDAO implements RandomMatchinginter {
 	
 	@Autowired
 	private SqlSessionTemplate ss;
 
 	@Override
-	public List<MatchingboardDTO> matchinglist() {
-		return ss.selectList("morepage.matchlist");
+	public void randommatchinginsert(RandomMatchingDTO dto) {
+		ss.insert("morepage.randominsert", dto);
+		System.out.println("random¸ÅÄª insert ¿Ï·á!");
 	}
 
-	
-	
+
 
 
 }

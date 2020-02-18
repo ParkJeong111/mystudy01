@@ -58,51 +58,37 @@
 	
 		</div>
 	</div>
-
-	<section class="ftco-section contact-section ftco-degree-bg"
-		style="padding-left: 530px;">
-		<div class="container">
+	<section class="ftco-section contact-section ftco-degree-bg" style="width: 80%; margin-left: 25%;">
+		<div class="container"style="margin: auto;width: 100%">
 			<div class="row d-flex mb-5 contact-info">
-				<div class="col-md-12 mb-4" style="margin-left: 230px;">
+				<div class="col-md-6 mb-4" style="margin-left: 20%;">
 					<h2 class="h4">
-						<br>로그인
+						<br><strong><b style="color: #aaaaaa;">로그인</b></strong>
 					</h2>
 				</div>
-				<div class="w-100"></div>
-				<!--  <div class="col-md-3">
-            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-          </div>
-          <div class="col-md-3">
-            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-          </div>
-          <div class="col-md-3">
-            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-          </div>
-          <div class="col-md-3">
-            <p><span>Website</span> <a href="#">yoursite.com</a></p>
-          </div>-->
+							
 			</div>
-			<div class="row block-9">
+			<div class="row block-6">
 				<div class="col-md-6 pr-md-5">
 					<form action="logincheck">
 						<div class="form-group">
 						<img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_login_nikname.png" alt="" 
-						class="ico_login_nikname" style = "width: 34px; height: 26px; z-index: 49; position:relative; right:-460px; top: 38px;">
+						class="ico_login_nikname" style = "width: 34px; height: 26px; z-index: 49; position:relative; right:-85%; top: 38px;">
 							<input id="mid" name="mid" type="text" class="form-control" placeholder="  아이디를 입력해주세요" value="">
 						</div>
 						<div class="form-group">
 						<img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_login_password.png" alt="" 
-						class="ico_login_password" style = "width: 34px; height: 26px; z-index: 50; position:relative; right:-460px; top: 38px;">
+						class="ico_login_password" style = "width: 34px; height: 26px; z-index: 50; position:relative; right:-85%; top: 38px;">
 							<input id="mpwd" name="mpwd" type="password" class="form-control"
 								placeholder="  비밀번호를 입력해주세요" value="">
 						</div>
 		
 						<div class="form-group">
-							<input type="submit" value="로그인하기"
-								class="btn btn-primary py-3 px-5" style="width: 505px;">
+							<input type="submit" value="로그인"
+								class="btn btn-primary py-3 px-5" style="width: 100%;">
 						</div>
 						<div class="password_find">
-							<a href="passwordfind" style="margin-left: 185px; font-weight: bold;">비밀번호를 잊으셨나요?</a>
+							<a href="passwordfind" style="margin-left: 35%; font-weight: bold;">비밀번호를 잊으셨나요?</a>
 						</div>
 						<hr>
 						<div class="box_area">
@@ -135,7 +121,6 @@
 			</div>
 		</div>
 	</section>
-
 
 
 	
