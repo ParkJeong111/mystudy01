@@ -10,7 +10,7 @@ import kr.co.teamd.mvc.dto.MatchingboardDTO;
 import kr.co.teamd.mvc.dto.MatchinglogDTO;
 
 @Repository
-public class AdminMatchingboardrdao implements AdminMatchingboardInter {
+public class AdminMatchingboardDAO implements AdminMatchingboardInter {
 	
 	@Autowired
 	private SqlSessionTemplate ss;
