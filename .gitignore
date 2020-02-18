@@ -1,4 +1,5 @@
-.properties
+pom.properties
 *.class
 *.jar
 *.MF
+
