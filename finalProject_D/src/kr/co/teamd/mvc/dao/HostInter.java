@@ -7,7 +7,7 @@ import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 
-public interface hostinterdao {
+public interface HostInter {
 	public List<HostlistDTO> hostlist(int type);
 	public HostDTO hostDetail(int hnum);
 	public HostgoodsDTO hostgoodsDetail(int hgnum);

@@ -48,8 +48,8 @@
         (select h.hnum, b.hname, h.hstar, b.btitle, h.haddr, b.bimage, h.hspecies, b.bdate from host h, board b 
         where h.hname=b.hname and 
         <choose>
-                <when test="viewtype.equals('바다')">b.btype2='바다 조행기'</when>
-                <when test="viewtype.equals('민물')">b.btype2='민물 조행기'</when>
+                <when test="viewtype.equals('바다')">b.btype2='바다조행기'</when>
+                <when test="viewtype.equals('민물')">b.btype2='민물조행기'</when>
                 <otherwise></otherwise>
         </choose>
         order by b.bdate desc) where rownum &lt;6 

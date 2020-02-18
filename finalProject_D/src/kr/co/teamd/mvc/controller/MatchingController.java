@@ -7,14 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.teamd.mvc.dao.Matchinginterdao;
+import kr.co.teamd.mvc.dao.MatchingInter;
 import kr.co.teamd.mvc.dto.MatchingboardDTO;
 
 @Controller
 public class MatchingController {
 	
 	@Autowired
-	private Matchinginterdao matchingdao;
+	private MatchingInter matchingdao;
 
 	@RequestMapping(value= "matching")  //함께자바 
 	public ModelAndView matching() {

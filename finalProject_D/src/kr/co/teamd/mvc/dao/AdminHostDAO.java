@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.teamd.mvc.dto.AdminlogDTO;
-import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostregDTO;
 
 @Repository
-public class AdminHostDaoImple implements AdminHostInter{
+public class AdminHostDAO implements AdminHostInter{
 	
 	@Autowired
 	private SqlSessionTemplate ss;

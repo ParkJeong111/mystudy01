@@ -13,7 +13,7 @@ import kr.co.teamd.mvc.dto.HostlistDTO;
 import kr.co.teamd.mvc.dto.HostregDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
 @Repository
-public class MainImple implements MainInter {
+public class MainDAO implements MainInter {
 
 	@Autowired
 	private SqlSessionTemplate ss;

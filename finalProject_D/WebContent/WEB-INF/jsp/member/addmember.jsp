@@ -139,20 +139,19 @@
 	</div>
 
 	<section class="ftco-section contact-section ftco-degree-bg"
-		style="padding-left: 530px;">
+		style="padding-left:30%;">
 		<div class="container" style="margin: auto;">
-			<div class="row d-flex mb-5 contact-info" style="margin-left: 220px;">
+			<div class="row d-flex mb-5 contact-info" style="margin-left: 18%;">
 				<h2 class="h4">
 					<br>회원가입
 				</h2>
-				<div class="w-100"></div>
 
 			</div>
 			
 			<%-- 회원 가입 폼 --%>
 			<div class="row block-9">
 				<div class="col-md-6 pr-md-5">
-					<form action="insertmember" style="left: 300px;" accept-charset="utf-8">
+					<form action="insertmember" style="left: 10%;" accept-charset="utf-8">
 					
 						<!-- ---------------------------이름  (재민)-------------------------- -->
 						<div class="form-group">
@@ -292,7 +291,7 @@
 						<%-- -----------------가입하기 (재민)----------------- --%>
 						<div class="form-group">
 							<input type="submit" value="가입하기" onsubmit="return validateForm()" 
-								 data-target="#insert" class="btn btn-primary py-3 px-5 signupbtn" style="width: 520px;">
+								 data-target="#insert" class="btn btn-primary py-3 px-5 signupbtn" style="width: 100%;">
 						</div>
 					</form>
 				</div>

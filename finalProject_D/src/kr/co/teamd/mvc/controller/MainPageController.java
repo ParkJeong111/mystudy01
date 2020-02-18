@@ -6,10 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainPageController {
 
-	@RequestMapping(value = "randommatching") // ·£´ý¸ÅÄª
-	public String randomMatching() {
-		return "randommatching";
-	}
 
 	@RequestMapping(value = "game") // °ÔÀÓ
 	public String game() {

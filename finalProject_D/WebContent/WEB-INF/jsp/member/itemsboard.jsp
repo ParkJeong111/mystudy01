@@ -811,12 +811,12 @@ input, select, button {
 		<div class="container" style="margin-top: -40%;">
 		</div>
 </div>
-<section class="ftco-section" style="background: white;">
-	<div class="service_area container" style="margin-top: -30px;">
-		<div class="service_tab" style="padding-left: 250px;">
-			<ol class="clearfix">
-				<li><a href="my_board">게시글작성</a></li>
-				<li class="active"><a href="itemsboard">중고게시글작성</a></li>
+<section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
+	<div class="service_area container" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; padding-left:20%; " >
+			<ol class="clearfix" style="text-align: center;">
+				<li style="margin-left:40px;"><a href="my_board"><b><strong>게시글작성</strong></b></a></li>
+				<li class="active"><a href="itemsboard"><b><strong>중고 게시글작성</strong></b></a></li>
 			</ol>
 		</div>
 
