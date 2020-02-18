@@ -1136,6 +1136,12 @@ li {
 .itemslistheader{
 display: inline-block;
 }
+.fix{position:fixed;_position:absolute;
+width:285px;top:12%;z-index:100}
+.fixbox{
+margin-left: 285px;
+width: 855px;
+}
 </style>
 
 
@@ -1186,7 +1192,7 @@ display: inline-block;
 			style="padding-top: 10px;">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 sidebar ftco-animate">
+					<div class="col-lg-3 sidebar ftco-animate float_sidebar" id="float_sidebar" >
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
 								style="text-align: center; font-weight: bold;">상세 검색</h3>
@@ -1366,6 +1372,23 @@ display: inline-block;
 		</div>
 		<script>
 		$(function() {
+			
+			$(window).scroll(  
+				    function(){  
+				        //스크롤의 위치가 상단에서 450보다 크면  
+				        if($(window).scrollTop() > 450){  
+				        /* if(window.pageYOffset >= $('원하는위치의엘리먼트').offset().top){ */  
+				            $('#float_sidebar').addClass("fix");  
+				        	$('#hostlistdiv').addClass("fixbox")
+				            //위의 if문에 대한 조건 만족시 fix라는 class를 부여함  
+				        }else{  
+				            $('#float_sidebar').removeClass("fix");
+				            $('#hostlistdiv').removeClass("fixbox")
+				            //위의 if문에 대한 조건 아닌경우 fix라는 class를 삭제함  
+				        }  
+				    }  
+				);  
+
 			
 			var star = 0;
 			
