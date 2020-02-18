@@ -1,34 +1,22 @@
 package kr.co.teamd.mvc.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import kr.co.teamd.mvc.dao.AdminQnaDAO;
-<<<<<<< HEAD
-import kr.co.teamd.mvc.dao.BoardDaoInter;
-import kr.co.teamd.mvc.dao.MainDAO;
-=======
-import kr.co.teamd.mvc.dao.BoardInter;
-import kr.co.teamd.mvc.dao.MainImple;
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01
-import kr.co.teamd.mvc.dao.MemberInter;
-import kr.co.teamd.mvc.dao.HostInter;
 import kr.co.teamd.mvc.dao.AdminHostInter;
-
+import kr.co.teamd.mvc.dao.AdminQnaDAO;
+import kr.co.teamd.mvc.dao.BoardInter;
+import kr.co.teamd.mvc.dao.HostInter;
+import kr.co.teamd.mvc.dao.MainDAO;
+import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostSearchDTO;

@@ -5,19 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
-import kr.co.teamd.mvc.dao.MainDAO;
-import kr.co.teamd.mvc.dao.hostinterdao;
-=======
-import kr.co.teamd.mvc.dao.MainImple;
 import kr.co.teamd.mvc.dao.HostInter;
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01
+import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dto.HostDTO;
-import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 

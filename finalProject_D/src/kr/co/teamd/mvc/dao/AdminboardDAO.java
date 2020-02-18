@@ -10,7 +10,7 @@ import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
 @Repository
-public class AdminboardDAO implements Adminboardrinterdao {
+public class AdminboardDAO implements AdminboardInter {
 	
 	@Autowired
 	private SqlSessionTemplate ss;
