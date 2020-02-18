@@ -44,7 +44,7 @@ public class LogAdvice {
 						logdto.setLip(request.getRemoteAddr());
 						logdto.setLagent("PC");
 						logdto.setLstatus("로그인");
-						mdao.loginloginsert(logdto);
+						mdao.loginLogInsert(logdto);
 						//////////////////////////////////////////////로그 insert문 필요
 					}
 				}
@@ -64,7 +64,7 @@ public class LogAdvice {
 					logdto.setLip(request.getRemoteAddr());
 					logdto.setLagent("PC");
 					logdto.setLstatus("로그아웃");
-					mdao.loginloginsert(logdto);
+					mdao.loginLogInsert(logdto);
 				}
 			}
 				rpath = (ModelAndView) jp.proceed();

@@ -56,6 +56,12 @@
 	<select id="idcheck" parameterType="mdto" resultType="mdto">
 	select mid, mnickname, mphone from member where mid=#{mid} and mpwd=#{mpwd}
 	</select>
+	<!--  로그인아웃 로그 -->
+	<insert id="memberloginlog" parameterType="ldto">
+		insert into loginlog values(loginlog_seq.nextVal, #{mid}, #{lip},#{lagent} ,#{lstatus}, sysdate);
+	</insert>
+	
+	
 	<!-- 박정연 영역 끝  -->
 	
 	
