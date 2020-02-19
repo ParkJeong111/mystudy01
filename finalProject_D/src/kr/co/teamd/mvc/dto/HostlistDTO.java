@@ -2,7 +2,7 @@ package kr.co.teamd.mvc.dto;
 
 public class HostlistDTO {
 	private String himage, hname, hnotice, haddr, hnum, type, hservice, howner,hspecies;
-	private int hstar, hgmoney;
+	private int hstar, hgmoney, boardnum;
 
 	public String getHnum() {
 		return hnum;
@@ -90,6 +90,14 @@ public class HostlistDTO {
 
 	public void setHgmoney(int hgmoney) {
 		this.hgmoney = hgmoney;
+	}
+
+	public int getBoardnum() {
+		return boardnum;
+	}
+
+	public void setBoardnum(int boardnum) {
+		this.boardnum = boardnum;
 	}
 
 }

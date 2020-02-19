@@ -825,6 +825,16 @@ a {
 }
 
 </style>
+<!-- 사진 미리보기 스타일 (재민) -->
+<style>
+.img_wrap{
+	width: 300px;
+	margin-top: 50px;
+}
+.img_wrap img{
+	max-width: 100%
+}
+</style>
 
 <div class="hero-wrap js-fullheight"
 	style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_5.jpg');">
@@ -886,13 +896,19 @@ a {
 												</div>
 											</div>
 										</div>
-										
 										<!-- 이미지 업로드 -->						
 										<div class="col-md-6" style="float: left;" >
 												<div class="form-group" >
 													<input multiple="multiple" type="file" id="bfile" name="bfile" value="이미지"
 														class="form-control" placeholder="사진을 등록해주세요."
 														style="border-radius: 7px;">
+														<%-- 사진 올린거 바로 미리 보여주기 --%>
+<!-- 													<div> -->
+														<div class="img_wrap">
+														<img id="img" />
+														</div>
+<!-- 													</div> -->
+													<%--사진 올린거 바로 미리 보여주기  끝 그리고 밑에 Script 있음.--%>
 												</div>
 											</div>
 										
@@ -915,7 +931,6 @@ a {
 											</div>
 										</div>
 									</div>
-										
 										
 										<!-- 제목 -->
 										<div class="col-md-6">
@@ -1042,6 +1057,7 @@ a {
 function goListBtn(){
 	location="talklist?check=1";
 }
+	
 	<%-- 게시글 작성 type1 & type2 (재민)--%>
 	$(function() {
 		$('#tm').click(
@@ -1081,7 +1097,32 @@ function goListBtn(){
 						console.log("찍히나??? " + $('#tm').val());
 						$("#tm3").prop("hidden", true);
 					}  
-			})
+			});
+			
+		<%-- 사진 올린거 바로 미리 보여주기 스크립트 --%>
+		$(document).ready(function(){
+			$("#bfile").on("change", handleImgFileSelect);
+		});
+		
+		function handleImgFileSelect(e){
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			
+			filesArr.forEach(function(f){
+				if(!f.type.match("image.*")){
+					alert("확장자는 이미지 확장자만 가능합니다.");
+					return;
+				}
+				sel_file = f;
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$("#img").attr("src", e.target.result);
+				}
+				reader.readAsDataURL(f);
+			});
+		}
+		<%-- 사진 올린거 바로 미리 보여주기 스크립트 끝 --%>
+			
 	});
 </script>
 

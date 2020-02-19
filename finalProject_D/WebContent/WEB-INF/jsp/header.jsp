@@ -145,7 +145,7 @@
           <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
           <li class="nav-item"><a href="game" class="nav-link">게임</a></li>
           <li class="nav-item"><a href="game" class="nav-link">서비스</a></li>
-          <li class="nav-item"><a href="talklist?check=1" class="nav-link">게시판</a></li>
+          <li class="nav-item"><a href="talklist?check=1" class="nav-link">커뮤니티</a></li>
           <li class="nav-item"><a href="#" class="nav-link"><span class="submenumorem">더보기</span><i class="ti-angle-down"></i></a>
               <ul class="submenumore scrolled awake">
           	  	<li class="nav-link"><a href="notice">공지사항</a></li>
