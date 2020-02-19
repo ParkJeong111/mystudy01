@@ -130,7 +130,7 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index" style="font-family: Gugi; font-size: 30px;"><img alt="" src="${pageContext.request.contextPath}/resources/images/icon/logo.png"> 고기자바.</a>
+      <a class="navbar-brand" href="index" style="font-family: Gugi; font-size: 30px;"><img alt="" src="${pageContext.request.contextPath}/resources/images/icon/logo.png" width="40px;"> 고기자바.</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -145,7 +145,7 @@
           <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
           <li class="nav-item"><a href="game" class="nav-link">게임</a></li>
           <li class="nav-item"><a href="game" class="nav-link">서비스</a></li>
-          <li class="nav-item"><a href="talklist?check=1" class="nav-link">게시판</a></li>
+          <li class="nav-item"><a href="talklist?check=1" class="nav-link">커뮤니티</a></li>
           <li class="nav-item"><a href="#" class="nav-link"><span class="submenumorem">더보기</span><i class="ti-angle-down"></i></a>
               <ul class="submenumore scrolled awake">
           	  	<li class="nav-link"><a href="notice">공지사항</a></li>
