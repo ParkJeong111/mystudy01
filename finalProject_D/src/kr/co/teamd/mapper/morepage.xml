@@ -155,7 +155,35 @@
 	<insert id="randominsert" parameterType="rmdto">  <!-- host 요청 -->
 		insert into randommatching
 		values(randommatching_seq.nextVal
-		,#{rmid},#{sumtype},#{count})
+		,#{rmid},#{rmcount},#{rmlocation},#{rmtype},#{rmage},#{rmtime},#{rmsex},0)
 	</insert>
+	<select id="randomlist" resultType="rmdto">
+		select rmtype, rmcount, rmlocation, rmage, rmtime,rmsex,rmstatus from randommatching where rmstatus = 0
+	</select>
+	<select id="idlist" parameterType="rmdto" resultType="String">
+		select rmid from randommatching where rmtype = #{rmtype} and
+		rmcount = #{rmcount} and rmlocation = #{rmlocation} and rmage = #{rmage}
+		and rmtime = #{rmtime} and rmsex = #{rmsex} and rmstatus = 0
+	</select>
+	<update id="statusupdate" parameterType="Hashmap">
+		update randommatching set rmstatus = 1 where rmid = #{mid} and rmtype = #{dto.rmtype} and
+		rmcount = #{dto.rmcount} and rmlocation = #{dto.rmlocation} and rmage = #{dto.rmage}
+		and rmtime = #{dto.rmtime} and rmsex = #{dto.rmsex}
+	</update>
+	<insert id="resultinsert" parameterType="rmdto">  <!-- host 요청 -->
+		insert into matchingresult
+		values(matchingresult_seq.nextVal
+		,#{mrresult},#{rmtype},#{rmcount},#{rmlocation},#{rmage},#{rmtime},#{rmsex})
+	</insert>
+	<select id="matchingidcheck" parameterType="String" resultType="int">
+		select count(rmid) from randommatching where rmstatus = 0 and rmid = #{mid}
+	</select>
+	
+	
+	
+	
+	
+	
+	
 	
 </mapper>

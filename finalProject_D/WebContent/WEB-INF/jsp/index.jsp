@@ -12,6 +12,7 @@ margin: auto;
 padding: auto;
 text-align: center;
 }
+
 </style>
     
     <div class="hero-wrap js-fullheight" style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_1.jpg');" >
@@ -338,47 +339,43 @@ text-align: center;
 <form action="randommatching" method="post">
 <div class="modal-body">
 <p>인원수</p>
-<input type = "radio" name = "count" value="2" checked="checked">&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;
-<input type = "radio" name = "count" value="4">&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;
-<input type = "radio" name = "count" value="6">&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;
+<input type = "radio" name = "rmcount" value="2" checked="checked">&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;
+<input type = "radio" name = "rmcount" value="4">&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;
+<input type = "radio" name = "rmcount" value="6">&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;
 <hr>
 <p>지역</p>
-<input type="radio" name = "location" value="seoul" checked="checked">&nbsp;서울&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="Gyeonggi">&nbsp;경기&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="Incheon">&nbsp;인천&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="Gangwon">&nbsp;강원&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="Chungbuk">&nbsp;충북&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="Chungnam">&nbsp;충남&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="Gyeongbuk">&nbsp;경북&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="Gyeongnam">&nbsp;경남&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value=" Jeolbuk">&nbsp;전북&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="Jeolnam">&nbsp;전남&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="jeju">&nbsp;제주&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "location"  value="every">&nbsp;무관&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation" value="seoul" checked="checked">&nbsp;서울&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Gyeonggi">&nbsp;경기&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Incheon">&nbsp;인천&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Gangwon">&nbsp;강원&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Chungbuk">&nbsp;충북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Chungnam">&nbsp;충남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Gyeongbuk">&nbsp;경북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Gyeongnam">&nbsp;경남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value=" Jeolbuk">&nbsp;전북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Jeolnam">&nbsp;전남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="jeju">&nbsp;제주&nbsp;&nbsp;&nbsp;&nbsp;
 <hr>
 <p>유형</p>
-<input type="radio" name = "type" value="sea" checked="checked">&nbsp;바다&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "type"  value="freshwater">&nbsp;민물&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "type"  value="fishingcafe">&nbsp;낚시카페&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "type"  value="every">&nbsp;무관&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtype" value="sea" checked="checked">&nbsp;바다&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtype"  value="freshwater">&nbsp;민물&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtype"  value="fishingcafe">&nbsp;낚시카페&nbsp;&nbsp;&nbsp;&nbsp;
 <hr>
 <p>나이</p>
-<input type="radio" name = "age" value="20" checked="checked">&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "age"  value="30">&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "age"  value="40">&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "age"  value="50">&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "age"  value="60">&nbsp;60이상&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage" value="20" checked="checked">&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage"  value="30">&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage"  value="40">&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage"  value="50">&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage"  value="60">&nbsp;60이상&nbsp;&nbsp;&nbsp;&nbsp;
 <hr>
 <p>시간대</p>
-<input type="radio" name = "time" value="am" checked="checked">&nbsp;오전&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "time"  value="pm">&nbsp;오후&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "time"  value="night">&nbsp;야간&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "time"  value="every">&nbsp;무관&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtime" value="am" checked="checked">&nbsp;오전&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtime"  value="pm">&nbsp;오후&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtime"  value="night">&nbsp;야간&nbsp;&nbsp;&nbsp;&nbsp;
 <hr>
 <p>성별</p>
-<input type="radio" name = "sex" value="man" checked="checked">&nbsp;남자&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "sex"  value="woman">&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "sex"  value="every">&nbsp;무관&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmsex" value="man" checked="checked">&nbsp;남자&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmsex"  value="woman">&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;
 <hr>
 <button type="submit" class="btn btn-primary" >매칭하기</button>
 <button type="button" class="btn btn-default" id="closeModalBtn" >매칭취소</button>
