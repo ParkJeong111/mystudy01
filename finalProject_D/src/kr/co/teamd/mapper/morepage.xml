@@ -36,16 +36,15 @@
 
 
 	<!-- 주성중 영역 시작 -->
-
+	<!-- 업체 리스트 -->
 	<select id="hostlist" parameterType="int" resultType="hldto">
-		select h.himage as himage,h.hname as hname
-		, h.hstar as hstar,
-		hg.hgmoney as hgmoney, h.hnotice as hnotice
-		, h.haddr as haddr, h.hnum
-		as hnum
+		select h.himage as himage,h.hname as hname,
+		h.hstar as hstar,
+		hg.hgmoney as hgmoney,
+		h.haddr as haddr, h.hnum as hnum, h.hspecies as hspecies,
+        (select count(*) from board b where h.hname = b.hname) as boardnum
 		from host h, (select hgname, hgmoney, hname from hostgoods
-		where rownum <![CDATA[ < ]]>
-		2) hg
+		where rownum = 1) hg
 		where
 		<choose>
 			<when test="type == 1">
@@ -55,13 +54,15 @@
 				htype = '민물'
 			</when>
 			<when test="type == 3">
-				h.hname like '%'||'전문'||'%'
+				h.hname like '%' || '전문' || '%'
 			</when>
 			<when test="type == 4">
-				h.hname like '%'||'카페'||'%'
+				h.hname like '%' || '카페' || '%'
 			</when>
 			<otherwise></otherwise>
 		</choose>
+		<!-- 리뷰  많은순 -->
+		order by boardnum desc
 	</select>
 
 	<select id="matchlist" resultType="mbdto">
@@ -120,12 +121,13 @@
 	</select>
 	<!-- Host Reserve 끝 -->
 
-	<!-- Host Search 시작 -->
+	<!-- Host 상세 Search 시작 -->
 	<select id="searchlist" parameterType="hsdto" resultType="hldto">
 		select h.himage as himage,h.hname as hname, h.hstar as hstar,
-		hg.hgmoney as hgmoney, h.hnotice as hnotice, h.haddr as haddr, h.hnum as hnum, h.hstar as hstar
-		from host h, (select hgname, hgmoney, hname
-		from hostgoods where rownum <![CDATA[ < ]]> 2) hg
+		hg.hgmoney as hgmoney, h.haddr as haddr, h.hnum as hnum, h.hspecies as hspecies,
+		(select count(*) from board b where h.hname = b.hname) as boardnum
+		from host h, (select hgname, hgmoney, hname from hostgoods
+		 where rownum = 1) hg
 		where hgmoney between #{minprice} and #{maxprice}
 		<choose>
 			<when test="type == 1">
@@ -135,10 +137,10 @@
 				and htype = '민물'
 			</when>
 			<when test="type == 3">
-				and htype = '전문'
+				and h.hname like '%' || '전문' || '%'
 			</when>
 			<when test="type == 4">
-				and htype = '카페'
+				and h.hname like '%' || '카페' || '%'
 			</when>
 			<otherwise></otherwise>
 		</choose>
@@ -149,7 +151,7 @@
 			and h.hstar = #{starnum}
 		</if>
 	</select>
-	<!-- Host Seach 끝 -->
+	<!-- Host 상세 Seach 끝 -->
 	<!-- 송용화 영역 끝 -->
 	<!-- RandomMatching 부분 -->
 	<insert id="randominsert" parameterType="rmdto">  <!-- host 요청 -->

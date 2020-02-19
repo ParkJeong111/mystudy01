@@ -82,6 +82,7 @@ public class JsonController {
 		return rlist;
 	}
 
+	// 업체리스트 검색
 	@RequestMapping(value = "searchlist")
 	public List<HostlistDTO> searchList(HostSearchDTO hsdto) {
 		if (hsdto.getStar().equals("undefined")) {

@@ -1143,8 +1143,6 @@ margin-left: 285px;
 width: 855px;
 }
 </style>
-
-
 	<!-- END nav -->
 
 	<div class="hero-wrap js-fullheight"
@@ -1301,7 +1299,7 @@ width: 855px;
 					</div>
 					<div class="col-lg-9">
 						<div class="row" id="hostlistdiv">
-							<c:forEach items="${hostlist }" var="hostlist">
+							<c:forEach items="${hostlist }" var="hostlist" varStatus="status">
 								<div class="col-md-4 ftco-animate">
 									<div class="destination">
 										<a href="itemdetail?hnum=${hostlist.hnum}"
@@ -1328,19 +1326,21 @@ width: 855px;
 																<i class="icon-star-o"></i>
 															</c:otherwise>
 														</c:choose>
-													</c:forEach>		
-													<span style="font-size: 15px;">${hostlist.hstar}</span>
+													</c:forEach>
 													</p>
 												</div>
 												<div class="two">
-													<span class="price product-price">${hostlist.hgmoney }</span>
+													<span class="price product-price">${hostlist.hgmoney}</span><br>
+													<span style="font-size: 15px;">리뷰: ${hostlist.boardnum}</span>
 												</div>
 											</div>
-											<p>${hostlist.hnotice }</p>
+											<%-- <p id="location${status.index}">${status.index}</p> --%>
 											<p class="days"></p>
 											<hr>
 											<p class="bottom-area d-flex">
-												<span><i class="icon-map-o"></i>${hostlist.haddr } </span> 
+												<span><i class="icon-map-o"></i>
+													&nbsp;${hostlist.haddr }
+												</span> 
 												<%-- <span class="ml-auto"><a href="#">예약하기</a></span> --%>
 											</p>
 										</div>
@@ -1370,9 +1370,48 @@ width: 855px;
 		</section>
 		<!-- .section -->
 		</div>
+		
 		<script>
 		$(function() {
 			
+			$("input:radio[name=star]").click(function(){
+				star = $(this).val();
+				$.ajax({
+					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() 
+							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
+					datatype : 'json',
+					success : function(data) {
+						$("#hostlistdiv").html("");
+						$.each(data, function(key, value) {
+							var star = "";
+							for(i = 0; i < 5; i++) {
+								if(i < value.hstar) {
+									star += '<i class="icon-star"></i>';				
+								} else {
+									star += '<i class="icon-star-o"></i>';
+								}
+							}
+							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+									+ "<div class='destination'>"
+									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<div class="icon d-flex justify-content-center align-items-center">'
+									+ '<span class="icon-search2"></span></div></a>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+								    + '<p class="rate starrate">' + star
+								    + '</p></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">리뷰: ' + value.boardnum + '</span></div></div>'
+									+ '<p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+									);
+						});
+						
+						$(".product-price").each(function(idx) {
+							var value = $(this).text();
+							$(this).text($.fn.priceBuilder(value));
+						});
+					}
+				});
+			});
+				    
 			$(window).scroll(  
 				    function(){  
 				        //스크롤의 위치가 상단에서 450보다 크면  
@@ -1406,7 +1445,7 @@ width: 855px;
 			$("#searchbtn").click(function() {
 				star = $(':radio[name="star"]:checked').val();
 				$.ajax({
-					url : "searchlist?searchValue=" + encodeURI($('#searchValue').val(), "UTF-8") + "&minprice=" + $('#minprice').val() 
+					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() 
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
@@ -1426,12 +1465,13 @@ width: 855px;
 									+ '<div class="icon d-flex justify-content-center align-items-center">'
 									+ '<span class="icon-search2"></span></div></a>'
 									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
-								    + '<p class="rate">' + star
-								    + '<span style="font-size: 15px;">'+ value.hstar + '</span></p></div>'
-								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span></div></div>'
-									+ '<p>' + value.hnotice + '</p><p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>' + value.haddr + ' </span></p></div></div></div>'
+								    + '<p class="rate starrate">' + star
+								    + '</p></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">리뷰: ' + value.boardnum + '</span></div></div>'
+									+ '<p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
+						
 						$(".product-price").each(function(idx) {
 							var value = $(this).text();
 							$(this).text($.fn.priceBuilder(value));
