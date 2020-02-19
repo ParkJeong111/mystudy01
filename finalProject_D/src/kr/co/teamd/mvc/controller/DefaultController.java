@@ -36,7 +36,6 @@ public ModelAndView defaultMethod() { //메인화면 출력
         mav.setViewName("index");
         List<HostDTO> hdto = maindao.mainRec(); //추천 가맹점(예약건 많은 순으로 추천해줌)
         mav.addObject("hdto",hdto);
-        
         return mav;
 }
 	
