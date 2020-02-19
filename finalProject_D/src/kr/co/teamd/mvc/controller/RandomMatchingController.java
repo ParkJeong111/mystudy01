@@ -86,7 +86,7 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.');</script>");
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
 						out.flush();
 						
 						
@@ -119,7 +119,7 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.');</script>");
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
 						out.flush();
 						
 					}
@@ -150,7 +150,7 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.');</script>");
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
 						out.flush();
 						
 					}
