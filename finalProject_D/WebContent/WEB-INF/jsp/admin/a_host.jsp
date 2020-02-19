@@ -5,6 +5,11 @@
 <!-- ADMIN Header Start -->
 <%@ include file="a_header.jsp"%>
 <style>
+.selectedRow {
+	background-color: #F9EDA5;
+	cursor: pointer;
+}
+
 #star_result on {
 	color: red;
 }
@@ -153,9 +158,8 @@
 						<label class="control-label">이미지등록</label>
 						<div class="controls">
 							<input multiple="multiple" type="file" id="himage" name="hfile"
-								 value="">
-							<span id="imagename"></span>
-							
+								value=""> <span id="imagename"></span>
+
 						</div>
 					</div>
 					<div class="control-group">
@@ -195,20 +199,20 @@
 								name="hguide"></textarea>
 						</div>
 					</div>
-					
+
 					<div class="control-group error">
 						<label class="control-label" for="inputError">편의시설</label>
 						<div id="cover">
-						<div class="controls">
-							<select class="value" id="" multiple data-rel="chosen"
-								id="hservice" name="hservice">
-								<option value="화장실">화장실</option>
-								<option value="소화기">소화기</option>
-								<option>그늘막</option>
-								<option>구명조끼</option>
-								<option>휴게실</option>
-							</select>
-						</div>
+							<div class="controls">
+								<select class="value" id="" multiple data-rel="chosen"
+									id="hservice" name="hservice">
+									<option value="화장실">화장실</option>
+									<option value="소화기">소화기</option>
+									<option>그늘막</option>
+									<option>구명조끼</option>
+									<option>휴게실</option>
+								</select>
+							</div>
 						</div>
 					</div>
 
@@ -273,91 +277,123 @@
 <script>
 	$(function() {
 <%-- 이 부분은 Ajax를 이용한 가맹점 상세정보 내역 //// -> 이후 수정,삭제를 위함 --%>
-	$('table > tbody > tr > td').click(
-				function() {
-					
-					$(".chzn-choices").html = ""
-					var value = $(this).text();
+	$('table > tbody > tr').mouseover(function() {
 
-					$.ajax({
-						url : "hostinfo?hname="
-								+ encodeURI($(this).text(), "UTF-8"),
-						datatype : 'json',
-						success : function(data) {
+			$(this).addClass('selectedRow');
 
-							if (data != null) {
-								if (data.htype == '바다') {
-									$("#hostTypeSelect").find("option:eq(0)")
-											.prop("selected", true);
-								} else if (data.htype == '민물') {
-									$("#hostTypeSelect").find("option:eq(1)")
-											.prop("selected", true);
-								}
+		}).mouseout(function() {
 
-								$('#hnum').attr("value", data.hnum);
-								$('#hname').attr("value", data.hname);
-								$('#hceo').attr("value", data.hceo);
-								$('#hphone').attr("value", data.hphone);
-								$('#haddr').attr("value", data.haddr);
-								$("#himage").val("")
-								$('#imagename').text(data.himage);
-								
+			$(this).removeClass('selectedRow');
 
-								$('#hnotice').attr("value", data.hnotice);
-								$('#howner').attr("value", data.howner);
-								$('#hguide').attr("value", data.hguide);
-								
-								var content='';
-								hspecies =  data.hspecies.split(',');
-							
-								for(var i in hspecies ){
-									content += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'+hspecies[i]+ '</span>'
-										+ '<a href="javascript:void(0)" class="search-choice-close" rel="0"></a></li>' 
-								}
-								
-								$('#hspecies_chzn > ul').html("");
-								$('#hspecies_chzn > ul').append(content);
-								
-								var content2='';
-								hservice =  data.hservice.split(',');
-							
-								for(var i in hservice ){
-									content2 += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'+hservice[i]+ '</span>'
-										+ '<a href="javascript:void(0)" class="search-choice-close" rel="0"></a></li>' 
-								}
-								
-								$('#cover > div > div > ul').html("");
-								$('#cover > div > div > ul').append(content2);
-								
-								
-							
-							}
+		});
+		$('table > tbody > tr > td')
+				.click(
+						function() {
 
-						}
+							$(".chzn-choices").html = ""
+							var value = $(this).text();
 
-					});
-			
-				});
-	
-	$('input[name="hfile"]').click(function() {
-		$('#imagename').text("");
-		
-	});
+							$
+									.ajax({
+										url : "hostinfo?hname="
+												+ encodeURI($(this).text(),
+														"UTF-8"),
+										datatype : 'json',
+										success : function(data) {
+
+											if (data != null) {
+												if (data.htype == '바다') {
+													$("#hostTypeSelect").find(
+															"option:eq(0)")
+															.prop("selected",
+																	true);
+												} else if (data.htype == '민물') {
+													$("#hostTypeSelect").find(
+															"option:eq(1)")
+															.prop("selected",
+																	true);
+												}
+
+												$('#hnum').attr("value",
+														data.hnum);
+												$('#hname').attr("value",
+														data.hname);
+												$('#hceo').attr("value",
+														data.hceo);
+												$('#hphone').attr("value",
+														data.hphone);
+												$('#haddr').attr("value",
+														data.haddr);
+												$("#himage").val("")
+												$('#imagename').text(
+														data.himage);
+
+												$('#hnotice').attr("value",
+														data.hnotice);
+												$('#howner').attr("value",
+														data.howner);
+												$('#hguide').attr("value",
+														data.hguide);
+
+												var content = '';
+												hspecies = data.hspecies
+														.split(',');
+
+												for ( var i in hspecies) {
+													content += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'
+															+ hspecies[i]
+															+ '</span>'
+															+ '<a href="javascript:void(0)" class="search-choice-close" rel="0"></a></li>'
+												}
+
+												$('#hspecies_chzn > ul').html(
+														"");
+												$('#hspecies_chzn > ul')
+														.append(content);
+
+												var content2 = '';
+												hservice = data.hservice
+														.split(',');
+
+												for ( var i in hservice) {
+													content2 += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'
+															+ hservice[i]
+															+ '</span>'
+															+ '<a href="javascript:void(0)" class="search-choice-close" rel="0"></a></li>'
+												}
+
+												$('#cover > div > div > ul')
+														.html("");
+												$('#cover > div > div > ul')
+														.append(content2);
+
+											}
+
+										}
+
+									});
+
+						});
+
+		$('input[name="hfile"]').click(function() {
+			$('#imagename').text("");
+
+		});
 
 		var hostform = $("form[role='hostform']");
-	
+
 		$("#hmodify").click(function() {
-			if($('input[name=hnum]').val()==''){
+			if ($('input[name=hnum]').val() == '') {
 				console.log("123" + $('input[name=hnum]').val())
 				alert('가맹점을 선택해주세요.')
-			}else{
+			} else {
 				hostform.attr('action', 'hostupdate');
 				hostform.attr('method', 'POST');
 				hostform.submit();
 			}
-		 
+
 		});
-		
+
 		$("#hdelete").click(function() {
 			hostform.attr('action', 'hostdelete');
 			hostform.attr('method', 'POST');
