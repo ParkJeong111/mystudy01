@@ -58,7 +58,7 @@
 	</select>
 	<!--  로그인아웃 로그 -->
 	<insert id="memberloginlog" parameterType="ldto">
-		insert into loginlog values(loginlog_seq.nextVal, #{mid}, #{lip},#{lagent} ,#{lstatus}, sysdate);
+		insert into loginlog values(loginlog_seq.nextVal, #{mid}, #{lip},#{lagent} ,#{lstatus}, sysdate)
 	</insert>
 	
 	

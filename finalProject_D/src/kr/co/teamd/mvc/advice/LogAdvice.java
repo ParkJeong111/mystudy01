@@ -64,6 +64,7 @@ public class LogAdvice {
 					logdto.setLip(request.getRemoteAddr());
 					logdto.setLagent("PC");
 					logdto.setLstatus("·Î±×¾Æ¿ô");
+					
 					mdao.loginLogInsert(logdto);
 				}
 			}
