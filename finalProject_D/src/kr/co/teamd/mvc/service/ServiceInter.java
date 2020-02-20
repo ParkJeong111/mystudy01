@@ -10,4 +10,7 @@ public interface ServiceInter {
 	
 	// 결제 시 결제내역 추가와 회원 포인트 수정
 	public void reserveInsertmpointUpdate(ReservationDTO rdto) throws Exception;
+	
+	// 가맹점 삭제시 Foreign키 테이블 삭제(예약, 가맹점상품, 게시판, 최근본숙소)
+	public void hostdeleteAll(String hname) throws Exception;
 }

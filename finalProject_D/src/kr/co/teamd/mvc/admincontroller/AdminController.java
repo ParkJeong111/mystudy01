@@ -112,10 +112,9 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "hostdelete") // 가맹점 삭제시 update(서비스종료안내)
-	public String hostdelete(@RequestParam(value="hname") String hname ) {
-		System.out.println(hname);
-		//hdao.hostdelete(hname);
-		//System.out.println("들어오나요??");
+	public String hostdelete(@RequestParam(value="hname") String hname ) throws Exception {
+		System.out.println("가맹점이름 삭제" +hname);
+		service.hostdeleteAll(hname);
 		return "redirect:admin_host";
 
 	}

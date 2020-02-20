@@ -91,7 +91,7 @@ public class AdminHostDAO implements AdminHostInter{
 	}
 	
 	@Override
-	public void hostupdate(HostDTO hdto) {  // ∞°∏Õ¡° ªË¡¶
+	public void hostupdate(HostDTO hdto) {  
 		ss.update("admin.hostupdate", hdto);
 	}
 

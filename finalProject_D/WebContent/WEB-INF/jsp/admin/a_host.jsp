@@ -8,7 +8,7 @@
 .img_wrap {
 	width: 70%;
 	height: 30%;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 .img_wrap img {
@@ -17,7 +17,8 @@
 }
 
 .selectedRow {
-	border: 1px solid #e6e6e6;
+	background-color:#e6e6e6;
+	border: 3px solid #e6e6e6;
 	cursor: pointer;
 }
 
@@ -289,9 +290,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
 <script>
-
+<!--가맹점 삭제 onclick 클릭 시 함수 호출하기 -->
 function hostdelete(hname) {
-	 if (confirm("정말 삭제하시겠습니까??") == true){ 
+	 if (confirm("가맹점을 삭제하시겠습니까?") == true){ 
 		 
 		 location.href="hostdelete?hname="+encodeURI(hname, "UTF-8");
 	 }else{   //취소
@@ -302,13 +303,17 @@ function hostdelete(hname) {
 
 	$(function() {
 
-	
-<%-- 이 부분은 Ajax를 이용한 가맹점 상세정보 내역 //// -> 이후 수정,삭제를 위함 --%>
-	$('.color').click(function() {
-			console.log('뭐지')
-			$(this).addClass('selectedRow')
+		
+		$('table > tbody > tr').click(function() {
+			console.log('표시 컬러들어가기')
+			$(this).addClass("selectedRow")
+			$('table > tbody > tr').not(this).removeClass("selectedRow")
 
 		});
+		
+	
+<%-- 이 부분은 Ajax를 이용한 가맹점 상세정보 내역 //// -> 이후 수정,삭제를 위함 --%>
+	
 
 		$('table > tbody > tr > td')
 				.click(
