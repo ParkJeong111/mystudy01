@@ -13,12 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import kr.co.teamd.mvc.dao.MemberInter;
-import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
@@ -114,6 +111,24 @@ public class MemberController {
 			List<ReservationDTO> reservationlist = mdao.myReservation(map);
 			mav.addObject("rlist", reservationlist);
 			mav.setViewName("member/my_reservation");	
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value= "my_matching")  //예약내역
+	public ModelAndView mymatching(HttpSession session, HttpServletResponse resp) {
+		ModelAndView mav = new ModelAndView();
+		String mid = (String) session.getAttribute("mid");
+		if (mid == null) {
+			mav.setViewName("member/login");
+			session.setAttribute("vn", "redirect:my_matching");
+		}else {
+			HashMap<Object, Object> map = new HashMap<Object, Object>();
+			map.put("mid", mid);
+			map.put("type", 0);
+			List<ReservationDTO> reservationlist = mdao.myReservation(map);
+			mav.addObject("rlist", reservationlist);
+			mav.setViewName("member/matching");	
 		}
 		return mav;
 	}
