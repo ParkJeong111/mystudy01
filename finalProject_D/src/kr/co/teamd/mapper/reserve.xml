@@ -10,5 +10,10 @@
 		insert into reservation values(reservation_seq.nextVal, #{mid}, #{hname}, #{hgnum},
 		#{rmoney}, 0, #{usedate}, sysdate)
 	</insert>
+	
+	<!-- Member mpoint Update 시작 -->
+	<update id="updatepoint" parameterType="rdto">
+		update member set mpoint = mpoint - #{mpoint} where mid = #{mid}
+	</update>
 	<!-- 송용화 영역 끝 -->
 </mapper>
