@@ -83,11 +83,9 @@
 									</c:choose>
 								</c:forEach></td>
 
-							<td class="center"><a class="btn btn-danger" onclick="hostdelete('${e.hname}')"> <i class="halflings-icon white trash"></i>
-							<%-- <td class="center"><a class="btn btn-danger" href="hostdelete?hname=${e.hname}"> <i class="halflings-icon white trash"></i> --%>
-							<!-- <td class="center"><a class="btn btn-danger" href="hostdelete?hname="+ encodeURI(${e.hname}, 'UTF-8')> -->  
+							<td class="center"><a class="btn btn-danger" id="hdelete"> <i
+									class="halflings-icon white trash"></i>
 							</a></td>
-							
 
 
 
@@ -167,11 +165,9 @@
 						<label class="control-label">이미지등록</label>
 						<div class="controls">
 							<input multiple="multiple" type="file" id="himage" name="hfile"
-								value="">
+								value=""> <span id="imagename"></span>
 							<div class="img_wrap">
 								<img id="img" />
-								<br/>
-								 <span  id="imagename"></span>
 							</div>
 
 						</div>
@@ -233,7 +229,7 @@
 
 					<div class="form-actions">
 						<button type="submit" class="btn btn-primary" id="hmodify">수정</button>
-
+<!-- 						
 					</div>
 				</fieldset>
 			</form>
@@ -289,24 +285,14 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
 <script>
-
-function hostdelete(hname) {
-	 if (confirm("정말 삭제하시겠습니까??") == true){ 
-		 
-		 location.href="hostdelete?hname="+encodeURI(hname, "UTF-8");
-	 }else{   //취소
-	     return false;
-
-	 }
-}
-
 	$(function() {
-
-	
 <%-- 이 부분은 Ajax를 이용한 가맹점 상세정보 내역 //// -> 이후 수정,삭제를 위함 --%>
 	$('.color').click(function() {
 			console.log('뭐지')
-			$(this).addClass('selectedRow')
+			$(this).css({
+				'border' : '1px solid #e6e6e6',
+				'cursor' : 'pointer'
+			});
 
 		});
 
@@ -317,7 +303,8 @@ function hostdelete(hname) {
 							$(".chzn-choices").html = ""
 							var value = $(this).text();
 
-							$.ajax({
+							$
+									.ajax({
 										url : "hostinfo?hname="
 												+ encodeURI($(this).text(),
 														"UTF-8"),
@@ -422,6 +409,16 @@ function hostdelete(hname) {
 
 		});
 
+		$("#hdelete").click(function() {
+			console.log("여기")
+			 if (confirm("정말 삭제하시겠습니까??") == true){ 
+				 location.href="hostdelete?hname=${e.hname}"
+			 }else{   //취소
+			     return false;
+
+			 }
+
+		}); 
 
 	});
 </script>
