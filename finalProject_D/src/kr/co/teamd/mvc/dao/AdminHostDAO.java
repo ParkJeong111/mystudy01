@@ -70,14 +70,28 @@ public class AdminHostDAO implements AdminHostInter{
 	}
 
 	@Override
-	public void hostdelete(HostDTO hdto) { // ∞°∏Õ¡° ªË¡¶
-		
-		ss.delete("admin.hostdelete", hdto);
-		
+	public void hostdelete(String hname) { // ∞°∏Õ¡° ªË¡¶
+		ss.delete("admin.hostDelete", hname);
+	}
+	@Override
+	public void reservationDelete(String hname) {
+		ss.delete("admin.reservationDelete", hname);
+	}
+	@Override
+	public void hostgoodsDelete(String hname) {
+		ss.delete("admin.hostgoodsDelete", hname);
+	}
+	@Override
+	public void boardDelete(String hname) {
+		ss.delete("admin.boardDelete", hname);
+	}
+	@Override
+	public void recenthostDelete(String hname) {
+		ss.delete("admin.recenthostDelete", hname);
 	}
 	
 	@Override
-	public void hostupdate(HostDTO hdto) {  // ∞°∏Õ¡° ªË¡¶
+	public void hostupdate(HostDTO hdto) {  
 		ss.update("admin.hostupdate", hdto);
 	}
 
@@ -86,6 +100,9 @@ public class AdminHostDAO implements AdminHostInter{
 	public List<AdminlogDTO> adminloglist() {
 		return ss.selectList("admin.adminloglist");
 	}
+
+
+
 
 
 	

@@ -1,58 +1,68 @@
 package kr.co.teamd.mvc.dto;
 
 public class RandomMatchingDTO {
-	private int count,age;
-	private String location,type,time,sex,sumtype,rmid;
+	private int rmnum,rmcount,rmage,rmstatus;
+	private String rmid,rmlocation,rmtype,rmtime,rmsex,mrresult;
 	
-	public String getSumtype() {
-		return sumtype;
+	public String getMrresult() {
+		return mrresult;
 	}
-	public void setSumtype(String sumtype) {
-		this.sumtype = sumtype;
+	public void setMrresult(String mrresult) {
+		this.mrresult = mrresult;
 	}
-	
+	public int getRmstatus() {
+		return rmstatus;
+	}
+	public void setRmstatus(int rmstatus) {
+		this.rmstatus = rmstatus;
+	}
+	public int getRmnum() {
+		return rmnum;
+	}
+	public void setRmnum(int rmnum) {
+		this.rmnum = rmnum;
+	}
+	public int getRmcount() {
+		return rmcount;
+	}
+	public void setRmcount(int rmcount) {
+		this.rmcount = rmcount;
+	}
+	public int getRmage() {
+		return rmage;
+	}
+	public void setRmage(int rmage) {
+		this.rmage = rmage;
+	}
 	public String getRmid() {
 		return rmid;
 	}
 	public void setRmid(String rmid) {
 		this.rmid = rmid;
 	}
-	public int getCount() {
-		return count;
+	public String getRmlocation() {
+		return rmlocation;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setRmlocation(String rmlocation) {
+		this.rmlocation = rmlocation;
 	}
-	public int getAge() {
-		return age;
+	public String getRmtype() {
+		return rmtype;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setRmtype(String rmtype) {
+		this.rmtype = rmtype;
 	}
-
-	public String getSex() {
-		return sex;
+	public String getRmtime() {
+		return rmtime;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setRmtime(String rmtime) {
+		this.rmtime = rmtime;
 	}
-	public String getLocation() {
-		return location;
+	public String getRmsex() {
+		return rmsex;
 	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setRmsex(String rmsex) {
+		this.rmsex = rmsex;
 	}
 
 }

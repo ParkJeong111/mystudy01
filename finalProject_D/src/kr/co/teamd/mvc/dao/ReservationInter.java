@@ -4,5 +4,6 @@ import kr.co.teamd.mvc.dto.ReservationDTO;
 
 public interface ReservationInter {
 
-	public void ReservationInsert(ReservationDTO rdto);
+	public void reservationInsert(ReservationDTO rdto);
+	public void memberPointUpdate(ReservationDTO rdto);
 }

@@ -54,7 +54,7 @@
 	</select>
 		<!-- 로그인을 위한 아이디, 비밀번호 체크 -->
 	<select id="idcheck" parameterType="mdto" resultType="mdto">
-	select mid, mnickname, mphone from member where mid=#{mid} and mpwd=#{mpwd}
+	select mid, mnickname, mphone, mpoint from member where mid=#{mid} and mpwd=#{mpwd}
 	</select>
 	<!--  로그인아웃 로그 -->
 	<insert id="memberloginlog" parameterType="ldto">

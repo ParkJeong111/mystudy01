@@ -1142,6 +1142,21 @@ width:285px;top:12%;z-index:100}
 margin-left: 285px;
 width: 855px;
 }
+.info_view span {
+    font-size: 12px;
+    padding: 0 5px;
+    margin: 15px 5px 0;
+    display: inline;
+    height: 37px;
+    line-height: 35px;
+    border: 1px solid #f85959;
+    color: #f85959;
+    border-radius: 3rem;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 </style>
 	<!-- END nav -->
 
@@ -1150,7 +1165,7 @@ width: 855px;
 		<div class="overlay"></div>
 		<div class="container" style="margin-top: -40%;"></div>
 	</div>
-	<!--  여기에 헤더부분 추가  -->
+	<!--  상단 내용  -->
 	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
 		<c:choose >
 			<c:when test="${type == 1}">
@@ -1168,6 +1183,7 @@ width: 855px;
 		</c:choose>
 	</p>
 	<hr>
+	<!-- 상단 선택 부분 -->
 	<div class="talk_header">
 		<div class="talk_tab_area">
 			<section>
@@ -1186,30 +1202,39 @@ width: 855px;
 				<hr>
 			</section>
 		</div>
+		<!-- 사이드 검색 부분 -->
 		<section class="ftco-section ftco-degree-bg"
 			style="padding-top: 10px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 sidebar ftco-animate float_sidebar" id="float_sidebar" >
+						<!-- 업체명, 지역 검색 -->	
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
 								style="text-align: center; font-weight: bold;">상세 검색</h3>
 							<form action="searchlist" method="post">
 								<div class="fields">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="검색 할 컨텐츠" name="searchValue" id="searchValue">
+										<input type="text" class="form-control" placeholder="검색 할 업체명" name="searchValue" id="searchValue">
 									</div>
 									<div class="form-group">
 										<div class="select-wrap one-third">
 											<div class="icon">
 												<span class="ion-ios-arrow-down"></span>
 											</div>
-											<select name="" id="" class="form-control">
-												<option value="">거리를 설정해주세요</option>
-												<option value="">100km</option>
-												<option value="">200km</option>
-												<option value="">300km</option>
-												<option value="">500km</option>
+											<select name="searchLocation" id="searchLocation" class="form-control">
+												<option value="">지역을 선택해주세요.</option>
+												<option value="서울">서울</option>
+												<option value="경기">경기</option>
+												<option value="인천">인천</option>
+												<option value="강원">강원</option>
+												<option value="충북">충북</option>
+												<option value="충남">충남</option>
+												<option value="경북">경북</option>
+												<option value="경남">경남</option>
+												<option value="전북">전북</option>
+												<option value="전남">전남</option>
+												<option value="제주">제주</option>
 											</select>
 										</div>
 									</div>
@@ -1230,8 +1255,7 @@ width: 855px;
 								</div>
 							</form>
 						</div>
-						
-						
+						<!-- 리뷰 평점 검색 -->
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
 								style="text-align: center; font-weight: bold;">리뷰 별점</h3>
@@ -1297,6 +1321,7 @@ width: 855px;
 							</form>
 						</div>
 					</div>
+					<!-- 업체 리스트 -->
 					<div class="col-lg-9">
 						<div class="row" id="hostlistdiv">
 							<c:forEach items="${hostlist }" var="hostlist" varStatus="status">
@@ -1334,12 +1359,19 @@ width: 855px;
 													<span style="font-size: 15px;">리뷰: ${hostlist.boardnum}</span>
 												</div>
 											</div>
-											<%-- <p id="location${status.index}">${status.index}</p> --%>
-											<p class="days"></p>
+											<p class="info_view">
+												<script>
+													var hspecies = '${hostlist.hspecies}';
+													var hspeciesSplit = hspecies.split(',');
+													for (var i in hspeciesSplit) {
+														document.write('<span>' + hspeciesSplit[i] + '</span>');
+													}
+												</script>
+											</p>
 											<hr>
 											<p class="bottom-area d-flex">
 												<span><i class="icon-map-o"></i>
-													&nbsp;${hostlist.haddr }
+													&nbsp;${hostlist.haddr}
 												</span> 
 												<%-- <span class="ml-auto"><a href="#">예약하기</a></span> --%>
 											</p>
@@ -1348,21 +1380,6 @@ width: 855px;
 								</div>
 							</c:forEach>
 						</div>
-						<!--  <div class="row mt-5">
-		          <div class="col text-center">
-		            <div class="block-27">
-		              <ul>
-		                <li><a href="#">&lt;</a></li>
-		                <li class="active"><span>1</span></li>
-		                <li><a href="#">2</a></li>
-		                <li><a href="#">3</a></li>
-		                <li><a href="#">4</a></li>
-		                <li><a href="#">5</a></li>
-		                <li><a href="#">&gt;</a></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>-->
 					</div>
 					<!-- .col-md-8 -->
 				</div>
@@ -1377,7 +1394,7 @@ width: 855px;
 			$("input:radio[name=star]").click(function(){
 				star = $(this).val();
 				$.ajax({
-					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() 
+					url : "searchlist?searchValue=" + $('#searchValue').val() + '&searchLocation=' + $('#searchLocation').val() + "&minprice=" + $('#minprice').val() 
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
@@ -1445,7 +1462,7 @@ width: 855px;
 			$("#searchbtn").click(function() {
 				star = $(':radio[name="star"]:checked').val();
 				$.ajax({
-					url : "searchlist?searchValue=" + $('#searchValue').val() + "&minprice=" + $('#minprice').val() 
+					url : "searchlist?searchValue=" + $('#searchValue').val() + '&searchLocation=' + $('#searchLocation').val() + "&minprice=" + $('#minprice').val() 
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
@@ -1471,7 +1488,6 @@ width: 855px;
 									+ '<p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
-						
 						$(".product-price").each(function(idx) {
 							var value = $(this).text();
 							$(this).text($.fn.priceBuilder(value));
@@ -1481,7 +1497,6 @@ width: 855px;
 			});
 		});
 		</script>
-
 
 		<script
 			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>

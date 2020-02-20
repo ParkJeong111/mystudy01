@@ -91,8 +91,8 @@
 
 .view_area .view_profile .profile_info {
 	float: left;
-	margin-left: 30px;
-	margin-top: 20px;
+	margin-left: 10px;
+	margin-top: 5px;
 	width: auto;
 }
 
@@ -1239,7 +1239,7 @@
 
 .view_area .reserve_area {
 	padding: 30px 30px 20px;
-	display: block
+	display: block;
 }
 
 .view_area .reserve_area .reserve_con span {
@@ -1723,6 +1723,267 @@
 	top: -3px;
 	content: '';
 	margin-right: 10px;
+}
+
+/* 조황정보 */
+.manage_tab_area {
+	background: #fff;
+	padding-top: 30px;
+	padding-bottom: 30px
+}
+
+.manage_tab_area li {
+	float: left;
+	width: calc(33.333% - 10px);
+}
+
+.manage_tab_area li a {
+	border: 1px solid #8c8c8c;
+	font-size: 16px;
+	padding: 10px 0;
+	color: #8c8c8c;
+	text-align: center;
+	display: block;
+	border-radius: 0.3rem
+}
+
+.manage_tab_area li:nth-child(2) {
+	margin: 0 15px
+}
+
+.manage_tab_area li.active a {
+	border: 1px solid #ff724c;
+	color: #ff724c
+}
+
+.manage_tab_area li:hover a {
+	border: 1px solid #ff724c
+}
+
+.view_area .view_contents.view_info_manage {
+	background: #fff
+}
+
+.view_info_manage {
+	border-top: 1px solid #e6e6e6;
+	padding-top: 25px
+}
+
+.view_info_manage .view_count_text p {
+	font-size: 20px;
+}
+
+.view_info_manage .view_count_text p span {
+	color: #ff724c;
+}
+
+.view_info_manage .manage_list_area li {
+	float: left;
+	margin-top: 10px;
+	background: #fff;
+	width: calc(33.333% - 8px);
+	border: 1px solid #e6e6e6;
+	border-radius: 0.3rem;
+	margin-right: 10px
+}
+
+.view_info_manage .manage_list_area li:nth-child(3n+1) {
+	margin-right: 0
+}
+
+.view_info_manage .manage_list_area li .profile_box {
+	padding: 10px 15px;
+	position: relative;
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img {
+	float: left;
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img:before
+	{
+	width: 100%;
+	height: 17px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: block;
+	color: #fff;
+	font-size: 9px;
+	text-align: center;
+	z-index: 1;
+	line-height: 15px;
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv0:before
+	{
+	content: 'lv.0';
+	background: #dc967c
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv1:before
+	{
+	content: 'lv.1';
+	background: #ec440b
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv2:before
+	{
+	content: 'lv.2';
+	background: #ffba12
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv3:before
+	{
+	content: 'lv.3';
+	background: #55b44d
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv4:before
+	{
+	content: 'lv.4';
+	background: #4595ec
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv5:before
+	{
+	content: 'lv.5';
+	background: #4c65d5
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv6:before
+	{
+	content: 'lv.6';
+	background: #845bbd
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv7:before
+	{
+	content: 'lv.7';
+	background: #bb4e4e
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv8:before
+	{
+	content: 'lv.8';
+	background: linear-gradient(to right, #a8f5ff, #d6faff 28%, #40bcd3 77%, #218092);
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv9:before
+	{
+	content: 'lv.9';
+	background: linear-gradient(to right, #ffbf16, #ffe4b2 33%, #f2ad4e 69%, #ffe151);
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv10:before
+	{
+	content: 'lv.10';
+	background: linear-gradient(to right, #e06e6e, #fadb25 33%, #9eda51 68%, #486ce8);
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv99:before
+	{
+	content: 'M';
+	background: linear-gradient(to bottom, #616161, #171717);
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img.lv98:before
+	{
+	content: '사장';
+	background: linear-gradient(to bottom, #ffd848, #ff3600);
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_img img {
+	width: 100%;
+	height: 100%;
+}
+
+.view_info_manage .manage_list_area li .profile_box .profile_name {
+	width: calc(100% - 45px);
+	float: left;
+	margin-left: 10px;
+	font-size: 15px;
+	padding-top: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 28px;
+}
+
+.view_info_manage .manage_list_area li .manage_title_img {
+	overflow: hidden;
+	width: 100%;
+	padding-bottom: 56.26%;
+	height: 0;
+	position: relative;
+}
+
+.view_info_manage .manage_list_area li .manage_title_img img {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: auto;
+	transform: translate(0, -50%);
+}
+
+.view_info_manage .manage_list_area li .manage_title_img .live_tag {
+	width: 83px;
+	height: 28px;
+	line-height: 26px;
+	background: #e84418;
+	border-radius: 0.3rem;
+	font-size: 15px;
+	font-weight: 300;
+	text-align: center;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 1;
+	color: #fff;
+	letter-spacing: -0.6px
+}
+
+.view_info_manage .manage_list_area li .manage_txt_box {
+	padding: 15px;
+	height: 140px;
+	position: relative;
+}
+
+.view_info_manage .manage_list_area li .manage_kind_tag span {
+	border: 1px solid #dadada;
+	border-radius: 0.3rem;
+	color: #2663e2;
+	font-size: 15px;
+	padding: 0 8px;
+	height: 28px;
+	line-height: 26px;
+	display: inline-block
+}
+
+.view_info_manage .manage_list_area li .manage_title_txt {
+	margin: 5px 0 10px;
+	font-size: 17px;
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	height: 42px;
+	line-height: 1.2
+}
+
+.view_info_manage .manage_list_area li .manage_date {
+	font-size: 14px;
+	color: #8c8c8c;
+	position: absolute;
+	bottom: 15px
 }
 
 /* 예약정보 */
@@ -2464,67 +2725,112 @@ keyframes swiper-preloader-spin { 100%{
 	content: '';
 }
 </style>
-	<!-- END nav -->
-	<div class="hero-wrap js-fullheight"
-		style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_3.jpg');">
+<!-- END nav -->
+<div class="hero-wrap js-fullheight"
+	style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_3.jpg');">
 
-		<div class="container" style="margin-top: -40%;"></div>
+	<div class="container" style="margin-top: -40%;"></div>
+</div>
+<!--  여기에 헤더부분 추가  -->
+<hr>
+<div class="view_area">
+	<div class="talk_tab_area">
+		<section>
+			<h3 class="talk_tab clearfix"
+				style="font-weight: bold; text-align: center; color: #606060; font-size: 30px;">
+				<%-- <c:choose>
+					<c:when test="${host.htype == '바다'}">
+						바다
+					</c:when>
+					<c:when test="${host.htype == '민물'}">
+						민물
+					</c:when>
+				</c:choose> --%>
+				상세정보
+			</h3>
+			<hr>
+		</section>
 	</div>
-	<!--  여기에 헤더부분 추가  -->
-	<hr>
-	<div class="view_area">
-		<div class="talk_tab_area">
-			<section>
-				<h3 class="talk_tab clearfix"
-					style="font-weight: bold; text-align: center; color: #606060; font-size: 30px;">
-					<c:choose>
-						<c:when test="${host.htype == '바다'}">
-						바다낚시
-					</c:when>
-						<c:when test="${host.htype == '민물'}">
-						민물낚시
-					</c:when>
-					</c:choose>
-				</h3>
-				<hr>
-			</section>
-		</div>
-		<div class="view_area container">
-			<!-- 업체상세 상단 -->
-			<section>
-				<div class="view_profile clearfix">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/${host.himage }"
-						alt="" style="width: 65%; float: left;">
-					<!-- 업체 정보 -->
-					<div class="profile_info col-md-4">
-						<dl class="clearfix">
-							<dt>
-								<span class="ico_pic ico_pic1">낚시카페</span>
-								<h1>${host.hname }</h1>
-							</dt>
-							<dd>
-								<h2>${host.haddr}</h2>
-							</dd>
-						</dl>
-					</div>
-					<!--// 업체 정보 -->
+	<div class="view_area container">
+		<!-- 업체상세 상단 -->
+		<section>
+			<div class="view_profile clearfix">
+				<img
+					src="${pageContext.request.contextPath}/resources/images/${host.himage }"
+					alt="" style="width: 35%; height: 100%; float: left;">
+				<!-- 업체 정보 -->
+				<div class="profile_info col-md-4">
+					<dl class="clearfix">
+						<dt>
+							<span class="ico_pic ico_pic1">상호명</span> <br>${host.hname}
+						</dt>
+						<dd>
+							<h2>${host.haddr}</h2>
+							<span id="distance" style="color: black;"></span>
+						</dd>
+					</dl>
 				</div>
-				<!--// view_profile -->
-			</section>
+				<!-- 업체 정보 -->
+				<!-- 업체 지도 -->
+				<div class="profile_info col-md-4">
+					<span class="ico_pic ico_pic1">위치</span>
+					<div id="map" style="width: 380px; height: 175px;"></div>
+				</div>
+			</div>
+			<!--// view_profile -->
+		</section>
 
-			<!-- 티켓정보 시작 -->
-			<div id="view_ticket"
-				class="view_info view_info_reserve view_contents">
-				<section>
-					<c:forEach items="${hglist}" var="e">
-						<a class="reserve_area view_box reserveclick" data-gi-type="4" data-num="${e.hgnum}"
-							data-gi-key="2181410" id="reservelink">
+		<div id="view_ticket"
+			class="view_info view_info_reserve view_contents">
+			<section>
+				<!-- 어종 정보 시작 -->
+				<div class="view_box info_view_sty6">
+					<p class="view_box_title">
+						주요어종<span class="count_txt">${fn:length(hspeciesList)}종</span>
+					</p>
+					<ol class="in_box clearfix" style="list-style: none;">
+						<c:forEach items="${hspeciesList}" var="e">
+							<c:choose>
+								<c:when test="${e == '고등어' }">
+									<li><img
+										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_leather.png">
+										<h2>${e}</h2></li>
+								</c:when>
+								<c:when test="${e == '방어' }">
+									<li><img
+										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_crucian_carp.png">
+										<h2>${e}</h2></li>
+								</c:when>
+								<c:otherwise>
+									<li><img
+										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_fancy_crap.png">
+										<h2>${e}</h2></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</ol>
+				</div>
+				<!-- 어종 정보 시작 -->
+				<!-- 서비스 정보 시작 -->
+				<div class="view_box info_view_sty9">
+					<p class="view_box_title">서비스</p>
+					<div class="in_box clearfix">
+						<c:forEach items="${hserviceList}" var="e">
+							<span>${e}</span>
+						</c:forEach>
+					</div>
+				</div>
+				<!-- 서비스 정보 끝 -->
+				<!-- 이용권 정보 시작 -->
+				<c:forEach items="${hglist}" var="e">
+					<div style="width: 50%; float: left;">
+						<a class="reserve_area view_box reserveclick"
+							data-num="${e.hgnum}" data-gi-key="2181410" id="reservelink">
 							<div class="reserve_con">
 								<h2 class="reserve_title">${e.hgname }</h2>
 								<div class="reserve_price">
 									<p class="sale_pay">
-										<span class="product-price">${e.hgmoney }</span>
+										<span class="product-price reserve_price">${e.hgmoney }</span>
 									</p>
 								</div>
 								<div class="reserve_dot">
@@ -2532,129 +2838,249 @@ keyframes swiper-preloader-spin { 100%{
 								</div>
 							</div>
 						</a>
-					</c:forEach>
-			<!-- 티켓정보 끝 -->
-					<div class="view_box info_view_sty1">
-						<p class="view_box_title">티켓 유의사항</p>
-						<div class="in_box">
-							<p class="dot_txt ::before">타 이벤트 및 중복할인 불가</p>
-							<p class="dot_txt">구매하신 상품은 타인에게 양도할 수 없으며, 본인확인 후 사용가능</p>
-							<p class="dot_txt">구매일 기준 7일 이내에 미사용 티켓에 한해 앱내에서 100%환불이 가능</p>
-							<p class="dot_txt">단, 부분환불의 경우 고객센터로 문의</p>
-							<p class="dot_txt">티켓사용 : 티켓 후제시(결제 시 제시)</p>
-						</div>
 					</div>
+				</c:forEach>
+				<!-- 이용권 정보 끝 -->
+				<!-- 이용권 주의정보 시작 -->
+				<div class="view_box info_view_sty1">
+					<p class="view_box_title">이용권 유의사항</p>
+					<div class="in_box">
+						<p class="dot_txt ::before">타 이벤트 및 중복할인 불가</p>
+						<p class="dot_txt">구매하신 이용권은 타인에게 양도할 수 없으며, 본인확인 후 사용가능</p>
+						<p class="dot_txt">구매일 기준 7일 이내에 미사용 이용권에 한해 100% 환불 가능</p>
+						<p class="dot_txt">단, 부분환불의 경우 고객센터로 문의</p>
+						<p class="dot_txt">사용방법 : 결제 후 직접 방문시 제시</p>
+					</div>
+				</div>
 
-					<div class="view_box info_view_sty1">
-						<p class="view_box_title">티켓가이드</p>
-						<div class="in_box">
-							<strong class="str_txt">현장에서 바로 사용하는 방법</strong>
-							<p class="dot_txt">티켓 구매시 인증받은 전화번호 뒷자리 또는 이름 현장에서 구두 전달</p>
-							<p class="dot_txt">업주가 업주관리자에서 조회 (본인 현장 인증)</p>
-							<p class="dot_txt">사용할 티켓명 및 수량 업주에게 구두 전달</p>
-							<p class="dot_txt">사용처리완료된 티켓내역 확인</p>
-						</div>
+				<div class="view_box info_view_sty1">
+					<p class="view_box_title">티켓가이드</p>
+					<div class="in_box">
+						<strong class="str_txt">현장에서 바로 사용하는 방법</strong>
+						<p class="dot_txt">티켓 구매시 인증받은 전화번호 뒷자리 또는 이름 현장에서 구두 전달</p>
+						<p class="dot_txt">업주가 업주관리자에서 조회 (본인 현장 인증)</p>
+						<p class="dot_txt">사용할 티켓명 및 수량 업주에게 구두 전달</p>
+						<p class="dot_txt">사용처리완료된 티켓내역 확인</p>
 					</div>
-					<div class="view_box info_view_sty6">
-						<p class="view_box_title">
-							주요어종<span class="count_txt">${fn:length(hspeciesList)}종</span>
-						</p>
-						<ol class="in_box clearfix" style="list-style: none;">
-							<c:forEach items="${hspeciesList}" var="e">
-								<li><img
-									src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_crucian_carp.png"
-									alt="">
-									<h2>${e}</h2></li>
-							</c:forEach>
-						</ol>
+				</div>
+				<div class="view_box info_view_sty1">
+					<p class="view_box_title">업체공지</p>
+					<div class="in_box">
+						<p class="dot_txt">${host.hnotice }</p>
 					</div>
-					<div class="view_box info_view_sty1">
-						<p class="view_box_title">업체공지</p>
-						<div class="in_box">
-							<p class="dot_txt">${host.hnotice }</p>
-						</div>
+				</div>
+				<div class="view_box info_view_sty1">
+					<p class="view_box_title">사장님 한마디</p>
+					<div class="in_box">
+						<p class="dot_txt">${host.howner }</p>
 					</div>
-					<div class="view_box info_view_sty1">
-						<p class="view_box_title">사장님 한마디</p>
-						<div class="in_box">
-							<p class="dot_txt">${host.howner }</p>
-						</div>
-					</div>
-					<div class="view_box info_view_sty9">
-						<p class="view_box_title">서비스</p>
-						<div class="in_box clearfix">
-							<c:forEach items="${hserviceList}" var="e">
-								<span>${e}</span>
-							</c:forEach>
-						</div>
-					</div>
-				</section>
-			</div>
+				</div>
+			</section>
 		</div>
-		<script>
-			$(function() {
-				$.fn.priceBuilder = function(price) {
-					// 금액에 천단위 콤마 추가해주는 정규표현식
-					return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-				}
+		<!-- <div class="view_info_manage view_contents">
+			<section>
+				<div>
+					<ol id="talk_list" class="manage_list_area">
+						<div class="view_count_text">
+							<p>
+								조황/조행기 <span>94개</span>
+							</p>
+						</div>
+						<li><a href="">
+								<div class="profile_box clearfix">
+									<div class="profile_img lv98">
+										<img
+											src="https://img.moolban.com/unsafe/50x50/filters:no_upscale()/profile_aws/default.png?date=1493355238"
+											class="profile" alt="">
+									</div>
+									<p class="profile_name">각평낚시터</p>
+								</div>
+								<div class="manage_title_img">
+									<img
+										src="https://img.moolban.com/unsafe/480x270/filters:no_upscale()/talk/20200119/temp_20200119_1630800421.jpg?date=1582112250"
+										alt="">
+								</div>
+								<div class="manage_txt_box">
+									<p class="manage_kind_tag" style="">
+										<span class="sif_key50">메기</span>
+									</p>
+									<p class="manage_title_txt">2020년 첫 방류와 조황정보</p>
+									<p class="manage_date">2020년 01월 19일</p>
+								</div>
+						</a></li>
+					</ol>
+				</div>
+			</section>
+		</div> -->
+	</div>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=38715a06f2433fec74cbd6060d15e8fa&libraries=services,clusterer,drawing"></script>
+	<script>
+		$(function() {
+			// 위치계산을 위한 변수
+			var startposition_y = 0;
+			var startposition_x = 0;
+			var endposition_y = 0;
+			var endposition_x = 0;
+			var distance = 0;
+			// 현재위치와 업체위치 거리 계산함수
+			function calldistance(lat1, lon1, lat2, lon2, unit) {
+				theta = lon1 - lon2;
+				dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
+						+ Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))
+						* Math.cos(deg2rad(theta));
 
-				$(".product-price").each(function(idx) {
-					// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
-					var value = $(this).text();
-					$(this).text($.fn.priceBuilder(value) + ' 원');
-				});
-				
-				// 이용권 클릭시 form post 전송
-				$("a[id=reservelink]").each(
-					function(){
-						$(this).click(function(){
-							var hg = $(this).attr('data-num');
-							 var $form = $('<form></form>');
-							 $form.attr('action', 'reserve');
-						     $form.attr('method', 'post');
-						     $form.appendTo('body');
-						     var hnum = $('<input type="hidden" value="${host.hnum}" name="hnum">');
-						     var hgnum = $('<input type="hidden" value="' + hg + '" name="hgnum">');
-						     $form.append(hnum).append(hgnum);
-						     $form.submit();
-						});
-					}
-				);
+				dist = Math.acos(dist);
+				dist = rad2deg(dist);
+				dist = dist * 60 * 1.1515;
+
+				if (unit == "kilometer") {
+					dist = dist * 1.609344;
+				} else if (unit == "meter") {
+					dist = dist * 1609.344;
+				}
+				return dist;
+			}
+			function deg2rad(deg) {
+				return (deg * Math.PI / 180.0);
+			}
+			function rad2deg(rad) {
+				return (rad * 180 / Math.PI);
+			}
+
+			// 현재 위치 가져오는 함수
+			function getLocation() {
+				if (navigator.geolocation) { // GPS를 지원한다면...
+					navigator.geolocation.getCurrentPosition(
+							function(position) {
+								// 현재 위도 경도
+								// alert(position.coords.latitude + ' ' + position.coords.longitude);
+								startposition_y = position.coords.latitude; // 위도
+								startposition_x = position.coords.longitude; // 경도
+							}, function(error) {
+								console.error("getLocation : " + error);
+							}, {
+								enableHighAccuracy : false,
+								maximumAge : 0,
+								timeout : Infinity
+							});
+				}
+			}
+
+			// 현재 위치 가져오기 호출
+			getLocation();
+
+			// 주소로 위도 경도 받아오는 함수
+			var geocoder = new kakao.maps.services.Geocoder();
+			var callback = function(result, status) {
+				if (status === kakao.maps.services.Status.OK) {
+					endposition_y = result[0].y; // 위도
+					endposition_x = result[0].x; // 경도
+					console.log("위도: " + endposition_y); // 위도
+					console.log("경도: " + endposition_x); // 경도
+					// 두 위치간의 거리
+					distance = calldistance(startposition_y, startposition_x,
+							endposition_y, endposition_x, 'kilometer');
+
+					// 지도가 표시될 위치
+					var container = document.getElementById('map');
+					// 지도 생성 옵션
+					var options = {
+						center : new kakao.maps.LatLng(endposition_y,
+								endposition_x),
+						draggable : false,
+						level : 3
+					};
+
+					// 지도생성
+					var map = new kakao.maps.Map(container, options);
+
+					// 마커가 표시될 위치
+					var markerPosition = new kakao.maps.LatLng(endposition_y,
+							endposition_x);
+					// 마커 생성
+					var marker = new kakao.maps.Marker({
+						position : markerPosition
+					});
+					marker.setMap(map);
+					$('#distance').text(
+							"현재 위치로부터 거리 : " + distance.toFixed(2) + "km");
+				} else {
+					console.log("callback error");
+					$('#distance').text("현재 위치로부터 거리 : 알 수 없음");
+				}
+			};
+			var haddr = '<c:out value="${host.haddr}"/>'
+
+			geocoder.addressSearch(haddr, callback);
+
+			$.fn.priceBuilder = function(price) {
+				// 금액에 천단위 콤마 추가해주는 정규표현식
+				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+
+			$(".product-price").each(function(idx) {
+				// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+				var value = $(this).text();
+				$(this).text($.fn.priceBuilder(value) + ' 원');
 			});
-		</script>
-		<!-- .section -->
-		<script
-			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/jquery.easing.1.3.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/jquery.stellar.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/js/range.js"></script>
-		<script
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-</body>
-</html>
+
+			// 이용권 클릭시 form post 전송
+			$("a[id=reservelink]")
+					.each(
+							function() {
+								$(this)
+										.click(
+												function() {
+													var hg = $(this).attr(
+															'data-num');
+													var $form = $('<form></form>');
+													$form.attr('action',
+															'reserve');
+													$form
+															.attr('method',
+																	'post');
+													$form.appendTo('body');
+													var hnum = $('<input type="hidden" value="${host.hnum}" name="hnum">');
+													var hgnum = $('<input type="hidden" value="' + hg + '" name="hgnum">');
+													$form.append(hnum).append(
+															hgnum);
+													$form.submit();
+												});
+							});
+		});
+	</script>
+	<!-- .section -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.easing.1.3.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.stellar.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/range.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	</body>
+	</html>

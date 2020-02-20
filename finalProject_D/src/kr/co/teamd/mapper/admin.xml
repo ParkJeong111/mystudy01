@@ -75,8 +75,28 @@
 		from host where hname=#{hname}
 	</select>
 
-	<delete id="hostdelete" parameterType="hdto">
+	<delete id="hostDelete" parameterType="String">
 		delete from host where
+		hname=#{hname}
+	</delete>
+	
+	<delete id="reservationDelete" parameterType="String">
+		delete from
+		reservation where hname=#{hname}
+	</delete>
+	
+	<delete id="hostgoodsDelete" parameterType="String">
+		delete from hostgoods
+		where hname=#{hname}
+	</delete>
+	
+	<delete id="boardDelete" parameterType="String">
+		delete from board where
+		hname=#{hname}
+	</delete>
+
+	<delete id="recenthostDelete" parameterType="String">
+		delete from recenthost where
 		hname=#{hname}
 	</delete>
 
