@@ -72,12 +72,15 @@ public class TalkController {
 		} else if (bdto.getBtype1().equals("1")) {
 			bdto.setBtype1("유용한정보");
 			bdto.setBtype2("유용한정보");
+			bdto.setHname("");
 		} else if (bdto.getBtype1().equals("2")) {
 			bdto.setBtype1("낚시지식인");
 			bdto.setBtype2("낚시지식인");
+			bdto.setHname("");
 		} else if (bdto.getBtype1().equals("3")) {
 			bdto.setBtype1("자유게시판");
 			bdto.setBtype2("자유게시판");
+			bdto.setHname("");
 		}
 		
 		/*
@@ -97,7 +100,7 @@ public class TalkController {
 //			bdto.setHname("하나낚시");
 		}
 		*/
-		System.out.println("hname:" + bdto.getHname());
+		
 		// 유저조행기 별점 평점
 		bdto.setBstar(bdto.getBstar());
 
