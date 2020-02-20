@@ -42,7 +42,7 @@
 		h.hstar as hstar,
 		hg.hgmoney as hgmoney,
 		h.haddr as haddr, h.hnum as hnum, h.hspecies as hspecies,
-        (select count(*) from board b where h.hname = b.hname) as boardnum
+        (select count(*) from board b where h.hname = b.hname and b.btype1 = '유저조행기') as boardnum
 		from host h, (select hgname, hgmoney, hname from hostgoods
 		where rownum = 1) hg
 		where
