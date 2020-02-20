@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
@@ -17,12 +18,14 @@ import kr.co.teamd.mvc.dao.BoardInter;
 import kr.co.teamd.mvc.dao.HostInter;
 import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dao.MemberInter;
+import kr.co.teamd.mvc.dao.RandomMatchinginter;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
+import kr.co.teamd.mvc.dto.RandomMatchingDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
 @RestController
@@ -45,6 +48,9 @@ public class JsonController {
 	
 	@Autowired
 	private MainDAO autodao;
+	
+	@Autowired
+	private RandomMatchinginter randommatching;
 
 	@RequestMapping("talkAjax")
 	public List<BoardListAjaxDTO> boardAjax(@RequestParam("check") int check) {
@@ -80,6 +86,24 @@ public class JsonController {
 		map.put("type", type);
 		List<ReservationDTO> rlist = mdao.myReservation(map);
 		return rlist;
+	}
+	@RequestMapping(value = "my_matchinglist") // 예약내역버튼 선택
+	public List<RandomMatchingDTO> my_matchinglist(HttpSession session,HttpServletResponse resp) {
+		ModelAndView mav = new  ModelAndView();
+		String mid = (String) session.getAttribute("mid");
+		List<RandomMatchingDTO> ranlist = randommatching.randomlistinfo(mid);
+		return ranlist;
+	}
+	@RequestMapping(value = "my_matchingresult") // 예약내역버튼 선택
+	public List<RandomMatchingDTO> my_matchingresult(HttpSession session,HttpServletResponse resp) {
+		ModelAndView mav = new  ModelAndView();
+		String mid = (String) session.getAttribute("mid");
+		List<RandomMatchingDTO> ranresult = randommatching.randomlistresult(mid);
+		for(RandomMatchingDTO e : ranresult) {
+			System.out.println(e.getRmcount());
+			System.out.println(e.getRmlocation());
+		}
+		return ranresult;
 	}
 
 	// 업체리스트 검색

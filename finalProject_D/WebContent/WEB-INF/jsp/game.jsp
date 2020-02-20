@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <title>http://www.blueb.co.kr</title>
 
-<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 
-
+<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
 <div class="spinner">
 
 		<div class="ball"><span></span></div>

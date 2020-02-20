@@ -62,7 +62,7 @@ text-align: center;
               </div>
             </div></a> 
          </div>
-         <div class="fishicon_center" id = "openModalBtn" style = "cursor: pointer;">   
+         <div class="fishicon_center" id = "openModalBtn1" style = "cursor: pointer;">   
             <!--  <a href = "randommatching">--><div class="media block-6 services d-block text-center" style="height: 70%">
               <div class="d-flex justify-content-center">
               <div class="icon">
@@ -70,7 +70,7 @@ text-align: center;
               <div class="media-body p-2 mt-2">
               <h3 class="heading mb-3" style="font-family: Jua; ">랜덤매칭</h3>
               </div>
-            </div></a> 
+            </div><!-- </a> --> 
  		</div>    
          <div class="fishicon_center">
             <a href = "matching"><div class="media block-6 services d-block text-center" style="height: 70%">
@@ -330,7 +330,7 @@ text-align: center;
       </div>
     </footer>
 <!-- 모달 영역 -->
-<div id="modalBox" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div id="modalBox1" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
@@ -378,23 +378,20 @@ text-align: center;
 <input type="radio" name = "rmsex"  value="woman">&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;
 <hr>
 <button type="submit" class="btn btn-primary" >매칭하기</button>
-<button type="button" class="btn btn-default" id="closeModalBtn" >매칭취소</button>
+<button type="button" class="btn btn-default" id="closeModalBtn1" >매칭취소</button>
 </div>
 </div>
-<div class="modal-footer">
 </form>
-</div>
-</div>
 </div>
 </div>
 <script>
 // 모달 버튼에 이벤트를 건다.
-$('#openModalBtn').on('click', function(){
-$('#modalBox').modal('show');
+$('#openModalBtn1').on('click', function(){
+$('#modalBox1').modal('show');
 });
 // 모달 안의 취소 버튼에 이벤트를 건다.
-$('#closeModalBtn').on('click', function(){
-$('#modalBox').modal('hide');
+$('#closeModalBtn1').on('click', function(){
+$('#modalBox1').modal('hide');
 });
 
 </script>

@@ -71,9 +71,10 @@ border-bottom: 1px solid #e6e6e6;
 					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
 						<li class="selecthead selected">
-						<a href="javascript:void(0);" onclick="restpye(1)"><strong><b>대기중인 매칭정보</b></strong></a></li>
-						<li class="selecthead">
-						<a href="javascript:void(0);" onclick="restpye(2)"><strong><b>진행중인 매칭정보</b></strong></a></li>
+						<a href="javascript:void(0);" onclick="matching()"  style = "margin: auto;"><strong><b>매칭중</b></strong></a></li>
+						<li class="selecthead selected1">
+						<a href="javascript:void(0);" onclick="matchingres()"  style = "margin: auto;"><strong><b>매칭완료</b></strong></a></li>
+						
 					</ul>
 					
 				</section>
@@ -81,12 +82,12 @@ border-bottom: 1px solid #e6e6e6;
 				
 					<div id="reservationtarget" class="row reservationlist"style="margin-top: 3%">
 					
-					<c:forEach var="r" items="${rlist}">
+					<c:forEach var="r" items="${list.req}">
 						<div class="col-md-4 ftco-animate ">
 							<div class="destination">
-								<a href="itemdetail?hnum=${r.hostdto.hnum}"
+								<a href="itemdetail?hnum=${r.rmnum}"
 									class="img img-2 d-flex justify-content-center align-items-center"
-									style="background-image: url('${pageContext.request.contextPath}/resources/images/${r.hostdto.himage }');">
+									style="background-image: url('${pageContext.request.contextPath}/resources/images/matching.JPG');">
 									<div class="icon d-flex justify-content-center align-items-center">
 										<span class="icon-search2"></span>
 									</div>
@@ -95,16 +96,48 @@ border-bottom: 1px solid #e6e6e6;
 									<div class="d-flex">
 										<div class="one">
 											<h3>
-												<a href="hotel-single.jsp">${r.hname } </a>
+												<a href="hotel-single.jsp">${r.rmid} </a>
 											</h3>
 										</div>
 										<div class="two">
-											<span class="price per-price">${r.usedate}<br></span>
+											<span class="price per-price">${r.rmcount}<br></span>
 										</div>
 									</div>
 									<hr>
 									<p class="bottom-area d-flex">
-										<span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>${r.hostdto.haddr }</span> 
+										<span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>${r.rmlocation}</span> 
+									</p>
+								</div>
+							</div>
+						</div>
+						</c:forEach>
+						<br>
+						<hr>
+						  
+						<c:forEach var="r" items="${list.res}">
+						<div class="col-md-4 ftco-animate ">
+							<div class="destination">
+								<a href="itemdetail?hnum=${r.rmnum}"
+									class="img img-2 d-flex justify-content-center align-items-center"
+									style="background-image: url('${pageContext.request.contextPath}/resources/images/about.jpg');">
+									<div class="icon d-flex justify-content-center align-items-center">
+										<span class="icon-search2"></span>
+									</div>
+								</a>
+								<div class="text p-3">
+									<div class="d-flex">
+										<div class="one">
+											<h3>
+												<a href="hotel-single.jsp">${r.mrresult} </a>
+											</h3>
+										</div>
+										<div class="two">
+											<span class="price per-price">${r.rmcount}<br></span>
+										</div>
+									</div>
+									<hr>
+									<p class="bottom-area d-flex">
+										<span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>${r.rmlocation}</span> 
 									</p>
 								</div>
 							</div>
@@ -151,15 +184,27 @@ $(document).ready(function() {
 });
 
 
-function restpye(type) {
-	console.log(type)
+function matching() {
 		$.ajax({
-			url : "my_reservationtype?type=" + type,
+			url : "my_matchinglist",
 			datatype : 'json',
 			success : function(data) {
 				$("#reservationtarget").html("")
 				$.each(data, function(key, value){
-						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='itemdetail?hnum="+value.hostdto.hnum+"' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/"+value.hostdto.himage+"\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='itemdetail?hnum="+value.hostdto.hnum+"'>"+value.hname+"</a></h3></div><div class='two'><span class='price per-price'>"+value.usedate+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.hostdto.haddr+"</span> </p></div></div></div>");
+						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='itemdetail?hnum="+value.rmnum+"' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/matching.JPG\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='itemdetail?hnum="+value.rmnum+"'>"+value.rmid+"</a></h3></div><div class='two'><span class='price per-price'>"+value.rmcount+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.rmlocation+"</span> </p></div></div></div>");
+								});
+			}
+		});
+		
+	}
+function matchingres() {
+		$.ajax({
+			url : "my_matchingresult",
+			datatype : 'json',
+			success : function(data) {
+				$("#reservationtarget").html("")
+				$.each(data, function(key, value){
+						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='itemdetail?hnum="+value.rmnum+"' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/complete.JPG\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='itemdetail?hnum="+value.rmnum+"'>"+value.mrresult+"</a></h3></div><div class='two'><span class='price per-price'>"+value.rmcount+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.rmlocation+"</span> </p></div></div></div>");
 								});
 			}
 		});

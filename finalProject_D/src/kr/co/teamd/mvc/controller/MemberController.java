@@ -115,23 +115,7 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value= "my_matching")  //예약내역
-	public ModelAndView mymatching(HttpSession session, HttpServletResponse resp) {
-		ModelAndView mav = new ModelAndView();
-		String mid = (String) session.getAttribute("mid");
-		if (mid == null) {
-			mav.setViewName("member/login");
-			session.setAttribute("vn", "redirect:my_matching");
-		}else {
-			HashMap<Object, Object> map = new HashMap<Object, Object>();
-			map.put("mid", mid);
-			map.put("type", 0);
-			List<ReservationDTO> reservationlist = mdao.myReservation(map);
-			mav.addObject("rlist", reservationlist);
-			mav.setViewName("member/matching");	
-		}
-		return mav;
-	}
+	
 		
 	@RequestMapping(value= "my_myinfo")  //나의정보
 	public ModelAndView myInfo(HttpSession session, HttpServletResponse resp) {

@@ -59,6 +59,8 @@ public class RandomMatchingController {
 			maplist.put("dto", dto);
 			dto.setRmid(session.getAttribute("mid").toString());
 			randommatching.randommatchinginsert(dto);
+			out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
+			out.flush();
 			System.out.println("잘 등록하고 이동했쥬");
 			List<RandomMatchingDTO> randto =  randommatching.randomatchinglist();
 			
@@ -163,6 +165,28 @@ public class RandomMatchingController {
 		mav.setViewName("index");
 		return mav;
 	}
+	@RequestMapping(value= "my_matching")  //예약내역
+	public ModelAndView mymatching(HttpSession session, HttpServletResponse resp) throws IOException {
+		ModelAndView mav = new ModelAndView();
+		PrintWriter out = resp.getWriter();
+		String mid = (String) session.getAttribute("mid");
+		if (mid == null) {
+			mav.setViewName("member/login");
+			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+			out.flush();
+			return mav;
+		}else {
+			List<RandomMatchingDTO> ranlist = randommatching.randomlistinfo(mid);
+			
+			HashMap<String, Object> list = new HashMap<String, Object>();
+			list.put("req", ranlist);
+			mav.addObject("list",list);
+			mav.setViewName("member/my_matching");
+			return mav;
+		}	
+		
+	}
+	
 	
 
 	
