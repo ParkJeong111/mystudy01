@@ -9,6 +9,7 @@ public class ReservationDTO {
 	private int rmoney;
 	private int rstar;
 	private String rdate;
+	private int mpoint;
 
 	private String usedate;
 	private HostDTO hostdto; // resultMap사용으로 HostDTO 추가. usedate 컬럼 추가
@@ -83,6 +84,14 @@ public class ReservationDTO {
 
 	public void setHostdto(HostDTO hostdto) {
 		this.hostdto = hostdto;
+	}
+
+	public int getMpoint() {
+		return mpoint;
+	}
+
+	public void setMpoint(int mpoint) {
+		this.mpoint = mpoint;
 	}
 
 }
