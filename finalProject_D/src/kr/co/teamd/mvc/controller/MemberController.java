@@ -4,27 +4,27 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
 @Controller
 public class MemberController {
+	
 	@Autowired
 	private MemberInter mdao;
 	
-	
+	/*
+	 * @Autowired private ChkBTypeDTO chkbdto;
+	 */
 	
 	@RequestMapping(value= "login") //로그인
 	public String login() {
@@ -58,15 +58,17 @@ public class MemberController {
 		return "redirect:login";                  // go to login page
 	}
 
-	@RequestMapping(value= "my_board") //내글쓰기
+	@RequestMapping(value= "my_board") // 내글쓰기
 	public ModelAndView board(HttpSession session) {   // apply session here
 		ModelAndView mav = new ModelAndView();
 		String mid = (String) session.getAttribute("mid");   // check mid in session
-		if (mid ==null) {									// if mid = null
+		if (mid == null) {									// if mid = null
 			mav.setViewName("member/login");				// go to login page
 			session.setAttribute("vn", "redirect:my_board");   // when user login redirect page to my_board
 		}else {												// if mid is logged in and in session 
-			mav.setViewName("member/my_board");				//  then it goes straight to my_board page
+			mav.setViewName("member/my_board");			//  then it goes straight to my_board page
+			
+			
 		}
 		return mav;										// return model and view
 	}
@@ -115,23 +117,7 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value= "my_matching")  //예약내역
-	public ModelAndView mymatching(HttpSession session, HttpServletResponse resp) {
-		ModelAndView mav = new ModelAndView();
-		String mid = (String) session.getAttribute("mid");
-		if (mid == null) {
-			mav.setViewName("member/login");
-			session.setAttribute("vn", "redirect:my_matching");
-		}else {
-			HashMap<Object, Object> map = new HashMap<Object, Object>();
-			map.put("mid", mid);
-			map.put("type", 0);
-			List<ReservationDTO> reservationlist = mdao.myReservation(map);
-			mav.addObject("rlist", reservationlist);
-			mav.setViewName("member/matching");	
-		}
-		return mav;
-	}
+	
 		
 	@RequestMapping(value= "my_myinfo")  //나의정보
 	public ModelAndView myInfo(HttpSession session, HttpServletResponse resp) {

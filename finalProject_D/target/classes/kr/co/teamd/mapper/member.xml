@@ -74,6 +74,7 @@
 		insert into member values(member_seq.nextVal, #{mname}, #{mid}, #{mpwd}, #{mnickname},
 		#{mphone}, #{memail}, #{maddr1}, #{maddr2}, #{mbirth}, #{msex}, null, sysdate, null, 0)
 	</insert>
+	
 	<!-- id 중복 확인 -->
 	<select id="idchk" parameterType="String" resultType="int">
 		select count(*) mnum from member 

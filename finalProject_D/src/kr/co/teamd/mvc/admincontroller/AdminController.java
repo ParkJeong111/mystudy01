@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamd.mvc.dao.AdminHostInter;
@@ -110,11 +111,10 @@ public class AdminController {
 		return mav;
 	}
 
-	@RequestMapping(value = "hostdelete") // 가맹점 삭제
-	public String hostdelete(HostDTO hdto, HttpServletRequest request) {
-		System.out.println(hdto.getHaddr());
-		hdao.hostdelete(hdto);
-		System.out.println("들어오나요??");
+	@RequestMapping(value = "hostdelete") // 가맹점 삭제시 update(서비스종료안내)
+	public String hostdelete(@RequestParam(value="hname") String hname ) throws Exception {
+		System.out.println("가맹점이름 삭제" +hname);
+		service.hostdeleteAll(hname);
 		return "redirect:admin_host";
 
 	}

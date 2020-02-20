@@ -8,7 +8,7 @@
     <title>GOGI_JAVA</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
 
@@ -144,13 +144,15 @@
           <li class="nav-item"><a href="itemslist?type=1" class="nav-link">바다</a></li>
           <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
           <li class="nav-item"><a href="game" class="nav-link">게임</a></li>
+          <li class="nav-item" id = "openModalBtn"><a href="#" class="nav-link">랜덤매칭</a></li>
           <li class="nav-item"><a href="game" class="nav-link">서비스</a></li>
-          <li class="nav-item"><a href="talklist?check=1" class="nav-link">커뮤니티</a></li>
           <li class="nav-item"><a href="#" class="nav-link"><span class="submenumorem">더보기</span><i class="ti-angle-down"></i></a>
               <ul class="submenumore scrolled awake">
           	  	<li class="nav-link"><a href="notice">공지사항</a></li>
           	  	<hr>
                 <li class="nav-link"><a href="event">이벤트</a></li>
+                <hr>
+                <li class="nav-link"><a href="talklist?check=1">커뮤니티</a></li>
                 <hr>
                 <li class="nav-link"><a href="cs_faq">고객센터</a></li>
                 <hr>
@@ -172,6 +174,8 @@
                 <hr>
           	  	<li class="nav-link" ><a href="my_reservation">예약내역</a></li>
           	  	<hr>
+          	  	<li class="nav-link" ><a href="my_matching">랜덤매칭내역</a></li>
+          	  	<hr>
           	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
           	  	<hr>
                 <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
@@ -191,8 +195,73 @@
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
       	</div> 
 	</div>
-
+	<!-- 모달 기능 UI -->
+<div id="modalBox" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="myModalLabel" style = "margin: auto;">랜덤 매칭</h4>
+</div>
+<form action="randommatching" method="post">
+<div class="modal-body">
+<p>인원수</p>
+<input type = "radio" name = "rmcount" value="2" checked="checked">&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;
+<input type = "radio" name = "rmcount" value="4">&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;
+<input type = "radio" name = "rmcount" value="6">&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>지역</p>
+<input type="radio" name = "rmlocation" value="seoul" checked="checked">&nbsp;서울&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Gyeonggi">&nbsp;경기&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Incheon">&nbsp;인천&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Gangwon">&nbsp;강원&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Chungbuk">&nbsp;충북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Chungnam">&nbsp;충남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Gyeongbuk">&nbsp;경북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Gyeongnam">&nbsp;경남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value=" Jeolbuk">&nbsp;전북&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="Jeolnam">&nbsp;전남&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmlocation"  value="jeju">&nbsp;제주&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>유형</p>
+<input type="radio" name = "rmtype" value="sea" checked="checked">&nbsp;바다&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtype"  value="freshwater">&nbsp;민물&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtype"  value="fishingcafe">&nbsp;낚시카페&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>나이</p>
+<input type="radio" name = "rmage" value="20" checked="checked">&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage"  value="30">&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage"  value="40">&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage"  value="50">&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmage"  value="60">&nbsp;60이상&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>시간대</p>
+<input type="radio" name = "rmtime" value="am" checked="checked">&nbsp;오전&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtime"  value="pm">&nbsp;오후&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmtime"  value="night">&nbsp;야간&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<p>성별</p>
+<input type="radio" name = "rmsex" value="man" checked="checked">&nbsp;남자&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name = "rmsex"  value="woman">&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
+<button type="submit" class="btn btn-primary" >매칭하기</button>
+<button type="button" class="btn btn-default" id="closeModalBtn" >매칭취소</button>
+</div>
+</div>
+<div class="modal-footer">
+</form>
+</div>
+</div>
+</div>
        <script>
+       // 랜덤 매칭 모달을 노출시키기 위한 기능
+       $('#openModalBtn').on('click', function(){
+    	   $('#modalBox').modal('show');
+    	   });
+    	   // 모달 안의 취소 버튼에 이벤트를 건다.
+    	   $('#closeModalBtn').on('click', function(){
+    	   $('#modalBox').modal('hide');
+    	   });
+       
      //메인검색창에서 검색 후 이동
   	$(function() {
   		var hname = 0;

@@ -42,4 +42,19 @@ public class ServiceImple implements ServiceInter {
 		int aftermpoint = beforempoint - rdto.getMpoint();
 		session.setAttribute("mpoint", aftermpoint);
 	}
+<<<<<<< HEAD
+=======
+
+
+	//가맹적 삭제시 foreign키 관련 테이블 모두 삭제
+	@Override
+	public void hostdeleteAll(String hname) throws Exception {
+		hdao.reservationDelete(hname);
+		hdao.hostgoodsDelete(hname);
+		hdao.boardDelete(hname);
+		hdao.recenthostDelete(hname);
+		hdao.hostdelete(hname);
+	}
+
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01
 }

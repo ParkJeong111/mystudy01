@@ -25,5 +25,6 @@
   			<typeAlias type="kr.co.teamd.mvc.dto.HostlistDTO" alias="hldto"/>
   			<typeAlias type="kr.co.teamd.mvc.dto.HostSearchDTO" alias="hsdto"/>
   			<typeAlias type="kr.co.teamd.mvc.dto.RandomMatchingDTO" alias="rmdto"/>
+  			<typeAlias type="kr.co.teamd.mvc.dto.ChkBTypeDTO" alias="chkbdto"/>
 	</typeAliases>
 </configuration>
