@@ -12,10 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;

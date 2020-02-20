@@ -10,11 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-<<<<<<< HEAD
-=======
 import org.springframework.web.servlet.ModelAndView;
-
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardInter;
