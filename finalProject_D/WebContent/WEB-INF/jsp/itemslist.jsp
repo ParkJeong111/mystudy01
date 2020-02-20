@@ -1230,8 +1230,6 @@ width: 855px;
 								</div>
 							</form>
 						</div>
-						
-						
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
 								style="text-align: center; font-weight: bold;">¸®ºä º°Á¡</h3>
@@ -1471,7 +1469,6 @@ width: 855px;
 									+ '<p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
-						
 						$(".product-price").each(function(idx) {
 							var value = $(this).text();
 							$(this).text($.fn.priceBuilder(value));
@@ -1481,7 +1478,6 @@ width: 855px;
 			});
 		});
 		</script>
-
 
 		<script
 			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
