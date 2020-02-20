@@ -62,49 +62,45 @@ public class TalkController {
 	public ModelAndView insertmyboard(@ModelAttribute("bdto") BoardDTO bdto, HttpSession session,
 			HttpServletRequest request) {
 
-		// 입력 값 출력되는지 테스트
-//		System.out.println(bdto.getBtype1());
-//		System.out.println(bdto.getBtype2());
-//		System.out.println(bdto.getHname());
-//		System.out.println(bdto.getBtitle());
-//		System.out.println(bdto.getBimage());
-//		System.out.println(bdto.getBfile());
-//		System.out.println(bdto.getBcontent());
-//		System.out.println(bdto.getBstar());
-		// 게시글작성 type1, type2 컬럼값 지정
 		if (bdto.getBtype1().equals("0")) {
 			bdto.setBtype1("유저조행기");
-			if (bdto.getBtype2().equals("0")) {
+			if (bdto.getBtype2().equals("1")) {
 				bdto.setBtype2("바다조행기");
-			} else if (bdto.getBtype2().equals("1")) {
+			} else if (bdto.getBtype2().equals("2")) {
 				bdto.setBtype2("민물조행기");
 			}
 		} else if (bdto.getBtype1().equals("1")) {
 			bdto.setBtype1("유용한정보");
 			bdto.setBtype2("유용한정보");
+			bdto.setHname("");
 		} else if (bdto.getBtype1().equals("2")) {
 			bdto.setBtype1("낚시지식인");
 			bdto.setBtype2("낚시지식인");
+			bdto.setHname("");
 		} else if (bdto.getBtype1().equals("3")) {
 			bdto.setBtype1("자유게시판");
 			bdto.setBtype2("자유게시판");
+			bdto.setHname("");
 		}
-
+		
+		/*
 		// 게시글 작성 낚시터 상호명 지정
 		if (bdto.getHname().equals("0")) {
-			bdto.setHname("해적호");
+			System.out.println(bdto.getHname());
+//			bdto.setHname("해적호");
 		} else if (bdto.getHname().equals("1")) {
-			bdto.setHname("해적왕실내낚시카페(광명점)");
+//			bdto.setHname("해적왕실내낚시카페(광명점)");
 		} else if (bdto.getHname().equals("2")) {
-			bdto.setHname("광명호");
+//			bdto.setHname("광명호");
 		} else if (bdto.getHname().equals("3")) {
-			bdto.setHname("대한낚시터");
+//			bdto.setHname("대한낚시터");
 		} else if (bdto.getHname().equals("4")) {
-			bdto.setHname("화이팅낚시카페");
+//			bdto.setHname("화이팅낚시카페");
 		} else if (bdto.getHname().equals("5")) {
-			bdto.setHname("하나낚시");
+//			bdto.setHname("하나낚시");
 		}
-
+		*/
+		
 		// 유저조행기 별점 평점
 		bdto.setBstar(bdto.getBstar());
 

@@ -1617,7 +1617,7 @@ margin-top: -3%;}
 								<div class="img_box"
 									style="width: 100%;">
 								
-										<img
+										<img style="width: 100%;"
 											src="${pageContext.request.contextPath}/resources/images/${e.bimage}"
 											alt="">
 								</div>
@@ -1726,7 +1726,7 @@ margin-top: -3%;}
 														+value.bdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 														+value.bnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
 														+value.btype2+'</span></p><p style="float: right;margin-right: 3%">'
-														+value.mnickname+'</p></div><div class="img_box" style="width: 100%;"><img src="${pageContext.request.contextPath}/resources/images/'
+														+value.mnickname+'</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
 														+value.bimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
 														+value.bcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
 														+'<p class="comm_line">´ñ±Û <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
@@ -1758,7 +1758,7 @@ margin-top: -3%;}
 										+value.ibdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 										+value.ibnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
 										+'Áß°íÀåÅÍ</span></p><p style="float: right;margin-right: 3%">'
-										+value.mid+'</p></div><div class="img_box" style="width: 100%;"><img src="${pageContext.request.contextPath}/resources/images/'
+										+value.mid+'</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
 										+value.ibimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
 										+value.ibcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
 										+'<p class="comm_line">´ñ±Û <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_money_btn" href="#">'
@@ -1786,7 +1786,7 @@ margin-top: -3%;}
 														+value.bdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 														+value.bnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
 														+value.btype2+'</span></p><p style="float: right;margin-right: 3%">'
-														+value.mnickname+'</p></div><div class="img_box" style="width: 100%;"><img src="${pageContext.request.contextPath}/resources/images/'
+														+value.mnickname+'</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
 														+value.bimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
 														+value.bcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
 														+'<p class="comm_line">´ñ±Û <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='

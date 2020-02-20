@@ -20,7 +20,6 @@ public class MemberDTO {
 	private String mdrop;
 	private int mpoint;
 	private MultipartFile mfile;
-	
 	private int report;
 	private int using;
 
