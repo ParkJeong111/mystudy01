@@ -909,7 +909,6 @@ a {
 														</div>
 <!-- 													</div> -->
 													<%--사진 올린거 바로 미리 보여주기  끝 그리고 밑에 Script 있음.--%>
-													
 												</div>
 											</div>
 										
@@ -932,7 +931,6 @@ a {
 											</div>
 										</div>
 									</div>
-										
 										
 										<!-- 제목 -->
 										<div class="col-md-6">
@@ -1059,7 +1057,6 @@ a {
 function goListBtn(){
 	location="talklist?check=1";
 }
-	
 	
 	<%-- 게시글 작성 type1 & type2 (재민)--%>
 	$(function() {

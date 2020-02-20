@@ -1,7 +1,11 @@
 package kr.co.teamd.mvc.controller;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,84 +22,144 @@ public class RandomMatchingController {
 	@Autowired
 	private RandomMatchinginter randommatching;
 	
-	// 상황에 따른 배열 생성을 위한 작업
-	private ArrayList<String> twomatching;
-	private ArrayList<String> fourmatching;
-	private ArrayList<String> sixmatching;
-	StringBuilder rmid2;
-	StringBuilder rmid4;
-	StringBuilder rmid6;
+	private int count2 = 0;
+	private int count4 = 0;
+	private int count6 = 0;
+	HashMap<String, Object> maplist = new HashMap<String, Object>();
+	private int matchingcheck = 0;
 	
 	@RequestMapping(value= "randommatching")  //함께자바 
-	public ModelAndView randommatching(RandomMatchingDTO dto,HttpSession session) {
-		// 배열 크기 지정 및 배열에 넣을mid값을 넣기위한 작업
-		int count = dto.getCount();
-		String mid = session.getAttribute("mid").toString();
-		// 해당 인원수의 배열이 생성되지 않았을 때 생성해주는 부분
-		if(twomatching == null && dto.getCount() == 2) {
-			twomatching = new ArrayList<String>(count);
-			rmid2 = new StringBuilder();
-			System.out.println(dto.getCount()+"인 배열이 생성됐나유");
-		}else if(fourmatching == null && dto.getCount() == 4){
-			fourmatching = new ArrayList<String>(count);
-			rmid4 = new StringBuilder();
-			System.out.println(dto.getCount()+"인 배열이 생성됐나유");
-		}else if(sixmatching == null && dto.getCount() == 6) {
-			sixmatching = new ArrayList<String>(count);
-			rmid6 = new StringBuilder();
-			System.out.println(dto.getCount()+"인 배열이 생성됐나유");
-		}else {
-			System.out.println(dto.getCount()+"인 배열이 이미 존재하나유");
-		}
-		
-		// 배열이 생성된 후 인원수에 맞는곳에 mid값을 넣어주는 작업
-		if(twomatching != null) {
-			if(twomatching.size() < 1) {
-				rmid2.append(mid).append("/");
-				twomatching.add(mid);
-			}else {
-				rmid2.append(mid).append("/");
-				twomatching.add(mid);
-				dto.setSumtype(dto.getCount()+"/"+dto.getLocation()+"/"
-						+dto.getType()+"/"+dto.getAge()+"/"+dto.getTime()+"/"
-						+dto.getSex());
-				dto.setRmid(rmid2.toString());
-				randommatching.randommatchinginsert(dto);
-				twomatching.removeAll(twomatching);
-			}
-		}else if(fourmatching != null) {
-			if(fourmatching.size() < 3) {
-				rmid4.append(mid).append("/");
-				fourmatching.add(mid);
-			}else {
-				rmid4.append(mid).append("/");
-				fourmatching.add(mid);
-				dto.setSumtype(dto.getCount()+"/"+dto.getLocation()+"/"
-						+dto.getType()+"/"+dto.getAge()+"/"+dto.getTime()+"/"
-						+dto.getSex());
-				dto.setRmid(rmid4.toString());
-				randommatching.randommatchinginsert(dto);
-				fourmatching.removeAll(fourmatching);
-			}
-		}else if(sixmatching != null) {
-			if(sixmatching.size() < 5) {
-				rmid6.append(mid).append("/");
-				sixmatching.add(mid);
-			}else {
-				rmid6.append(mid).append("/");
-				sixmatching.add(mid);
-				dto.setSumtype(dto.getCount()+"/"+dto.getLocation()+"/"
-						+dto.getType()+"/"+dto.getAge()+"/"+dto.getTime()+"/"
-						+dto.getSex());
-				dto.setRmid(rmid6.toString());
-				randommatching.randommatchinginsert(dto);
-				sixmatching.removeAll(sixmatching);
-			}
-		}else {
-			System.out.println("아직없어용");
-		}
-		
+	public ModelAndView randommatching(RandomMatchingDTO dto,HttpSession session,HttpServletResponse response) throws IOException {
 		ModelAndView mav = new ModelAndView();
+		StringBuilder submit = new StringBuilder();
+		PrintWriter out = response.getWriter();
+		submit.append(dto.getRmcount()).append(dto.getRmlocation()).append(dto.getRmtype())
+		.append(dto.getRmage()).append(dto.getRmtime()).append(dto.getRmsex());
+		StringBuilder dbval = new StringBuilder();
+		System.out.println(dto.getRmcount());
+		if(session.getAttribute("mid") == null) {
+			mav.setViewName("member/login");
+			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+			out.flush();
+			return mav;
+		}else {
+			matchingcheck = randommatching.matchingidcheck(session.getAttribute("mid").toString());
+		}
+		
+		if(session.getAttribute("mid") == null) {
+			mav.setViewName("member/login");
+			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+			out.flush();
+			return mav;
+		}else if(matchingcheck != 0){
+			mav.setViewName("index");
+			out.println("<script>alert('매칭 진행중인 상태입니다.'); location.href='index';</script>");
+			out.flush();
+		}else {
+			maplist.put("dto", dto);
+			dto.setRmid(session.getAttribute("mid").toString());
+			randommatching.randommatchinginsert(dto);
+			System.out.println("잘 등록하고 이동했쥬");
+			List<RandomMatchingDTO> randto =  randommatching.randomatchinglist();
+			
+			if(dto.getRmcount() == 2) {
+				for(RandomMatchingDTO e : randto) {
+					dbval.append(e.getRmcount()).append(e.getRmlocation()).append(e.getRmtype())
+					.append(e.getRmage()).append(e.getRmtime()).append(e.getRmsex());
+					System.out.println(submit.toString().equals(dbval.toString()));
+					System.out.println("==============================");
+					if(submit.toString().equals(dbval.toString())) {
+						count2++;
+						System.out.println("카운트가 증가"+count2);
+					}else {
+						System.out.println("다르다");
+					}
+					if(count2 == dto.getRmcount()) {
+						List<String> idlist = randommatching.idlist(dto);
+						StringBuilder matchlist = new StringBuilder();
+						for(String w : idlist) {
+							maplist.put("mid",w);
+							randommatching.updatestatus(maplist);
+							matchlist.append(w).append("/");
+							System.out.println("매칭성공아이디"+w);
+							maplist.remove("mid");
+						}
+						dto.setMrresult(matchlist.toString());
+						randommatching.randomresultinsert(dto);
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
+						out.flush();
+						
+						
+					}
+					dbval.setLength(0);
+				}
+				count2 = 0;
+			}
+			
+			else if(dto.getRmcount() == 4) {
+				for(RandomMatchingDTO e : randto) {
+					dbval.append(e.getRmcount()).append(e.getRmlocation()).append(e.getRmtype())
+					.append(e.getRmage()).append(e.getRmtime()).append(e.getRmsex());
+					System.out.println(submit.toString().equals(dbval.toString()));
+					System.out.println("==============================");
+					if(submit.toString().equals(dbval.toString())) {
+						count4++;
+						System.out.println("카운트가 증가"+count4);
+					}else {
+						System.out.println("다르다");
+					}
+					if(count4 == dto.getRmcount()) {
+						List<String> idlist = randommatching.idlist(dto);
+						StringBuilder matchlist = new StringBuilder();
+						for(String w : idlist) {
+							maplist.put("mid",w);
+							randommatching.updatestatus(maplist);
+							matchlist.append(w).append("/");
+							System.out.println("매칭성공아이디"+w);
+						}
+						dto.setMrresult(matchlist.toString());
+						randommatching.randomresultinsert(dto);
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
+						out.flush();
+						
+					}
+					dbval.setLength(0);
+				}
+				count4 = 0;
+			}else {
+				for(RandomMatchingDTO e : randto) {
+					dbval.append(e.getRmcount()).append(e.getRmlocation()).append(e.getRmtype())
+					.append(e.getRmage()).append(e.getRmtime()).append(e.getRmsex());
+					
+					System.out.println(submit.toString().equals(dbval.toString()));
+					System.out.println("==============================");
+					if(submit.toString().equals(dbval.toString())) {
+						count6++;
+						System.out.println("카운트가 증가"+count6);
+					}else {
+						System.out.println("다르다");
+					}
+					if(count6 == dto.getRmcount()) {
+						List<String> idlist = randommatching.idlist(dto);
+						StringBuilder matchlist = new StringBuilder();
+						for(String w : idlist) {
+							maplist.put("mid",w);
+							randommatching.updatestatus(maplist);
+							matchlist.append(w).append("/");
+							System.out.println("매칭성공아이디"+w);
+						}
+						dto.setMrresult(matchlist.toString());
+						randommatching.randomresultinsert(dto);
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
+						out.flush();
+						
+					}
+					dbval.setLength(0);
+				}
+				count6 = 0;
+			}
+			
+		}
 		mav.setViewName("index");
 		return mav;
 	}
