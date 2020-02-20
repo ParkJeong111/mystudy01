@@ -1,5 +1,7 @@
 package kr.co.teamd.mvc.service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,10 +32,14 @@ public class ServiceImple implements ServiceInter {
 
 	// 결제 시 결제내역 추가와 회원 포인트 수정
 	@Override
-	public void reserveInsertmpointUpdate(ReservationDTO rdto)
-			throws Exception {
+	public void reserveInsertmpointUpdate(HttpServletRequest request, ReservationDTO rdto) throws Exception {
+		int pointrmoney = rdto.getRmoney() - rdto.getMpoint();
+		rdto.setRmoney(pointrmoney);
 		reservationdao.reservationInsert(rdto);
 		reservationdao.memberPointUpdate(rdto);
+		HttpSession session = request.getSession();
+		int beforempoint = (int) session.getAttribute("mpoint");
+		int aftermpoint = beforempoint - rdto.getMpoint();
+		session.setAttribute("mpoint", aftermpoint);
 	}
-
 }

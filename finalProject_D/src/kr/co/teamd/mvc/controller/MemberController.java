@@ -198,7 +198,7 @@ public class MemberController {
 		if (m != null) {
 			session.setAttribute("mid", m.getMid());
 			session.setAttribute("nickname", m.getMnickname());
-			session.setAttribute("m", m);
+			session.setAttribute("mpoint", m.getMpoint());
 			String mid = (String) session.getAttribute("mid");
 					if(session.getAttribute("vn")==null) {
 						mav.setViewName("redirect:index");
