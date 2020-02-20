@@ -2,15 +2,13 @@ package kr.co.teamd.mvc.controller;
 
 import java.util.HashMap;
 import java.util.List;
-
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardInter;
@@ -18,6 +16,7 @@ import kr.co.teamd.mvc.dao.HostInter;
 import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
+import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
@@ -106,5 +105,22 @@ public class JsonController {
 	@RequestMapping("hnamechk")
 	public int hnamechk(String hname) {
 		return hdao.hnamechk(hname);
+	}
+	
+	@RequestMapping(value = "btype2select")    // 게시글 작성 type2 호스트 낚시터 이름 
+	public List<String> btype2select(HttpServletRequest request, int btypeValue) {
+		HttpSession session = request.getSession();
+		String mid = (String) session.getAttribute("mid");
+		 ChkBTypeDTO chkbdto = new ChkBTypeDTO();
+		 
+		if (btypeValue == 1) {
+			chkbdto.setHtype("바다");
+		} else if (btypeValue == 2) {
+			chkbdto.setHtype("민물");
+		}
+		chkbdto.setMid(mid);
+		List<String> hnamelist = bdao.btype2select(chkbdto);
+		
+		return hnamelist;
 	}
 }

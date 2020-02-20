@@ -2,11 +2,12 @@ package kr.co.teamd.mvc.dao;
 
 import java.util.HashMap;
 import java.util.List;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.teamd.mvc.dto.HostlistDTO;
+//import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.LoginlogDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
@@ -31,8 +32,6 @@ public class MemberDAO implements MemberInter{
 		return ss.selectList("member.myreservation",map);
 	}
 	
-	
-
 	@Override
 	public MemberDTO myInfo(String mid) { //나의 정보 확인
 		return ss.selectOne("member.myinfo", mid);
@@ -58,5 +57,13 @@ public class MemberDAO implements MemberInter{
 		ss.insert("member.memberloginlog", logdto);
 		
 	}
+	
+	
+
+//	@Override
+//	public List<ChkBTypeDTO> hostNameChk(ChkBTypeDTO chkbdto) {    // ---------- 글쓰기  host 가게명 type2
+//		return ss.selectList("member.type2", chkbdto);
+//	}
+
 
 }
