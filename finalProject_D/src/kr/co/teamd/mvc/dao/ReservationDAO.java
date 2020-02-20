@@ -13,8 +13,12 @@ public class ReservationDAO implements ReservationInter {
 	private SqlSessionTemplate ss;
 	
 	@Override
-	public void ReservationInsert(ReservationDTO rdto) {
+	public void reservationInsert(ReservationDTO rdto) {
 		ss.insert("reserve.addreserve", rdto);
 	}
 
+	@Override
+	public void memberPointUpdate(ReservationDTO rdto) {
+		ss.update("reserve.updatepoint", rdto);
+	}
 }

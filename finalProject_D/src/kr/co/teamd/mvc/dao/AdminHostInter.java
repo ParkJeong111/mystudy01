@@ -15,7 +15,15 @@ public interface AdminHostInter {
 	public List<HostDTO> hostalllist(); //가맹점 리스트
 	public HostDTO hostinfo(String hname);//해당 가맹점 정보 info
 	public void hostupdate(HostDTO hdto); //가맹점 수정 (Post)
-	public void hostdelete(HostDTO hdto); //가맹점 삭제 (Post로 보낼거)
+	public void hostdelete(String hname); //가맹점 삭제 (Get로 보낼거)
+	
+	//가맹점 삭제 host transaction//
+	public void reservationDelete(String hname); //가맹점 삭제 (Get로 보낼거)
+	public void hostgoodsDelete(String hname); // 삭제 (Get로 보낼거)
+	public void boardDelete(String hname); // 삭제 (Get로 보낼거)
+	public void recenthostDelete(String hname); // 삭제 (Get로 보낼거)
+	//가맹점 삭제 host transaction//
+	
 
 	
 	

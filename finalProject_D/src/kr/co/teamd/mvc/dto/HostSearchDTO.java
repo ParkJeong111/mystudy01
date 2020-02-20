@@ -1,29 +1,36 @@
 package kr.co.teamd.mvc.dto;
 
 public class HostSearchDTO {
-	private String searchValue;
+	private String searchValue, searchLocation;
 	private String hname;
-
 
 	private int minprice, maxprice;
 	private String star;
 	private int starnum;
 	private int type;
-	
-	
-	public String getHname() {
-		return hname;
-	}
 
-	public void setHname(String hname) {
-		this.hname = hname;
-	}
 	public String getSearchValue() {
 		return searchValue;
 	}
 
 	public void setSearchValue(String searchValue) {
 		this.searchValue = searchValue;
+	}
+
+	public String getSearchLocation() {
+		return searchLocation;
+	}
+
+	public void setSearchLocation(String searchLocation) {
+		this.searchLocation = searchLocation;
+	}
+
+	public String getHname() {
+		return hname;
+	}
+
+	public void setHname(String hname) {
+		this.hname = hname;
 	}
 
 	public int getMinprice() {
@@ -65,5 +72,5 @@ public class HostSearchDTO {
 	public void setType(int type) {
 		this.type = type;
 	}
-	
+
 }

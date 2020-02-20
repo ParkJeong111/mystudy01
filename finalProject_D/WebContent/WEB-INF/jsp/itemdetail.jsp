@@ -2738,14 +2738,15 @@ keyframes swiper-preloader-spin { 100%{
 		<section>
 			<h3 class="talk_tab clearfix"
 				style="font-weight: bold; text-align: center; color: #606060; font-size: 30px;">
-				<c:choose>
+				<%-- <c:choose>
 					<c:when test="${host.htype == '바다'}">
-						바다낚시
+						바다
 					</c:when>
 					<c:when test="${host.htype == '민물'}">
-						민물낚시
+						민물
 					</c:when>
-				</c:choose>
+				</c:choose> --%>
+				상세정보
 			</h3>
 			<hr>
 		</section>
@@ -2779,10 +2780,10 @@ keyframes swiper-preloader-spin { 100%{
 			<!--// view_profile -->
 		</section>
 
-		<!-- 티켓정보 시작 -->
 		<div id="view_ticket"
 			class="view_info view_info_reserve view_contents">
 			<section>
+				<!-- 어종 정보 시작 -->
 				<div class="view_box info_view_sty6">
 					<p class="view_box_title">
 						주요어종<span class="count_txt">${fn:length(hspeciesList)}종</span>
@@ -2809,6 +2810,8 @@ keyframes swiper-preloader-spin { 100%{
 						</c:forEach>
 					</ol>
 				</div>
+				<!-- 어종 정보 시작 -->
+				<!-- 서비스 정보 시작 -->
 				<div class="view_box info_view_sty9">
 					<p class="view_box_title">서비스</p>
 					<div class="in_box clearfix">
@@ -2817,6 +2820,8 @@ keyframes swiper-preloader-spin { 100%{
 						</c:forEach>
 					</div>
 				</div>
+				<!-- 서비스 정보 끝 -->
+				<!-- 이용권 정보 시작 -->
 				<c:forEach items="${hglist}" var="e">
 					<div style="width: 50%; float: left;">
 						<a class="reserve_area view_box reserveclick"
@@ -2835,15 +2840,16 @@ keyframes swiper-preloader-spin { 100%{
 						</a>
 					</div>
 				</c:forEach>
-				<!-- 티켓정보 끝 -->
+				<!-- 이용권 정보 끝 -->
+				<!-- 이용권 주의정보 시작 -->
 				<div class="view_box info_view_sty1">
-					<p class="view_box_title">티켓 유의사항</p>
+					<p class="view_box_title">이용권 유의사항</p>
 					<div class="in_box">
 						<p class="dot_txt ::before">타 이벤트 및 중복할인 불가</p>
-						<p class="dot_txt">구매하신 상품은 타인에게 양도할 수 없으며, 본인확인 후 사용가능</p>
-						<p class="dot_txt">구매일 기준 7일 이내에 미사용 티켓에 한해 앱내에서 100%환불이 가능</p>
+						<p class="dot_txt">구매하신 이용권은 타인에게 양도할 수 없으며, 본인확인 후 사용가능</p>
+						<p class="dot_txt">구매일 기준 7일 이내에 미사용 이용권에 한해 100% 환불 가능</p>
 						<p class="dot_txt">단, 부분환불의 경우 고객센터로 문의</p>
-						<p class="dot_txt">티켓사용 : 티켓 후제시(결제 시 제시)</p>
+						<p class="dot_txt">사용방법 : 결제 후 직접 방문시 제시</p>
 					</div>
 				</div>
 
