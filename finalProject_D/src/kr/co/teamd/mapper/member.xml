@@ -68,7 +68,12 @@
 	<!-- 주성중 영역 시작  -->
 
 	<!-- 주성중 영역 끝  -->
-
+	
+	<!-- ======================안드로이드 로그인 체크================================ -->
+	<select id="androidLoginChk" resultType="String">
+		select count(*) from member where mid = #{mid} and mpwd = #{mpwd};
+	</select>
+	
 	<!-- ==============================  회원가입  (재민) ============================== -->
 	<insert id="addmember" parameterType="mdto">
 		insert into member values(member_seq.nextVal, #{mname}, #{mid}, #{mpwd}, #{mnickname},

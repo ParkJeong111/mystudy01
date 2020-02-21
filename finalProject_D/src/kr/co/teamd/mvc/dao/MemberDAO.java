@@ -57,13 +57,10 @@ public class MemberDAO implements MemberInter{
 		ss.insert("member.memberloginlog", logdto);
 		
 	}
-	
-	
 
-//	@Override
-//	public List<ChkBTypeDTO> hostNameChk(ChkBTypeDTO chkbdto) {    // ---------- 글쓰기  host 가게명 type2
-//		return ss.selectList("member.type2", chkbdto);
-//	}
-
+	@Override
+	public MemberDTO androidLogin(String mid, String mpwd) {
+		return ss.selectOne(mid, mpwd);
+	}
 
 }

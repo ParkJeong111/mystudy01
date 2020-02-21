@@ -17,5 +17,6 @@ public interface MemberInter {
 	public void addMember(MemberDTO mdto);  // 회원 가입 (재민)
 	public int idChk(String id);  // 회원가입(아이디 중복확인)
 	public void loginLogInsert(LoginlogDTO logdto); //로그인 로그
+	public MemberDTO androidLogin(String mid, String mpwd);    // 안드 로그인 체크
 	
 }
