@@ -2773,7 +2773,7 @@ keyframes swiper-preloader-spin { 100%{
 				<!-- 업체 정보 -->
 				<!-- 업체 지도 -->
 				<div class="profile_info col-md-4">
-					<span class="ico_pic ico_pic1"></span>
+					<span class="ico_pic ico_pic1">위치</span>
 					<div id="map" style="width: 380px; height: 175px;"></div>
 				</div>
 			</div>
