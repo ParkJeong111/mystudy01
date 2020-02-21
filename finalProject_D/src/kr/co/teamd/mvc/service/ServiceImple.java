@@ -33,8 +33,6 @@ public class ServiceImple implements ServiceInter {
 	// 결제 시 결제내역 추가와 회원 포인트 수정
 	@Override
 	public void reserveInsertmpointUpdate(HttpServletRequest request, ReservationDTO rdto) throws Exception {
-		int pointrmoney = rdto.getRmoney() - rdto.getMpoint();
-		rdto.setRmoney(pointrmoney);
 		reservationdao.reservationInsert(rdto);
 		reservationdao.memberPointUpdate(rdto);
 		HttpSession session = request.getSession();
@@ -42,11 +40,8 @@ public class ServiceImple implements ServiceInter {
 		int aftermpoint = beforempoint - rdto.getMpoint();
 		session.setAttribute("mpoint", aftermpoint);
 	}
-<<<<<<< HEAD
-=======
 
-
-	//가맹적 삭제시 foreign키 관련 테이블 모두 삭제
+	// 가맹적 삭제시 foreign키 관련 테이블 모두 삭제
 	@Override
 	public void hostdeleteAll(String hname) throws Exception {
 		hdao.reservationDelete(hname);
@@ -56,5 +51,4 @@ public class ServiceImple implements ServiceInter {
 		hdao.hostdelete(hname);
 	}
 
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01
 }
