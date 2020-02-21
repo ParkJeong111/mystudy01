@@ -42,7 +42,7 @@
 	
 		<!-- 고객정보 확인 -->
 	<select id="myinfo" parameterType="String" resultType="mdto">
-	select mid, mpwd, memail, mnickname, mphone, maddr1, maddr2 from member where mid=#{mid}
+	select mid, mpwd, memail, mnickname, mphone, maddr1, maddr2, mpoint from member where mid=#{mid}
 	</select>
 		<!-- 고객정보 수정 -->
 	<update id="myupdate" parameterType="mdto">
@@ -80,6 +80,20 @@
 		select count(*) mnum from member 
 		where mid = #{mid}
 	</select>
+	<!--  -->
+	<update id="gamepointUpdate" parameterType="mdto">
+	update member set mpoint = mpoint + #{mpoint} where mid = #{mid}
+	</update>
+	<!-- 포인트 로그 insert  -->
+	<insert id="gamepointlogInsert" parameterType="pldto">
+		insert into pointlog values(pointlog_seq.nextVal, #{mid},sysdate)
+	</insert>
+	<select id = "gamecheck" parameterType="String" resultType="int">
+		select count(mid) from pointlog where mid = #{mid} and to_date(pldate,'yyyy-MM-dd') = to_date(sysdate,'yyyy-MM-dd')
+	</select>
+	<!-- 포인트 로그 insert  -->
+	
+	
 	
 	
 

@@ -2,14 +2,15 @@ package kr.co.teamd.mvc.dao;
 
 import java.util.HashMap;
 import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.teamd.mvc.dto.HostlistDTO;
 //import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.LoginlogDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
+import kr.co.teamd.mvc.dto.PointlogDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 @Repository
 public class MemberDAO implements MemberInter{
@@ -56,6 +57,22 @@ public class MemberDAO implements MemberInter{
 	public void loginLogInsert(LoginlogDTO logdto) {
 		ss.insert("member.memberloginlog", logdto);
 		
+	}
+
+	@Override
+	public void gamepointUpdate(MemberDTO dto) {
+		ss.insert("member.gamepointUpdate",dto);
+	}
+
+	@Override
+	public void gamepointlogInsert(PointlogDTO dto) {
+		ss.insert("member.gamepointlogInsert",dto);
+		
+	}
+
+	@Override
+	public int gamecheck(String mid) {
+		return ss.selectOne("member.gamecheck",mid);
 	}
 	
 	
