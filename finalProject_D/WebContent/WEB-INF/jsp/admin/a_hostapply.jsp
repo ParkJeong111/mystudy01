@@ -4,6 +4,25 @@
 
 <!-- ADMIN Header Start -->
 <%@ include file="a_header.jsp"%>
+<style>
+.img_wrap {
+	width: 70%;
+	height: 30%;
+	margin-top: 20px;
+}
+
+.img_wrap img {
+	max-width: 50%;
+	max-height: 30%;
+}
+
+.selectedRow {
+	background-color:#e6e6e6;
+	border: 3px solid #e6e6e6;
+	cursor: pointer;
+}
+
+</style>
 <i class="icon-angle-right"></i>
 </li>
 <li><a href=admin_hostapply>가맹점 요청 관리</a></li>
@@ -121,6 +140,11 @@
 						<label class="control-label">*이미지등록</label>
 						<div class="controls">
 							<input class="value" multiple="multiple" type="file" id="hfile" name="hfile" required="required">
+							<div>
+							<div class="img_wrap">
+								<img id="img" />
+							</div>
+							</div>
 						</div>
 					</div>
 					<div class="control-group">
@@ -189,8 +213,19 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script>
 	$(function() {
+
+	
+		
 		$("table tbody tr").click(
 				function() {
+					
+
+					
+				
+					console.log('표시 컬러들어가기')
+					$(this).addClass("selectedRow")
+					$('table > tbody > tr').not(this).removeClass("selectedRow")
+
 					var tr = $(this).text();
 					var hrtype = tr.split("\n")[2].trim();
 					var hrname = tr.split("\n")[3].trim();
@@ -245,6 +280,30 @@
 
 		});
 		
+		
+		<%-- 사진 올린거 바로 미리 보여주기 스크립트 --%>
+		$(document).ready(function(){
+			$("#hfile").on("change", handleImgFileSelect);
+		});
+		
+		function handleImgFileSelect(e){
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			
+			filesArr.forEach(function(f){
+				if(!f.type.match("image.*")){
+					alert("확장자는 이미지 확장자만 가능합니다.");
+					return;
+				}
+				sel_file = f;
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$("#img").attr("src", e.target.result);
+				}
+				reader.readAsDataURL(f);
+			});
+		}
+		<%-- 사진 올린거 바로 미리 보여주기 스크립트 끝 --%>
 	
 
 });

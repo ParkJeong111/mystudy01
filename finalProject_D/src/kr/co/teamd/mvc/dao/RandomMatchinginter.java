@@ -12,5 +12,7 @@ public interface RandomMatchinginter {
 	public void updatestatus(HashMap<String, Object> maplist);
 	public void randomresultinsert(RandomMatchingDTO dto);
 	public int matchingidcheck(String mid);
+	public List<RandomMatchingDTO> randomlistinfo(String mid);
+	public List<RandomMatchingDTO> randomlistresult(String mid);
 
 }

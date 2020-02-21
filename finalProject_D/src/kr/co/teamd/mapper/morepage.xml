@@ -42,7 +42,7 @@
 		h.hstar as hstar,
 		hg.hgmoney as hgmoney,
 		h.haddr as haddr, h.hnum as hnum, h.hspecies as hspecies,
-        (select count(*) from board b where h.hname = b.hname) as boardnum
+        (select count(*) from board b where h.hname = b.hname and b.btype1 = '유저조행기') as boardnum
 		from host h, (select hgname, hgmoney, hname from hostgoods
 		where rownum = 1) hg
 		where
@@ -125,9 +125,9 @@
 	<select id="searchlist" parameterType="hsdto" resultType="hldto">
 		select h.himage as himage,h.hname as hname, h.hstar as hstar,
 		hg.hgmoney as hgmoney, h.haddr as haddr, h.hnum as hnum, h.hspecies as hspecies,
-		(select count(*) from board b where h.hname = b.hname) as boardnum
+		(select count(*) from board b where h.hname = b.hname and b.btype1 = '유저조행기') as boardnum
 		from host h, (select hgname, hgmoney, hname from hostgoods
-		 where rownum = 1) hg
+		where rownum = 1) hg
 		where hgmoney between #{minprice} and #{maxprice}
 		<choose>
 			<when test="type == 1">
@@ -147,12 +147,18 @@
 		<if test="searchValue != null">
 			and h.hname like '%' || #{searchValue} || '%'
 		</if>
+		<if test="searchLocation != null">
+			and h.haddr like '%' || #{searchLocation} || '%'
+		</if>
 		<if test="starnum != 0">
 			and h.hstar = #{starnum}
 		</if>
+		<!-- 리뷰 많은 순 -->
+		order by boardnum desc
 	</select>
 	<!-- Host 상세 Seach 끝 -->
 	<!-- 송용화 영역 끝 -->
+	
 	<!-- RandomMatching 부분 -->
 	<insert id="randominsert" parameterType="rmdto">  <!-- host 요청 -->
 		insert into randommatching
@@ -180,10 +186,12 @@
 	<select id="matchingidcheck" parameterType="String" resultType="int">
 		select count(rmid) from randommatching where rmstatus = 0 and rmid = #{mid}
 	</select>
-	
-	
-	
-	
+	<select id="randomlistinfo" parameterType="String" resultType="rmdto">
+		select rmnum,rmid,rmtype,rmcount,rmlocation,rmage,rmtime,rmsex from randommatching where rmstatus = 0 and rmid = #{mid}
+	</select>
+	<select id="randomlistresult" parameterType="String" resultType="rmdto">
+		select mrnum as rmnum,mrresult,mrtype as rmtype,mrcount as rmcount,mrlocation as rmlocation,mrage as rmage,mrtime as rmtime,mrsex as rmsex from matchingresult where mrresult like '%' || #{mid} || '%'
+	</select>
 	
 	
 	
