@@ -244,7 +244,7 @@ input[type=checkbox]:checked+label {
 												<strong> <b
 													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">상품
 														금액</b>
-												</strong> <br> <span class="product-price"
+												</strong> <br> <span class="product-price" id="firstprice"
 													style="font-size: 16px; color: black;">
 													&nbsp;${hostgoods.hgmoney} </span>
 											</p>
@@ -322,7 +322,7 @@ input[type=checkbox]:checked+label {
 			}
 			else {
 				point = parseInt($(this).val());
-				var price = parseInt('${hostgoods.hgmoney}');
+				var price = parseInt($('#firstprice').text().replace(/,/g,""));
 				console.log("point : " + point);
 				if (point < 0 || point > price) {
 					point = 0;
@@ -356,7 +356,9 @@ input[type=checkbox]:checked+label {
 								$('#mpoint').attr('max', point);
 							}
 							// 결제 금액에 천단위 콤마와 ' 원' 추가
-							$('.product-price').text(
+							$('#firstprice').text(
+									$.fn.priceBuilder(data.hgmoney) + ' 원');
+							$('#finalprice').text(
 									$.fn.priceBuilder(data.hgmoney) + ' 원');
 							// input 파라미터 값을 새로운 이용권 번호와 금액으로 변경
 							$('#hgnum').val(data.hgnum);
