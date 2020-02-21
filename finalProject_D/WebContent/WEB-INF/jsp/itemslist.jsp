@@ -1143,7 +1143,7 @@ margin-left: 285px;
 width: 855px;
 }
 .info_view span {
-    font-size: 12px;
+    font-size: 16px;
     padding: 0 5px;
     margin: 15px 5px 0;
     display: inline;
@@ -1166,7 +1166,7 @@ width: 855px;
 		<div class="container" style="margin-top: -40%;"></div>
 	</div>
 	<!--  상단 내용  -->
-	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
+	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px; font-family: Jua;">
 		<c:choose >
 			<c:when test="${type == 1}">
 				바다낚시
@@ -1187,7 +1187,7 @@ width: 855px;
 	<div class="talk_header">
 		<div class="talk_tab_area">
 			<section>
-				<ul class="talk_tab clearfix" style="font-weight: bold; width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
+				<ul class="talk_tab clearfix" style="font-family: Jua; font-weight: bold; width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
 					<!--  <li class="active">-->
 					<li class="itemslistheader"><a href="itemslist?type=1" data-talk_key="6" data-tc_key="0"
 						data-u_type="1">바다</a></li>
@@ -1204,7 +1204,7 @@ width: 855px;
 		</div>
 		<!-- 사이드 검색 부분 -->
 		<section class="ftco-section ftco-degree-bg"
-			style="padding-top: 10px;">
+			style="padding-top: 10px; font-family: Jua;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 sidebar ftco-animate float_sidebar" id="float_sidebar" >
@@ -1338,7 +1338,7 @@ width: 855px;
 										<div class="text p-3">
 											<div class="d-flex">
 												<div class="one">
-													<h3>
+													<h3 style="font-size: 20px;">
 														<a href="itemdetail?hnum=${hostlist.hnum}">${hostlist.hname }</a>
 													</h3>
 													<p class="rate starrate">

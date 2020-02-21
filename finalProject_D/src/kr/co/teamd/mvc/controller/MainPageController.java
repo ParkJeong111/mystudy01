@@ -1,16 +1,12 @@
 package kr.co.teamd.mvc.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainPageController {
 
 
-	@RequestMapping(value = "game") // 게임
-	public String game() {
-		return "game";
-	}
+	
 
 	// 김채은 영역 시작
 

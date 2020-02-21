@@ -478,7 +478,7 @@
 
 .view_area .view_box .view_box_title {
 	padding: 15px 30px;
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: 500;
 }
 
@@ -623,6 +623,7 @@
 }
 
 .view_area .view_box.info_view_sty1 .in_box .dot_txt {
+	font-size: 18px;
 	margin-top: 10px;
 }
 
@@ -2733,7 +2734,7 @@ keyframes swiper-preloader-spin { 100%{
 </div>
 <!--  여기에 헤더부분 추가  -->
 <hr>
-<div class="view_area">
+<div class="view_area" style="font-family: Jua;">
 	<div class="talk_tab_area">
 		<section>
 			<h3 class="talk_tab clearfix"
@@ -2863,12 +2864,14 @@ keyframes swiper-preloader-spin { 100%{
 						<p class="dot_txt">사용처리완료된 티켓내역 확인</p>
 					</div>
 				</div>
+				
 				<div class="view_box info_view_sty1">
 					<p class="view_box_title">업체공지</p>
 					<div class="in_box">
 						<p class="dot_txt">${host.hnotice }</p>
 					</div>
 				</div>
+				
 				<div class="view_box info_view_sty1">
 					<p class="view_box_title">사장님 한마디</p>
 					<div class="in_box">
@@ -2913,6 +2916,7 @@ keyframes swiper-preloader-spin { 100%{
 			</section>
 		</div> -->
 	</div>
+</div>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=38715a06f2433fec74cbd6060d15e8fa&libraries=services,clusterer,drawing"></script>
 	<script>
@@ -3026,28 +3030,27 @@ keyframes swiper-preloader-spin { 100%{
 			});
 
 			// 이용권 클릭시 form post 전송
-			$("a[id=reservelink]")
-					.each(
-							function() {
-								$(this)
-										.click(
-												function() {
-													var hg = $(this).attr(
-															'data-num');
-													var $form = $('<form></form>');
-													$form.attr('action',
-															'reserve');
-													$form
-															.attr('method',
-																	'post');
-													$form.appendTo('body');
-													var hnum = $('<input type="hidden" value="${host.hnum}" name="hnum">');
-													var hgnum = $('<input type="hidden" value="' + hg + '" name="hgnum">');
-													$form.append(hnum).append(
-															hgnum);
-													$form.submit();
-												});
-							});
+			$("a[id=reservelink]").each(
+				function() {
+					$(this).click(
+						function() {
+							if ('${sessionScope.mid}' == null || '${sessionScope.mid}' == '') {
+								alert('로그인 후 이용해주세요');
+								return;
+							}
+							var hg = $(this).attr('data-num');
+							var $form = $('<form></form>');
+							$form.attr('action', 'reserve');
+							$form.attr('method', 'post');
+							$form.appendTo('body');
+							var hnum = $('<input type="hidden" value="${host.hnum}" name="hnum">');
+							var hgnum = $('<input type="hidden" value="' + hg + '" name="hgnum">');
+							$form.append(hnum).append(hgnum);
+							$form.submit();
+						}
+					);
+				}
+			);
 		});
 	</script>
 	<!-- .section -->

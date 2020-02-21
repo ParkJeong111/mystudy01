@@ -476,74 +476,74 @@ label {
 <form action="randommatching" method="post">
 <div class="modal-body">
 <p><strong><b>인원수</b></strong></p>
-<input type = "radio" id = "radio1" name = "rmcount" value="2" checked="checked">
-<label for="radio1">2</label>
-<input type = "radio" id = "radio2" name = "rmcount" value="4">
-<label for="radio2">4</label>
-<input type = "radio" id = "radio3" name = "rmcount" value="6">
-<label for="radio3">6</label>
+<input type = "radio" id = "iradio1" name = "rmcount" value="2" checked="checked">
+<label for="iradio1">2</label>
+<input type = "radio" id = "iradio2" name = "rmcount" value="4">
+<label for="iradio2">4</label>
+<input type = "radio" id = "iradio3" name = "rmcount" value="6">
+<label for="iradio3">6</label>
 <hr>
 <p><strong><b>지역</b></strong></p>
-<input type="radio" id = "radio4" name = "rmlocation" value="seoul" checked="checked">
-<label for="radio4">서울</label>
-<input type="radio" id = "radio5" name = "rmlocation"  value="Gyeonggi">
-<label for="radio5">경기</label>
-<input type="radio" id = "radio6" name = "rmlocation"  value="Incheon">
-<label for="radio6">인천</label>
-<input type="radio" id = "radio7" name = "rmlocation"  value="Gangwon">
-<label for="radio7">강원</label>
-<input type="radio" id = "radio8" name = "rmlocation"  value="Chungbuk">
-<label for="radio8">충북</label>
-<input type="radio" id = "radio9" name = "rmlocation"  value="Chungnam">
-<label for="radio9">충남</label>
-<input type="radio" id = "radio10" name = "rmlocation"  value="Gyeongbuk">
-<label for="radio10">경북</label>
-<input type="radio" id = "radio11" name = "rmlocation"  value="Gyeongnam">
-<label for="radio11">경남</label>
-<input type="radio" id = "radio12"name = "rmlocation"  value=" Jeolbuk">
-<label for="radio12">전북</label>
-<input type="radio" id = "radio13" name = "rmlocation"  value="Jeolnam">
-<label for="radio13">전남</label>
-<input type="radio" id = "radio14"name = "rmlocation"  value="jeju">
-<label for="radio14">제주</label>
+<input type="radio" id = "iradio4" name = "rmlocation" value="seoul" checked="checked">
+<label for="iradio4">서울</label>
+<input type="radio" id = "iradio5" name = "rmlocation"  value="Gyeonggi">
+<label for="iradio5">경기</label>
+<input type="radio" id = "iradio6" name = "rmlocation"  value="Incheon">
+<label for="iradio6">인천</label>
+<input type="radio" id = "iradio7" name = "rmlocation"  value="Gangwon">
+<label for="iradio7">강원</label>
+<input type="radio" id = "iradio8" name = "rmlocation"  value="Chungbuk">
+<label for="iradio8">충북</label>
+<input type="radio" id = "iradio9" name = "rmlocation"  value="Chungnam">
+<label for="iradio9">충남</label>
+<input type="radio" id = "iradio10" name = "rmlocation"  value="Gyeongbuk">
+<label for="iradio10">경북</label>
+<input type="radio" id = "iradio11" name = "rmlocation"  value="Gyeongnam">
+<label for="iradio11">경남</label>
+<input type="radio" id = "iradio12"name = "rmlocation"  value=" Jeolbuk">
+<label for="iradio12">전북</label>
+<input type="radio" id = "iradio13" name = "rmlocation"  value="Jeolnam">
+<label for="iradio13">전남</label>
+<input type="radio" id = "iradio14"name = "rmlocation"  value="jeju">
+<label for="iradio14">제주</label>
 <hr>
 <p><strong><b>유형</b></strong></p>
-<input type="radio" id = "radio15" name = "rmtype" value="sea" checked="checked">
-<label for="radio15">바다</label>
-<input type="radio" id = "radio16" name = "rmtype"  value="freshwater">
-<label for="radio16">민물</label>
-<input type="radio" id = "radio17" name = "rmtype"  value="fishingcafe">
-<label for="radio17">낚시카페</label>
+<input type="radio" id = "iradio15" name = "rmtype" value="sea" checked="checked">
+<label for="iradio15">바다</label>
+<input type="radio" id = "iradio16" name = "rmtype"  value="freshwater">
+<label for="iradio16">민물</label>
+<input type="radio" id = "iradio17" name = "rmtype"  value="fishingcafe">
+<label for="iradio17">낚시카페</label>
 <hr>
 <p><strong><b>나이</b></strong></p>
-<input type="radio" id = "radio18" name = "rmage" value="20" checked="checked">
-<label for="radio18">20</label>
-<input type="radio" id = "radio19" name = "rmage"  value="30">
-<label for="radio19">30</label>
-<input type="radio" id = "radio20" name = "rmage"  value="40">
-<label for="radio20">40</label>
-<input type="radio" id = "radio21" name = "rmage"  value="50">
-<label for="radio21">50</label>
-<input type="radio" id = "radio22" name = "rmage"  value="60">
-<label for="radio22">60이상</label>
+<input type="radio" id = "iradio18" name = "rmage" value="20" checked="checked">
+<label for="iradio18">20</label>
+<input type="radio" id = "iradio19" name = "rmage"  value="30">
+<label for="iradio19">30</label>
+<input type="radio" id = "iradio20" name = "rmage"  value="40">
+<label for="iradio20">40</label>
+<input type="radio" id = "iradio21" name = "rmage"  value="50">
+<label for="iradio21">50</label>
+<input type="radio" id = "iradio22" name = "rmage"  value="60">
+<label for="iradio22">60이상</label>
 <hr>
 <p><strong><b>시간대</b></strong></p>
-<input type="radio" id = "radio23" name = "rmtime" value="am" checked="checked">
-<label for="radio23">오전</label>
-<input type="radio" id = "radio24" name = "rmtime"  value="pm">
-<label for="radio24">오후</label>
-<input type="radio" id = "radio25" name = "rmtime"  value="night">
-<label for="radio25">야간</label>
+<input type="radio" id = "iradio23" name = "rmtime" value="am" checked="checked">
+<label for="iradio23">오전</label>
+<input type="radio" id = "iradio24" name = "rmtime"  value="pm">
+<label for="iradio24">오후</label>
+<input type="radio" id = "iradio25" name = "rmtime"  value="night">
+<label for="iradio25">야간</label>
 <hr>
 <p><strong><b>성별</b></strong></p>
-<input type="radio" id = "radio26" name = "rmsex" value="man" checked="checked">
+<input type="radio" id = "iradio26" name = "rmsex" value="man" checked="checked">
 <label for="radio26">남자</label>
-<input type="radio" id = "radio27" name = "rmsex"  value="woman">
+<input type="radio" id = "iradio27" name = "rmsex"  value="woman">
 <label for="radio27">여자</label>
 <hr>
 <div style = "margin-left: 282px;">
 <button type="submit" class="btn btn-primary" style = "font-family: Jua;" >매칭하기</button>
-<button type="button" class="btn btn-default" id="closeModalBtn1" style = "font-family: Jua;">매칭취소</button>
+<button type="button" class="btn btn-default" id="closeModalBtn2" style = "font-family: Jua;">매칭취소</button>
 </div>
 </div>
 </div>
@@ -556,7 +556,7 @@ $('#openModalBtn1').on('click', function(){
 $('#modalBox1').modal('show');
 });
 // 모달 안의 취소 버튼에 이벤트를 건다.
-$('#closeModalBtn1').on('click', function(){
+$('#closeModalBtn2').on('click', function(){
 $('#modalBox1').modal('hide');
 });
 
