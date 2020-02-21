@@ -42,11 +42,7 @@
 	
 		<!-- 고객정보 확인 -->
 	<select id="myinfo" parameterType="String" resultType="mdto">
-<<<<<<< HEAD
-	select mid, mpwd, memail, mnickname, mphone, maddr1, maddr2, mpoint from member where mid=#{mid}
-=======
 	select mid, mpwd, memail, mnickname, mphone, maddr1, maddr2, mphone, mpoint, mname from member where mid=#{mid}
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 	</select>
 		<!-- 고객정보 수정 -->
 	<update id="myupdate" parameterType="mdto">
@@ -72,7 +68,12 @@
 	<!-- 주성중 영역 시작  -->
 
 	<!-- 주성중 영역 끝  -->
-
+	
+	<!-- ======================안드로이드 로그인 체크================================ -->
+	<select id="androidLoginChk" resultType="String">
+		select count(*) from member where mid = #{mid} and mpwd = #{mpwd};
+	</select>
+	
 	<!-- ==============================  회원가입  (재민) ============================== -->
 	<insert id="addmember" parameterType="mdto">
 		insert into member values(member_seq.nextVal, #{mname}, #{mid}, #{mpwd}, #{mnickname},
