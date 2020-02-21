@@ -184,11 +184,13 @@ public class MemberController {
 		if (m != null) {
 			session.setAttribute("mid", m.getMid());
 			session.setAttribute("nickname", m.getMnickname());
-			session.setAttribute("mpoint", m.getMpoint());
+			// 회원정보 세션에 등록
+			MemberDTO myinfo = mdao.myInfo(m.getMid());
+			session.setAttribute("m", myinfo);
+			session.setAttribute("mpoint", myinfo.getMpoint());
 			String mid = (String) session.getAttribute("mid");
 					if(session.getAttribute("vn")==null) {
 						mav.setViewName("redirect:index");
-										
 					}else {
 						mav.setViewName((String) session.getAttribute("vn"));
 						session.setAttribute("vn",null);
