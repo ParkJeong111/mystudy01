@@ -139,7 +139,7 @@
 	</div>
 
 	<section class="ftco-section contact-section ftco-degree-bg"
-		style="padding-left:30%;">
+		style="padding-left:30%; font-family: Jua;">
 		<div class="container" style="margin: auto;">
 			<div class="row d-flex mb-5 contact-info" style="margin-left: 18%;">
 				<h2 class="h4">

@@ -119,11 +119,11 @@ input[type=checkbox]:checked+label {
 </div>
 <!--  여기에 헤더부분 추가  -->
 <p
-	style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
+	style="font-family: Jua; text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
 	결제</p>
 <hr>
 <div class="talk_header"
-	style="font-family: 'Poppins', Arial, sans-serif; margin-bottom: 10%">
+	style="font-family: Jua; margin-bottom: 10%">
 	<section class="ftco-section ftco-degree-bg" style="padding-top: 10px;">
 		<div class="noticeList_area container">
 			<section>
@@ -170,7 +170,7 @@ input[type=checkbox]:checked+label {
 											<br>
 											<!-- 결제수단 시작 -->
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>결제수단
-													선택</b></strong> <select id="pgselect"
+													선택</b></strong><br><select id="pgselect"
 												style="width: 80%; height: 48px; font-size: 18px; cursor: pointer;">
 												<option value="card">신용카드</option>
 												<option value="phone">휴대폰소액결제</option>
@@ -286,7 +286,8 @@ input[type=checkbox]:checked+label {
 <script>
 //포인트칸에 숫자만 입력
 	$(function() {
-
+		
+		// 포인트 사용했는지 여부
 		var ispoint = false;
 		
 		$.fn.priceBuilder = function(price) {
@@ -295,7 +296,7 @@ input[type=checkbox]:checked+label {
 		}
 
 		$(".product-price").each(function(idx) {
-			// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+			// 금액에 천단위 콤마 추가해주고 맨 뒤에 원을 붙임
 			var value = $(this).text();
 			$(this).text($.fn.priceBuilder(value) + ' 원');
 		});
@@ -445,25 +446,8 @@ input[type=checkbox]:checked+label {
 									alert('입력하지 않은 사항이 있습니다.');
 								}
 							}
-				});
-		$('#mname')
-				.keyup(
-						function() {
-							var reservid = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
-							var str = $('#mname').val()
-
-							if (reservid.test(str) == true) {
-								$("#here")
-										.append(
-												"<br><span style='margin-top: -15px; font-size: 14px; font-color: red;'>한글, 영문, 숫자만 입력이 가능합니다.</span>");
-								document.getElementById("here").innerHTML = "<span style='margin-top: -15px; font-size: 14px; color: red;'>한글, 영문, 숫자만 입력이 가능합니다.</span>";
-								$('#here').css('visibility', 'visible');
-							} else {
-								document.getElementById("here").innerHTML = "";
-								$('#here').css('visibility', 'hidden');
-							}
-
-						});
+				}
+			);
 
 		// 전체 동의
 		$('#rbox0').click(function() {
