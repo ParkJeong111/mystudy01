@@ -108,7 +108,8 @@ input[type=checkbox]:checked+label {
 		url('${pageContext.request.contextPath}/resources/images/icon/star1.png');
 }
 </style>
-
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <!-- END nav -->
 
 <div class="hero-wrap js-fullheight"
@@ -147,7 +148,8 @@ input[type=checkbox]:checked+label {
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>구매자</b></strong><br>
 											<p>
 												<input style="width: 80%; height: 44px; font-size: 16px;"
-													type="text" name="mid" value="${sessionScope.m.mid}">
+													type="text" name="mid" value="${sessionScope.mid}"
+													readonly="readonly">
 											</p>
 											<!-- 사용일자 -->
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>사용일자</b></strong><br>
@@ -158,21 +160,22 @@ input[type=checkbox]:checked+label {
 											<br>
 											<!-- 포인트사용 -->
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>포인트</b></strong>
-											<strong style="font-size: 12px; color: #aaaaaa;">&nbsp;&nbsp;&nbsp;사용 가능 포인트 : ${sessionScope.m.mpoint}</strong>
-											<br>
+											<strong style="font-size: 12px; color: #aaaaaa;">&nbsp;&nbsp;&nbsp;사용
+												가능 포인트 : ${sessionScope.mpoint}</strong> <br>
 											<p>
 												<input style="width: 80%; height: 44px; font-size: 16px;"
-													type="number" id="mpoint" name="mpoint" value="0" min="1000" max="${sessionScope.m.mpoint}" step="100">
+													type="text" id="mpoint" name="mpoint" value="0"
+													maxlength="6">
 											</p>
 											<br>
 											<!-- 결제수단 시작 -->
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>결제수단
-													선택</b></strong> <select
+													선택</b></strong> <select id="pgselect"
 												style="width: 80%; height: 48px; font-size: 18px; cursor: pointer;">
-												<option>카드결제 (신용, 체크)</option>
-												<option>휴대폰 결제</option>
-												<option>PAYCO 결제</option>
-												<option>네이버페이 결제</option>
+												<option value="card">신용카드</option>
+												<option value="phone">휴대폰소액결제</option>
+												<option value="samsung">삼성페이</option>
+												<option value="cultureland">문화상품권</option>
 											</select>
 											<!-- 결제수단 끝 -->
 										</section>
@@ -239,9 +242,18 @@ input[type=checkbox]:checked+label {
 											<!-- 결제 금액 -->
 											<p style="font-size: 16px;">
 												<strong> <b
-													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">결제
-														금액</b> (VAT 포함)
+													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">상품
+														금액</b>
 												</strong> <br> <span class="product-price"
+													style="font-size: 16px; color: black;">
+													&nbsp;${hostgoods.hgmoney} </span>
+											</p>
+											<hr style="width: 98%;">
+											<p style="font-size: 16px;">
+												<strong> <b
+													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">최종
+														금액</b> (VAT 포함)
+												</strong> <br> <span class="product-price" id="finalprice"
 													style="font-size: 24px; color: #f85959;">
 													${hostgoods.hgmoney} </span>
 											</p>
@@ -272,7 +284,11 @@ input[type=checkbox]:checked+label {
 <!-- .section -->
 
 <script>
+//포인트칸에 숫자만 입력
 	$(function() {
+
+		var ispoint = false;
+		
 		$.fn.priceBuilder = function(price) {
 			// 금액에 천단위 콤마 추가해주는 정규표현식
 			return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -283,22 +299,73 @@ input[type=checkbox]:checked+label {
 			var value = $(this).text();
 			$(this).text($.fn.priceBuilder(value) + ' 원');
 		});
-
+		
+		// 포인트 최소, 최대 예외처리
+		$('#mpoint').blur(function() {
+			var current = $(this).val();
+			var max = $(this).attr('max');
+			var min = $(this).attr('min');
+			if (parseInt(current) > parseInt(max)) {
+				 $(this).val(parseInt(max));
+			} else if (parseInt(current) < parseInt(min)) {
+				 $(this).val(parseInt(min));
+			}
+		});
+		
+		// 포인트 입력시 최종 금액 계산
+		$('#mpoint').keyup(function(){
+			var point;
+			ispoint = true;
+			if ($(this).val() == '') {
+				point = 0;
+			}
+			else {
+				point = parseInt($(this).val());
+				var price = parseInt('${hostgoods.hgmoney}');
+				console.log("point : " + point);
+				if (point < 0 || point > price) {
+					point = 0;
+					$(this).val(0);
+				}
+				$('#finalprice').css('font-size', '16px').css('color', 'black');
+				$('#finalprice').html('&nbsp;' + price + ' - ' + point
+						+ "<br><p id='finalprice2' style='font-size: 24px; color: #f85959;'>&nbsp;" + $.fn.priceBuilder((price-point)) + ' 원</p>');
+			}
+		});
+	
+		// 이용권 변경시
 		$('#hgselect').change(
-				function() {
+				function() {		
 					$.ajax({
 						url : 'ticketSelect?hgnum='
 								+ $('#hgselect option:selected').val(),
 						datatype : 'json',
 						success : function(data) {
+							// 회원의 포인트 정보
+							var point = '${sessionScope.mpoint}';
+							// 포인트칸을 0으로 초기화
+							$('#mpoint').val(0);
+							$('#finalprice').css('font-size', '24px').css('color', '#f85959');
+							// 결제금액보다 포인트가 더 크면
+							if (point >= data.hgmoney) {
+								// 포인트 최대 사용 제한을 결제금액만큼으로 설정
+								$('#mpoint').attr('max', data.hgmoney);
+							} else {
+								// 포인트 최대 사용 제한을 포인트로 설정
+								$('#mpoint').attr('max', point);
+							}
+							// 결제 금액에 천단위 콤마와 ' 원' 추가
 							$('.product-price').text(
 									$.fn.priceBuilder(data.hgmoney) + ' 원');
+							// input 파라미터 값을 새로운 이용권 번호와 금액으로 변경
 							$('#hgnum').val(data.hgnum);
 							$('#hgmoney').val(data.hgmoney);
 						}
 					});
 				});
-
+		// 결제 ------------------------------------------------------
+		
+		// 결제하기 버튼 눌렀을때
 		$('#insert').click(
 				function() {
 					var name = $("#mname").val();
@@ -306,26 +373,78 @@ input[type=checkbox]:checked+label {
 							&& $('#rbox2').prop("checked")
 							&& $('#rbox3').prop("checked")
 							&& $('#rbox4').prop("checked")) {
-						$('#agreebtn').attr("disabled", false);
-						var form = $("#insertForm").serialize();
-						var result = confirm("구매하시겠습니까?");
-						if (result) {
-							$("#insertForm").submit();
-						} else {
-							alert("취소되었습니다.");
-						}
-					} else {
-						if (!($('#rbox1').prop("checked"))
-								|| !($('#rbox2').prop("checked"))
-								|| !($('#rbox3').prop("checked"))
-								|| !($('#rbox4').prop("checked"))) {
-							$('#agreebtn').attr("disabled", false);
-							alert('필수 선택사항이 있습니다.');
-						} else {
-							alert('입력하지 않은 사항이 있습니다.');
-						}
-
-					}
+								$('#agreebtn').attr("disabled", false);
+								var form = $("#insertForm").serialize();
+								
+								var IMP = window.IMP; // 생략가능
+								// ${'#hgselect'}.val();
+								var hgname = $("#hgselect option:selected").text(); // 상품명
+								if (!ispoint) {
+									var hgprice = parseInt($('#finalprice').text().replace(/,/g,"")); // 포인트 사용 x 상품가격
+								} else {
+									var hgprice = parseInt($('#finalprice2').text().replace(/,/g,"")); // 포인트 사용시 상품가격
+								}
+								
+								console.log("hgprice :" + hgprice);
+								
+								// 결제금액을 포인트로 전부 사용했을때
+								if (hgprice == 0) {
+									alert("포인트로 전액 결제하여 바로 상품화면으로 이동합니다.")
+									$("#insertForm").submit();
+									// location.href = "itemdetail?hnum=" + '${host.hnum}';
+									return;
+								}
+								
+								var pgmethod = $('#pgselect').val();
+								IMP.init('imp98493160'); // 자기만의 식별코드 부여
+								IMP.request_pay({
+									// 이니시스 
+									pg: 'inicis', // version 1.1.0부터 지원.
+									pay_method: pgmethod, // 결제수단
+									/*
+										'samsung':삼성페이,
+										'card':신용카드,
+										'trans':실시간계좌이체,
+										'vbank':가상계좌,
+										'phone':휴대폰소액결제
+									*/
+									merchant_uid: 'merchant_' + new Date().getTime(),
+									name: hgname,	// 구매자 이름
+									amount: hgprice, // 구매 가격
+									// 구매자 정보
+									buyer_email: '${sessionScope.m.memail}',
+									buyer_name: '${sessionScope.m.mname}',
+									buyer_tel: '${sessionScope.m.mphone}',
+									buyer_addr: '${sessionScope.m.maddr1}',
+									buyer_postcode: '${sessionScope.m.maddr2}'
+									}, function (rsp) {
+										console.log(rsp);
+										// 결제 성공시
+										if (rsp.success) {
+											var msg = '결제가 완료되었습니다.';
+											msg += '고유ID : ' + rsp.imp_uid;
+											msg += '상점 거래ID : ' + rsp.merchant_uid;
+											msg += '결제 금액 : ' + rsp.paid_amount;
+											msg += '카드 승인번호 : ' + rsp.apply_num;
+											// location.href = "itemdetail?hnum=" + '${host.hnum}';
+											$("#insertForm").submit(); // 데이터베이스 저장
+										} else {
+											var msg = '결제에 실패하였습니다.';
+											msg += '에러내용 : ' + rsp.error_msg;
+										}
+											alert(msg);
+									});
+							} else {
+								if (!($('#rbox1').prop("checked"))
+										|| !($('#rbox2').prop("checked"))
+										|| !($('#rbox3').prop("checked"))
+										|| !($('#rbox4').prop("checked"))) {
+									$('#agreebtn').attr("disabled", false);
+									alert('필수 선택사항이 있습니다.');
+								} else {
+									alert('입력하지 않은 사항이 있습니다.');
+								}
+							}
 				});
 		$('#mname')
 				.keyup(
@@ -346,6 +465,7 @@ input[type=checkbox]:checked+label {
 
 						});
 
+		// 전체 동의
 		$('#rbox0').click(function() {
 			if ($('#rbox0').prop("checked")) {
 				$('.inp_chk_02').prop("checked", true);

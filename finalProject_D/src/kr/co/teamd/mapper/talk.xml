@@ -23,12 +23,21 @@
 		</choose>
 		)   
 	</insert>
+	
 	<!-- ==============================  중고 게시글 작성  (재민) ============================== -->
 	<insert id="additboard" parameterType="bdto">
 		insert into itemsboard values(itemsboard_seq.nextVal, #{ibtitle}, #{ibname},
 		#{mid}, #{ibcontent}, #{ibmoney}, #{ibimage}, 0, sysdate, 0) 
 	</insert>
 	
+	<!-- ======================== 게시판 유저조행기 결과 ================================ -->
+	<select id="chkhname" parameterType="chkbdto" resultType="String">
+		select h.hname
+		from reservation r, host h, member m
+		where r.hname=h.hname and r.mid=m.mid and m.mid = #{mid}
+        and h.htype = #{htype}
+        group by r.mid, h.hname, h.htype
+	</select>
 	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
  	parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
@@ -36,7 +45,7 @@
 		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
 		from board b, host h, member m
 		where b.hname=h.hname and b.mid=m.mid
-		
+	
 		<choose>
 			<when test="check==1">
 			and b.btype1='유저조행기' 
