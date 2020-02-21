@@ -416,47 +416,6 @@ label {
 </form>
 </div>
 </div>
-<!-- modal 게임 
-<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
-<div id="modalGame" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-family: Jua;
- max-width: 100%; width: auto; display: table;">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h4 class="modal-title" id="myModalLabel" style = "margin: auto; font-family: Jua;">랜덤 매칭</h4>
-</div>
-<form action="randommatching" method="post">
-<div class="modal-body">
-<div class="spinner">
-		<div class="ball"><span></span></div>
-		<div class="platebg"></div>
-		<div class="platetop"></div>
-		<div id="toppart" class="topnodebox">
-			<div class="silvernode"></div>
-			<div class="topnode silverbg"></div>
-			<span class="top silverbg"></span>
-			<span class="right silverbg"></span>
-			<span class="down silverbg"></span>
-			<span class="left silverbg"></span>
-		</div>
-		<div id="rcircle" class="pieContainer">
-			<div class="pieBackground"></div>
-		</div>
-	</div>
-
-<div id="btnSpin" class="button">Spin</div>
-
-
-<script src='${pageContext.request.contextPath}/resources/css/jquery.keyframes.min_.js'></script>
-<script src="${pageContext.request.contextPath}/resources/css/script.js"></script>
-<hr>
-<div style = "margin-left: 282px;">
-</div>
-</div>
-</div>
-</form>
-</div>
-</div>-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <script src='${pageContext.request.contextPath}/resources/js/jquery.keyframes.min_.js'></script>
@@ -470,10 +429,6 @@ label {
     	   $('#closeModalBtn').on('click', function(){
     	   $('#modalBox').modal('hide');
     	   });
-    	   
-    	   $('#ModalGameBtn').on('click', function(){
-        	   $('#modalGame').modal('show');
-        	   });
     	   
        
      //메인검색창에서 검색 후 이동

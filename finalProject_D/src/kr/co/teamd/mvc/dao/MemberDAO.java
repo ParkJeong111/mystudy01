@@ -75,11 +75,6 @@ public class MemberDAO implements MemberInter{
 		return ss.selectOne("member.gamecheck",mid);
 	}
 	
-<<<<<<< HEAD
-	
-
-=======
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 	@Override
 	public MemberDTO androidLogin(String mid, String mpwd) {
 		return ss.selectOne(mid, mpwd);
