@@ -7,8 +7,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+//import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.LoginlogDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
+import kr.co.teamd.mvc.dto.PointlogDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 @Repository
 public class MemberDAO implements MemberInter{
@@ -31,8 +33,6 @@ public class MemberDAO implements MemberInter{
 		return ss.selectList("member.myreservation",map);
 	}
 	
-	
-
 	@Override
 	public MemberDTO myInfo(String mid) { //나의 정보 확인
 		return ss.selectOne("member.myinfo", mid);
@@ -57,6 +57,27 @@ public class MemberDAO implements MemberInter{
 	public void loginLogInsert(LoginlogDTO logdto) {
 		ss.insert("member.memberloginlog", logdto);
 		
+	}
+
+	@Override
+	public void gamepointUpdate(MemberDTO dto) {
+		ss.insert("member.gamepointUpdate",dto);
+	}
+
+	@Override
+	public void gamepointlogInsert(PointlogDTO dto) {
+		ss.insert("member.gamepointlogInsert",dto);
+		
+	}
+
+	@Override
+	public int gamecheck(String mid) {
+		return ss.selectOne("member.gamecheck",mid);
+	}
+	
+	@Override
+	public MemberDTO androidLogin(String mid, String mpwd) {
+		return ss.selectOne(mid, mpwd);
 	}
 
 }

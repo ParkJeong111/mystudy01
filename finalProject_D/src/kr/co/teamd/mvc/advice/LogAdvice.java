@@ -3,9 +3,7 @@ package kr.co.teamd.mvc.advice;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.LoginlogDTO;
-import kr.co.teamd.mvc.dto.MemberDTO;
 
 @Component
 @Aspect

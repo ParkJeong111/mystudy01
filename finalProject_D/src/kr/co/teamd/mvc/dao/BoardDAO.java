@@ -5,9 +5,9 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
+import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
 
 @Repository
@@ -56,10 +56,10 @@ public class BoardDAO implements BoardInter{
 		ss.insert("talk.additboard", itbdto);
 	}
 
-
-
-
-
+	@Override
+	public List<String> btype2select(ChkBTypeDTO chkbdto) {
+		return ss.selectList("talk.chkhname", chkbdto);
+	}
 
 
 }

@@ -890,8 +890,9 @@ a {
 													</div>
 													<select name="btype2" id="tm2" class="form-control"
 														placeholder="카테고리를선택해주세요" style="border-radius: 7px;">
-														<option value="0">바다조행기</option>
-														<option value="1">민물조행기</option>
+														<option value="0">선택해주세요</option>
+														<option value="1">바다조행기</option>
+														<option value="2">민물조행기</option>
 													</select>
 												</div>
 											</div>
@@ -913,20 +914,13 @@ a {
 											</div>
 										
 									<!-- 	가맹점 불러오는곳 -->
-									<div class="col-md-6" >
+									<div class="col-md-6">
 											<div class="form-group">
-												<div class="select-wrap one-third" id="hostlist_div">
-													<div class="icon" id="dwnarrow">
+												<div class="select-wrap one-third" id="hostlist_div" hidden="true">
+													<div class="icon" id="hostdwnarrow">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select id="hname" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;" >
-														<option value="0">해적호</option>   <%-- C:Foreach    ${ } 사용해서 hname 가져오기 데이터에서 확인해서 가져오게끔...--%>
-														<option value="1">해적왕실내낚시카페(광명점)</option>
-														<option value="2">광명호</option>
-														<option value="3">대한낚시터</option>
-														<option value="4">화이팅낚시카페</option>
-														<option value="5">하나낚시</option>
-<%-- 													<c:forEach step="${bdto.hname }"></c:forEach> --%>
+													<select id="hn" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;">
 													</select>
 											</div>
 										</div>
@@ -994,8 +988,6 @@ a {
 											<div class="form-group">
 												<textarea style="width: 870px; height: 500px;" name="bcontent" id="bcontent"
 													placeholder="내용을 입력해주세요."></textarea>
-
-											</div>
 										</div>
 										</div>
 										<!-- 취소, 올리기, 목록 버튼 -->
@@ -1010,7 +1002,7 @@ a {
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 											</div>
 										</div>
-								</div>
+									</div>
 								<!-- fields ends here -->
 							</div>
 						</div>
@@ -1022,8 +1014,6 @@ a {
 		</section>
 	</div>
 </section>
-
-
 
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
@@ -1060,45 +1050,7 @@ function goListBtn(){
 	
 	<%-- 게시글 작성 type1 & type2 (재민)--%>
 	$(function() {
-		$('#tm').click(
-				function(){
-					 if($('#tm').val() == 0){
-						console.log("여기 출력??? " + $('#tm').val())
-						$("#tm2").prop("hidden", false);
-						$("#dwnarrow").prop("hidden", false);
-						$('#hostlist_div').prop("hidden", false);
-						console.log("사용가능!");
-						$("#tm3").prop("hidden", false);
-
-					}else if($("#tm").val() == 1){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						$('#hostlist_div').prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("유용한정보");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-						
-					}else if($("#tm").val() == 2){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						$('#hostlist_div').prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("낚시지식인");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-						
-					}else if($("#tm").val() == 3){
-						$("#tm2").prop("hidden", true);
-						$("#dwnarrow").prop("hidden", true);
-						$('#hostlist_div').prop("hidden", true);
-						console.log("사용불가??");
-						$('#tm').prop("자유게시판");
-						console.log("찍히나??? " + $('#tm').val());
-						$("#tm3").prop("hidden", true);
-					}  
-			});
-			
+		
 		<%-- 사진 올린거 바로 미리 보여주기 스크립트 --%>
 		$(document).ready(function(){
 			$("#bfile").on("change", handleImgFileSelect);
@@ -1122,9 +1074,69 @@ function goListBtn(){
 			});
 		}
 		<%-- 사진 올린거 바로 미리 보여주기 스크립트 끝 --%>
-			
+		
+		$('#tm').change(
+				function(){
+					 if($('#tm').val() == 0){
+						$("#tm2").prop("hidden", false);
+						$("#dwnarrow").prop("hidden", false);
+						$('#hostlist_div').prop("hidden", true);
+						$("#tm3").prop("hidden", false);
+// 						$("#tm2").find("option").remove().end().append("<option value=\"0\">::선택::</option>").val();
+						// $("#tm2").val('');
+						$('#tm2').find('option:first').prop('selected', 'selected');
+
+					}else if($("#tm").val() == 1){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
+						$('#tm').prop("유용한정보");
+						$("#tm3").prop("hidden", true);
+						
+					}else if($("#tm").val() == 2){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
+						$('#tm').prop("낚시지식인");
+						$("#tm3").prop("hidden", true);
+						
+					}else if($("#tm").val() == 3){
+						$("#tm2").prop("hidden", true);
+						$("#dwnarrow").prop("hidden", true);
+						$('#hostlist_div').prop("hidden", true);
+						$('#tm').prop("자유게시판");
+// 						console.log("찍히나??? " + $('#tm').val());
+						$("#tm3").prop("hidden", true);
+					}  
+			});
+		
+		// 유저조행기 -> 바다/민물 -> host가게명 가져오는 부분
+		$('#tm2').change(
+				function(){
+					//var selectnum = $('#tm2 option:selected').val()
+					 if($("#tm2").val() == 0){
+						 console.log("실행되나????");
+						 $('#hostlist_div').prop('hidden', true);
+					 } else if($("#tm2").val() == 1 || $("#tm2").val() == 2) {
+						 $('#hostlist_div').prop('hidden', false);
+						 $.ajax({
+							 type: "POST",
+								url : "btype2select",
+								data : {btypeValue : $("#tm2").val()},
+								datatype : 'json',
+								success : function(data){
+									// console.log(data[0]);
+									$("#hn").html('');
+									for(var i in data) {
+										// console.log(data[i]);
+										$("#hn").append('<option value="'+ data[i] + '">' + data[i] + '</option>');
+									}
+								}
+							});
+					 }
+				}); 
+
 	});
 </script>
-
 </body>
 </html>

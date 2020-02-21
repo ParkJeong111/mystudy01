@@ -48,6 +48,17 @@ public class RandomMatchingDAO implements RandomMatchinginter {
 		return ss.selectOne("morepage.matchingidcheck",mid);
 	}
 
+	@Override
+	public List<RandomMatchingDTO> randomlistinfo(String mid) {
+		return ss.selectList("morepage.randomlistinfo",mid);
+	}
+
+	@Override
+	public List<RandomMatchingDTO> randomlistresult(String mid) {
+		return ss.selectList("morepage.randomlistresult",mid);
+	}
+
+
 
 
 
