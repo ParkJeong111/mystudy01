@@ -58,8 +58,6 @@ public class MemberDAO implements MemberInter{
 		ss.insert("member.memberloginlog", logdto);
 		
 	}
-<<<<<<< HEAD
-=======
 
 	@Override
 	public void gamepointUpdate(MemberDTO dto) {
@@ -78,7 +76,6 @@ public class MemberDAO implements MemberInter{
 	}
 	
 	
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 
 	@Override
 	public MemberDTO androidLogin(String mid, String mpwd) {
