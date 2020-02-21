@@ -147,7 +147,8 @@ input[type=checkbox]:checked+label {
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>구매자</b></strong><br>
 											<p>
 												<input style="width: 80%; height: 44px; font-size: 16px;"
-													type="text" name="mid" value="${sessionScope.m.mid}">
+													type="text" name="mid" value="${sessionScope.mid}"
+													readonly="readonly">
 											</p>
 											<!-- 사용일자 -->
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>사용일자</b></strong><br>
@@ -158,11 +159,12 @@ input[type=checkbox]:checked+label {
 											<br>
 											<!-- 포인트사용 -->
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>포인트</b></strong>
-											<strong style="font-size: 12px; color: #aaaaaa;">&nbsp;&nbsp;&nbsp;사용 가능 포인트 : ${sessionScope.m.mpoint}</strong>
-											<br>
+											<strong style="font-size: 12px; color: #aaaaaa;">&nbsp;&nbsp;&nbsp;사용
+												가능 포인트 : ${sessionScope.mpoint}</strong> <br>
 											<p>
 												<input style="width: 80%; height: 44px; font-size: 16px;"
-													type="number" id="mpoint" name="mpoint" value="0" min="1000" max="${sessionScope.m.mpoint}" step="100">
+													type="text" id="mpoint" name="mpoint" value="0"
+													maxlength="6">
 											</p>
 											<br>
 											<!-- 결제수단 시작 -->
@@ -239,9 +241,18 @@ input[type=checkbox]:checked+label {
 											<!-- 결제 금액 -->
 											<p style="font-size: 16px;">
 												<strong> <b
-													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">결제
-														금액</b> (VAT 포함)
+													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">상품
+														금액</b>
 												</strong> <br> <span class="product-price"
+													style="font-size: 16px; color: black;">
+													&nbsp;${hostgoods.hgmoney} </span>
+											</p>
+											<hr style="width: 98%;">
+											<p style="font-size: 16px;">
+												<strong> <b
+													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">최종
+														금액</b> (VAT 포함)
+												</strong> <br> <span class="product-price" id="finalprice"
 													style="font-size: 24px; color: #f85959;">
 													${hostgoods.hgmoney} </span>
 											</p>
@@ -272,7 +283,9 @@ input[type=checkbox]:checked+label {
 <!-- .section -->
 
 <script>
+//포인트칸에 숫자만 입력
 	$(function() {
+
 		$.fn.priceBuilder = function(price) {
 			// 금액에 천단위 콤마 추가해주는 정규표현식
 			return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -283,22 +296,70 @@ input[type=checkbox]:checked+label {
 			var value = $(this).text();
 			$(this).text($.fn.priceBuilder(value) + ' 원');
 		});
-
+		
+		// 포인트 최대 예외처리
+		$('#mpoint').blur(function() {
+			var current = $(this).val();
+			var max = $(this).attr('max');
+			var min = $(this).attr('min');
+			if (parseInt(current) > parseInt(max)) {
+				 $(this).val(parseInt(max));
+			} else if (parseInt(current) < parseInt(min)) {
+				 $(this).val(parseInt(min));
+			}
+		});
+		
+		$('#mpoint').keyup(function(){
+			var point;
+			if ($(this).val() == '') {
+				point = 0;
+			}
+			else {
+				point = parseInt($(this).val());
+				var price = parseInt('${hostgoods.hgmoney}');
+				console.log("point : " + point);
+				if (point < 0 || point > price) {
+					point = 0;
+					$(this).val(0);
+				}
+				$('#finalprice').css('font-size', '16px').css('color', 'black');
+				$('#finalprice').html('&nbsp;' + price + ' - ' + point
+						+ "<br><p style='font-size: 24px; color: #f85959;'>&nbsp;" + $.fn.priceBuilder((price-point)) + ' 원</p>');
+			}
+		});
+	
+		// 이용권 변경시
 		$('#hgselect').change(
-				function() {
+				function() {		
 					$.ajax({
 						url : 'ticketSelect?hgnum='
 								+ $('#hgselect option:selected').val(),
 						datatype : 'json',
 						success : function(data) {
+							// 회원의 포인트 정보
+							var point = '${sessionScope.mpoint}';
+							// 포인트칸을 0으로 초기화
+							$('#mpoint').val(0);
+							$('#finalprice').css('font-size', '24px').css('color', '#f85959');
+							// 결제금액보다 포인트가 더 크면
+							if (point >= data.hgmoney) {
+								// 포인트 최대 사용 제한을 결제금액만큼으로 설정
+								$('#mpoint').attr('max', data.hgmoney);
+							} else {
+								// 포인트 최대 사용 제한을 포인트로 설정
+								$('#mpoint').attr('max', point);
+							}
+							// 결제 금액에 천단위 콤마와 ' 원' 추가
 							$('.product-price').text(
 									$.fn.priceBuilder(data.hgmoney) + ' 원');
+							// input 파라미터 값을 새로운 이용권 번호와 금액으로 변경
 							$('#hgnum').val(data.hgnum);
 							$('#hgmoney').val(data.hgmoney);
 						}
 					});
 				});
 
+		// 결제하기 눌렀을때
 		$('#insert').click(
 				function() {
 					var name = $("#mname").val();
@@ -310,6 +371,7 @@ input[type=checkbox]:checked+label {
 						var form = $("#insertForm").serialize();
 						var result = confirm("구매하시겠습니까?");
 						if (result) {
+							// 결제동의가 전부 체크 되어있고 예를 눌렀을 때 submit
 							$("#insertForm").submit();
 						} else {
 							alert("취소되었습니다.");
@@ -346,6 +408,7 @@ input[type=checkbox]:checked+label {
 
 						});
 
+		// 전체 동의
 		$('#rbox0').click(function() {
 			if ($('#rbox0').prop("checked")) {
 				$('.inp_chk_02').prop("checked", true);

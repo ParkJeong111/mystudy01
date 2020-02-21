@@ -1,5 +1,7 @@
 package kr.co.teamd.mvc.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +18,7 @@ public class ReserveController {
 
 	@Autowired
 	private HostInter hostdao;
-	
+
 	@Autowired
 	private ServiceInter service;
 
@@ -33,10 +35,10 @@ public class ReserveController {
 
 	// 결제 진행
 	@RequestMapping(value = "resInsert")
-	public ModelAndView reserveInsert(int hnum, ReservationDTO rdto) {
+	public ModelAndView reserveInsert(HttpServletRequest request, int hnum, ReservationDTO rdto) {
 		ModelAndView mav = new ModelAndView("redirect:itemdetail?hnum=" + hnum);
 		try {
-			service.reserveInsertmpointUpdate(rdto);
+			service.reserveInsertmpointUpdate(request, rdto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
