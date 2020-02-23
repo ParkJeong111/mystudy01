@@ -1347,18 +1347,17 @@ li {
 	<div class="hero-wrap js-fullheight"
 		style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_3.jpg');">
 		<div class="overlay" ></div>
-		<div class="container" style="margin-top: -40%;">
+		<div class="container" style="margin-top: -40%; font-family: Jua;">
 	
 		</div>
 	</div>
 	<!--  여기에 헤더부분 추가  -->
 	<p
-		style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
+		style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;  font-family: Jua;">
 		함께자바</p>
 	<hr>
-	<div class="talk_header">
 		<section class="ftco-section ftco-degree-bg"
-			style="padding-top: 10px;">
+			style="padding-top: 10px; font-family: Jua;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 sidebar ftco-animate">

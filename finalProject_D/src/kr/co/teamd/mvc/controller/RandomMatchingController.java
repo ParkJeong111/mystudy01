@@ -204,7 +204,10 @@ public class RandomMatchingController {
 		
 	}
 	
+	@RequestMapping(value= "test")
+	public String test() {
+			return "test";
+		}	
 	
-
 	
 }

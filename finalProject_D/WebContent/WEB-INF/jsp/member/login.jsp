@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<%@ include file="header.jsp" %>
+<%@ include file="header.jsp" %>
 <html lang="ko">
 <head>
 <style>
@@ -45,9 +45,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/boot/css/style.css">
-</head>
-<body>
-
+</head><body>
 	
 	<!-- END nav -->
 
@@ -58,7 +56,7 @@
 	
 		</div>
 	</div>
-	<section class="ftco-section contact-section ftco-degree-bg" style="width: 80%; margin-left: 25%;">
+	<section class="ftco-section contact-section ftco-degree-bg" style="width: 80%; margin-left: 25%; font-family: Jua;">
 		<div class="container"style="margin: auto;width: 100%">
 			<div class="row d-flex mb-5 contact-info">
 				<div class="col-md-6 mb-4" style="margin-left: 20%;">

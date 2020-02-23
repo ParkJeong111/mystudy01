@@ -60,11 +60,11 @@ function createWheel() {
           var rndNum = Math.floor((Math.random() * 34) + 0);
         }else{
           var rndNum = result;
+          
         }
         
 
-
-        
+        console.log(rndNum);
         winningNum = rndNum;
         spinTo(winningNum);
 
@@ -153,7 +153,7 @@ function resetAni() {
             duration: temptime, // [optional, default: 0, in ms] how long you want it to last in milliseconds
             timingFunction: 'ease-in-out', // [optional, default: ease] specifies the speed curve of the animation
             complete: function () {
-
+            		con
             } //[optional]  Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
         });
 
@@ -168,3 +168,4 @@ function resetAni() {
 
 
     }
+    

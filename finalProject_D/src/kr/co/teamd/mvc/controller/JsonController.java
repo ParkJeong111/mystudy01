@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import kr.co.teamd.mvc.dao.AdminHostInter;
@@ -25,6 +24,7 @@ import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
 import kr.co.teamd.mvc.dto.RandomMatchingDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
@@ -52,6 +52,7 @@ public class JsonController {
 	
 	@Autowired
 	private RandomMatchinginter randommatching;
+	
 
 	@RequestMapping("talkAjax")
 	public List<BoardListAjaxDTO> boardAjax(@RequestParam("check") int check) {
@@ -138,7 +139,8 @@ public class JsonController {
 		return hdao.hnamechk(hname);
 	}
 	
-	@RequestMapping(value = "btype2select")    // 게시글 작성 type2 호스트 낚시터 이름 
+	// 게시글 작성 type2 호스트 낚시터 이름 
+	@RequestMapping(value = "btype2select")    
 	public List<String> btype2select(HttpServletRequest request, int btypeValue) {
 		HttpSession session = request.getSession();
 		String mid = (String) session.getAttribute("mid");
@@ -153,5 +155,28 @@ public class JsonController {
 		List<String> hnamelist = bdao.btype2select(chkbdto);
 		
 		return hnamelist;
+	
 	}
+	
+	// 안드로이드 로그인 처리
+	@RequestMapping(value = "androidLogin", produces = "application/json;charset=utf-8")
+	public MemberDTO androidLogin(MemberDTO mdto){
+		System.out.println("mid : " + mdto.getMid());
+		System.out.println("mpwd : " + mdto.getMpwd());
+		
+//		String mid = (String) mdto.getMid();
+//		String mpwd = (String) mdto.getMpwd();
+		MemberDTO m = mdao.idCheck(mdto);
+		if(m != null) {
+			System.out.println("로그인 성공!");
+//			System.out.println(mdto.getMid());
+//			System.out.println(mdto.getMpwd());
+		}  else {
+			System.out.println("로그인 실패~~~~~!");
+		}
+		
+		return mdto;
+	}
+	
+	
 }
