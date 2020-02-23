@@ -178,7 +178,7 @@
           <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
           <li class="nav-item" id = "ModalGameBtn"><a href="javascript:void(0)" class="nav-link" onclick="game()">게임</a></li>
           <li class="nav-item" id = "openModalBtn"><a href="#" class="nav-link">랜덤매칭</a></li>
-          <li class="nav-item"><a href="game" class="nav-link">서비스</a></li>
+          <li class="nav-item" id = "serviceBtn"><a href="#" class="nav-link">서비스</a></li>
           <li class="nav-item"><a href="#" class="nav-link"><span class="submenumorem">더보기</span><i class="ti-angle-down"></i></a>
               <ul class="submenumore scrolled awake">
           	  	<li class="nav-link"><a href="notice">공지사항</a></li>
