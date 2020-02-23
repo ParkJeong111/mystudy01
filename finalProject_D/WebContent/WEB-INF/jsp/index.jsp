@@ -444,7 +444,7 @@ input[type="radio"] + label:after {
     max-height: 9em;
 }
 
-input:focus {
+/* input:focus {
     border: 1px solid black;
 }
 
@@ -455,7 +455,7 @@ input:not(:focus):invalid {
 
 input:not(:focus):valid {
     border: 1px solid green;
-}
+} */
 
 
 form ul {

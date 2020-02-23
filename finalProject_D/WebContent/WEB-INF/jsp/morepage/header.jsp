@@ -343,7 +343,7 @@ input[type="radio"] + label:after {
     max-height: 9em;
 }
 
-input:focus {
+/* input:focus {
     border: 1px solid black;
 }
 
@@ -354,7 +354,7 @@ input:not(:focus):invalid {
 
 input:not(:focus):valid {
     border: 1px solid green;
-}
+} */
 
 
 form ul {
@@ -699,7 +699,7 @@ label {
 	 				urlloc_first = "weather?x=87&y=68"
 	 				urlloc_second = "weather?x=98&y=76"
 	 				$('#loc_first').html('<div id="loc_first">통영</div>');
-	 				$('#loc_second').html('<div id="loc_second">제주</div>');
+	 				$('#loc_second').html('<div id="loc_second">부산</div>');
 	 			}
 		 		$.ajax({
 	
