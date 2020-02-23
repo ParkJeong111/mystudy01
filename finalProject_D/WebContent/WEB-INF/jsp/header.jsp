@@ -545,7 +545,6 @@ label {
 								<p class="very-fast">남해동부</p>
 							</div>
 						</div>
-            <br>
             <div>
            	<ul style="list-style: none; margin-left: -20px; width: 130px;">
            		<li><b>기온&nbsp;</b><a class="temp-first">-</a></li>
@@ -576,7 +575,6 @@ label {
             <div class="weather-date"></div>
             <div class="weather-state-text-second"></div>
             <div>
-            			<br>
            	<ul style="list-style: none; margin-left: -40px; width: 130px;">
            		<li><b>기온&nbsp;</b><a class="temp-first">-</a></li>
             	<li><b>강수 확률&nbsp;</b><a class="ratio-second">-</a></li>
@@ -810,6 +808,7 @@ label {
 		 		    	                   	case "100":
 		 		    	                    	$('.snowfall-first').html("20m 이상"); 
 		 		    	                       	break;
+ 
 		 		    	                   }
 		 		    				  }else if(category == "POP"){ //강수확률 %
 		 		    					  $('.ratio-first').html(val+"%"); 
