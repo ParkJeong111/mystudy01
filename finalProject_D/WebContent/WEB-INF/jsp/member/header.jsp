@@ -576,7 +576,7 @@ label {
             <div class="weather-state-text-second"></div>
             <div>
            	<ul style="list-style: none; margin-left: -40px; width: 130px;">
-           		<li><b>기온&nbsp;</b><a class="temp-first">-</a></li>
+           		<li><b>기온&nbsp;</b><a class="temp-second">-</a></li>
             	<li><b>강수 확률&nbsp;</b><a class="ratio-second">-</a></li>
             	<li><b>강수량&nbsp;</b><a class="rainfall-second">-</a></li>
             	<li><b>파고&nbsp;</b><a class="snowfall-second">-</a></li>
