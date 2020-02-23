@@ -196,60 +196,224 @@
       	</div> 
 	</div>
 	<!-- 모달 기능 UI -->
-<div id="modalBox" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<style>
+
+input[type="radio"] {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+input[type="radio"]:focus + label:before,
+input[type="radio"]:hover + label:before {
+    border-color: black;
+}
+
+input[type="radio"]:active + label:before {
+    -webkit-transition-duration: 0;
+    transition-duration: 0;
+    -webkit-filter: brightness(0.2);
+    filter: brightness(0.2);
+}
+
+input[type="radio"] + label {
+    position: relative;
+    padding: 10px;
+    padding-left: 2em;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input[type="radio"] + label:before {
+    box-sizing: content-box;
+    content: '';
+    color: #900;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    margin-top: -9px;
+    border: 2px solid grey;
+    text-align: center;
+}
+
+input[type="radio"] + label:after {
+    box-sizing: content-box;
+    content: '';
+    background-color: #F85959;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
+}
+
+
+input[type="radio"]:checked + label:before {
+    -webkit-animation: borderscale 300ms ease-in;
+    animation: borderscale 300ms ease-in;
+    background-color: white;
+}
+
+input[type="radio"]:checked + label:after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+input[type="radio"] + label:before,
+input[type="radio"] + label:after {
+    border-radius: 50%;
+}
+
+@-webkit-keyframes borderscale {
+    50% {
+        box-shadow: 0 0 0 2px #900;
+    }
+}
+
+@keyframes borderscale {
+    50% {
+        box-shadow: 0 0 0 2px #900;
+    }
+}
+
+.error-msg {
+    display: block;
+    color: red;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 500ms ease-out;
+    transition: max-height 500ms ease-out;
+    will-change: max-height;
+}
+
+:required:not(:focus) ~ .error-msg,
+:invalid:required ~ .error-msg {
+    max-height: 9em;
+}
+
+input:focus {
+    border: 1px solid black;
+}
+
+input:not(:focus):invalid {
+    border: 1px solid red;
+    outline: none;
+}
+
+input:not(:focus):valid {
+    border: 1px solid green;
+}
+
+
+form ul {
+    list-style: none;
+}
+
+label {
+    cursor: pointer;
+    display: inline-block;
+}
+</style>
+<div id="modalBox2" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-family: Jua;">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-<h4 class="modal-title" id="myModalLabel" style = "margin: auto;">랜덤 매칭</h4>
+<h4 class="modal-title" id="myModalLabel" style = "margin: auto; font-family: Jua;">랜덤 매칭</h4>
 </div>
 <form action="randommatching" method="post">
 <div class="modal-body">
-<p>인원수</p>
-<input type = "radio" name = "rmcount" value="2" checked="checked">&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;
-<input type = "radio" name = "rmcount" value="4">&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;
-<input type = "radio" name = "rmcount" value="6">&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;
+<p><strong><b>인원수</b></strong></p>
+<input type = "radio" id = "radio1" name = "rmcount" value="2" checked="checked">
+<label for="radio1">2</label>
+<input type = "radio" id = "radio2" name = "rmcount" value="4">
+<label for="radio2">4</label>
+<input type = "radio" id = "radio3" name = "rmcount" value="6">
+<label for="radio3">6</label>
 <hr>
-<p>지역</p>
-<input type="radio" name = "rmlocation" value="seoul" checked="checked">&nbsp;서울&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="Gyeonggi">&nbsp;경기&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="Incheon">&nbsp;인천&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="Gangwon">&nbsp;강원&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="Chungbuk">&nbsp;충북&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="Chungnam">&nbsp;충남&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="Gyeongbuk">&nbsp;경북&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="Gyeongnam">&nbsp;경남&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value=" Jeolbuk">&nbsp;전북&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="Jeolnam">&nbsp;전남&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmlocation"  value="jeju">&nbsp;제주&nbsp;&nbsp;&nbsp;&nbsp;
+<p><strong><b>지역</b></strong></p>
+<input type="radio" id = "radio4" name = "rmlocation" value="seoul" checked="checked">
+<label for="radio4">서울</label>
+<input type="radio" id = "radio5" name = "rmlocation"  value="Gyeonggi">
+<label for="radio5">경기</label>
+<input type="radio" id = "radio6" name = "rmlocation"  value="Incheon">
+<label for="radio6">인천</label>
+<input type="radio" id = "radio7" name = "rmlocation"  value="Gangwon">
+<label for="radio7">강원</label>
+<input type="radio" id = "radio8" name = "rmlocation"  value="Chungbuk">
+<label for="radio8">충북</label>
+<input type="radio" id = "radio9" name = "rmlocation"  value="Chungnam">
+<label for="radio9">충남</label>
+<input type="radio" id = "radio10" name = "rmlocation"  value="Gyeongbuk">
+<label for="radio10">경북</label>
+<input type="radio" id = "radio11" name = "rmlocation"  value="Gyeongnam">
+<label for="radio11">경남</label>
+<input type="radio" id = "radio12"name = "rmlocation"  value=" Jeolbuk">
+<label for="radio12">전북</label>
+<input type="radio" id = "radio13" name = "rmlocation"  value="Jeolnam">
+<label for="radio13">전남</label>
+<input type="radio" id = "radio14"name = "rmlocation"  value="jeju">
+<label for="radio14">제주</label>
 <hr>
-<p>유형</p>
-<input type="radio" name = "rmtype" value="sea" checked="checked">&nbsp;바다&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmtype"  value="freshwater">&nbsp;민물&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmtype"  value="fishingcafe">&nbsp;낚시카페&nbsp;&nbsp;&nbsp;&nbsp;
+<p><strong><b>유형</b></strong></p>
+<input type="radio" id = "radio15" name = "rmtype" value="sea" checked="checked">
+<label for="radio15">바다</label>
+<input type="radio" id = "radio16" name = "rmtype"  value="freshwater">
+<label for="radio16">민물</label>
+<input type="radio" id = "radio17" name = "rmtype"  value="fishingcafe">
+<label for="radio17">낚시카페</label>
 <hr>
-<p>나이</p>
-<input type="radio" name = "rmage" value="20" checked="checked">&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmage"  value="30">&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmage"  value="40">&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmage"  value="50">&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmage"  value="60">&nbsp;60이상&nbsp;&nbsp;&nbsp;&nbsp;
+<p><strong><b>나이</b></strong></p>
+<input type="radio" id = "radio18" name = "rmage" value="20" checked="checked">
+<label for="radio18">20</label>
+<input type="radio" id = "radio19" name = "rmage"  value="30">
+<label for="radio19">30</label>
+<input type="radio" id = "radio20" name = "rmage"  value="40">
+<label for="radio20">40</label>
+<input type="radio" id = "radio21" name = "rmage"  value="50">
+<label for="radio21">50</label>
+<input type="radio" id = "radio22" name = "rmage"  value="60">
+<label for="radio22">60이상</label>
 <hr>
-<p>시간대</p>
-<input type="radio" name = "rmtime" value="am" checked="checked">&nbsp;오전&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmtime"  value="pm">&nbsp;오후&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmtime"  value="night">&nbsp;야간&nbsp;&nbsp;&nbsp;&nbsp;
+<p><strong><b>시간대</b></strong></p>
+<input type="radio" id = "radio23" name = "rmtime" value="am" checked="checked">
+<label for="radio23">오전</label>
+<input type="radio" id = "radio24" name = "rmtime"  value="pm">
+<label for="radio24">오후</label>
+<input type="radio" id = "radio25" name = "rmtime"  value="night">
+<label for="radio25">야간</label>
 <hr>
-<p>성별</p>
-<input type="radio" name = "rmsex" value="man" checked="checked">&nbsp;남자&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name = "rmsex"  value="woman">&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;
+<p><strong><b>성별</b></strong></p>
+<input type="radio" id = "radio26" name = "rmsex" value="man" checked="checked">
+<label for="radio26">남자</label>
+<input type="radio" id = "radio27" name = "rmsex"  value="woman">
+<label for="radio27">여자</label>
 <hr>
-<button type="submit" class="btn btn-primary" >매칭하기</button>
-<button type="button" class="btn btn-default" id="closeModalBtn" >매칭취소</button>
+<div style = "margin-left: 282px;">
+<button type="submit" class="btn btn-primary" style = "font-family: Jua;" >매칭하기</button>
+<button type="button" class="btn btn-default" id="closeModalBtn1" style = "font-family: Jua;">매칭취소</button>
 </div>
 </div>
-<div class="modal-footer">
+</div>
 </form>
-</div>
 </div>
 </div>
        <script>
