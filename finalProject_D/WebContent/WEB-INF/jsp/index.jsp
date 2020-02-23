@@ -466,7 +466,7 @@ label {
     cursor: pointer;
     display: inline-block;
 }
-</style>
+</style><!-- 
 <div id="modalBox1" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-family: Jua;">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
@@ -550,14 +550,16 @@ label {
 </form>
 </div>
 </div>
+ -->
+
 <script>
 // 모달 버튼에 이벤트를 건다.
 $('#openModalBtn1').on('click', function(){
-$('#modalBox1').modal('show');
+$('#modalBox').modal('show');
 });
 // 모달 안의 취소 버튼에 이벤트를 건다.
 $('#closeModalBtn2').on('click', function(){
-$('#modalBox1').modal('hide');
+$('#modalBox').modal('hide');
 });
 
 </script>
