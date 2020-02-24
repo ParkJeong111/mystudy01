@@ -3,9 +3,10 @@ package kr.co.teamd.mvc.dto;
 public class SearchlogDTO {
 
 	private int slnum;
-	private String slword;
+	private String slword, sldate;
 	
-	public int getSlnum() {
+	
+		public int getSlnum() {
 		return slnum;
 	}
 	public void setSlnum(int slnum) {
@@ -16,6 +17,12 @@ public class SearchlogDTO {
 	}
 	public void setSlword(String slword) {
 		this.slword = slword;
+	}
+	public String getSldate() {
+		return sldate;
+	}
+	public void setSldate(String sldate) {
+		this.sldate = sldate;
 	}
 	
 }

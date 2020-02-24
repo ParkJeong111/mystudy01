@@ -3,7 +3,9 @@ package kr.co.teamd.mvc.advice;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +73,11 @@ public class LogAdvice {
 			}
 		}
 		return rpath;
+	}
+	
+	@AfterReturning(pointcut = "execution(* kr.co.teamd.mvc.admincontroller.Admin*.a*(..))")
+	public void adminLog(JoinPoint jp) {
+		
 	}
 
 }
