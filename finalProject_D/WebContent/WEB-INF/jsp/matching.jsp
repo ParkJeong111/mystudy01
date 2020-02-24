@@ -1365,11 +1365,11 @@ li {
 							<section>
 								<div class="form-group" style="width: 280px;">
 									<input type="text" id="checkin_date" class="form-control"
-										placeholder="시작일">
+										placeholder="시작일" name = "startdate">
 								</div>
 								<div class="form-group" style="width: 280px;">
 									<input type="text" id="checkin_date" class="form-control"
-										placeholder="종료일">
+										placeholder="종료일" name = "enddate">
 								</div>
 							</section>
 
@@ -1451,7 +1451,7 @@ li {
 								<table style="line-height: 30px; margin-left: 18px;">
 									<tr>
 										<td style="width: 100px;"><input type="checkbox"
-											id="rbox8" value="서해중부" /><label for="rbox8">&nbsp;서해중부</label></td>
+											id="rbox30" value="서해중부" /><label for="rbox30">&nbsp;서해중부</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox9" value="서해남부" /><label
 											for="rbox9">&nbsp;서해남부</label></td>
 									</tr>
@@ -1498,12 +1498,13 @@ li {
 										<td><input type="checkbox" id="rbox22" value="제주" /><label
 											for="rbox22">&nbsp;제주</label></td>
 									</tr>
+									<input type="text" id="hservice" name="hservice" value="" hidden="hidden">
 								</table>
 							</section>
 						</div>
 					</div>
 					<div class="col-lg-9" >
-						<div class="row" style="padding-left: 80px;">
+						<div class="row" id = "matchinglistdiv" style="padding-left: 80px;">
 							<c:forEach items = "${matchlist }" var = "matchlist">
 							<div class="col-md-4 ftco-animate">
 								<div class="destination">
@@ -1533,10 +1534,10 @@ li {
 										<p class="days">
 										</p>
 										<hr>
-										<p class="bottom-area d-flex">
+										<!--  <p class="bottom-area d-flex">
 											<span><i class="icon-map-o"></i> ${matchlist.mblocation } </span> <span
 												class="ml-auto"><a href="#">매칭신청</a></span>
-										</p>
+										</p>-->
 									</div>
 								</div>
 							</div>
@@ -1626,9 +1627,50 @@ li {
 			location.href = "matching"
 			
 		});
-		$(function() {
-			
+		
+		
+		$('input[type="checkbox"]').change(function() {
+			var output = '';
+			$('input[type="checkbox"]:checked').each(function(index) {
+				if (index != 0){
+					output += '/';
+				}
+				output += $(this).val();
+			});
+			$('#hservice').attr('value', output);
 		});
+		
+		$(function() {
+			$('#submit').click(function() {
+				var startdate = $(':text[name="startdate"]').val();
+				var enddate = $(':text[name="enddate"]').val();
+				var mbtag = encodeURI($('#hservice').val())
+				
+				console.log($('#hservice').val());
+				$.ajax({
+					url : "matchingb?startdate="+startdate+"&enddate="+enddate+"&mbtag="+mbtag,
+					datatype : 'json',
+					success : function(data) {
+						$('#matchinglistdiv').html("");
+						console.log("성공");
+						$.each(data,function(key,value) {
+							console.log(value.mbtitle);
+							console.log("왜안나와");
+							$("#matchinglistdiv").append('<div class="col-md-4 ftco-animated">'
+								+ '<div class="destination"><a href="#"class="img img-2 d-flex justify-content-center align-items-center"style="background-image: url(${pageContext.request.contextPath}/resources/images/'+value.mbimage+');">'
+								+ '<div class="icon d-flex justify-content-center align-items-center"><span class="icon-search2"></span></div>'
+								+ '</a><div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="#">'+value.mbtitle+'</a></h3><p class="rate">'		
+								+ '<span style = "font-size: 15px;"> 출조일 : '+value.mbstartdate+'</span></p></div><div class="two"><span class="price">'+value.mbtag+'</span></div>'		
+								+ '</div><p>'+value.mbcontent+'</p><p class="days"></p><hr></div></div></div>'
+								);
+							});
+						}
+						});
+					});
+				});
+			
+	
+		
         
 		</script>
 		

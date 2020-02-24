@@ -192,6 +192,18 @@
 	<select id="randomlistresult" parameterType="String" resultType="rmdto">
 		select mrnum as rmnum,mrresult,mrtype as rmtype,mrcount as rmcount,mrlocation as rmlocation,mrage as rmage,mrtime as rmtime,mrsex as rmsex from matchingresult where mrresult like '%' || #{mid} || '%'
 	</select>
+	<!-- Matchingboard search  -->
+	<select id="optionsearch" parameterType="hashmap" resultType="mbdto">
+		select mbnum,mbtitle,mid,mbcontent,mbtag,mbperson,mblocation,mbimage,to_date(mbstartdate,'yyyy-MM-dd') as mbstartdate
+		,to_date(mbdate,'yyyy-MM-dd') as mbdate,mbreport
+		from matchingboard where to_date(mbstartdate,'yyyy-MM-dd') &gt; to_date(#{dto.startdate},'yyyy-MM-dd')
+		and to_date(mbstartdate,'yyyy-MM-dd') &lt; to_date(#{dto.enddate},'yyyy-MM-dd')
+		or
+		<foreach collection="list" item="array"></foreach>
+      
+
+	</select>
+	<!--  -->
 	
 	
 	
