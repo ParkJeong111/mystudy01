@@ -34,6 +34,7 @@ public class AdminMatchingboardDAO implements AdminMatchingboardInter {
 	public void matchlog_delete(String mbnum) {
 		ss.delete("admin.matchlogdelete",mbnum);
 	}
+
 	
 
 
