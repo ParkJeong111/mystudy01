@@ -65,8 +65,8 @@ public class AdminHostDAO implements AdminHostInter{
 	}
 
 	@Override
-	public HostDTO hostinfo(String hname) { //가맹점 상세정보
-		return ss.selectOne("admin.hostinfo", hname);
+	public HostDTO hostinfo(int hnum) { //가맹점 상세정보
+		return ss.selectOne("admin.hostinfo", hnum);
 	}
 
 	@Override

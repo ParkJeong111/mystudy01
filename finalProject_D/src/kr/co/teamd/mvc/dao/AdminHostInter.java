@@ -13,7 +13,7 @@ public interface AdminHostInter {
 	public void hostinsert(HostDTO hdto); // 가맹점 등록
 	public void updatehrstatus(HostDTO hdto); //가맹점 요청 수정
 	public List<HostDTO> hostalllist(); //가맹점 리스트
-	public HostDTO hostinfo(String hname);//해당 가맹점 정보 info
+	public HostDTO hostinfo(int hnum);//해당 가맹점 정보 info
 	public void hostupdate(HostDTO hdto); //가맹점 수정 (Post)
 	public void hostdelete(String hname); //가맹점 삭제 (Get로 보낼거)
 	
