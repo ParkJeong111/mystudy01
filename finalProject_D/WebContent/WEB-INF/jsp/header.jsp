@@ -476,9 +476,7 @@ label {
   	$(function() {
   		var hname = 0;
 		$("#mainsearchlist").click(function() {
-			
 			hname = $("#hname").val();
-			console.log($('#hname').val())
 			location.href = 'mainsearchlist?hname='+encodeURI($('#hname').val(),"UTF-8");
 			
 		});
