@@ -121,7 +121,7 @@
 	margin-left: 7px;
 	
 }
-/* 서비스지역검색 */
+/* 날씨지역검색 */
 .very-fast:hover {
 	color: red;
 }
@@ -178,7 +178,7 @@
           <li class="nav-item"><a href="itemslist?type=2" class="nav-link">민물</a></li>
           <li class="nav-item" id = "ModalGameBtn"><a href="javascript:void(0)" class="nav-link" onclick="game()">게임</a></li>
           <li class="nav-item" id = "openModalBtn"><a href="#" class="nav-link">랜덤매칭</a></li>
-          <li class="nav-item" id = "serviceBtn"><a href="#" class="nav-link">서비스</a></li>
+          <li class="nav-item" id = "serviceBtn"><a href="#" class="nav-link">날씨</a></li>
           <li class="nav-item"><a href="#" class="nav-link"><span class="submenumorem">더보기</span><i class="ti-angle-down"></i></a>
               <ul class="submenumore scrolled awake">
           	  	<li class="nav-link"><a href="notice">공지사항</a></li>
@@ -505,13 +505,13 @@ label {
 	}	
   </script>
   
-    <!-- 서비스 -->
+    <!-- 날씨 -->
 <div id="servicemodalBox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-family: Jua;">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
 <p><strong><b style="margin-top: 30px;"><img id="serviceloc" style="margin-left:30px;margin-top:20px; width: 40px;" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4Ij48Zz48Zz48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMjEuMjM0IDUxMmgyNzAuMTYyYzIuOTc1IDAgNi4yNzEtMi41NyA1LjM5Ni01LjQwMmwtMTkuNDU0LTY0LjA0Yy0uODc1LTIuODMzLTIuNDIxLTUuMzczLTUuMzk2LTUuMzczaC0yMzEuMjU1Yy0yLjk0NiAwLTQuNTIxIDIuNTQxLTUuMzk2IDUuMzczbC0xOS40NTQgNjQuMDRjLS44NzQgMi44MzIgMi40MjIgNS40MDIgNS4zOTcgNS40MDJ6IiBmaWxsPSIjYmNlYTczIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L2c+PGc+PHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMzM3Ljk2NCA0NDIuNTU3IDE5LjQ4MyA2NC4wNGMuODQ2IDIuODMzLTIuMzkyIDUuMzczLTUuMzM3IDUuNDAyaDM5LjI4NmMyLjk3NSAwIDYuMjcxLTIuNTcgNS4zOTYtNS40MDJsLTE5LjQ1NC02NC4wNGMtLjg3NS0yLjgzMy0yLjQyMS01LjM3My01LjM5Ni01LjM3M2gtMzkuMzQ1YzIuOTQ3IDAgNC41MjIgMi41NDEgNS4zNjcgNS4zNzN6IiBmaWxsPSIjOTlkNTNiIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L2c+PGc+PHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMjM1LjM4OSA0NTguMzU2Yy00OC4zNTctNTUuMDc1LTEyMi44NDYtMTI3LjIwNC0xNDcuMDI1LTE5NC40NTctNDguMDk0LTEzMy44MzMgMjMuODU4LTI2My44OTkgMTY3LjY0NS0yNjMuODk5IDE0My43NTggMCAyMTUuNzM5IDEzMC4wNjYgMTY3LjYxNiAyNjMuODk5LTI0LjE0OSA2Ny4yNTItOTguNjM5IDEzOS4zODItMTQ3LjAyNSAxOTQuNDU3LTE4Ljk4NyAyMS42MzktMjIuMTk1IDIxLjYzOS00MS4yMTEgMHoiIGZpbGw9IiNmZDQ3NTUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48Zz48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0yNTYuMDA5IDMwMy45OTRjNjguNTk4IDAgMTI0LjUzOC01Ni4wMSAxMjQuNTM4LTEyNC42OTMgMC02OC43MTItNTUuOTQtMTI0LjcyMi0xMjQuNTM4LTEyNC43MjJzLTEyNC41NjcgNTYuMDEtMTI0LjU2NyAxMjQuNzIyYzAgNjguNjgzIDU1Ljk2OSAxMjQuNjkzIDEyNC41NjcgMTI0LjY5M3oiIGZpbGw9IiNmOGY2ZjYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48Zz48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xOTkuNTE1IDE4Mi4yMjEgMTEuNTIgMTYuODUuODQ2IDIxLjU4LjM3OSAxMy40OTFjLjM3OSA0LjU1NiA0LjA4MyA2LjkyMSA4LjM0MSA2LjA0NWwxMy42NS0zLjM1OCAyMS43NTgtNS4zNDQgMjEuNzU4IDUuMzQ0IDEzLjY1IDMuMzU4YzQuMjU4Ljg3NiA3Ljk2Mi0xLjQ4OSA4LjM0MS02LjA0NWwuMzc5LTEzLjQ5MS44NDYtMjEuNTggMTIuNDI1LTE4LjE2NCA3LjY3MS0xMS4zM2MyLjIxNy0zLjU5MiAxLjA3OS03LjcwOS0zLjMyNS05LjQ5MWwtMTMuMjQxLTQuNjQzLTIxLjA4Ny03LjQxNy0xNC0xNi44Mi04LjgwOC0xMC41NDJjLTEuMjgzLTEuNDMxLTIuOTE3LTIuMjc4LTQuNjA4LTIuNDUzLTEuNjkyLjE3NS0zLjMyNSAxLjAyMi00LjYwOCAyLjQ1M2wtOC44MDggMTAuNTQyLTE0IDE2LjgyLTIxLjExNiA3LjQxNy0xMy4yMTIgNC42NDNjLTQuNDA0IDEuNzgxLTUuNTQyIDUuODk5LTMuMzI1IDkuNDkxeiIgZmlsbD0iI2ZiODYyNyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9nPjxnPjxwYXRoIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0ibTI2MS4xNzEgMTIxLjMwNWM1LjI3OSAxNS41NjUgOC4xOTYgMzIuNjE5IDguMTk2IDUwLjUyIDAgMjEuNjM5LTQuMjU4IDQyLjA1MS0xMS44MTIgNjAuMDM5bDIwLjIxMiA0Ljk2NCAxMy42NSAzLjM1OGM0LjI1OC44NzYgNy45NjItMS40ODkgOC4zNDEtNi4wNDVsLjM3OS0xMy40OTEuODQ2LTIxLjU4IDEyLjQyNS0xOC4xNjQgNy42NzEtMTEuMzNjMi4yMTctMy41OTIgMS4wNzktNy43MDktMy4zMjUtOS40OTFsLTEzLjI0MS00LjY0My0yMS4wODctNy40MTctMTQtMTYuODJ6IiBmaWxsPSIjZjI2NzFmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L2c+PGc+PHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMzEzLjQwNyAxODAuOTA3LTEyLjQyNSAxOC4xNjQtLjg0NiAyMS41OC0uMzc5IDEzLjQ5MWMtLjM3OSA0LjU1Ni00LjA4MyA2LjkyMS04LjM0MSA2LjA0NWwtMTMuNjUtMy4zNTgtMjAuMjEyLTQuOTY0Yy0xMS4zNzUgMjcuMTg3LTMwLjI0NSA0OC44NTUtNTMuMjU3IDYwLjkxNiAxNS43NSA3LjIxMyAzMy4yNzggMTEuMjE0IDUxLjcxMSAxMS4yMTQgNjguNzczIDAgMTI0LjUzOC01NS44MzQgMTI0LjUzOC0xMjQuNjkzIDAtNjguODg4LTU1Ljc2NS0xMjQuNzIyLTEyNC41MzgtMTI0LjcyMi0xMi45MiAwLTI1LjQwMyAxLjk4Ni0zNy4xMjggNS42MzYgMTguNzgzIDE0LjM5NyAzMy42ODYgMzUuNzQzIDQyLjI5IDYxLjA5MWw4LjI1NCA5LjkgMTQgMTYuODIgMjEuMDg3IDcuNDE3IDEzLjI0MSA0LjY0M2M0LjQwNCAxLjc4MSA1LjU0MiA1Ljg5OSAzLjMyNSA5LjQ5MXoiIGZpbGw9IiNlMmUyZTIiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48Zz48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0zMzYuMjE1IDI3NC43MDRjLTIzLjIxNiA1NC45MjktNzcuMzE4IDExMi40NTctMTIxLjM4OCAxNjAuNzU3LjUyNS41ODQgMS4wNSAxLjEzOSAxLjU0NiAxLjcyMyA2LjY1IDcuMzAxIDEzLjAzNyAxNC4zNjcgMTkuMDE2IDIxLjE3MiAxOS4wMTYgMjEuNjM5IDIyLjIyNCAyMS42MzkgNDEuMjExIDAgNi4wMDgtNi44MDQgMTIuMzk1LTEzLjg3MSAxOS4wMTYtMjEuMTcyIDQ3LjA0NC01MS42ODggMTA2LjgzNC0xMTQuMzU1IDEyOC4wMDgtMTczLjI4NSA0OC4wNjUtMTMzLjcxNi0yMy43MTItMjYzLjY5NS0xNjcuMjM2LTI2My44OTloLS4zNzktLjM3OWMtMTYuMTg3LjAyOS0zMS40NDEgMS42OTQtNDUuNzMyIDQuODE4IDQ4LjM1NyA4LjQ5OCA4Ni4yMTQgMzMuMzIgMTExLjA2MyA2OC4wNDEgMzUuNzU3IDIxLjkwMiA1OS41ODYgNjEuMzgzIDU5LjU4NiAxMDYuNDQyLS4wMDEgMzguMjg0LTE3LjIwOCA3Mi41MzgtNDQuMzMyIDk1LjQwM3oiIGZpbGw9IiNmOTJjM2QiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L2c+PC9zdmc+Cg==" />지역선택</b></strong></p>
-<h4 class="modal-title" id="myModalLabel" style = "margin: auto; font-family: Jua; padding-right: 70px;">서비스</h4>
+<h4 class="modal-title" id="myModalLabel" style = "margin: auto; font-family: Jua; padding-right: 70px;">날씨</h4>
 </div>
 <br>
 
@@ -612,7 +612,7 @@ label {
 	}); */
  $(function() {
 	 
-     // 서비스 모달을 노출시키기 위한 기능
+     //날씨 모달을 노출시키기 위한 기능
      $('#serviceBtn').on('click', function(){
   	   $('#servicemodalBox').modal('show');
   	   });
