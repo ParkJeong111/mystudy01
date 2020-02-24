@@ -2,19 +2,23 @@ package kr.co.teamd.mvc.controller;
 
 import java.util.HashMap;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
 import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardInter;
 import kr.co.teamd.mvc.dao.HostInter;
 import kr.co.teamd.mvc.dao.MainDAO;
+import kr.co.teamd.mvc.dao.MatchingBoardInter;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dao.RandomMatchinginter;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
@@ -24,6 +28,7 @@ import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+import kr.co.teamd.mvc.dto.MatchingboardDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
 import kr.co.teamd.mvc.dto.RandomMatchingDTO;
@@ -52,6 +57,9 @@ public class JsonController {
 	
 	@Autowired
 	private RandomMatchinginter randommatching;
+	
+	@Autowired
+	private MatchingBoardInter MatchingBoard;
 	
 
 	@RequestMapping("talkAjax")
@@ -178,6 +186,38 @@ public class JsonController {
 		
 		return mdto;
 	}
+	// 함께자바 검색기능
+	@RequestMapping(value = "matchingb")
+	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto){
+		System.out.println(dto.getMbtag());
+		String[] service = dto.getMbtag().split("/");
+		HashMap<String, Object> list = new HashMap<String, Object>();
+		String md = "0";
+		String[] modifysdate = dto.getStartdate().split("/");
+		if(modifysdate[0].length() == 1) {
+			modifysdate[0] = md.concat(modifysdate[0]);
+		}
+		if(modifysdate[1].length() == 1) {
+			modifysdate[1] = md.concat(modifysdate[1]);
+		}
+		dto.setStartdate(modifysdate[2].substring(2, 4) + "/" + modifysdate[0] + "/" + modifysdate[1]);
+		
+		
+		String[] modifyedate = dto.getEnddate().split("/");
+		if(modifyedate[0].length() == 1) {
+			modifyedate[0] = md.concat(modifyedate[0]);
+		}
+		if(modifyedate[1].length() == 1) {
+			modifyedate[1] = md.concat(modifyedate[1]);
+		}
+		list.put("dto", dto);
+		list.put("list", service);
+		dto.setEnddate(modifyedate[2].substring(2, 4) + "/" + modifyedate[0] + "/" + modifyedate[1]);
+		List<MatchingboardDTO> searchdto = MatchingBoard.optionsearch(list);
+		
+		return searchdto;
+	}
+	
 	
 	
 }
