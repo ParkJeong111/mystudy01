@@ -101,6 +101,10 @@
 
 
 	<!-- 권세진 영역 시작  -->
+	<select id="recommendlist" resultType="rdto">
+		select * from (select r.hname, h.himage, substr(haddr,'1','2') haddr, count(r.hname) cnt from reservation r, host h where r.hname=h.hname group by r.hname, h.himage, h.haddr order by 3 desc) 
+		where <![CDATA[rownum <=10]]>
+	</select>
 	
 	<!-- 권세진 영역 끝  -->
 	

@@ -9,6 +9,7 @@ import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+import kr.co.teamd.mvc.dto.ReservationDTO;
 
 @Repository
 public class BoardDAO implements BoardInter{
@@ -75,6 +76,9 @@ public class BoardDAO implements BoardInter{
 		return ss.selectOne("talk.androidBoardData", bdto);
 	}
 
-
+	@Override
+	public List<ReservationDTO> recommendlist() {
+		return ss.selectList("talk.recommendlist");
+	}
 
 }

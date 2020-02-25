@@ -1585,12 +1585,12 @@ margin-top: -3%;}
 	<section>
 		<div class="contents_list">
 
-			<div class="talk_list">
+			<div class="talk_list" style="width: 100%">
 
 				<div id="talk_detail_list" data-start_key="0" data-offset="0"
-					data-limit="30" data-last_offset="" data-is_work="">
+					data-limit="30" data-last_offset="" data-is_work="" style="float: left;">
 					<!-- 	<for문 사용하기> -->
-					<c:forEach var="e" items="${list}">
+					<c:forEach var="e" items="${test.list}">
 						<div class="talk_box_area" id="talk_visual135516">
 							<div class="boardtitle" >
 										<strong><b>${e.btitle}</b></strong> 
@@ -1646,6 +1646,23 @@ margin-top: -3%;}
 						</div>
 					</c:forEach>
 
+				</div>
+				<div style="float: right;">
+					<p>고기자바 추천 업체</p>
+					<c:forEach  var="i" items="${test.recommendlist}">
+					<div style="width: 320px; height: 130px;">
+						<a href="#">
+							<img style="width: 120px; height: 130px;"
+											src="${pageContext.request.contextPath}/resources/images/${i.himage}"
+											alt="">
+							<div>
+							<em></em>
+							<strong>${i.hname }</strong>
+								<span><i>${i.haddr }</i></span>
+							</div>
+						</a>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

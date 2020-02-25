@@ -5,6 +5,7 @@ import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+import kr.co.teamd.mvc.dto.ReservationDTO;
 
 public interface BoardInter {
 	public List<BoardListAjaxDTO> boardAlllist(); 
@@ -18,4 +19,5 @@ public interface BoardInter {
 	public void itemboardAdd(ItemsboardDTO itbdto);  // 중고 게시글 추가 (재민)
 	public List<String> btype2select(ChkBTypeDTO chkbdto); // 게시판 호스트 가게명 
 	public BoardDTO androidBoardData(BoardDTO bdtodata);  // 안드 보드리스트
+	public List<ReservationDTO> recommendlist(); //추천업체리스트
 }
