@@ -39,12 +39,18 @@
         group by r.mid, h.hname, h.htype
 	</select>
 	
+	<!-- ============================ 안드로이드 게시판 데이터 불러오기 ===================================== -->
+	<select id="androidBoardData" parameterType="bdto" resultType="bdto">
+		select hname, btitle, bcontent, bimage, bdate from board
+	</select>
+	
+	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
  	parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
   	<select id="boardAjax" parameterType="int" resultType="bldto">		
 		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
 		from board b, host h, member m
-		where b.hname=h.hname and b.mid=m.mid
+		where b.hname=h.hname(+) and b.mid=m.mid
 	
 		<choose>
 			<when test="check==1">
@@ -73,7 +79,7 @@
   	<select id="boardInfo" parameterType="int" resultType="bldto">	<!-- 게시글 상세정보 -->	
 		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
 		from board b, host h, member m
-		where b.hname=h.hname and b.mid=m.mid and b.bnum=#{bnum}
+		where b.hname=h.hname(+) and b.mid=m.mid and b.bnum=#{bnum}
   	</select>
   	<select id="itemsboardinfo" parameterType="int" resultType="ibdto">
   		select ib.ibnum,  ib.ibtitle, ib.ibname, m.mid, m.mphone, ib.ibcontent, ib.ibmoney, ib.ibimage, ib.ibstatus, to_char(ib.ibdate,'yyyy-mm-dd') ibdate, ib.ibreport

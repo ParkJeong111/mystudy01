@@ -19,7 +19,7 @@ public interface MemberInter {
 	public void addMember(MemberDTO mdto);  // 회원 가입 (재민)
 	public int idChk(String id);  // 회원가입(아이디 중복확인)
 	public void loginLogInsert(LoginlogDTO logdto); //로그인 로그
-	public MemberDTO androidLogin(String mid, String mpwd);    // 안드 로그인 체크
+	public MemberDTO androidLogin(MemberDTO mdto);    // 안드 로그인 체크
 	public void gamepointUpdate(MemberDTO dto);// 게임을 통해 포인트를 지급해주는 기능
 	public void gamepointlogInsert(PointlogDTO dto); // 1일 1회만 플레이하게 하기 위한 로그 입력
 	public int gamecheck(String mid); // 1일 1회 체크를 위한 입력

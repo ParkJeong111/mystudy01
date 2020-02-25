@@ -43,21 +43,21 @@
 		hg.hgmoney as hgmoney,
 		h.haddr as haddr, h.hnum as hnum, h.hspecies as hspecies,
         (select count(*) from board b where h.hname = b.hname and b.btype1 = '유저조행기') as boardnum
-		from host h, (select hgname, hgmoney, hname from hostgoods
-		where rownum = 1) hg
-		where
+		from host h, (select distinct hname, min(hgmoney) hgmoney from hostgoods
+       	group by hname) hg
+		where  h.hname = hg.hname
 		<choose>
 			<when test="type == 1">
-				htype = '바다'
+				and htype = '바다'
 			</when>
 			<when test="type == 2">
-				htype = '민물'
+				and htype = '민물'
 			</when>
 			<when test="type == 3">
-				h.hname like '%' || '전문' || '%'
+				and h.hname like '%' || '전문' || '%'
 			</when>
 			<when test="type == 4">
-				h.hname like '%' || '카페' || '%'
+				and h.hname like '%' || '카페' || '%'
 			</when>
 			<otherwise></otherwise>
 		</choose>
@@ -126,9 +126,9 @@
 		select h.himage as himage,h.hname as hname, h.hstar as hstar,
 		hg.hgmoney as hgmoney, h.haddr as haddr, h.hnum as hnum, h.hspecies as hspecies,
 		(select count(*) from board b where h.hname = b.hname and b.btype1 = '유저조행기') as boardnum
-		from host h, (select hgname, hgmoney, hname from hostgoods
-		where rownum = 1) hg
-		where hgmoney between #{minprice} and #{maxprice}
+		from host h, (select distinct hname, min(hgmoney) hgmoney from hostgoods
+       group by hname) hg
+		where hgmoney between #{minprice} and #{maxprice} and h.hname = hg.hname
 		<choose>
 			<when test="type == 1">
 				and htype = '바다'

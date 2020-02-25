@@ -305,7 +305,6 @@ function hostdelete(hname) {
 
 		
 		$('table > tbody > tr').click(function() {
-			console.log('표시 컬러들어가기')
 			$(this).addClass("selectedRow")
 			$('table > tbody > tr').not(this).removeClass("selectedRow")
 
@@ -315,17 +314,17 @@ function hostdelete(hname) {
 <%-- 이 부분은 Ajax를 이용한 가맹점 상세정보 내역 //// -> 이후 수정,삭제를 위함 --%>
 	
 
-		$('table > tbody > tr > td')
-				.click(
-						function() {
-
+		$('.hlistname').each(function () {
+			
+		
+				$(this).click(function() {
+					console.log($(this).text());
+					var hnum = $(this).prev().prev().text();
+					console.log(hnum);
 							$(".chzn-choices").html = ""
-							var value = $(this).text();
 
 							$.ajax({
-										url : "hostinfo?hname="
-												+ encodeURI($(this).text(),
-														"UTF-8"),
+										url : "hostinfo?hnum="+hnum,
 										datatype : 'json',
 										success : function(data) {
 
@@ -407,6 +406,7 @@ function hostdelete(hname) {
 									});
 
 						});
+		});
 
 		$('input[name="hfile"]').click(function() {
 			$('#imagename').text("");

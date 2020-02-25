@@ -106,7 +106,7 @@
 								
 								</div>
 								
-								<div class="title">충남</div>
+								<div class="title">인천</div>
 							
 							</div>
 							
@@ -120,7 +120,7 @@
 								
 								</div>
 								
-								<div class="title">충북</div>
+								<div class="title">충남</div>
 							
 							</div>
 							
@@ -134,7 +134,7 @@
 								
 								</div>
 								
-								<div class="title">경남</div>
+								<div class="title">충북</div>
 							
 							</div>
 							
@@ -148,7 +148,7 @@
 								
 								</div>
 								
-								<div class="title">경북</div>
+								<div class="title">경남</div>
 							
 							</div>
 							
@@ -162,7 +162,7 @@
 								
 								</div>
 								
-								<div class="title">전남</div>
+								<div class="title">경북</div>
 							
 							</div>
 							
@@ -176,7 +176,7 @@
 								
 								</div>
 								
-								<div class="title">전북</div>
+								<div class="title">전남</div>
 							
 							</div>
 							
@@ -190,7 +190,7 @@
 								
 								</div>
 								
-								<div class="title">강원도</div>
+								<div class="title">전북</div>
 							
 							</div>
 							
@@ -204,7 +204,7 @@
 								
 								</div>
 								
-								<div class="title">제주도</div>
+								<div class="title">강원도</div>
 							
 							</div>	
 							

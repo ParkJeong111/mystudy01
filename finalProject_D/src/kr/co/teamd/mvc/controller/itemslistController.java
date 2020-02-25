@@ -53,6 +53,7 @@ public class itemslistController {
 	@GetMapping(value = "mainsearchlist")
 	public ModelAndView mainsearchlist(String hname) {
 		ModelAndView mav = new ModelAndView();
+		mainsearch.searchlogInsert(hname);
 		List<HostlistDTO> mainsearchlist = mainsearch.mainsearchlist(hname);
 		mav.addObject("mainsearchlist", mainsearchlist);
 		mav.setViewName("mainsearchlist");
