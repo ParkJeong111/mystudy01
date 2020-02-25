@@ -493,7 +493,7 @@ section{width:964px;position:relative;margin:0 auto;}
 		<div class="jgo_manage_detail clearfix">
 			<div class="jgo_thumbnail">
 				<div class="img_box">
-																<img src="https://img.moolban.com/unsafe/870x760/talk/20200205/temp_20200205_640519502.jpg?date=1581676448" alt="">
+																<img src="${pageContext.request.contextPath}/resources/images/${dto.ibimage}"alt="">
 									</div>
 			</div>
 			<div class="jgo_info_con">
@@ -503,7 +503,7 @@ section{width:964px;position:relative;margin:0 auto;}
 					<dt>${dto.ibname}</dt>
 					<dd>
 												<fmt:formatNumber value="${dto.ibmoney}" pattern="#,###"/>원
-												<a href="http://search.danawa.com/dsearch.php?query=벵퀴시 40 카디프 하드케이스 포함 17&amp;tab=main" target="_blank">시세검색<img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/link_arrow_07.png" alt=""></a>
+												<a href="http://search.danawa.com/dsearch.php?query=${dto.ibname}&amp;tab=main" target="_blank">시세검색<img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/link_arrow_07.png" alt=""></a>
 					</dd>
 				</dl>
 				<div class="info_box">
@@ -555,7 +555,7 @@ section{width:964px;position:relative;margin:0 auto;}
 			<div class="view_info_comment view_contents" id="comment_box">
 				<section>
 					<div class="check_title clearfix">
-						<p>댓글 <span id="reply_total_cnt">2</span></p>
+						<p>댓글 <span id="reply_total_cnt">0</span></p>
 						<a class="refresh_btn"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_refresh.png" alt=""></a>
 						<div class="check_radio">
 

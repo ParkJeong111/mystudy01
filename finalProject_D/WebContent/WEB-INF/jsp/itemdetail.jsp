@@ -2976,6 +2976,7 @@ keyframes swiper-preloader-spin { 100%{
 
 			// 주소로 위도 경도 받아오는 함수
 			var geocoder = new kakao.maps.services.Geocoder();
+			
 			var callback = function(result, status) {
 				if (status === kakao.maps.services.Status.OK) {
 					endposition_y = result[0].y; // 위도
@@ -3015,7 +3016,6 @@ keyframes swiper-preloader-spin { 100%{
 				}
 			};
 			var haddr = '<c:out value="${host.haddr}"/>'
-
 			geocoder.addressSearch(haddr, callback);
 
 			$.fn.priceBuilder = function(price) {
