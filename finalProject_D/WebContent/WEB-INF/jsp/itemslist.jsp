@@ -1261,61 +1261,61 @@ width: 855px;
 								style="text-align: center; font-weight: bold;">¸®ºä º°Á¡</h3>
 							<form method="post" class="star-rating">
 								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star" value="0"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+									<input type="radio" id="starradio0" name="star" value="0"> 
+									<label for="starradio0">
+									<p class="rate starrate">
 											<span>&nbsp;»ó°ü¾øÀ½</span>
-										</p>
+									</p>
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star" value="5"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+									<input type="radio" id="starradio5" name="star" value="5"> 
+									<label for="starradio5">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star"  value="4"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+									<input type="radio" id="starradio4" name="star" value="4"> 
+									<label for="starradio4">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star-o"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star"  value="3"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+									<input type="radio" id="starradio3" name="star" value="3"> 
+									<label for="starradio3">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star"></i><i class="icon-star-o"></i><i
 												class="icon-star-o"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star"  value="2"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+									<input type="radio" id="starradio2" name="star" value="2"> 
+									<label for="starradio2">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star-o"></i><i class="icon-star-o"></i><i
 												class="icon-star-o"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
 								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star"  value="1"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+									<input type="radio" id="starradio1" name="star" value="1"> 
+									<label for="starradio1">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star-o"></i><i
 												class="icon-star-o"></i><i class="icon-star-o"></i><i
 												class="icon-star-o"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
 							</form>
@@ -1391,10 +1391,11 @@ width: 855px;
 		<script>
 		$(function() {
 			
+			// ¸®ºä º°Á¡ °Ë»ö
 			$("input:radio[name=star]").click(function(){
 				star = $(this).val();
 				$.ajax({
-					url : "searchlist?searchValue=" + $('#searchValue').val() + '&searchLocation=' + $('#searchLocation').val() + "&minprice=" + $('#minprice').val() 
+					url : "searchlist?searchValue=" + encodeURIComponent($('#searchValue').val()) + '&searchLocation=' + encodeURIComponent($('#searchLocation').val()) + "&minprice=" + $('#minprice').val() 
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
@@ -1408,6 +1409,14 @@ width: 855px;
 									star += '<i class="icon-star-o"></i>';
 								}
 							}
+							
+							var hspecies = value.hspecies;
+							var hspeciesSplit = hspecies.split(',');
+							var hspeciesResult = "";
+							for (var i in hspeciesSplit) {
+								hspeciesResult += '<span>' + hspeciesSplit[i] + '</span>';
+							}
+							
 							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
 									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
@@ -1417,7 +1426,8 @@ width: 855px;
 								    + '<p class="rate starrate">' + star
 								    + '</p></div>'
 								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">¸®ºä: ' + value.boardnum + '</span></div></div>'
-									+ '<p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+								    + '<p class="info_view">' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
 						
@@ -1462,7 +1472,7 @@ width: 855px;
 			$("#searchbtn").click(function() {
 				star = $(':radio[name="star"]:checked').val();
 				$.ajax({
-					url : "searchlist?searchValue=" + $('#searchValue').val() + '&searchLocation=' + $('#searchLocation').val() + "&minprice=" + $('#minprice').val() 
+					url : "searchlist?searchValue=" + encodeURIComponent($('#searchValue').val()) + '&searchLocation=' + encodeURIComponent($('#searchLocation').val()) + "&minprice=" + $('#minprice').val() 
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
@@ -1476,6 +1486,14 @@ width: 855px;
 									star += '<i class="icon-star-o"></i>';
 								}
 							}
+							
+							var hspecies = value.hspecies;
+							var hspeciesSplit = hspecies.split(',');
+							var hspeciesResult = "";
+							for (var i in hspeciesSplit) {
+								hspeciesResult += '<span>' + hspeciesSplit[i] + '</span>';
+							}
+							
 							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
 									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
@@ -1485,7 +1503,8 @@ width: 855px;
 								    + '<p class="rate starrate">' + star
 								    + '</p></div>'
 								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">¸®ºä: ' + value.boardnum + '</span></div></div>'
-									+ '<p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+								    + '<p class="info_view">' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
 						$(".product-price").each(function(idx) {
