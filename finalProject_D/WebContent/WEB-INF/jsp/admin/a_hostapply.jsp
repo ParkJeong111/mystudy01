@@ -218,11 +218,6 @@
 		
 		$("table tbody tr").click(
 				function() {
-					
-
-					
-				
-					console.log('표시 컬러들어가기')
 					$(this).addClass("selectedRow")
 					$('table > tbody > tr').not(this).removeClass("selectedRow")
 
@@ -251,11 +246,8 @@
 					 */
 				});
 		
-		
-		
-		var hostform = $("form[role='hostform']");
-		
 
+		<%-- 가맹점 이름 중복체크--%>
 		$('#hsave').click(function() {
 			var hname = $("#focusedInput").val()
 	

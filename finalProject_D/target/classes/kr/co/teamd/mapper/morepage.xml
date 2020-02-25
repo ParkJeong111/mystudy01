@@ -205,6 +205,21 @@
       
 
 	</select>
+	<select id = "matchpage" parameterType="int" resultType="mbdto">
+		select mbnum,mbtitle,mid,mbcontent,mbtag,mbperson,mblocation,mbimage,to_date(mbstartdate,'yyyy-MM-dd') as mbstartdate ,to_date(mbdate,'yyyy-MM-dd') as mbdate,mbreport,mbstatus,mbresult
+		from matchingboard where mbnum = #{mbnum}
+	</select>
+	<select id = "countselect" parameterType="int" resultType="mbdto">
+		select mbperson,mbstatus from matchingboard where mbnum = #{mbnum}
+	</select>
+	<update id="statusadd" parameterType="Hashmap">
+	update matchingboard set mbstatus = mbstatus + 1 , mbresult = mbresult  || #{mid} || '/' where mbnum = #{mbnum}
+	</update>
+	<select id = "boardmatchcheck" parameterType="Hashmap" resultType="int">
+		select count(mbtitle) from matchingboard where mbnum = #{mbnum} and mbresult LIKE '%'|| #{mid} || '%'
+	</select>
+	
+	
 	<!--  -->
 	
 	

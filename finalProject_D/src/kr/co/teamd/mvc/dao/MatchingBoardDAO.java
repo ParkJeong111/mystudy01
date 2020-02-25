@@ -21,6 +21,28 @@ public class MatchingBoardDAO implements MatchingBoardInter {
 		return ss.selectList("morepage.optionsearch",list);
 	}
 
+	@Override
+	public List<MatchingboardDTO> matchpage(int mbnum) {
+		return ss.selectList("morepage.matchpage",mbnum);
+	}
+
+	@Override
+	public List<MatchingboardDTO> countselect(int mbnum) {
+		return ss.selectList("morepage.countselect",mbnum);
+	}
+
+	@Override
+	public void statusadd(HashMap<String, Object> update) {
+		ss.update("morepage.statusadd",update);
+	}
+
+	@Override
+	public int boardmatchcheck(HashMap<String, Object> resultcheck) {
+		return ss.selectOne("morepage.boardmatchcheck",resultcheck);
+	}
+
+
+
 
 
 

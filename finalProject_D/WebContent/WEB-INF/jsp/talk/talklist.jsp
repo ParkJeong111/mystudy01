@@ -1723,6 +1723,16 @@ margin-top: -3%;}
 		});
 
 	});
+	
+	<%-- 
+	boardAjax 함수 호출되면
+	유형별(유저조행기(1), 중고장터(2), 유용한정보3),낚시지식인(4), 자유게시판(5))로
+	파라미터를 받아서 check값을 을 보낸다.
+	***talkAjax / itemsboardAjax 매핑을 따로 구분한 이유는
+	게시글테이블이 다르므로 select 출력하는게 다르기 때문 
+	 
+	 다이나믹쿼리로 보내고한 페이지에서 리스트 출력하기 위해 Ajax처리하여 URL로 보냄
+	--%>
 
 	function boardAjax(check) {
 		console.log(check)

@@ -181,18 +181,21 @@ public class JsonController {
 
 	
 	// 안드로이드 게시판 데이터 처리 (재민)
-	@RequestMapping(value = "androidBoardData", produces = "application/json;charset=utf-8")
-	public BoardDTO androidBoard(BoardDTO bdto){
-		System.out.println("제목 : " + bdto.getBtitle()); 
-		System.out.println("상호명 : " + bdto.getHname()); 
-		System.out.println("날짜 :" + bdto.getBdate());
-		System.out.println("내용 :" + bdto.getBcontent()); 
-		System.out.println("이미지 :" + bdto.getBimage());
-		String b = bdto.getBcontent();
-		//List<String> boardlist = ;
-		//return boardlist;
-		return null;
-		
+	/*
+	 * @RequestMapping(value = "androidBoardData", produces =
+	 * "application/json;charset=utf-8") public List<BoardDTO> androidBoard(BoardDTO
+	 * bdto){ List<BoardDTO> b = bdao.androidBoardData(bdto); for(BoardDTO dto : b)
+	 * { System.out.println("title : " + dto.getBtitle());
+	 * System.out.println("hname : " + dto.getHname()); } return b; }
+	 */
+	@RequestMapping(value = "androidBData", produces = "application/json;charset=utf-8")
+	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto){
+		List<MatchingboardDTO> b = bdao.androidBData(mbdto);
+		for(MatchingboardDTO dto : b) {
+            System.out.println("title : " + dto.getMbdate());
+            System.out.println("hname : " + dto.getMbtitle());
+        }
+		return b;
 	}
 	
 	// 함께자바 검색기능
