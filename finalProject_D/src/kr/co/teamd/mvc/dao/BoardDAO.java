@@ -71,8 +71,8 @@ public class BoardDAO implements BoardInter{
 	}
 
 	@Override  // 재민         -- 안드 게시글 데이터 --
-	public List<String> androidBoardData(BoardDTO bdtodata) {
-		return ss.selectList("talk.androidBoardData", bdtodata);
+	public BoardDTO androidBoardData(BoardDTO bdto) {
+		return ss.selectOne("talk.androidBoardData", bdto);
 	}
 
 
