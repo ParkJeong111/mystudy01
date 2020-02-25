@@ -2,8 +2,10 @@ package kr.co.teamd.mvc.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import kr.co.teamd.mvc.dao.BoardInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+import kr.co.teamd.mvc.dto.RandomMatchingDTO;
 
 @Controller
 public class TalkController {
@@ -53,6 +56,56 @@ public class TalkController {
 	  public String itemsboard() {
 	  return "member/itemsboard"; 
 	  }
+	  
+	  
+		@RequestMapping(value= "reportInsert")  //일반 게시글 신고하기 
+		public ModelAndView reportInsert(int bnum,HttpSession session,HttpServletResponse response) throws IOException {
+			ModelAndView mav = new ModelAndView();
+			PrintWriter out = response.getWriter();
+			System.out.println("컨트롤러: "+ bnum);
+			// 로그인 아닐시에는 로그인창으로 이동시켜주는 기능
+			if(session.getAttribute("mid") == null) {
+				mav.setViewName("member/login");
+				out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+				out.flush();
+				return mav;
+			// 해당 유저가 현재 매칭중인 상태를 알기위한 값 추출
+			}else {
+				System.out.println("mid있어서넘어옴"+bnum);
+				bdao.reportInsert(bnum);
+			}
+			BoardListAjaxDTO dto = bdao.boardInfo(bnum);
+			mav.addObject("dto", dto);
+			mav.setViewName("talk/talk_detail");
+			out.println("<script>alert('신고가 접수되었습니다.');</script>");
+			out.flush();
+			return mav;
+		}
+		
+		@RequestMapping(value= "itemsReportInsert")  //중고 게시글 신고하기 
+		public ModelAndView itemsReportInsert(int ibnum,HttpSession session,HttpServletResponse response) throws IOException {
+			ModelAndView mav = new ModelAndView();
+			PrintWriter out = response.getWriter();
+			System.out.println("중고 컨트롤러: "+ ibnum);
+			// 로그인 아닐시에는 로그인창으로 이동시켜주는 기능
+			if(session.getAttribute("mid") == null) {
+				mav.setViewName("member/login");
+				out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+				out.flush();
+				return mav;
+			// 해당 유저가 현재 매칭중인 상태를 알기위한 값 추출
+			}else {
+				System.out.println("중고 mid있어서넘어옴"+ibnum);
+				bdao.itemsReportInsert(ibnum);
+			}
+			ItemsboardDTO dto = bdao.itemsboardinfo(ibnum);
+			
+			mav.addObject("dto", dto);
+			mav.setViewName("talk/itemstalk_detail");
+			out.println("<script>alert('신고가 접수되었습니다.');</script>");
+			out.flush();
+			return mav;
+		}
 	 
 	// ---------------------------------재민 영역
 	// 시작-------------------------------------------

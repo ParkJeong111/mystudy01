@@ -47,6 +47,19 @@ public class BoardDAO implements BoardInter{
 		
 		return ss.selectOne("talk.itemsboardinfo", ibnum);
 	}
+	
+	//일반게시글 신고하기(중고장터 제외)
+	@Override
+	public void reportInsert(int bnum) {
+		ss.update("talk.reportInsert", bnum);
+	}
+	
+	//중고장터게시글 신고하기
+	@Override
+	public void itemsReportInsert(int ibnum) {
+		ss.update("talk.itemsReportInsert", ibnum);
+		
+	}
 
 	@Override  // 재민          -- 중고 게시판 글 작성 --
 	public void itemboardAdd(ItemsboardDTO itbdto) {
@@ -63,9 +76,13 @@ public class BoardDAO implements BoardInter{
 		return ss.selectList("talk.androidBData", mbdto);
 	}
 
+<<<<<<< HEAD
 	/*@Override  // 재민         -- 안드 게시글 데이터 --
 	public List<BoardDTO> androidBoardData(BoardDTO bdto) {
 		return ss.selectList("talk.androidBoardData", bdto);
 	}*/
+=======
+
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 
 }
