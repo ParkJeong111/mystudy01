@@ -188,6 +188,7 @@ public class JsonController {
 	 * { System.out.println("title : " + dto.getBtitle());
 	 * System.out.println("hname : " + dto.getHname()); } return b; }
 	 */
+	// 안드로이드 함께자바 게시판 데이터 처리 (재민)
 	@RequestMapping(value = "androidBData", produces = "application/json;charset=utf-8")
 	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto){
 		List<MatchingboardDTO> b = bdao.androidBData(mbdto);

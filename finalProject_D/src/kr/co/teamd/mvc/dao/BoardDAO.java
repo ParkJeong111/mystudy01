@@ -71,7 +71,7 @@ public class BoardDAO implements BoardInter{
 		return ss.selectList("talk.chkhname", chkbdto);
 	}
 
-	@Override
+	@Override    // 재민         -- 안드 함께자바 게시글 데이터 --
 	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto) {
 		return ss.selectList("talk.androidBData", mbdto);
 	}

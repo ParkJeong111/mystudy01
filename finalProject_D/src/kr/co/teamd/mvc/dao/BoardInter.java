@@ -19,5 +19,5 @@ public interface BoardInter {
 	public void itemboardAdd(ItemsboardDTO itbdto);  // 중고 게시글 추가 (재민)
 	public List<String> btype2select(ChkBTypeDTO chkbdto); // 게시판 호스트 가게명 
 	//public List<BoardDTO> androidBoardData(BoardDTO bdtodata);  // 안드 보드리스트
-	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto);  // 안드 보드리스트
+	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto);  // 안드 함께자바 리스트
 }
