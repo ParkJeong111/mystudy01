@@ -2,6 +2,8 @@ package kr.co.teamd.mvc.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,6 +19,7 @@ import kr.co.teamd.mvc.dao.HostInter;
 import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dao.RandomMatchinginter;
+import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
@@ -158,24 +161,41 @@ public class JsonController {
 	
 	}
 	
-	// 안드로이드 로그인 처리
+	// 안드로이드 로그인 처리 (재민)
 	@RequestMapping(value = "androidLogin", produces = "application/json;charset=utf-8")
 	public MemberDTO androidLogin(MemberDTO mdto){
 		System.out.println("mid : " + mdto.getMid());
 		System.out.println("mpwd : " + mdto.getMpwd());
-		
 //		String mid = (String) mdto.getMid();
 //		String mpwd = (String) mdto.getMpwd();
 		MemberDTO m = mdao.idCheck(mdto);
 		if(m != null) {
 			System.out.println("로그인 성공!");
+			mdto.getMid();
+			mdto.getMpwd();
 //			System.out.println(mdto.getMid());
 //			System.out.println(mdto.getMpwd());
 		}  else {
 			System.out.println("로그인 실패~~~~~!");
+			mdto.setMid(null);
+			mdto.setMpwd(null);
 		}
-		
 		return mdto;
+	}
+	
+	// 안드로이드 게시판 데이터 처리 (재민)
+	@RequestMapping(value = "androidBoardData", produces = "application/json;charset=utf-8")
+	public List<String> androidBoard(BoardDTO bdto){
+		System.out.println("제목 : " + bdto.getBtitle()); 
+		System.out.println("상호명 : " + bdto.getHname()); 
+		System.out.println("날짜 :" + bdto.getBdate());
+		System.out.println("내용 :" + bdto.getBcontent()); 
+		System.out.println("이미지 :" + bdto.getBimage());
+		String b = bdto.getBcontent();
+		//List<String> boardlist = ;
+		//return boardlist;
+		return null;
+		
 	}
 	
 	
