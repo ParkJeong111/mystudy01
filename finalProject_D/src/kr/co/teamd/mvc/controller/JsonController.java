@@ -1,5 +1,6 @@
 package kr.co.teamd.mvc.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -196,7 +197,14 @@ public class JsonController {
 	@RequestMapping(value = "matchingb")
 	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto) {
 		System.out.println(dto.getMbtag());
-		String[] service = dto.getMbtag().split("/");
+		List<String> service = new ArrayList<String>();
+		String[] test = dto.getMbtag().split("/");
+		for(int i=0;i<test.length;i++) {
+			service.add(test[i]);
+		}
+		for(String e : service) {
+			System.out.println("e:"+e);
+		}
 		HashMap<String, Object> list = new HashMap<String, Object>();
 		String md = "0";
 		String[] modifysdate = dto.getStartdate().split("/");
@@ -219,7 +227,13 @@ public class JsonController {
 		list.put("list", service);
 		dto.setEnddate(modifyedate[2].substring(2, 4) + "/" + modifyedate[0] + "/" + modifyedate[1]);
 		List<MatchingboardDTO> searchdto = MatchingBoard.optionsearch(list);
+<<<<<<< HEAD
+		for(MatchingboardDTO e : searchdto) {
+			System.out.println(e.getMbtitle());
+		}
+=======
 
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 		return searchdto;
 	}
 

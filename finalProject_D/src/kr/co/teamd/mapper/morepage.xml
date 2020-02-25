@@ -198,8 +198,10 @@
 		,to_date(mbdate,'yyyy-MM-dd') as mbdate,mbreport
 		from matchingboard where to_date(mbstartdate,'yyyy-MM-dd') &gt; to_date(#{dto.startdate},'yyyy-MM-dd')
 		and to_date(mbstartdate,'yyyy-MM-dd') &lt; to_date(#{dto.enddate},'yyyy-MM-dd')
-		or
-		<foreach collection="list" item="array"></foreach>
+		and 
+		<foreach collection="list" item = "item" index="index" separator="or">
+		mbtag LIKE '%'|| #{item}|| '%'
+		</foreach>
       
 
 	</select>
