@@ -3,15 +3,17 @@ package kr.co.teamd.mvc.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
 import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardInter;
@@ -227,13 +229,10 @@ public class JsonController {
 		list.put("list", service);
 		dto.setEnddate(modifyedate[2].substring(2, 4) + "/" + modifyedate[0] + "/" + modifyedate[1]);
 		List<MatchingboardDTO> searchdto = MatchingBoard.optionsearch(list);
-<<<<<<< HEAD
 		for(MatchingboardDTO e : searchdto) {
 			System.out.println(e.getMbtitle());
 		}
-=======
 
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 		return searchdto;
 	}
 

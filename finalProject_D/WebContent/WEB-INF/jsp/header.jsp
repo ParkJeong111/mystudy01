@@ -450,7 +450,7 @@ label {
 <hr>
 <div style = "margin-left: 282px;">
 <button type="submit" class="btn btn-primary" style = "font-family: Jua;" >매칭하기</button>
-<button type="button" class="btn btn-default" id="closeModalBtn1" style = "font-family: Jua;">매칭취소</button>
+<button type="button" class="btn btn-default" id="closeModalBtn2" style = "font-family: Jua;">매칭취소</button>
 </div>
 </div>
 </div>
@@ -466,6 +466,7 @@ label {
        $('#openModalBtn').on('click', function(){
     	   $('#modalBox').modal('show');
     	   });
+       
     	   // 모달 안의 취소 버튼에 이벤트를 건다.
     	   $('#closeModalBtn').on('click', function(){
     	   $('#modalBox').modal('hide');
