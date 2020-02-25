@@ -1157,6 +1157,11 @@ width: 855px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.starrate {
+	margin-top: 4px;
+	margin-bottom: 0
+}
 </style>
 	<!-- END nav -->
 
@@ -1260,7 +1265,7 @@ width: 855px;
 							<h3 class="heading mb-4"
 								style="text-align: center; font-weight: bold;">¸®ºä º°Á¡</h3>
 							<form method="post" class="star-rating">
-								<div class="form-check">
+								<div class="form-check" style="height: 50px;">
 									<input type="radio" id="starradio0" name="star" value="0"> 
 									<label for="starradio0">
 									<p class="rate starrate">
@@ -1268,7 +1273,7 @@ width: 855px;
 									</p>
 									</label>
 								</div>
-								<div class="form-check">
+								<div class="form-check" style="height: 50px;">
 									<input type="radio" id="starradio5" name="star" value="5"> 
 									<label for="starradio5">
 									<p class="rate starrate">
@@ -1278,7 +1283,7 @@ width: 855px;
 									</p>
 									</label>
 								</div>
-								<div class="form-check">
+								<div class="form-check" style="height: 50px;">
 									<input type="radio" id="starradio4" name="star" value="4"> 
 									<label for="starradio4">
 									<p class="rate starrate">
@@ -1288,7 +1293,7 @@ width: 855px;
 									</p>
 									</label>
 								</div>
-								<div class="form-check">
+								<div class="form-check" style="height: 50px;">
 									<input type="radio" id="starradio3" name="star" value="3"> 
 									<label for="starradio3">
 									<p class="rate starrate">
@@ -1298,7 +1303,7 @@ width: 855px;
 									</p>
 									</label>
 								</div>
-								<div class="form-check">
+								<div class="form-check" style="height: 50px;">
 									<input type="radio" id="starradio2" name="star" value="2"> 
 									<label for="starradio2">
 									<p class="rate starrate">
@@ -1308,7 +1313,7 @@ width: 855px;
 									</p>
 									</label>
 								</div>
-								<div class="form-check">
+								<div class="form-check" style="height: 50px;">
 									<input type="radio" id="starradio1" name="star" value="1"> 
 									<label for="starradio1">
 									<p class="rate starrate">
