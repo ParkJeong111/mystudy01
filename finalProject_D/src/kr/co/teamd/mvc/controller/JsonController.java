@@ -1,16 +1,19 @@
 package kr.co.teamd.mvc.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
 import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardInter;
@@ -179,7 +182,7 @@ public class JsonController {
 	
 	// 안드로이드 게시판 데이터 처리 (재민)
 	@RequestMapping(value = "androidBoardData", produces = "application/json;charset=utf-8")
-	public List<String> androidBoard(BoardDTO bdto){
+	public BoardDTO androidBoard(BoardDTO bdto){
 		System.out.println("제목 : " + bdto.getBtitle()); 
 		System.out.println("상호명 : " + bdto.getHname()); 
 		System.out.println("날짜 :" + bdto.getBdate());
@@ -196,7 +199,14 @@ public class JsonController {
 	@RequestMapping(value = "matchingb")
 	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto) {
 		System.out.println(dto.getMbtag());
-		String[] service = dto.getMbtag().split("/");
+		List<String> service = new ArrayList<String>();
+		String[] test = dto.getMbtag().split("/");
+		for(int i=0;i<test.length;i++) {
+			service.add(test[i]);
+		}
+		for(String e : service) {
+			System.out.println("e:"+e);
+		}
 		HashMap<String, Object> list = new HashMap<String, Object>();
 		String md = "0";
 		String[] modifysdate = dto.getStartdate().split("/");
@@ -219,6 +229,9 @@ public class JsonController {
 		list.put("list", service);
 		dto.setEnddate(modifyedate[2].substring(2, 4) + "/" + modifyedate[0] + "/" + modifyedate[1]);
 		List<MatchingboardDTO> searchdto = MatchingBoard.optionsearch(list);
+		for(MatchingboardDTO e : searchdto) {
+			System.out.println(e.getMbtitle());
+		}
 
 		return searchdto;
 	}
