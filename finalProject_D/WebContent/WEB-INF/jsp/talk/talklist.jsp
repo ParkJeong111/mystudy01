@@ -1762,7 +1762,7 @@ margin-top: -3%;}
 										+value.ibimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
 										+value.ibcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
 										+'<p class="comm_line">´ñ±Û <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_money_btn" href="#">'
-										+value.ibmoney+'¿ø</a><a class="talk_comm_btn" style="width:50%;" href="talk_detail?ibnum='
+										+value.ibmoney+'¿ø</a><a class="talk_comm_btn" style="width:50%;" href="itemstalk_detail?ibnum='
 										+value.ibnum+'#comment_box">´ñ±Û¾²±â</a></div></div></div>');
 					
 					});
