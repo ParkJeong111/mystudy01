@@ -40,7 +40,7 @@
 	</select>
 	
 	<!-- ============================ 안드로이드 게시판 데이터 불러오기 ===================================== -->
-	<select id="androidBoardData" resultType="String">
+	<select id="androidBoardData" parameterType="bdto" resultType="bdto">
 		select hname, btitle, bcontent, bimage, bdate from board
 	</select>
 	

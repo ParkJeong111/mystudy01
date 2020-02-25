@@ -179,7 +179,7 @@ public class JsonController {
 	
 	// 안드로이드 게시판 데이터 처리 (재민)
 	@RequestMapping(value = "androidBoardData", produces = "application/json;charset=utf-8")
-	public List<String> androidBoard(BoardDTO bdto){
+	public BoardDTO androidBoard(BoardDTO bdto){
 		System.out.println("제목 : " + bdto.getBtitle()); 
 		System.out.println("상호명 : " + bdto.getHname()); 
 		System.out.println("날짜 :" + bdto.getBdate());
