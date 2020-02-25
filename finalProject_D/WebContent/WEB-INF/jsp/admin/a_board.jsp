@@ -25,8 +25,8 @@
 							  <tr>
 							 	  <th>No.</th>
 							 	  <th>구분</th>
-								  <th>제목</th>
 								  <th>가맹점명</th>
+								  <th>제목</th>
 								  <th>아이디</th>
 								  <th>작성일</th>
 								  <th>신고</th>
