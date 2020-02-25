@@ -62,6 +62,12 @@ public class MainDAO implements MainInter {
 		return ss.selectList("main.autosearchlist",hname);
 	}
 
+	@Override
+	public void searchlogInsert(String slword) {
+		ss.insert("main.searchlogInsert", slword);
+		
+	}
+
 	
 	
 

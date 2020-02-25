@@ -145,21 +145,8 @@ public class AdminController {
 		} else if (hdto.getHimage().equals("")) {
 			System.out.println("equals");
 		}
-		System.out.println("번호 : "+hdto.getHnum());
 
-		/*
-		 * System.out.println("---------가맹점 수정-------------");
-		 * System.out.println(hdto.getHname()); System.out.println(hdto.getHceo());
-		 * System.out.println(hdto.getHphone()); System.out.println(hdto.getHaddr());
-		 * System.out.println(hdto.getHimage()); System.out.println(hdto.getHspecies());
-		 * System.out.println("공지 : "+hdto.getHnotice());
-		 * System.out.println("사장님한마디 : "+hdto.getHowner());
-		 * System.out.println("편의시설 : "+hdto.getHservice());
-		 * System.out.println("이용안내 : " + hdto.getHguide());
-		 * System.out.println("---------------------------");
-		 */
 		hdao.hostupdate(hdto);
-		System.out.println("들어오나요??");
 		return "redirect:admin_host";
 
 	}
@@ -172,18 +159,5 @@ public class AdminController {
 		return mav;
 	}
 
-	// 김채은 영역 끝
-
-	// 권세진 영역 시작
-
-	// 권세진 영역 끝
-
-	// 박정연 영역 시작
-
-	// 박정연 영역 끝
-
-	// 주성중 영역 시작
-
-	// 주성중 영역 끝
 
 }

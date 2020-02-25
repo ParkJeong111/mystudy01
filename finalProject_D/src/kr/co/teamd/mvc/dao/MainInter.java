@@ -20,4 +20,5 @@ public interface MainInter {
 	public List<QnaDTO> qnaList(String mid); //QNA 내역
 	public List<HostlistDTO> mainsearchlist(String hname);
 	public List<HostDTO> autosearchlist(String hname);
+	public void searchlogInsert(String slword); //검색 로그 추가
 }

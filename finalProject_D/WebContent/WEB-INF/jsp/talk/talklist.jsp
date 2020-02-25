@@ -1755,14 +1755,14 @@ margin-top: -3%;}
 							$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
 										+value.ibtitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
 										+'</p></div><div class="profile_date" style="float: right"><p>'
-										+value.ibdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
+										+value.ibdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'itemstalk_detail?ibnum='
 										+value.ibnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
 										+'중고장터</span></p><p style="float: right;margin-right: 3%">'
 										+value.mid+'</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
 										+value.ibimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
 										+value.ibcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
 										+'<p class="comm_line">댓글 <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_money_btn" href="#">'
-										+value.ibmoney+'원</a><a class="talk_comm_btn" style="width:50%;" href="talk_detail?ibnum='
+										+value.ibmoney+'원</a><a class="talk_comm_btn" style="width:50%;" href="itemstalk_detail?ibnum='
 										+value.ibnum+'#comment_box">댓글쓰기</a></div></div></div>');
 					
 					});

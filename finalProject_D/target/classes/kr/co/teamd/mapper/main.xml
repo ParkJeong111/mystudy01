@@ -5,7 +5,10 @@
   <mapper namespace="main">
 
 	<!-- 김채은 영역 시작  -->
-	
+	<!-- 검색 로그 추가 -->
+	<insert id="searchlogInsert">
+		insert into searchlog values(searchlog_seq.nextVal, #{slword}, sysdate)
+	</insert>
 	<!-- 김채은 영역 끝  -->
 
 
