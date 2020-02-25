@@ -3036,7 +3036,8 @@ keyframes swiper-preloader-spin { 100%{
 						function() {
 							if ('${sessionScope.mid}' == null || '${sessionScope.mid}' == '') {
 								alert('로그인 후 이용해주세요');
-								return;
+								location.href = "login";
+								return
 							}
 							var hg = $(this).attr('data-num');
 							var $form = $('<form></form>');
