@@ -2,17 +2,15 @@ package kr.co.teamd.mvc.controller;
 
 import java.util.HashMap;
 import java.util.List;
-
+import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
 import kr.co.teamd.mvc.dao.AdminHostInter;
 import kr.co.teamd.mvc.dao.AdminQnaDAO;
 import kr.co.teamd.mvc.dao.BoardInter;
@@ -21,6 +19,7 @@ import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dao.MatchingBoardInter;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dao.RandomMatchinginter;
+import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
@@ -173,9 +172,35 @@ public class JsonController {
 		System.out.println("mid : " + mdto.getMid());
 		System.out.println("mpwd : " + mdto.getMpwd());
 		MemberDTO m = mdao.idCheck(mdto);
+		if(m != null) {
+			System.out.println("로그인 성공!");
+			mdto.getMid();
+			mdto.getMpwd();
+		}  else {
+			System.out.println("로그인 실패~~~~~!");
+			mdto.setMid(null);
+			mdto.setMpwd(null);
+		}
+		//return mdto;
 		return m;
 	}
 
+	
+	// 안드로이드 게시판 데이터 처리 (재민)
+	@RequestMapping(value = "androidBoardData", produces = "application/json;charset=utf-8")
+	public List<String> androidBoard(BoardDTO bdto){
+		System.out.println("제목 : " + bdto.getBtitle()); 
+		System.out.println("상호명 : " + bdto.getHname()); 
+		System.out.println("날짜 :" + bdto.getBdate());
+		System.out.println("내용 :" + bdto.getBcontent()); 
+		System.out.println("이미지 :" + bdto.getBimage());
+		String b = bdto.getBcontent();
+		//List<String> boardlist = ;
+		//return boardlist;
+		return null;
+		
+	}
+	
 	// 함께자바 검색기능
 	@RequestMapping(value = "matchingb")
 	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto) {

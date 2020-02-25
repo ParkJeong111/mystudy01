@@ -26,19 +26,15 @@ public class BoardDAO implements BoardInter{
 		return ss.selectList("talk.boardAlllist");
 	}
 
-	
 	@Override
 	public List<BoardListAjaxDTO> boardAjax(int check) {
 		return ss.selectList("talk.boardAjax", check);
 	}
 
-
 	@Override
 	public List<ItemsboardDTO> itemsboardAjax(int check) {
 		return ss.selectList("talk.itemsboard", check);
 	}
-	
-	
 	
 	@Override
 	public BoardListAjaxDTO boardInfo(int bnum) {
@@ -61,5 +57,9 @@ public class BoardDAO implements BoardInter{
 		return ss.selectList("talk.chkhname", chkbdto);
 	}
 
+	@Override  // 재민         -- 안드 게시글 데이터 --
+	public List<String> androidBoardData(BoardDTO bdtodata) {
+		return ss.selectList("talk.androidBoardData", bdtodata);
+	}
 
 }

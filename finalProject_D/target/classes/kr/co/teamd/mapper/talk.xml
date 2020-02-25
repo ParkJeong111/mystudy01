@@ -39,6 +39,12 @@
         group by r.mid, h.hname, h.htype
 	</select>
 	
+	<!-- ============================ 안드로이드 게시판 데이터 불러오기 ===================================== -->
+	<select id="androidBoardData" resultType="String">
+		select hname, btitle, bcontent, bimage, bdate from board
+	</select>
+	
+	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
  	parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
   	<select id="boardAjax" parameterType="int" resultType="bldto">		

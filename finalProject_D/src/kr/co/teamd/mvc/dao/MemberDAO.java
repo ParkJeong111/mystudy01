@@ -76,7 +76,7 @@ public class MemberDAO implements MemberInter{
 	}
 	
 	@Override
-	public MemberDTO androidLogin(String mid, String mpwd) {
+	public MemberDTO androidLogin(String mid, String mpwd) {   // 안드로이드 로그인 체크 (재민)
 		return ss.selectOne(mid, mpwd);
 	}
 

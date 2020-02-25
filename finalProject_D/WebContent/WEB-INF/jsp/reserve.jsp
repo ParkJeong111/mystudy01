@@ -163,9 +163,15 @@ input[type=checkbox]:checked+label {
 											<strong style="font-size: 12px; color: #aaaaaa;">&nbsp;&nbsp;&nbsp;사용
 												가능 포인트 : ${sessionScope.mpoint}</strong> <br>
 											<p>
+												<c:if test="${sessionScope.mpoint == 0}">
 												<input style="width: 80%; height: 44px; font-size: 16px;"
-													type="text" id="mpoint" name="mpoint" value="0"
+													type="text" id="mpoint" name="mpoint" value="0" readonly="readonly"
 													maxlength="6">
+												</c:if>
+												<c:if test="${sessionScope.mpoint != 0}">
+												<input style="width: 80%; height: 44px; font-size: 16px;"
+													type="text" id="mpoint" name="mpoint" value="0" maxlength="6">
+												</c:if>
 											</p>
 											<br>
 											<!-- 결제수단 시작 -->
@@ -363,6 +369,7 @@ input[type=checkbox]:checked+label {
 							// input 파라미터 값을 새로운 이용권 번호와 금액으로 변경
 							$('#hgnum').val(data.hgnum);
 							$('#hgmoney').val(data.hgmoney);
+							ispoint = false;
 						}
 					});
 				});
