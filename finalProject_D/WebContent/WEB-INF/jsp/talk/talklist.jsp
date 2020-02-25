@@ -1650,15 +1650,15 @@ margin-top: -3%;}
 				<div style="float: right;">
 					<p>고기자바 추천 업체</p>
 					<c:forEach  var="i" items="${test.recommendlist}">
-					<div style="width: 320px; height: 130px;">
+					<div class="shadow" style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
 						<a href="#">
-							<img style="width: 120px; height: 130px;"
+							<img style="width: 120px; height: 120px; padding-top: 5px; padding-left: 5px;"
 											src="${pageContext.request.contextPath}/resources/images/${i.himage}"
 											alt="">
-							<div>
+							<div style="float: right;">
 							<em></em>
 							<strong>${i.hname }</strong>
-								<span><i>${i.haddr }</i></span>
+								<span>${i.haddr }</span>
 							</div>
 						</a>
 						</div>
