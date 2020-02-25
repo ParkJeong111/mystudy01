@@ -75,14 +75,10 @@ public class BoardDAO implements BoardInter{
 	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto) {
 		return ss.selectList("talk.androidBData", mbdto);
 	}
-
-<<<<<<< HEAD
 	/*@Override  // 재민         -- 안드 게시글 데이터 --
 	public List<BoardDTO> androidBoardData(BoardDTO bdto) {
 		return ss.selectList("talk.androidBoardData", bdto);
 	}*/
-=======
 
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 
 }
