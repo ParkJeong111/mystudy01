@@ -17,7 +17,23 @@ public class MatchingboardDTO {
 	private int mbreport;
 	private String startdate;
 	private String enddate;
+	private String mbstatus;
+	private String mbresult;
 	private MultipartFile mbfile;
+	
+	public String getMbstatus() {
+		return mbstatus;
+	}
+	public void setMbstatus(String mbstatus) {
+		this.mbstatus = mbstatus;
+	}
+	public String getMbresult() {
+		return mbresult;
+	}
+	public void setMbresult(String mbresult) {
+		this.mbresult = mbresult;
+	}
+	
 	
 	public String getStartdate() {
 		return startdate;

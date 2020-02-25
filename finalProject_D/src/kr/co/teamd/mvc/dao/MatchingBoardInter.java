@@ -7,4 +7,6 @@ import kr.co.teamd.mvc.dto.MatchingboardDTO;
 
 public interface MatchingBoardInter {
 	public List<MatchingboardDTO> optionsearch(HashMap<String, Object> list);
+	public List<MatchingboardDTO> matchpage(int mbnum);
+	public List<MatchingboardDTO> countselect(int mbnum);
 }

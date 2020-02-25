@@ -1505,10 +1505,11 @@ li {
 					</div>
 					<div class="col-lg-9" >
 						<div class="row" id = "matchinglistdiv" style="padding-left: 80px;">
+						
 							<c:forEach items = "${matchlist }" var = "matchlist">
 							<div class="col-md-4 ftco-animate">
 								<div class="destination">
-									<a href="#"
+									<a href="#" onclick="location.href = 'matchpage?mbnum=${matchlist.mbnum }'"
 										class="img img-2 d-flex justify-content-center align-items-center"
 										style="background-image: url(${pageContext.request.contextPath}/resources/images/${matchlist.mbimage });">
 										<div
@@ -1669,6 +1670,9 @@ li {
 					});
 				});
 		
+        function matchpage() {
+			location.href = 'matchpage?mbnum='
+		}
         
 		</script>
 		

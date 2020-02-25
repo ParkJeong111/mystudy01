@@ -205,6 +205,13 @@
       
 
 	</select>
+	<select id = "matchpage" parameterType="int" resultType="mbdto">
+		select mbnum,mbtitle,mid,mbcontent,mbtag,mbperson,mblocation,mbimage,to_date(mbstartdate,'yyyy-MM-dd') as mbstartdate ,to_date(mbdate,'yyyy-MM-dd') as mbdate,mbreport 
+		from matchingboard where mbnum = #{mbnum}
+	</select>
+	<select id = "countselect" parameterType="int" resultType="mbdto">
+		select mbperson,mbstatus from matchingboard where mbnum = #{mbnum}
+	</select>
 	<!--  -->
 	
 	
