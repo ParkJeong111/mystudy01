@@ -70,9 +70,9 @@
 		group by
 		h.hnum,h.htype,h.hname,h.hceo,h.hphone,h.haddr,h.himage,h.hspecies,h.hnotice,h.howner,h.hservice,h.hguide,h.hstar
 	</select>
-	<select id="hostinfo" parameterType="String" resultType="hdto">
+	<select id="hostinfo" parameterType="int" resultType="hdto">
 		select *
-		from host where hname=#{hname}
+		from host where hnum=#{hnum}
 	</select>
 
 	<delete id="hostDelete" parameterType="String">

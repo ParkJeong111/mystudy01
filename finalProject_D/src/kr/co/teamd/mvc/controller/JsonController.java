@@ -75,8 +75,9 @@ public class JsonController {
 	}
 
 	@RequestMapping("hostinfo")
-	public HostDTO hostinfo(@RequestParam("hname") String hname) {
-		HostDTO hdto = hdao.hostinfo(hname);
+	public HostDTO hostinfo(@RequestParam("hnum") int hnum) {
+		System.out.println("¿Ã∞≈¿”?"+hnum);
+		HostDTO hdto = hdao.hostinfo(hnum);
 		return hdto;
 	}
 
