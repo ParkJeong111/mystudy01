@@ -303,17 +303,20 @@ function hostdelete(hname) {
 
 	$(function() {
 
-		
-		$('table > tbody > tr').click(function() {
-			$(this).addClass("selectedRow")
-			$('table > tbody > tr').not(this).removeClass("selectedRow")
+		$('table > tbody > tr').each(function (){
+			$(this).on("click", function(){
+				$(this).addClass("selectedRow")
+				console.log("여기")
+				$('table > tbody > tr').not(this).removeClass("selectedRow")
 
+			});
+			
 		});
-		
+	
 	
 <%-- 이 부분은 Ajax를 이용한 가맹점 상세정보 내역 //// -> 이후 수정,삭제를 위함 --%>
-	
-
+<%-- 가맹점이름 클릭시 hnum -------------------> $(this).prev().prev().text()을 이용하여
+	 hnum값을 가져와서  파라미터로 보내어 가맹점 상세정보를 Json형식으로 받아서 처리--%>
 		$('.hlistname').each(function () {
 			
 		

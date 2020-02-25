@@ -28,8 +28,20 @@ public class MatchingBoardDAO implements MatchingBoardInter {
 
 	@Override
 	public List<MatchingboardDTO> countselect(int mbnum) {
-		return ss.selectOne("morepage.countselect");
+		return ss.selectList("morepage.countselect",mbnum);
 	}
+
+	@Override
+	public void statusadd(HashMap<String, Object> update) {
+		ss.update("morepage.statusadd",update);
+	}
+
+	@Override
+	public int boardmatchcheck(HashMap<String, Object> resultcheck) {
+		return ss.selectOne("morepage.boardmatchcheck",resultcheck);
+	}
+
+
 
 
 

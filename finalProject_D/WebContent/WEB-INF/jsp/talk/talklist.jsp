@@ -1585,12 +1585,12 @@ margin-top: -3%;}
 	<section>
 		<div class="contents_list">
 
-			<div class="talk_list">
+			<div class="talk_list" style="width: 100%">
 
 				<div id="talk_detail_list" data-start_key="0" data-offset="0"
-					data-limit="30" data-last_offset="" data-is_work="">
+					data-limit="30" data-last_offset="" data-is_work="" style="float: left;">
 					<!-- 	<for문 사용하기> -->
-					<c:forEach var="e" items="${list}">
+					<c:forEach var="e" items="${test.list}">
 						<div class="talk_box_area" id="talk_visual135516">
 							<div class="boardtitle" >
 										<strong><b>${e.btitle}</b></strong> 
@@ -1646,6 +1646,23 @@ margin-top: -3%;}
 						</div>
 					</c:forEach>
 
+				</div>
+				<div style="float: right;">
+					<p>고기자바 추천 업체</p>
+					<c:forEach  var="i" items="${test.recommendlist}">
+					<div class="shadow" style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
+						<a href="#">
+							<img style="width: 120px; height: 120px; padding-top: 5px; padding-left: 5px;"
+											src="${pageContext.request.contextPath}/resources/images/${i.himage}"
+											alt="">
+							<div style="float: right;">
+							<em></em>
+							<strong>${i.hname }</strong>
+								<span>${i.haddr }</span>
+							</div>
+						</a>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -1706,6 +1723,16 @@ margin-top: -3%;}
 		});
 
 	});
+	
+	<%-- 
+	boardAjax 함수 호출되면
+	유형별(유저조행기(1), 중고장터(2), 유용한정보3),낚시지식인(4), 자유게시판(5))로
+	파라미터를 받아서 check값을 을 보낸다.
+	***talkAjax / itemsboardAjax 매핑을 따로 구분한 이유는
+	게시글테이블이 다르므로 select 출력하는게 다르기 때문 
+	 
+	 다이나믹쿼리로 보내고한 페이지에서 리스트 출력하기 위해 Ajax처리하여 URL로 보냄
+	--%>
 
 	function boardAjax(check) {
 		console.log(check)
