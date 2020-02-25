@@ -104,7 +104,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .detail_profile .prf_box.lv99:before{content:'M';background:linear-gradient(to bottom, #616161, #171717);}
 .view_info_manage_detail .detail_profile .prf_box.lv98:before{content:'사장';background:linear-gradient(to bottom, #ffd848, #ff3600);}
 
-.view_info_manage_detail .detail_profile p{font-size:16px;float:left;padding-top:5px;width:calc(100% - 170px)}
+.view_info_manage_detail .detail_profile p{font-size: 20px; font-weight: bold; float:left;padding-top:5px;width:calc(100% - 170px)}
 .view_info_manage_detail .detail_profile p.wide{width:calc(100% - 45px);}
 .view_info_manage_detail .detail_profile p.wide.jgo{width:calc(100% - 130px);}
 .view_info_manage_detail .detail_profile a{border:1px solid #c0c0c0;width:56px;height:25px;line-height:23px;text-align:center;display:block;float:right;border-radius:3rem;font-size:13px;color:#aaaaaa;letter-spacing:-0.5px;margin-top:5px;font-weight:normal;}
@@ -112,14 +112,14 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .detail_profile a.btn_talk_del{position:absolute;right:0}
 .view_info_manage_detail .detail_profile a.btn_talk_scrap{width:80px;}
 .view_info_manage_detail .detail_title{background:#fff;border-bottom:1px solid #e6e6e6;}
-.view_info_manage_detail .detail_title .inner{padding:15px 0;}
+.view_info_manage_detail .detail_title .inner{padding:7px 0;}
 .view_info_manage_detail .detail_title .detail_pic{font-size:0;margin-bottom:10px;}
 .view_info_manage_detail .detail_title .detail_pic span{margin-right:10px;font-size:15px;padding:0 8px;height:28px;line-height:26px;text-align:center;display:inline-block;border-radius:0.3rem}
 .view_info_manage_detail .detail_title .detail_pic span:first-child{margin-left:0}
 .view_info_manage_detail .detail_title .detail_pic span.live_tag{color:#fff;background:#e84418;position:relative;top:-1px}
-.view_info_manage_detail .detail_title .detail_pic span.fishlist_tag{color:#ff724c;border:1px solid #ff724c;}
+.view_info_manage_detail .detail_title .detail_title_date dl dt span.fishlist_tag{color:#ff724c;border:1px solid #ff724c;}
 .view_info_manage_detail .detail_title .detail_title_date{display:table;width:100%}
-.view_info_manage_detail .detail_title .detail_title_date dt{font-size:18px;display:table-cell;line-height:1.3;color:#333;font-weight:500;letter-spacing:-0.9px}
+.view_info_manage_detail .detail_title .detail_title_date dt{font-size:13px;display:table-cell;line-height:1.3;color:#333;font-weight:500;letter-spacing:-0.9px}
 .view_info_manage_detail .detail_title .detail_title_date dt h1{font-size:18px;font-weight:500}
 .view_info_manage_detail .detail_title .detail_title_date dd{font-size:15px;color:#8c8c8c;display:table-cell;width:250px;text-align:right}
 .view_info_manage_detail .detail_title .detail_title_date dd.wide{width:120px;}
@@ -410,18 +410,18 @@ section{width:964px;position:relative;margin:0 auto;}
 		<div class="detail_profile clearfix">
 			<section>
 				
-				<p class="wide">${dto.mid}</p><!-- p태그-  내가 쓴글이 아닐때 .wide 추가  -->
+				<p class="wide">제목 : ${dto.btitle}</p>
 							</section>
 		</div><!--// detail_profile -->
 
 		<div class="detail_title">
 			<section>
 				<div class="inner">
-					<p class="detail_pic">
-						<span class="live_tag" style="display:none">현장실시간</span>
+					<dl class="detail_title_date">
+						<dt>작성자 &nbsp; : &nbsp;  ${dto.mid} &nbsp;  
 						<c:choose>
 						<c:when test="${dto.btype2=='바다조행기' || dto.btype2=='민물조행기'}">
-						<span class="fishlist_tag">
+						<span class="fishlist_tag" style="color:#ff724c;border:1px solid #ff724c;margin-right:10px;font-size:15px;padding:0 8px;height:28px;line-height:26px;text-align:center;display:inline-block;border-radius:0.3rem;">
 						<c:set var = "string1" value = "${dto.btype2}"/>
    						<c:set var = "string2" value = "${fn:substring(string1, 0, 2)}" />
 						${string2} 조황
@@ -429,15 +429,12 @@ section{width:964px;position:relative;margin:0 auto;}
 						</c:when>
 						<c:otherwise>
 						</c:otherwise>
-						</c:choose>
+						</c:choose> 
+						</dt>
 						
-					</p>
-					<dl class="detail_title_date">
-						<dt>${dto.btitle}</dt>
-						<dd>${dto.bdate}
-						
-						<a id="openModalBtn1" style="cursor: pointer;"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
-																						<!--
+						<dd>2020-02-25
+						<a class="btn_auth_report" id="openModalBtn1" style="cursor: pointer;"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
+																															<!--
 							<a class="btn_report"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
 							-->
 						</dd><!-- 내가 쓴글이 아닐때 .wide 추가  -->
