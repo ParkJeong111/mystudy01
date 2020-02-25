@@ -9,6 +9,7 @@ import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+import kr.co.teamd.mvc.dto.MatchingboardDTO;
 
 @Repository
 public class BoardDAO implements BoardInter{
@@ -70,11 +71,14 @@ public class BoardDAO implements BoardInter{
 		return ss.selectList("talk.chkhname", chkbdto);
 	}
 
-	@Override  // 재민         -- 안드 게시글 데이터 --
-	public BoardDTO androidBoardData(BoardDTO bdto) {
-		return ss.selectOne("talk.androidBoardData", bdto);
+	@Override
+	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto) {
+		return ss.selectList("talk.androidBData", mbdto);
 	}
-
+	/*@Override  // 재민         -- 안드 게시글 데이터 --
+	public List<BoardDTO> androidBoardData(BoardDTO bdto) {
+		return ss.selectList("talk.androidBoardData", bdto);
+	}*/
 
 
 }

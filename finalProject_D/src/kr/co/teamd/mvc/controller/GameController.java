@@ -23,9 +23,19 @@ public class GameController {
 
 	@RequestMapping(value = "game") // 게임
 	public String game(HttpSession session, HttpServletResponse resp) throws IOException {
+		int check = 0;
 		PrintWriter out = resp.getWriter();
-		int check = memberdao.gamecheck(session.getAttribute("mid").toString());
-		System.out.println(check);
+		if(session.getAttribute("mid") == null) 
+		{
+			out.println("<script>alert('로그인한 사용자만 이용 할 수 있습니다.');</script>");
+			out.println("<script>window.close();</script>");
+			out.flush();
+			return "member/login";
+		}
+		else {
+			check = memberdao.gamecheck(session.getAttribute("mid").toString());
+		}
+		
 		if (session.getAttribute("mid") == null) {
 			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
 			out.flush();
