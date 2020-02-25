@@ -180,7 +180,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .detail_profile .prf_box.lv99:before{content:'M';background:linear-gradient(to bottom, #616161, #171717);}
 .view_info_manage_detail .detail_profile .prf_box.lv98:before{background:linear-gradient(to bottom, #ffd848, #ff3600);}
 
-.view_info_manage_detail .detail_profile p{font-size:16px;float:left;padding-top:5px;width:calc(100% - 170px)}
+.view_info_manage_detail .detail_profile p{font-size: 20px; font-weight: bold; float:left;padding-top:5px;width:calc(100% - 170px)}
 .view_info_manage_detail .detail_profile p.wide{width:calc(100% - 45px);}
 .view_info_manage_detail .detail_profile p.wide.jgo{width:calc(100% - 130px);}
 .view_info_manage_detail .detail_profile a{border:1px solid #c0c0c0;width:56px;height:25px;line-height:23px;text-align:center;display:block;float:right;border-radius:3rem;font-size:13px;color:#aaaaaa;letter-spacing:-0.5px;margin-top:5px;font-weight:normal;}
@@ -188,14 +188,14 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .detail_profile a.btn_talk_del{position:absolute;right:0}
 .view_info_manage_detail .detail_profile a.btn_talk_scrap{width:80px;}
 .view_info_manage_detail .detail_title{background:#fff;border-bottom:1px solid #e6e6e6;}
-.view_info_manage_detail .detail_title .inner{padding:15px 0;}
+.view_info_manage_detail .detail_title .inner{padding:7px 0;}
 .view_info_manage_detail .detail_title .detail_pic{font-size:0;margin-bottom:10px;}
 .view_info_manage_detail .detail_title .detail_pic span{margin-right:10px;font-size:15px;padding:0 8px;height:28px;line-height:26px;text-align:center;display:inline-block;border-radius:0.3rem}
 .view_info_manage_detail .detail_title .detail_pic span:first-child{margin-left:0}
 .view_info_manage_detail .detail_title .detail_pic span.live_tag{color:#fff;background:#e84418;position:relative;top:-1px}
 .view_info_manage_detail .detail_title .detail_pic span.fishlist_tag{color:#ff724c;border:1px solid #ff724c;}
 .view_info_manage_detail .detail_title .detail_title_date{display:table;width:100%}
-.view_info_manage_detail .detail_title .detail_title_date dt{font-size:18px;display:table-cell;line-height:1.3;color:#333;font-weight:500;letter-spacing:-0.9px}
+.view_info_manage_detail .detail_title .detail_title_date dt{font-size:13px;display:table-cell;line-height:1.3;color:#333;font-weight:500;letter-spacing:-0.9px}
 .view_info_manage_detail .detail_title .detail_title_date dt h1{font-size:18px;font-weight:500}
 .view_info_manage_detail .detail_title .detail_title_date dd{font-size:15px;color:#8c8c8c;display:table-cell;width:215px;text-align:right}
 .view_info_manage_detail .detail_title .detail_title_date dd.wide{width:120px;}
@@ -462,21 +462,15 @@ section{width:964px;position:relative;margin:0 auto;}
 	<div class="view_info_manage_detail">
 		<div class="detail_profile clearfix">
 			<section>
-				<div class="prf_box lv1">
-					<img src="https://img.moolban.com/unsafe/50x50/filters:no_upscale()/profile_aws/default.png?date=1547538854" class="profile" alt="">
-				</div>
-				<p class="wide jgo">${dto.mid}</p><!-- p태그-  내가 쓴글이 아닐때 .wide 추가  -->
-									<a class="btn_talk_scrap talk_scrap_add_btn" data-key="137420" data-scrap_chk="N" data-user_key="381162" style="display:">
-						스크랩하기					</a>
-				
-							</section>
+				<p class="wide jgo">제목 :&nbsp;${dto.ibtitle}</p>
+			</section>
 		</div><!--// detail_profile -->
 
 		<div class="detail_title">
 			<section>
 				<div class="inner">
 					<dl class="detail_title_date">
-						<dt>${dto.ibtitle}</dt>
+						<dt>작성자 &nbsp; : &nbsp; ${dto.mid}</dt>
 						<dd>${dto.ibdate}
 						<a class="btn_auth_report" id="openModalBtn1" style="cursor: pointer;"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
 																															<!--

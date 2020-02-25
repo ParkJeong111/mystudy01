@@ -99,7 +99,6 @@ public class TalkController {
 				bdao.itemsReportInsert(ibnum);
 			}
 			ItemsboardDTO dto = bdao.itemsboardinfo(ibnum);
-			
 			mav.addObject("dto", dto);
 			mav.setViewName("talk/itemstalk_detail");
 			out.println("<script>alert('신고가 접수되었습니다.');</script>");
