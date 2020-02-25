@@ -44,7 +44,7 @@
   	<select id="boardAjax" parameterType="int" resultType="bldto">		
 		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
 		from board b, host h, member m
-		where b.hname=h.hname and b.mid=m.mid
+		where b.hname=h.hname(+) and b.mid=m.mid
 	
 		<choose>
 			<when test="check==1">
