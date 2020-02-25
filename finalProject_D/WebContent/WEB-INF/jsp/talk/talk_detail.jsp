@@ -420,7 +420,7 @@ section{width:964px;position:relative;margin:0 auto;}
 					<p class="detail_pic">
 						<span class="live_tag" style="display:none">현장실시간</span>
 						<c:choose>
-						<c:when test="${dto.btype2=='바다 조행기' || dto.btype2=='민물조행기'}">
+						<c:when test="${dto.btype2=='바다조행기' || dto.btype2=='민물조행기'}">
 						<span class="fishlist_tag">
 						<c:set var = "string1" value = "${dto.btype2}"/>
    						<c:set var = "string2" value = "${fn:substring(string1, 0, 2)}" />
