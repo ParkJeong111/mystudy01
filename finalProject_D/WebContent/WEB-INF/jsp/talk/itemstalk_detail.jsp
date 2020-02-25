@@ -478,7 +478,7 @@ section{width:964px;position:relative;margin:0 auto;}
 					<dl class="detail_title_date">
 						<dt>${dto.ibtitle}</dt>
 						<dd>${dto.ibdate}
-																																		<a class="btn_auth_report"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
+						<a class="btn_auth_report" id="openModalBtn1" style="cursor: pointer;"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
 																															<!--
 							<a class="btn_report"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/siren_ico.png" alt="">신고하기</a>
 							-->
@@ -487,6 +487,46 @@ section{width:964px;position:relative;margin:0 auto;}
 				</div>
 			</section>
 		</div>
+			<div id="modalItemsReportBox" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-family: Jua;">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="myModalLabel" style = "margin: auto; font-family: Jua;">신고하기</h4>
+</div>
+<form action="itemsReportInsert" method="post">
+<div class="modal-body">
+<p><strong><b>신고 사유</b></strong></p>
+
+<input type="hidden" name="ibnum" value="${dto.ibnum}">
+
+<input type = "radio" id="iradio1" name="report" value="2" checked="checked">
+<label for="iradio1">음란성/선정성</label>
+<br>
+
+<input type = "radio" id="iradio2"  name="report" value="4">
+<label for="iradio2">욕설/반말/부적절한 언어</label>
+<br>
+
+<input type = "radio"id="iradio3"  name="report" value="6">
+<label for="iradio3">부적절한 홍보 게시글</label>
+<br>
+
+<input type = "radio" id="iradio4"  name="report" value="6">
+<label for="iradio4">도배성 게시글</label>
+
+
+
+
+<div style = "margin-left: 282px;">
+<button type="submit" class="btn btn-primary" style = "font-family: Jua;" >신고하기</button>
+<button type="button" class="btn btn-default" id="closeModalBtn2" style = "font-family: Jua;">취소하기</button>
+</div>
+
+</div>
+</form>
+</div>
+</div>
+</div>
 		<!--// detail_title -->
 	</div>
 	<section>
@@ -598,7 +638,12 @@ section{width:964px;position:relative;margin:0 auto;}
 					<!--// 댓글입력 -->
 
 					<!-- 댓글목록 -->
-					<div id="comment_list_area"><script>
+					<div id="comment_list_area">
+					
+
+					
+<script>
+			
 $(document).ready(function(){
     $('.talk_more').click(function(){
         var p_user_key = $(this).attr('data-p_user_key');
@@ -887,6 +932,17 @@ $(document).ready(function(){
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+ <script>
+  $('#openModalBtn1').on('click', function(){
+	  console.log('모달이다.')
+	  $('#modalItemsReportBox').modal('show');
+	  });
+	  // 모달 안의 취소 버튼에 이벤트를 건다.
+	  $('#closeModalBtn2').on('click', function(){
+	  $('#modalItemsReportBox').modal('hide');
+	  });
+
+</script> 
     
   </body>
 </html>

@@ -40,10 +40,12 @@
 	</select>
 	
 	<!-- ============================ 안드로이드 게시판 데이터 불러오기 ===================================== -->
-	<select id="androidBoardData" parameterType="bdto" resultType="bdto">
+	<!-- <select id="androidBoardData" parameterType="bdto" resultType="bdto">
 		select hname, btitle, bcontent, bimage, bdate from board
+	</select> -->
+	<select id="androidBData" parameterType="mbdto" resultType="mbdto">
+		select mbtitle, mbcontent, mbstartdate from matchingboard
 	</select>
-	
 	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
  	parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
@@ -88,6 +90,14 @@
   		
   	</select>
   	
+  	<!-- 일반게시글 신고하기(중고장터 제외) -->
+  	<update id="reportInsert" parameterType="int">
+  		 update board set breport=breport+1 where bnum=#{bnum}
+  	</update>
+  	<!--  중고장터게시글 신고하기 -->
+  	<update id="itemsReportInsert" parameterType="int">
+  		update itemsboard set ibreport=ibreport+1 where ibnum=#{ibnum}
+  	</update>
   	
 	<!-- 김채은 영역 끝  -->
 
