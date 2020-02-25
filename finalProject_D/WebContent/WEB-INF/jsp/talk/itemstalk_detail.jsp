@@ -493,7 +493,7 @@ section{width:964px;position:relative;margin:0 auto;}
 		<div class="jgo_manage_detail clearfix">
 			<div class="jgo_thumbnail">
 				<div class="img_box">
-																<img src="${pageContext.request.contextPath}/resources/images/${e.bimage}" alt="">
+																<img src="${pageContext.request.contextPath}/resources/images/${dto.ibimage}"alt="">
 									</div>
 			</div>
 			<div class="jgo_info_con">
