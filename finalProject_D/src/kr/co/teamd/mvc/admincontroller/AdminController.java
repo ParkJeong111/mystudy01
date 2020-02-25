@@ -111,7 +111,7 @@ public class AdminController {
 		return mav;
 	}
 
-	@RequestMapping(value = "hostdelete") // 가맹점 삭제시 update(서비스종료안내)
+	@RequestMapping(value = "hostdelete") //
 	public String hostdelete(@RequestParam(value="hname") String hname ) throws Exception {
 		System.out.println("가맹점이름 삭제" +hname);
 		service.hostdeleteAll(hname);
