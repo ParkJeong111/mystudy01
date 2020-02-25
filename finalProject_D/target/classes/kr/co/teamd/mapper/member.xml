@@ -70,8 +70,8 @@
 	<!-- 주성중 영역 끝  -->
 	
 	<!-- ======================안드로이드 로그인 체크================================ -->
-	<select id="androidLoginChk" resultType="String">
-		select count(*) from member where mid = #{mid} and mpwd = #{mpwd};
+	<select id="androidLoginChk" parameterType="mdto" resultType="mdto">
+		select mid, mpwd from member where mid = #{mid} and mpwd = #{mpwd}
 	</select>
 	
 	<!-- ==============================  회원가입  (재민) ============================== -->

@@ -171,17 +171,8 @@ public class JsonController {
 	public MemberDTO androidLogin(MemberDTO mdto) {
 		System.out.println("mid : " + mdto.getMid());
 		System.out.println("mpwd : " + mdto.getMpwd());
-		MemberDTO m = mdao.idCheck(mdto);
-		if(m != null) {
-			System.out.println("로그인 성공!");
-			mdto.getMid();
-			mdto.getMpwd();
-		}  else {
-			System.out.println("로그인 실패~~~~~!");
-			mdto.setMid(null);
-			mdto.setMpwd(null);
-		}
-		//return mdto;
+		MemberDTO m = mdao.androidLogin(mdto);
+		System.out.println("출력값 " + m);
 		return m;
 	}
 
