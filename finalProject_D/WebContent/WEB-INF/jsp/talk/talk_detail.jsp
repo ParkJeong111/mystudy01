@@ -555,51 +555,6 @@ section{width:964px;position:relative;margin:0 auto;}
 					<!-- 댓글목록 -->
 					
 <div id="comment_list_area">
-<script>
-$(document).ready(function(){
-  
-
-    $('.btn_talk_comm_report').click(function(e){
-		e.preventDefault();
-        var seq_key = $('#report_tcm_key').val();
-		var mode = "add";
-		var sr_type = "2";
-		
-		$.ajax({
-			type: 'POST',
-			url: '/talk/user_report_proc',
-			data : {
-				seq_key : seq_key
-				, mode : mode
-				, sr_type : sr_type
-			},
-			dataType: 'json',
-			async: false,
-			cache: false,
-			processData: true,
-			success: function(res) {
-				$.toastAlert(res.ret);
-			},
-			error: function(res) {
-				if (res.responseText) {
-					console.log(res.responseText);
-					// location.reload(true);
-				}
-			}
-		});
-	});
-
-    });
-
-
-
-</script>
-
-<script>
-    $('.comment_list_more, .comment_list_best_box').show();
-    $('.comment_list_more_box').hide();
-</script>
-
 <div class="comment_list_area comment_list_best_box">
 			<!-- For문 사용 -->
 			<c:forEach var="e" items="${comment}">
@@ -615,32 +570,32 @@ $(document).ready(function(){
             </div>
            </c:forEach>
             </div>
-
-
-
-
 </div>
 					
 					
 				
 <script>
 $(document).ready(function(){
+
 	
 	//var commentform = $("form[role='commentform']");
 	var mnickname =  encodeURIComponent($('#mnickname').val())
 	var bnum = $('#bnum').val();
 	
 	$('#boardCommentInsert').click(function() {
+		
+		
 		if(mnickname!=''){
-			console.log(mnickname + "살아있네")
+			if($("textarea[name=bccontent]").val().length==0){
+				alert("내용을 입력해 주세요");
+				$('textarea[name=bccontent]').focus();
+			}else{
 			var bccontent = encodeURIComponent($("textarea[name=bccontent]").val())
 			var params = {
-					bnum : bnum,
-					mnickname : mnickname,
-					bccontent : bccontent
-				};
-			
-		
+								bnum : bnum,
+								mnickname : mnickname,
+								bccontent : bccontent
+						 };
 			 $.ajax({
 				type:'POST',
 				url:'boardCommentInsertList',
@@ -660,6 +615,7 @@ $(document).ready(function(){
 					});
 					$('#reply_total_cnt').text(count + ' 개');
 					$("textarea[name=bccontent]").val('');
+					$("textarea[name=bccontent]").focus();
 				
 				},
 				error:function(res){
@@ -667,7 +623,7 @@ $(document).ready(function(){
 				}
 				
 			}); 
-		
+			}
 		}else{
 			alert("로그인해주세요.")
 			$("textarea[name=bccontent]").val('');
