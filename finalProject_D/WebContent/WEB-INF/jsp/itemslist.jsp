@@ -1405,6 +1405,7 @@ width: 855px;
 					datatype : 'json',
 					success : function(data) {
 						$("#hostlistdiv").html("");
+						// 평점 별 그리기
 						$.each(data, function(key, value) {
 							var star = "";
 							for(i = 0; i < 5; i++) {
@@ -1415,6 +1416,7 @@ width: 855px;
 								}
 							}
 							
+							// 어종 ,를 기준으로 추가
 							var hspecies = value.hspecies;
 							var hspeciesSplit = hspecies.split(',');
 							var hspeciesResult = "";
@@ -1482,6 +1484,7 @@ width: 855px;
 					datatype : 'json',
 					success : function(data) {
 						$("#hostlistdiv").html("");
+						// 평점 별 그리기
 						$.each(data, function(key, value) {
 							var star = "";
 							for(i = 0; i < 5; i++) {
@@ -1491,7 +1494,7 @@ width: 855px;
 									star += '<i class="icon-star-o"></i>';
 								}
 							}
-							
+							// ,를 기준으로 어종 추가							
 							var hspecies = value.hspecies;
 							var hspeciesSplit = hspecies.split(',');
 							var hspeciesResult = "";

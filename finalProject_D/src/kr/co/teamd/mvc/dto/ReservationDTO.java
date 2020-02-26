@@ -13,6 +13,46 @@ public class ReservationDTO {
 
 	private String usedate;
 	private HostDTO hostdto; // resultMap사용으로 HostDTO 추가. usedate 컬럼 추가
+	
+	private int cnt; //추천업체리스트를 위해 추가
+	private String himage; //추천업체리스트를 위해 추가
+	private String haddr; //추천업체리스트를 위해 추가
+	private int hnum; //추천업체리스트를 위해 추가
+	
+	
+	
+	
+	public String getHaddr() {
+		return haddr;
+	}
+
+	public void setHaddr(String haddr) {
+		this.haddr = haddr;
+	}
+
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+	public int getHnum() {
+		return hnum;
+	}
+
+	public void setHnum(int hnum) {
+		this.hnum = hnum;
+	}
+
+	public String getHimage() {
+		return himage;
+	}
+
+	public void setHimage(String himage) {
+		this.himage = himage;
+	}
 
 	public int getRnum() {
 		return rnum;

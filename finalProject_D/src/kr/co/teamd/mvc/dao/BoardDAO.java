@@ -7,8 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
+import kr.co.teamd.mvc.dto.BoardcommentDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+
+import kr.co.teamd.mvc.dto.ItemscommentDTO;
+
+import kr.co.teamd.mvc.dto.ReservationDTO;
+
 import kr.co.teamd.mvc.dto.MatchingboardDTO;
 
 @Repository
@@ -60,6 +66,33 @@ public class BoardDAO implements BoardInter{
 		ss.update("talk.itemsReportInsert", ibnum);
 		
 	}
+	
+	@Override
+	public void boardCommentInsert(BoardcommentDTO bcdto) {
+		ss.insert("talk.boardCommentInsert", bcdto);
+		
+	}
+
+	@Override
+	public void itemsCommentInsert(ItemscommentDTO icdto) {
+		ss.insert("talk.itemsCommentInsert", icdto);
+		
+	}
+
+	@Override
+	public List<BoardcommentDTO> boardCommentList(BoardcommentDTO bcdto) {
+		return ss.selectList("talk.boardCommentList", bcdto);
+	}
+
+	@Override
+	public List<ItemscommentDTO> itemsCommentList(ItemscommentDTO icdto) {
+		return ss.selectList("talk.itemsCommentList", icdto);
+	}
+
+
+
+
+	
 
 	@Override  // 재민          -- 중고 게시판 글 작성 --
 	public void itemboardAdd(ItemsboardDTO itbdto) {
@@ -71,14 +104,25 @@ public class BoardDAO implements BoardInter{
 		return ss.selectList("talk.chkhname", chkbdto);
 	}
 
-	@Override
+	@Override    // 재민         -- 안드 함께자바 게시글 데이터 --
 	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto) {
 		return ss.selectList("talk.androidBData", mbdto);
+	}
+
+	@Override
+	public List<ReservationDTO> recommendlist() {
+		return ss.selectList("talk.recommendlist");
 	}
 	/*@Override  // 재민         -- 안드 게시글 데이터 --
 	public List<BoardDTO> androidBoardData(BoardDTO bdto) {
 		return ss.selectList("talk.androidBoardData", bdto);
 	}*/
+
+	@Override
+	public BoardDTO androidBoardData(BoardDTO bdtodata) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }

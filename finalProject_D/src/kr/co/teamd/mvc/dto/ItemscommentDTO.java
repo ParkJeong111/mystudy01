@@ -6,6 +6,8 @@ public class ItemscommentDTO {
 	private int ibnum;
 	private String mnickname;
 	private String iccontent;
+	private String icdate;
+	private String cnt;
 	
 	public int getIcnum() {
 		return icnum;
@@ -31,5 +33,20 @@ public class ItemscommentDTO {
 	public void setIccontent(String iccontent) {
 		this.iccontent = iccontent;
 	}
+	public String getIcdate() {
+		return icdate;
+	}
+	public void setIcdate(String icdate) {
+		this.icdate = icdate;
+	}
+	public String getCnt() {
+		return cnt;
+	}
+	public void setCnt(String cnt) {
+		this.cnt = cnt;
+	}
+	
+	
+	
 	
 }

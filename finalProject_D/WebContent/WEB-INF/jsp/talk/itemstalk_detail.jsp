@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>   
 <style>
 html,body{width: 100%;height:100%;-webkit-text-size-adjust: 100%;}
 html{overflow-y:scroll; overflow-x:none;}
@@ -91,7 +92,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_comment .check_title .check_radio label input{position:absolute;z-index:-99999;opacity:0;}
 .view_info_comment .check_title .check_radio label input + ins{color:#606060;font-size:18px;}
 .view_info_comment .check_title .check_radio label input:checked + ins{color:#ff724c}
-.view_info_comment .comment_list_box{border-bottom:1px solid #e6e6e6;padding:30px 20px;}
+.view_info_comment .comment_list_box{border-bottom:1px solid #e6e6e6;padding: 10px 10px;}
 .view_info_comment .comment_list_box.tcm_best{background:#fafafa}
 .view_info_comment .comment_profile{width:50px;height:50px;position:relative;border-radius:100%;overflow:hidden;float:left;}
 .view_info_comment .comment_profile:before{width:100%;height:20px;position:absolute;bottom:0;left:0;display:block;color:#fff;font-size:12px;text-align:center;z-index:1;line-height:18px}
@@ -109,14 +110,14 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_comment .comment_profile.lv99:before{content:'M';background:linear-gradient(to bottom, #616161, #171717);}
 .view_info_comment .comment_profile.lv98:before{background:linear-gradient(to bottom, #ffd848, #ff3600);}
 .view_info_comment .comment_profile img{position:absolute;width:auto;height:100%}
-.view_info_comment .comment_box{width:calc(100% - 60px);margin-left:10px;float:left;padding-top:12px;}
+.view_info_comment .comment_box{width:calc(100% - 60px);margin-left:10px;float:left;}
 .view_info_comment .comment_box .comment_name{font-size:18px;color:#333333;}
-.view_info_comment .comment_box .comment_txt{font-size:20px;margin:10px 0}
+.view_info_comment .comment_box .comment_txt{font-size:20px;}
 .view_info_comment .comment_box .comment_txt img{display:block;margin:10px 0;}
 .view_info_comment .comment_box .comment_txt .hash_tag_txt{color:#004f9d}
 .view_info_comment .comment_box .comment_date span{display:inline-block;color:#8c8c8c;font-size:16px;}
 .view_info_comment .comment_box .comment_date span:first-child:before{display:none}
-.view_info_comment .comment_box .comment_date span:before{width:4px;height:4px;margin:0 10px;position:relative;top:-4px;content:'';display:inline-block;border-radius:100%;background:#8c8c8c}
+.view_info_comment .comment_box .comment_date span:before{height:4px;margin:0 10px;position:relative;top:-4px;content:'';display:inline-block;border-radius:100%;background:#8c8c8c}
 .view_info_comment .recomment_list_box{padding:30px 20px 30px 70px;position:relative;border-bottom:1px solid #e6e6e6}
 .view_info_comment .recomment_list_box:before{width:15px;height:15px;background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_comm01.png') no-repeat;background-size:100% auto;content:'';position:absolute;top:30px;left:28px}
 
@@ -589,7 +590,7 @@ section{width:964px;position:relative;margin:0 auto;}
 			<div class="view_info_comment view_contents" id="comment_box">
 				<section>
 					<div class="check_title clearfix">
-						<p>댓글 <span id="reply_total_cnt">0</span></p>
+						<p>댓글 <span id="reply_total_cnt">${fn:length(comment)} 개</span></p>
 						<a class="refresh_btn"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_refresh.png" alt=""></a>
 						<div class="check_radio">
 
@@ -608,12 +609,10 @@ section{width:964px;position:relative;margin:0 auto;}
 					<!-- 댓글입력 -->
 					<div class="comment_text_area">
 					    <form id="talkCommentForm" name="talkCommentForm" method="post">
-					    <input type="hidden" name="mode" value="add">
-					    <input type="hidden" name="user_key" value="381162">
-					    <input type="hidden" name="tl_key" value="137420">
-					    <input type="hidden" name="tcm_key" value="0">
+					    <input type="hidden" id="ibnum" name="ibnum" value="${dto.ibnum}">
+					    <input type="hidden" id="mnickname" name="mnickname" value="${sessionScope.nickname}">
 					    <div class="file_textarea">
-							<textarea name="tcm_comment" class="tcm_comment" placeholder="댓글 내용을 입력해주세요."></textarea>
+							<textarea id="iccontent" name="iccontent"class="tcm_comment" placeholder="댓글 내용을 입력해주세요."></textarea>
 					        <div class="imgefile_upload">
 					            <img class="original" src="#" style="background-color: rgb(247, 247, 247);">
 								<div class="upload_close"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_photo03.png" alt=""></div>
@@ -621,11 +620,7 @@ section{width:964px;position:relative;margin:0 auto;}
 					    </div>
 
 					    <div class="comment_upload_box clearfix">
-					        <label for="">
-																	<input type="file" class="imgefile" id="imgefile1" name="talk_files">
-									<span class="photo_btn">사진 첨부</span>
-													        </label>
-					        <a class="comm_btn btn_comm">등록하기</a>
+					        <a id="itemsCommentInsert" class="comm_btn btn_comm" style="cursor: pointer;">등록하기</a>
 					    </div>
 					    </form>
 					</div>
@@ -633,264 +628,93 @@ section{width:964px;position:relative;margin:0 auto;}
 
 					<!-- 댓글목록 -->
 					<div id="comment_list_area">
+					<div class="comment_list_area comment_list_best_box">
 					
-
-					
+             <!-- For문 사용 -->
+			<c:forEach var="e" items="${comment}">
+             <div class="comment_list_box tcm_best tcm_box clearfix tcm_box286297" id="tcm_box286297">
+                <div class="comment_box">
+                    <p class="comment_date">
+                        <span>${e.mnickname}</span> <span>${e.icdate}</span>
+                    </p>
+                    <p class="comment_txt">
+                      ${e.iccontent} 
+                    </p>
+                </div><!-- comment_box -->
+            </div>
+           </c:forEach>
+         
+            </div>
+            				
 <script>
-			
 $(document).ready(function(){
-    $('.talk_more').click(function(){
-        var p_user_key = $(this).attr('data-p_user_key');
-        var user_key = "381162";
-        var tcm_key = $(this).attr('data-tcm_key');
-        if(p_user_key == user_key){
-            $('#delete_tcm_key').val(tcm_key);
-            $('#delete_box').show();
-            $('html').addClass('html_popup');
-        }else{
-            $('#report_tcm_key').val(tcm_key);
-            $('#report_box').show();
-            $('html').addClass('html_popup');
-        }
-    });
-
-    $('.btn_talk_comm_like').click(function(e){
-		e.preventDefault();
-        var tl_key = $(this).attr('data-tl_key');
-		var tcm_key = $(this).attr('data-tcm_key');
-		var like_chk = $(this).attr('data-like_chk');
-        var user_key = $(this).attr('data-user_key');
-		var like_cnt = $('.like_cnt'+tcm_key).html();
-		var mode = (like_chk == "N") ? 'like' : 'unlike';
-		$.ajax({
-			type: 'POST',
-			url: '/talk/talk_commment_proc',
-			data : {
-				tl_key : tl_key
-				, mode : mode
-                , tcm_key : tcm_key
-                , like_chk : like_chk
-                , user_key : user_key
+	var ibnum = $('#ibnum').val();
+	var mnickname =  encodeURIComponent($('#mnickname').val())
+	$('#itemsCommentInsert').click(function() {
+		if(mnickname!=''){
+			if($("textarea[name=iccontent]").val().length==0){
+				alert("내용을 입력해 주세요");
+				$('textarea[name=iccontent]').focus();
+			}else{
+				var iccontent = encodeURIComponent($("textarea[name=iccontent]").val())
+				var params = {
+								ibnum : ibnum,
+								mnickname : mnickname,
+								iccontent : iccontent
+							 };
+		 $.ajax({
+			type:'POST',
+			url:'itemsCommentInsertList',
+			data:params,
+			datatype :'json',
+			success:function(res){
+				$('.comment_list_area, .comment_list_best_box').html("");
+				var count = 0
+				$.each(res, function(key, value){
+					count++;
+					$('.comment_list_area, .comment_list_best_box').append('<div class="comment_list_box tcm_best tcm_box clearfix tcm_box286297" id="tcm_box286297">'
+				              +'<div class="comment_box"><p class="comment_date"><span>'+value.mnickname+'</span> <span>'+value.icdate+'</span>'
+				              +'</p><p class="comment_txt">'+value.iccontent+'</p></div></div>');
+					console.log(decodeURIComponent(value.bnum));
+					console.log(decodeURIComponent(value.mnickname));
+					console.log(decodeURIComponent(value.bccontent));
+				});
+				$('#reply_total_cnt').text(count + ' 개');
+				$("textarea[name=iccontent]").val('');
+				$("textarea[name=iccontent]").focus();
 			},
-			dataType: 'json',
-			async: false,
-			cache: false,
-			processData: true,
-			success: function(res) {
-				$.toastAlert(res.ret);
-				if(res.rtv){
-					if(mode == 'like') {
-						$('.talk_comm_like'+tcm_key).addClass('on');
-						$('.talk_comm_like'+tcm_key).attr('data-like_chk', 'Y');
-						if(like_cnt >= 0){
-							like_cnt = +parseInt(like_cnt) + 1;
-						}
-
-						$('.like_cnt'+tcm_key).html(like_cnt);
-					} else {
-						$('.talk_comm_like'+tcm_key).removeClass('on');
-						$('.talk_comm_like'+tcm_key).attr('data-like_chk', 'N');
-						if(like_cnt > 0){
-							like_cnt = parseInt(like_cnt) - 1;
-						}
-						$('.like_cnt'+tcm_key).html(like_cnt);
-					}
-				}
-			},
-			error: function(res) {
-				if (res.responseText) {
-					console.log(res.responseText);
-					location.reload(true);
-				}
+			error:function(res){
+				console.log("실패했나")
 			}
-		});
+			
+		}); 
+			}
+		}else{
+			alert("로그인해주세요.")
+			$("textarea[name=iccontent]").val('')
+		}
+		
+		
+		
+	//	commentform.attr('action','boardCommentInsert');
+	//	commentform.attr('method', 'POST');
+	//	commentform.submit();
 	});
-
-    $('.btn_talk_comm_report').click(function(e){
-		e.preventDefault();
-        var seq_key = $('#report_tcm_key').val();
-		var mode = "add";
-		var sr_type = "2";
-		$.ajax({
-			type: 'POST',
-			url: '/talk/user_report_proc',
-			data : {
-				seq_key : seq_key
-				, mode : mode
-				, sr_type : sr_type
-			},
-			dataType: 'json',
-			async: false,
-			cache: false,
-			processData: true,
-			success: function(res) {
-				$.toastAlert(res.ret);
-			},
-			error: function(res) {
-				if (res.responseText) {
-					console.log(res.responseText);
-					// location.reload(true);
-				}
-			}
-		});
-	});
-
-	$('.btn_talk_comm_del').click(function(e){
-		e.preventDefault();
-		var tl_key = $(this).attr('data-tl_key');
-        var tcm_key = $('#delete_tcm_key').val();
-        var user_key = "381162";
-		var mode = "del";
-        var reply_total_cnt = $('#reply_total_cnt').html();
-		$.ajax({
-			type: 'POST',
-			url: '/talk/talk_commment_proc',
-			data : {
-				tl_key : tl_key
-                , tcm_key : tcm_key
-				, mode : mode
-                , user_key : user_key
-			},
-			dataType: 'json',
-			async: false,
-			cache: false,
-			processData: true,
-			success: function(res) {
-				$.toastAlert(res.ret);
-                if(reply_total_cnt > 0){
-					reply_total_cnt = parseInt(reply_total_cnt) - 1;
-				}
-				$('#reply_total_cnt').html(reply_total_cnt);
-                $.getlist();
-			},
-			error: function(res) {
-				if (res.responseText) {
-					console.log(res.responseText);
-					// location.reload(true);
-				}
-			}
-		});
-	});
-
-
-    // 대댓글 등록
-    var isRun  = false;
-    $('.btn_comment_reply').click(function(e){
-
-        if(isRun == true) {
-            return;
-        }
-
-        isRun = true;
-
-        var tl_key = $(this).attr('data-tl_key');
-        var tcm_key = $(this).attr('data-tcm_key');
-        var user_key = $(this).attr('data-user_key');
-        var u_nick = $(this).attr('data-u_nick');
-
-        $(".recomment_text_area").remove();
-
-        $.ajax({
-			type : "POST",
-			url : "/talk/get_talk_comment_reply",
-			data : {
-                tl_key : tl_key
-                ,tcm_key : tcm_key
-                ,user_key : user_key
-                ,u_nick : u_nick
-            },
-			success : function(res){
-                $(".tcm_box"+tcm_key).after(res.html);
-                isRun  = false; //연속클릭방지
-			},
-			error: function(res) {
-				if (res.responseText) {
-					console.log(res.responseText);
-					// location.reload(true);
-				}
-			}
-		});
-    });
-
-
-    var isRun  = false;
-    $('.btn_comment_more_reply').click(function(e){
-
-        if(isRun == true) {
-            return;
-        }
-
-        isRun = true;
-
-        var tl_key = $(this).attr('data-tl_key');
-        var tcm_key = $(this).attr('data-tcm_key');
-        var user_key = $(this).attr('data-user_key');
-        var u_nick = $(this).attr('data-u_nick');
-
-        $(".recomment_text_area").remove();
-
-        $.ajax({
-			type : "POST",
-			url : "/talk/get_talk_comment_reply",
-			data : {
-                tl_key : tl_key
-                ,tcm_key : tcm_key
-                ,user_key : user_key
-                ,u_nick : u_nick
-            },
-			success : function(res){
-                $(".tcm_box"+tcm_key).after(res.html);
-                isRun  = false; //연속클릭방지
-			},
-			error: function(res) {
-				if (res.responseText) {
-					console.log(res.responseText);
-					// location.reload(true);
-				}
-			}
-		});
-    });
-
-    // 댓글 더보기
-    $('.comment_list_more').click(function(e){
-        $('.comment_list_more').hide();
-        $('.comment_list_more_box').show();
-
-        $('.comment_list_best_box').remove();
-    });
+	
+ 
 });
 
 </script>
+            
+					
+
+	
 
 
 
-<div class="comment_list_area comment_list_more_box">
-          
-        
-    
-    <!--
-
-    -->
-</div>
 
 
-<!-- 스크랩및신고 팝업 -->
-<div class="popupsm_opacity popup_choice" id="report_box" style="display:none">
-    <input type="hidden" name="tcm_key" id="report_tcm_key" value="">
-	<div class="popup_choice_inner">
-					<a class="btn_talk_comm_report" data-tl_key="137420" data-user_key="381162">신고하기</a>
-		
-		<a class="wrap_close">닫기</a>
-	</div>
-</div>
 
-<div class="popupsm_opacity popup_choice" id="delete_box" style="display:none">
-    <input type="hidden" name="tcm_key" id="delete_tcm_key" value="">
-	<div class="popup_choice_inner">
-		<a class="btn_talk_comm_del" data-tl_key="137420">삭제하기</a>
-		<a class="wrap_close">닫기</a>
-	</div>
-</div>
 <!--// 스크랩및신고 팝업 -->
 </div><!--// comment_list_area -->
 					<!--// 댓글목록 -->

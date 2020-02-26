@@ -37,6 +37,7 @@ public class itemslistController {
 	// 업체 상세페이지
 	@GetMapping(value = "itemdetail")
 	public ModelAndView hostDetail(int hnum) {
+		System.out.println("hnum이다" + hnum);
 		ModelAndView mav = new ModelAndView("itemdetail");
 		HostDTO hdto = hostdao.hostDetail(hnum);
 		List<HostgoodsDTO> hgdtoList = hdto.getHgdto();
