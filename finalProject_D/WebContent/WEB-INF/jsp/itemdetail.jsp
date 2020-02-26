@@ -2880,41 +2880,6 @@ keyframes swiper-preloader-spin { 100%{
 				</div>
 			</section>
 		</div>
-		<!-- <div class="view_info_manage view_contents">
-			<section>
-				<div>
-					<ol id="talk_list" class="manage_list_area">
-						<div class="view_count_text">
-							<p>
-								조황/조행기 <span>94개</span>
-							</p>
-						</div>
-						<li><a href="">
-								<div class="profile_box clearfix">
-									<div class="profile_img lv98">
-										<img
-											src="https://img.moolban.com/unsafe/50x50/filters:no_upscale()/profile_aws/default.png?date=1493355238"
-											class="profile" alt="">
-									</div>
-									<p class="profile_name">각평낚시터</p>
-								</div>
-								<div class="manage_title_img">
-									<img
-										src="https://img.moolban.com/unsafe/480x270/filters:no_upscale()/talk/20200119/temp_20200119_1630800421.jpg?date=1582112250"
-										alt="">
-								</div>
-								<div class="manage_txt_box">
-									<p class="manage_kind_tag" style="">
-										<span class="sif_key50">메기</span>
-									</p>
-									<p class="manage_title_txt">2020년 첫 방류와 조황정보</p>
-									<p class="manage_date">2020년 01월 19일</p>
-								</div>
-						</a></li>
-					</ol>
-				</div>
-			</section>
-		</div> -->
 	</div>
 </div>
 	<script type="text/javascript"
