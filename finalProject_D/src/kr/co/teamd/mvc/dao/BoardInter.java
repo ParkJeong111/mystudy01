@@ -22,5 +22,5 @@ public interface BoardInter {
 	public BoardDTO androidBoardData(BoardDTO bdtodata);  // 안드 보드리스트
 	public List<ReservationDTO> recommendlist(); //추천업체리스트
 	//public List<BoardDTO> androidBoardData(BoardDTO bdtodata);  // 안드 보드리스트
-	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto);  // 안드 보드리스트
+	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto);  // 안드 함께자바 리스트
 }
