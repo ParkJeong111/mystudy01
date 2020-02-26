@@ -113,7 +113,6 @@ public class TalkController {
 				out.println("<script>alert('로그인 후 이용해주세요.');</script>");
 				out.flush();
 				return mav;
-			// 해당 유저가 현재 매칭중인 상태를 알기위한 값 추출
 			}else {
 				bdao.itemsReportInsert(ibnum);
 			}

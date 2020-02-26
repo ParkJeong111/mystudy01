@@ -84,7 +84,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .manage_detail .change_manage_detail p{font-size:16px;color:#000;margin:15px 0}
 .view_info_manage_detail .manage_detail .change_manage_detail strong{font-weight:500;display:block;font-size:16px;color:#000;}
 .view_area  .view_info_comment{background:#fff;padding-top:0}
-.view_info_comment .check_title{padding:30px 0;border-bottom:1px solid #e6e6e6}
+.view_info_comment .check_title{padding:20px 0;border-bottom:1px solid #e6e6e6}
 .view_info_comment .check_title p{float:left;font-size:18px;color:#8c8c8c;}
 .view_info_comment .check_title p span{color:#ff724c}
 .view_info_comment .check_title .check_radio{float:right}
@@ -591,18 +591,8 @@ section{width:964px;position:relative;margin:0 auto;}
 				<section>
 					<div class="check_title clearfix">
 						<p>댓글 <span id="reply_total_cnt">${fn:length(comment)} 개</span></p>
-						<a class="refresh_btn"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_refresh.png" alt=""></a>
-						<div class="check_radio">
-
-							<label>
-								<input type="radio" onclick="fn_tcm_type()" name="tcm_type" value="new">
-								<ins>최신순</ins>
-							</label>
-							<label>
-								<input type="radio" onclick="fn_tcm_type()" name="tcm_type" value="step">
-								<ins>등록순</ins>
-							</label>
-						</div>
+						<a class="refresh_btn" href="#" onclick="javascript:location.reload()"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_refresh.png" alt=""></a>
+						
 					</div><!--// check_title -->
 
 
