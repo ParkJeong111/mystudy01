@@ -17,6 +17,7 @@ public class ReservationDTO {
 	private int cnt; //추천업체리스트를 위해 추가
 	private String himage; //추천업체리스트를 위해 추가
 	private String haddr; //추천업체리스트를 위해 추가
+	private int hnum; //추천업체리스트를 위해 추가
 	
 	
 	
@@ -35,6 +36,14 @@ public class ReservationDTO {
 
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+
+	public int getHnum() {
+		return hnum;
+	}
+
+	public void setHnum(int hnum) {
+		this.hnum = hnum;
 	}
 
 	public String getHimage() {

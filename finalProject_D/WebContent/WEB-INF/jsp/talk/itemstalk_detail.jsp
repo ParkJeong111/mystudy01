@@ -652,14 +652,16 @@ $(document).ready(function(){
 	var mnickname =  encodeURIComponent($('#mnickname').val())
 	$('#itemsCommentInsert').click(function() {
 		if(mnickname!=''){
-		var iccontent = encodeURIComponent($("textarea[name=iccontent]").val())
-		var params = {
-			ibnum : ibnum,
-				mnickname : mnickname,
-				iccontent : iccontent
-			};
-		
-	
+			if($("textarea[name=iccontent]").val().length==0){
+				alert("내용을 입력해 주세요");
+				$('textarea[name=iccontent]').focus();
+			}else{
+				var iccontent = encodeURIComponent($("textarea[name=iccontent]").val())
+				var params = {
+								ibnum : ibnum,
+								mnickname : mnickname,
+								iccontent : iccontent
+							 };
 		 $.ajax({
 			type:'POST',
 			url:'itemsCommentInsertList',
@@ -679,13 +681,14 @@ $(document).ready(function(){
 				});
 				$('#reply_total_cnt').text(count + ' 개');
 				$("textarea[name=iccontent]").val('');
-			
+				$("textarea[name=iccontent]").focus();
 			},
 			error:function(res){
 				console.log("실패했나")
 			}
 			
 		}); 
+			}
 		}else{
 			alert("로그인해주세요.")
 			$("textarea[name=iccontent]").val('')
