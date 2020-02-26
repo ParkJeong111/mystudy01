@@ -222,8 +222,9 @@ public class JsonController {
 	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto){
 		List<MatchingboardDTO> b = bdao.androidBData(mbdto);
 		for(MatchingboardDTO dto : b) {
-            System.out.println("title : " + dto.getMbdate());
-            System.out.println("hname : " + dto.getMbtitle());
+            System.out.println("date : " + dto.getMbdate());
+            System.out.println("title : " + dto.getMbtitle());
+            System.out.println("mbtag : " + dto.getMbtag());
         }
 		return b;
 	}

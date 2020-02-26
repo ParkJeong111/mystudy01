@@ -44,7 +44,7 @@
 		select hname, btitle, bcontent, bimage, bdate from board
 	</select> -->
 	<select id="androidBData" parameterType="mbdto" resultType="mbdto">
-		select mbtitle, mbcontent, mbstartdate from matchingboard
+		select mbnum, mbtitle, mbcontent, to_char(mbstartdate, 'yyyy/mm/dd') mbstartdate, mbperson, mblocation, mbimage, to_char(mbdate, 'yyyy/mm/dd') mbdate, mbtag, mid from matchingboard
 	</select>
 	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
@@ -98,6 +98,11 @@
   	<update id="itemsReportInsert" parameterType="int">
   		update itemsboard set ibreport=ibreport+1 where ibnum=#{ibnum}
   	</update>
+  	
+  	<select id="recommendlist" resultType="rdto">
+		select * from (select r.hname, h.himage, substr(haddr,'1','2') haddr, count(r.hname) cnt from reservation r, host h where r.hname=h.hname group by r.hname, h.himage, h.haddr order by 3 desc) 
+		where <![CDATA[rownum <=10]]>
+	</select>
   	<!-- 댓글  쓰기 시작 -->
   	<insert id="boardCommentInsert" parameterType="bcdto">
   		insert into boardcomment values(boardcomment_seq.nextVal,#{bnum},#{mnickname},#{bccontent},sysdate)
