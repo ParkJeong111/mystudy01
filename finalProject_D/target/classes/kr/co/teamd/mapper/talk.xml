@@ -9,9 +9,7 @@
 		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
 		from board b, host h, member m
 		where b.hname=h.hname and b.mid=m.mid
-	
   	</select>
-  	
 
   	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
 	<insert id="addboard" parameterType="bdto">
@@ -44,7 +42,7 @@
 		select hname, btitle, bcontent, bimage, bdate from board
 	</select> -->
 	<select id="androidBData" parameterType="mbdto" resultType="mbdto">
-		select mbtitle, mbcontent, mbstartdate from matchingboard
+		select mbtitle, mbcontent, mbstartdate, mbperson, mblocation, mbimage, mbdate from matchingboard
 	</select>
 	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
@@ -98,24 +96,5 @@
   	<update id="itemsReportInsert" parameterType="int">
   		update itemsboard set ibreport=ibreport+1 where ibnum=#{ibnum}
   	</update>
-  	
-	<!-- 김채은 영역 끝  -->
-
-
-	<!-- 권세진 영역 시작  -->
-	
-	<!-- 권세진 영역 끝  -->
-	
-	
-	<!-- 박정연 영역 시작  -->
-	
-	<!-- 박정연 영역 끝  -->
-	
-	
-	<!-- 주성중 영역 시작  -->
-
-	<!-- 주성중 영역 끝  -->
-
-
 
   </mapper>
