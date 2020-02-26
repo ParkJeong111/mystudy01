@@ -4,20 +4,22 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import kr.co.teamd.mvc.dao.BoardInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
-import kr.co.teamd.mvc.dto.RandomMatchingDTO;
 
 @Controller
 public class TalkController {
@@ -28,12 +30,15 @@ public class TalkController {
 	@RequestMapping(value = "talklist") // 게시판리스트
 	public ModelAndView boardtalk(int check) {
 		ModelAndView mav = new ModelAndView("talk/talklist");
-
 		List<BoardListAjaxDTO> list = bdao.boardAjax(check);
 		mav.addObject("list", list);
 		return mav;
 	}
-
+	@RequestMapping(value = "matchboardview")
+	public String matchboardview() {
+		return "member/my_matchboard";
+	}
+	
 	@RequestMapping(value = "talk_detail") // 글 상세보기
 	public ModelAndView talkDetail(int bnum) {
 		ModelAndView mav = new ModelAndView("talk/talk_detail");
@@ -181,10 +186,8 @@ public class TalkController {
 	@RequestMapping(value = "itemsboardadd", method = RequestMethod.POST) // 내글쓰기 게시글 작성
 	public ModelAndView insertitboard(@ModelAttribute("itbdto") ItemsboardDTO itbdto, HttpSession session,
 			HttpServletRequest request) {
-	
 		// 이미지 업로드
 		String path = session.getServletContext().getRealPath("/resources/images/"); // session.getServletContext().getRealPath("/resources/images/")
-
 		StringBuffer upload = new StringBuffer();
 		upload.append(path);
 		upload.append(itbdto.getIbfile().getOriginalFilename());
@@ -196,7 +199,6 @@ public class TalkController {
 		}
 		// DB로 들어갈 파일명으로 변경
 		itbdto.setIbimage(itbdto.getIbfile().getOriginalFilename());
-
 		bdao.itemboardAdd(itbdto);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:talklist?check=2");

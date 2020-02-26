@@ -1382,7 +1382,7 @@ li {
 									style="border: none; cursor: pointer; background-color: white;">
 									<img alt="초기화" src="${pageContext.request.contextPath}/resources/images/icon/reset.png" />
 								</button>
-								<button type="submit" id="submit"
+								<button type="button" id="submit"
 									style="border: none; cursor: pointer; background-color: white; margin-left: -9px;">
 									<img src="${pageContext.request.contextPath}/resources/images/icon/submit.png" />
 								</button>
@@ -1394,7 +1394,7 @@ li {
 									<strong style="margin-left: 20px; color: gray;">인원</strong>
 									<input
 										type="button" onClick="changeperminus()" value="-"
-										class="per_Btn" style="margin-left: 60px;"> <strong>
+										class="per_Btn" style="margin-left: 60px;" id = "minus"> <strong>
 										<span id="perid"
 										style="color: #E51048; font: bold; margin-left: 27px; margin-right: 27px; font-size: 18px; display: inline-block; width: 50px; text-align: center;">2</span>
 									</strong> 
@@ -1524,14 +1524,14 @@ li {
 													<a href="#">${matchlist.mbtitle }</a>
 												</h3>
 												<p class="rate">	
-													<span style = "font-size: 15px;"> 출조일 : ${matchlist.mbstartdate }</span>
+													<span style = "font-size: 13px;"> 출조일 : ${matchlist.mbstartdate }</span>
 												</p>
 											</div>
 											<div class="two">
-												<span class="price">${matchlist.mbtag }</span>
+												<span class="price" style = "font-size: 14px;">${matchlist.mbtag }</span>
 											</div>
 										</div>
-										<p>${matchlist.mbcontent }</p>
+										<p>${matchlist.mblocation }</p>
 										<p class="days">
 										</p>
 										<hr>
@@ -1646,10 +1646,12 @@ li {
 				var startdate = $(':text[name="startdate"]').val();
 				var enddate = $(':text[name="enddate"]').val();
 				var mbtag = encodeURI($('#hservice').val())
+				var count = document.getElementById('perid').innerHTML;
+				console.log('인원이 몇명인가요'+count);
 				
 				console.log($('#hservice').val());
 				$.ajax({
-					url : "matchingb?startdate="+startdate+"&enddate="+enddate+"&mbtag="+mbtag,
+					url : "matchingb?startdate="+startdate+"&enddate="+enddate+"&mbtag="+mbtag+"&count="+count,
 					datatype : 'json',
 					success : function(data) {
 						$('#matchinglistdiv').html("");
@@ -1673,6 +1675,31 @@ li {
         function matchpage() {
 			location.href = 'matchpage?mbnum='
 		}
+        
+        
+        function changeperminus(){
+        	var val;
+        	val = document.getElementById('perid').innerHTML; 
+        	if(val > 2){
+        	val = parseInt(val) - 2;
+        	$("#perid").html(val);
+        	}else{
+        		console.log("값이 2보다 작습니다.")
+        	}
+        	console.log(val);
+        }
+        
+        function changeperplus(){
+        	var valp;
+        	valp = document.getElementById('perid').innerHTML;
+        	if(valp < 6){
+        	valp = parseInt(valp) + 2;
+        	$("#perid").html(valp);
+        	}else{
+        		console.log("값이 6보다 큽니다.")
+        	}
+        	console.log(valp);
+        }
         
 		</script>
 		

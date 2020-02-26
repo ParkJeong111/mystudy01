@@ -22,7 +22,6 @@ import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dao.MatchingBoardInter;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dao.RandomMatchinginter;
-import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
@@ -200,7 +199,8 @@ public class JsonController {
 	
 	// 함께자바 검색기능
 	@RequestMapping(value = "matchingb")
-	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto) {
+	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto,String count) {
+		System.out.println("몇명인가요"+count);
 		System.out.println(dto.getMbtag());
 		List<String> service = new ArrayList<String>();
 		String[] test = dto.getMbtag().split("/");
@@ -230,11 +230,13 @@ public class JsonController {
 		}
 		list.put("dto", dto);
 		list.put("list", service);
+		list.put("count", count);
 		dto.setEnddate(modifyedate[2].substring(2, 4) + "/" + modifyedate[0] + "/" + modifyedate[1]);
 		List<MatchingboardDTO> searchdto = MatchingBoard.optionsearch(list);
 		for(MatchingboardDTO e : searchdto) {
 			System.out.println(e.getMbtitle());
 		}
+		
 
 		return searchdto;
 	}

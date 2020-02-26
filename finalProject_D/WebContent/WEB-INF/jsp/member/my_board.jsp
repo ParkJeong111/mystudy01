@@ -845,10 +845,11 @@ a {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; padding-left:20%; " >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto;" >
 			<ol class="clearfix" style="text-align: center;">
 				<li class="active"><a href="my_board"><b><strong>게시글작성</strong></b></a></li>
 				<li><a href="itemsboard"><b><strong>중고 게시글작성</strong></b></a></li>
+				<li><a href="matchboardview"><b><strong>매칭글 작성</strong></b></a></li>
 			</ol>
 		</div>
 
