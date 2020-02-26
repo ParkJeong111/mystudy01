@@ -1633,7 +1633,7 @@ margin-top: -3%;}
 							
 									<div class="comm_mark_line">
 										<p class="comm_line">
-											´ñ±Û <span>0</span>
+											´ñ±Û <span>${e.cnt }</span>
 										</p>
 					
 									</div>

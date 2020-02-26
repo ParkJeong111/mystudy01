@@ -50,10 +50,10 @@
  	<!-- 게시글 리스트(Dynamic & Ajax) 
  	parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
   	<select id="boardAjax" parameterType="int" resultType="bldto">		
-		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
-		from board b, host h, member m
-		where b.hname=h.hname(+) and b.mid=m.mid
-	
+		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname, count(bc.bnum) cnt
+		from board b, host h, member m, boardcomment bc
+		where b.hname=h.hname(+) and b.mid=m.mid and b.bnum=bc.bnum(+)
+		
 		<choose>
 			<when test="check==1">
 			and b.btype1='유저조행기' 
@@ -71,7 +71,7 @@
 			<otherwise></otherwise>
 			
 		</choose> 
-		order by b.bdate desc
+		 group by b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent, b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname order by b.bdate desc
   	</select>
   	
   	<select id="itemsboard" parameterType="int" resultType="ibdto">
