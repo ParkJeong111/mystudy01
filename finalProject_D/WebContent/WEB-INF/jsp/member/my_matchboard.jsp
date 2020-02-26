@@ -1000,59 +1000,59 @@ label {
 							<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
 								<div class="fields">
 								<p><strong><b>관심사(중복가능)</b></strong></p>
-									<input type = "checkbox" id = "check1" name = "rmcount" value="2">
+									<input type = "checkbox" id = "check1" name = "rmcount" value="바다">
 									<label for="check1">바다</label>
-									<input type = "checkbox" id = "check2" name = "rmcount" value="4">
+									<input type = "checkbox" id = "check2" name = "rmcount" value="민물">
 									<label for="check2">민물</label>
-									<input type = "checkbox" id = "check3" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check3" name = "rmcount" value="실내">
 									<label for="check3">실내</label>
-									<input type = "checkbox" id = "check4" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check4" name = "rmcount" value="배">
 									<label for="check4">배</label>
-									<input type = "checkbox" id = "check5" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check5" name = "rmcount" value="야간">
 									<label for="check5">야간</label>
-									<input type = "checkbox" id = "check6" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check6" name = "rmcount" value="새벽">
 									<label for="check6">새벽</label>
-									<input type = "checkbox" id = "check7" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check7" name = "rmcount" value="초보">
 									<label for="check7">초보</label>
-									<input type = "checkbox" id = "check8" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check8" name = "rmcount" value="축제">
 									<label for="check8">축제</label>
-									<input type = "checkbox" id = "check9" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check9" name = "rmcount" value="흡연">
 									<label for="check9">흡연</label>
-									<input type = "checkbox" id = "check10" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check10" name = "rmcount" value="비흡연">
 									<label for="check10">비흡연</label>
 									<hr>
 									<p><strong><b>바다(중복가능)</b></strong></p>
-									<input type = "checkbox" id = "check11" name = "rmcount" value="2">
+									<input type = "checkbox" id = "check11" name = "rmcount" value="서해중부">
 									<label for="check11">서해중부</label>
-									<input type = "checkbox" id = "check12" name = "rmcount" value="4">
+									<input type = "checkbox" id = "check12" name = "rmcount" value="서해남부">
 									<label for="check12">서해남부</label>
-									<input type = "checkbox" id = "check13" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check13" name = "rmcount" value="동해중부">
 									<label for="check13">동해중부</label>
-									<input type = "checkbox" id = "check14" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check14" name = "rmcount" value="동해남부">
 									<label for="check14">동해남부</label>
-									<input type = "checkbox" id = "check15" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check15" name = "rmcount" value="남해서부">
 									<label for="check15">남해서부</label>
-									<input type = "checkbox" id = "check16" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check16" name = "rmcount" value="남해동부">
 									<label for="check16">남해동부</label>
 									<hr>
 									<p><strong><b>민물(중복가능)</b></strong></p>
-									<input type = "checkbox" id = "check17" name = "rmcount" value="2">
+									<input type = "checkbox" id = "check17" name = "rmcount" value="강원">
 									<label for="check17">강원</label>
-									<input type = "checkbox" id = "check18" name = "rmcount" value="4">
+									<input type = "checkbox" id = "check18" name = "rmcount" value="경기">
 									<label for="check18">경기</label>
-									<input type = "checkbox" id = "check19" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check19" name = "rmcount" value="충북">
 									<label for="check19">충북</label>
-									<input type = "checkbox" id = "check20" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check20" name = "rmcount" value="충남">
 									<label for="check20">충남</label>
-									<input type = "checkbox" id = "check21" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check21" name = "rmcount" value="전북">
 									<label for="check21">전북</label>
-									<input type = "checkbox" id = "check22" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check22" name = "rmcount" value="전남">
 									<label for="check22">전남</label>
-									<input type = "checkbox" id = "check23" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check23" name = "rmcount" value="경북">
 									<label for="check23">경북</label>
-									<input type = "checkbox" id = "check24" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check24" name = "rmcount" value="경남">
 									<label for="check24">경남</label>
-									<input type = "checkbox" id = "check25" name = "rmcount" value="6">
+									<input type = "checkbox" id = "check25" name = "rmcount" value="제주">
 									<label for="check25">제주</label>
 									<hr>
 									<p><strong><b>인원수</b></strong></p>
@@ -1064,25 +1064,25 @@ label {
 									<label for="radio32">6</label>
 									<hr>
 									<p><strong><b>지역</b></strong></p>
-									<input type = "radio" id = "radio33" name = "rmcount" value="2">
+									<input type = "radio" id = "radio33" name = "rmcount" value="서울">
 									<label for="radio33">서울</label>
-									<input type = "radio" id = "radio34" name = "rmcount" value="4">
+									<input type = "radio" id = "radio34" name = "rmcount" value="강원">
 									<label for="radio34">강원</label>
-									<input type = "radio" id = "radio35" name = "rmcount" value="6">
+									<input type = "radio" id = "radio35" name = "rmcount" value="경기">
 									<label for="radio35">경기</label>
-									<input type = "radio" id = "radio36" name = "rmcount" value="6">
+									<input type = "radio" id = "radio36" name = "rmcount" value="충북">
 									<label for="radio36">충북</label>
-									<input type = "radio" id = "radio37" name = "rmcount" value="6">
+									<input type = "radio" id = "radio37" name = "rmcount" value="충남">
 									<label for="radio37">충남</label>
-									<input type = "radio" id = "radio38" name = "rmcount" value="6">
+									<input type = "radio" id = "radio38" name = "rmcount" value="전북">
 									<label for="radio38">전북</label>
-									<input type = "radio" id = "radio39" name = "rmcount" value="6">
+									<input type = "radio" id = "radio39" name = "rmcount" value="전남">
 									<label for="radio39">전남</label>
-									<input type = "radio" id = "radio40" name = "rmcount" value="6">
+									<input type = "radio" id = "radio40" name = "rmcount" value="경북">
 									<label for="radio40">경북</label>
-									<input type = "radio" id = "radio41" name = "rmcount" value="6">
+									<input type = "radio" id = "radio41" name = "rmcount" value="경남">
 									<label for="radio41">경남</label>
-									<input type = "radio" id = "radio42" name = "rmcount" value="6">
+									<input type = "radio" id = "radio42" name = "rmcount" value="제주">
 									<label for="radio42">제주</label>
 									<hr>
 									<div class="row" style="width: 900px;">
@@ -1180,7 +1180,7 @@ label {
 													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="button" value="올리기" id="uploadBtn"
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
-												<input type="button" onclick="jacvascript:goListBtn()" value="목록" 
+												<input type="button" id = "updateBtn" value="목록" 
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 											</div>
 										</div>
@@ -1226,9 +1226,8 @@ label {
 
 <script>
 //목록으로 이동
-function goListBtn(){
-	
-	$('input[type="checkbox"]').change(function() {
+
+$('input[type="checkbox"]').change(function() {
 		var output = '';
 		$('input[type="checkbox"]:checked').each(function(index) {
 			if (index != 0){
@@ -1240,10 +1239,21 @@ function goListBtn(){
 		$('#hservice').attr('value', output);
 		
 	});
+
+	$('#updateBtn').click(function() {
+		location.href = 'matching';
+	});
 	
 	$('#uploadBtn').click(function() {
-		console.log($('#hservice').val());
-	})
+		location.href = 'matching';
+	});
+	
+	$('#cancelBtn').click(function() {
+		location.href = 'matching';
+	});
+
+function goListBtn(){
+	
 	
 	
 	location="talklist?check=1";

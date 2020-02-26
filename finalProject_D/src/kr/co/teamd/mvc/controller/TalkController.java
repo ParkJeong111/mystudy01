@@ -1,5 +1,4 @@
 package kr.co.teamd.mvc.controller;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,22 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
-=======
 import kr.co.teamd.mvc.dao.BoardDAO;
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 import kr.co.teamd.mvc.dao.BoardInter;
-import kr.co.teamd.mvc.dao.ReservationDAO;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.BoardcommentDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
-<<<<<<< HEAD
-=======
 import kr.co.teamd.mvc.dto.ItemscommentDTO;
-import kr.co.teamd.mvc.dto.RandomMatchingDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 
 @Controller
 public class TalkController {
@@ -42,16 +33,12 @@ public class TalkController {
 	
 	@Autowired
 	private BoardDAO rdao;
-	
 
 	@RequestMapping(value = "talklist") // 게시판리스트, 추천업체리스트
 	public ModelAndView boardtalk(int check) {
 		ModelAndView mav = new ModelAndView("talk/talklist");
-<<<<<<< HEAD
-=======
 		HashMap<String, Object> test = new HashMap<String, Object>();
 		
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 		List<BoardListAjaxDTO> list = bdao.boardAjax(check);
 		List<ReservationDTO> recommendlist = rdao.recommendlist();
 		
