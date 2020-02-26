@@ -16,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.teamd.mvc.dao.BoardInter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
+import kr.co.teamd.mvc.dto.BoardcommentDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+import kr.co.teamd.mvc.dto.ItemscommentDTO;
 import kr.co.teamd.mvc.dto.RandomMatchingDTO;
 
 @Controller
@@ -35,19 +37,25 @@ public class TalkController {
 	}
 
 	@RequestMapping(value = "talk_detail") // 글 상세보기
-	public ModelAndView talkDetail(int bnum) {
+	public ModelAndView talkDetail(int bnum, BoardcommentDTO bcdto) {
+		
 		ModelAndView mav = new ModelAndView("talk/talk_detail");
+		System.out.println("댓글 DTO 게시글 번호나와랏" + bcdto.getBnum());
 		BoardListAjaxDTO dto = bdao.boardInfo(bnum);
-		System.out.println("여기인가요?" + dto.getBtype2());
+		List<BoardcommentDTO> comment = bdao.boardCommentList(bcdto);
 		mav.addObject("dto", dto);
+		mav.addObject("comment", comment);
 		return mav;
 	}
 
 	@RequestMapping(value = "itemstalk_detail") // 글 상세보기
-	public ModelAndView talkDetail2(int ibnum) {
+	public ModelAndView talkDetail2(int ibnum,ItemscommentDTO icdto) {
 		ModelAndView mav = new ModelAndView("talk/itemstalk_detail");
+		
 		ItemsboardDTO dto = bdao.itemsboardinfo(ibnum);
+		List<ItemscommentDTO> comment = bdao.itemsCommentList(icdto);
 		mav.addObject("dto", dto);
+		mav.addObject("comment", comment);
 		return mav;
 	}
 
@@ -62,7 +70,6 @@ public class TalkController {
 		public ModelAndView reportInsert(int bnum,HttpSession session,HttpServletResponse response) throws IOException {
 			ModelAndView mav = new ModelAndView();
 			PrintWriter out = response.getWriter();
-			System.out.println("컨트롤러: "+ bnum);
 			// 로그인 아닐시에는 로그인창으로 이동시켜주는 기능
 			if(session.getAttribute("mid") == null) {
 				mav.setViewName("member/login");
@@ -71,7 +78,6 @@ public class TalkController {
 				return mav;
 			// 해당 유저가 현재 매칭중인 상태를 알기위한 값 추출
 			}else {
-				System.out.println("mid있어서넘어옴"+bnum);
 				bdao.reportInsert(bnum);
 			}
 			BoardListAjaxDTO dto = bdao.boardInfo(bnum);
@@ -86,7 +92,6 @@ public class TalkController {
 		public ModelAndView itemsReportInsert(int ibnum,HttpSession session,HttpServletResponse response) throws IOException {
 			ModelAndView mav = new ModelAndView();
 			PrintWriter out = response.getWriter();
-			System.out.println("중고 컨트롤러: "+ ibnum);
 			// 로그인 아닐시에는 로그인창으로 이동시켜주는 기능
 			if(session.getAttribute("mid") == null) {
 				mav.setViewName("member/login");
@@ -95,7 +100,6 @@ public class TalkController {
 				return mav;
 			// 해당 유저가 현재 매칭중인 상태를 알기위한 값 추출
 			}else {
-				System.out.println("중고 mid있어서넘어옴"+ibnum);
 				bdao.itemsReportInsert(ibnum);
 			}
 			ItemsboardDTO dto = bdao.itemsboardinfo(ibnum);

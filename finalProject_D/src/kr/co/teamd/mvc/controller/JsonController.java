@@ -1,5 +1,7 @@
 package kr.co.teamd.mvc.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,12 +27,14 @@ import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dao.RandomMatchinginter;
 import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
+import kr.co.teamd.mvc.dto.BoardcommentDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostSearchDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.HostlistDTO;
 import kr.co.teamd.mvc.dto.ItemsboardDTO;
+import kr.co.teamd.mvc.dto.ItemscommentDTO;
 import kr.co.teamd.mvc.dto.MatchingboardDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
@@ -63,7 +68,7 @@ public class JsonController {
 	@Autowired
 	private MatchingBoardInter MatchingBoard;
 
-	@RequestMapping("talkAjax")
+	@RequestMapping("talkAjax") //일반 게시판리스트
 	public List<BoardListAjaxDTO> boardAjax(@RequestParam("check") int check) {
 		List<BoardListAjaxDTO> bdto = bdao.boardAjax(check);
 		return bdto;
@@ -76,12 +81,34 @@ public class JsonController {
 		return list;
 	}
 
-	@RequestMapping("hostinfo")
+	@RequestMapping("hostinfo") //관리자 가맹점페이지 Ajax처리로 상세정보
 	public HostDTO hostinfo(@RequestParam("hnum") int hnum) {
-		System.out.println("이거임?"+hnum);
 		HostDTO hdto = hdao.hostinfo(hnum);
 		return hdto;
 	}
+	
+	@RequestMapping("boardCommentInsertList")
+	public List<BoardcommentDTO> boardCommentInsertList (BoardcommentDTO bcdto) throws UnsupportedEncodingException{
+		
+		String mnickname = URLDecoder.decode(bcdto.getMnickname(), "UTF-8");
+		String bccontent = URLDecoder.decode(bcdto.getBccontent(), "UTF-8");
+		bcdto.setMnickname(mnickname);
+		bcdto.setBccontent(bccontent);
+		bdao.boardCommentInsert(bcdto);
+		List<BoardcommentDTO> boardcommentlist = bdao.boardCommentList(bcdto);
+		return boardcommentlist;
+	}
+	@RequestMapping("itemsCommentInsertList")
+	public List<ItemscommentDTO> itemsCommentInsertList (ItemscommentDTO icdto) throws UnsupportedEncodingException{
+		String mnickname = URLDecoder.decode(icdto.getMnickname(), "UTF-8");
+		String iccontent = URLDecoder.decode(icdto.getIccontent(), "UTF-8");
+		icdto.setMnickname(mnickname);
+		icdto.setIccontent(iccontent);
+		bdao.itemsCommentInsert(icdto);
+		List<ItemscommentDTO> itemscommentlist = bdao.itemsCommentList(icdto);
+		return itemscommentlist;
+	}
+
 
 	@RequestMapping("qnainfo")
 	public QnaDTO qnainfo(@RequestParam("qnum") int qnum) {
@@ -150,6 +177,8 @@ public class JsonController {
 		return hdao.hnamechk(hname);
 	}
 
+	
+	
 	// 게시글 작성 type2 호스트 낚시터 이름
 	@RequestMapping(value = "btype2select")
 	public List<String> btype2select(HttpServletRequest request, int btypeValue) {

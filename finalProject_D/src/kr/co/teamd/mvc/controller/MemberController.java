@@ -213,10 +213,11 @@ public class MemberController {
 
 	@RequestMapping("logout")  //·Î±×¾Æ¿ô
 	public ModelAndView loginfoutprocess(HttpSession session, HttpServletRequest request) {
-		session.removeAttribute("uname");
+		session.removeAttribute("nickname");
 		session.removeAttribute("mid");
 		ModelAndView mav = new ModelAndView();
 		System.out.println("·Î±×¾Æ¿ô");
+		System.out.println();
 		mav.setViewName("redirect:index");
 		return mav;
 	}
