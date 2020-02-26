@@ -42,7 +42,7 @@
 		select hname, btitle, bcontent, bimage, bdate from board
 	</select> -->
 	<select id="androidBData" parameterType="mbdto" resultType="mbdto">
-		select mbtitle, mbcontent, mbstartdate, mbperson, mblocation, mbimage from matchingboard
+		select mbtitle, mbcontent, mbstartdate, mbperson, mblocation, mbimage, mbdate from matchingboard
 	</select>
 	
  	<!-- 게시글 리스트(Dynamic & Ajax) 
