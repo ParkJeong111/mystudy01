@@ -75,7 +75,11 @@
      </select>
      
      <select id="itemsboard" parameterType="int" resultType="ibdto">
-        select ibnum,ibtitle,ibname,mid,ibcontent,ibmoney,ibimage,ibstatus,ibdate,ibreport from itemsboard order by ibdate desc
+        select ib.ibnum,ib.ibtitle,ib.ibname,ib.mid,ib.ibcontent,ib.ibmoney,ib.ibimage,ib.ibstatus,ib.ibdate,ib.ibreport,count(ic.ibnum) cnt
+		from itemsboard ib, itemscomment ic
+		where ib.ibnum=ic.ibnum(+) group by ib.ibnum, ib.ibtitle, ib.ibname, ib.mid, ib.ibcontent, 
+		ib.ibmoney, ib.ibimage, ib.ibstatus, ib.ibdate, ib.ibreport
+		order by ibdate desc
      </select>
      <!-- 글 상세정보 -->
      <select id="boardInfo" parameterType="int" resultType="bldto">   <!-- 게시글 상세정보 -->   
