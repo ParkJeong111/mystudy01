@@ -48,6 +48,9 @@ public class JsonController {
 
 	@Autowired
 	private BoardInter bdao;
+	
+	@Autowired
+	private MatchingBoardInter mbi;
 
 	@Autowired
 	private AdminQnaDAO qdao;
@@ -226,6 +229,16 @@ public class JsonController {
             System.out.println("mbtag : " + dto.getMbtag());
         }
 		return b;
+	}
+	
+	// 함께자바 안드 (재민)
+	@RequestMapping(value = "androidTogether", produces = "application/json;charset=utf-8")
+	public String androidTogether(String mid, String mbnum){
+		HashMap<String, Object> valupdate = new HashMap<String, Object>();
+		valupdate.put("mid", mid);
+		valupdate.put("mbnum", mbnum);
+		mbi.statusadd(valupdate);
+		return "성공";
 	}
 	
 	// 함께자바 검색기능

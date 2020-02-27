@@ -15,8 +15,15 @@ public class ItemsboardDTO {
 	private String ibdate;
 	private int ibreport;
 	private MultipartFile ibfile;
+	private int cnt;
 	
 	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public int getIbnum() {
 		return ibnum;
 	}
