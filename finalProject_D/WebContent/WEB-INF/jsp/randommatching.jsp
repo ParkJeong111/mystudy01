@@ -184,17 +184,14 @@
 				<a data-sea_type="2" class="on">민물</a>
 			</dd>
 		</dl>
-
 		<dl class="live_search_area">
 			<dt>언제 가시나요?</dt>
 			<dd><a class="date_btn">날짜선택</a></dd>
 		</dl>
-
 		<dl class="live_search_area">
 			<dt>잡고 싶은 어종이 있나요?</dt>
 			<dd><a class="fish_btn">전체 어종</a></dd>
 		</dl>
-
 		<div class="search_btn">
 			<a id="reserve_search" href="javascript:;">검색하기</a>
 		</div>
