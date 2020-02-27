@@ -161,7 +161,7 @@ input[type=checkbox]:checked+label {
 											<!-- 포인트사용 -->
 											<strong style="font-size: 18px; color: #aaaaaa;"><b>포인트</b></strong>
 											<strong style="font-size: 12px; color: #aaaaaa;">&nbsp;&nbsp;&nbsp;사용
-												가능 포인트 : ${sessionScope.mpoint}</strong> <br>
+												가능 포인트 :<span style="color: #f85959">${sessionScope.mpoint}</span> </strong> <br>
 											<p>
 												<c:if test="${sessionScope.mpoint == 0}">
 												<input style="width: 80%; height: 44px; font-size: 16px;"
