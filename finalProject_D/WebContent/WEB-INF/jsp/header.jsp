@@ -450,7 +450,7 @@ label {
 <label for="radio27">여자</label>
 <hr>
 <div style = "margin-left: 282px;">
-<button type="submit" class="btn btn-primary" style = "font-family: Jua;" >매칭하기</button>
+<button type="submit" class="btn btn-primary" style = "font-family: Jua;">매칭하기</button>
 <button type="button" class="btn btn-default" id="closeModalBtn2" style = "font-family: Jua;">매칭취소</button>
 </div>
 </div>

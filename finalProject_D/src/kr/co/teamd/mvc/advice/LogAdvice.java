@@ -74,10 +74,6 @@ public class LogAdvice {
 		}
 		return rpath;
 	}
-	
-	@AfterReturning(pointcut = "execution(* kr.co.teamd.mvc.admincontroller.Admin*.a*(..))")
-	public void adminLog(JoinPoint jp) {
-		
-	}
+
 
 }

@@ -28,6 +28,7 @@ public class MatchingController {
 	
 	@Autowired MatchingBoardInter matchingboarddao;
 
+	
 	@RequestMapping(value= "matching")  //함께자바 
 	public ModelAndView matching() {
 		ModelAndView mav = new ModelAndView();

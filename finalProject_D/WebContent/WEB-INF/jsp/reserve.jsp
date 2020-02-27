@@ -319,6 +319,10 @@ input[type=checkbox]:checked+label {
 			}
 		});
 		
+		$('#mpoint').click(function() {
+			$(this).val('');
+		});
+		
 		// 포인트 입력시 최종 금액 계산
 		$('#mpoint').keyup(function(){
 			var point;
