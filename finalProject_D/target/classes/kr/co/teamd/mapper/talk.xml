@@ -40,11 +40,9 @@
    </select>
    
    <!-- ============================ 안드로이드 게시판 데이터 불러오기 ===================================== -->
-   <!-- <select id="androidBoardData" parameterType="bdto" resultType="bdto">
-      select hname, btitle, bcontent, bimage, bdate from board
-   </select> -->
+
    <select id="androidBData" parameterType="mbdto" resultType="mbdto">
-      select mbtitle, mbcontent, mbstartdate from matchingboard
+      select mbnum, mbtitle, mid, mbcontent, mbtag, mbperson, mblocation, mbimage, to_char(mbstartdate,'yyyy-mm-dd')mbstartdate, to_char(mbdate,'yyyy-mm-dd')mbdate, mbreport, mbstatus, mbresult from matchingboard
    </select>
    
     <!-- 게시글 리스트(Dynamic & Ajax) 
@@ -75,7 +73,10 @@
      </select>
      
      <select id="itemsboard" parameterType="int" resultType="ibdto">
-        select ibnum,ibtitle,ibname,mid,ibcontent,ibmoney,ibimage,ibstatus,ibdate,ibreport from itemsboard order by ibdate desc
+	      select ib.ibnum,ib.ibtitle,ib.ibname,ib.mid,ib.ibcontent,ib.ibmoney,ib.ibimage,ib.ibstatus,ib.ibdate,ib.ibreport, count(ic.ibnum) cnt
+	      from itemsboard ib, itemscomment ic
+	      where ib.ibnum=ic.ibnum(+) group by ib.ibnum, ib.ibtitle, ib.ibname, ib.mid, ib.ibcontent, 
+		  ib.ibmoney, ib.ibimage, ib.ibstatus, ib.ibdate, ib.ibreport
      </select>
      <!-- 글 상세정보 -->
      <select id="boardInfo" parameterType="int" resultType="bldto">   <!-- 게시글 상세정보 -->   
@@ -137,7 +138,5 @@
    <!-- 주성중 영역 시작  -->
 
    <!-- 주성중 영역 끝  -->
-
-
 
   </mapper>
