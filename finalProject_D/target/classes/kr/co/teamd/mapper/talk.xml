@@ -3,38 +3,38 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="talk">
-	
-	<!-- 김채은 영역 시작  -->
-	<select id="boardAlllist" resultType="bldto">		
-		select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
-		from board b, host h, member m
-		where b.hname=h.hname and b.mid=m.mid
-	
-  	</select>
-  	
+   
+   <!-- 김채은 영역 시작  -->
+   <select id="boardAlllist" resultType="bldto">      
+      select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname 
+      from board b, host h, member m
+      where b.hname=h.hname and b.mid=m.mid
+   
+     </select>
+     
 
-  	<!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
-	<insert id="addboard" parameterType="bdto">
-		insert into board values(board_seq.nextVal,	#{btype1}, #{btype2},
-		#{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, 
-		<choose>
-			<when test="bstar==0">0</when>
-			<otherwise>#{bstar}</otherwise>
-		</choose>
-		)   
-	</insert>
-	
-	<!-- ==============================  중고 게시글 작성  (재민) ============================== -->
-	<insert id="additboard" parameterType="bdto">
-		insert into itemsboard values(itemsboard_seq.nextVal, #{ibtitle}, #{ibname},
-		#{mid}, #{ibcontent}, #{ibmoney}, #{ibimage}, 0, sysdate, 0) 
-	</insert>
-	
-	<!-- ======================== 게시판 유저조행기 결과 ================================ -->
-	<select id="chkhname" parameterType="chkbdto" resultType="String">
-		select h.hname
-		from reservation r, host h, member m
-		where r.hname=h.hname and r.mid=m.mid and m.mid = #{mid}
+     <!-- ==============================  내글쓰기 게시글 작성  (재민) ============================== -->
+   <insert id="addboard" parameterType="bdto">
+      insert into board values(board_seq.nextVal,   #{btype1}, #{btype2},
+      #{hname}, #{btitle}, #{mid}, #{bcontent}, #{bimage}, sysdate, 0, 
+      <choose>
+         <when test="bstar==0">0</when>
+         <otherwise>#{bstar}</otherwise>
+      </choose>
+      )   
+   </insert>
+   
+   <!-- ==============================  중고 게시글 작성  (재민) ============================== -->
+   <insert id="additboard" parameterType="bdto">
+      insert into itemsboard values(itemsboard_seq.nextVal, #{ibtitle}, #{ibname},
+      #{mid}, #{ibcontent}, #{ibmoney}, #{ibimage}, 0, sysdate, 0) 
+   </insert>
+   
+   <!-- ======================== 게시판 유저조행기 결과 ================================ -->
+   <select id="chkhname" parameterType="chkbdto" resultType="String">
+      select h.hname
+      from reservation r, host h, member m
+      where r.hname=h.hname and r.mid=m.mid and m.mid = #{mid}
         and h.htype = #{htype}
         group by r.mid, h.hname, h.htype
 	</select>
@@ -121,21 +121,107 @@
   	
   	<!-- 댓글 쓰기 종료 -->
 	<!-- 김채은 영역 끝  -->
+   
+   <!-- ============================ 안드로이드 게시판 데이터 불러오기 ===================================== -->
+   <!-- <select id="androidBoardData" parameterType="bdto" resultType="bdto">
+      select hname, btitle, bcontent, bimage, bdate from board
+   </select> -->
+   <select id="androidBData" parameterType="mbdto" resultType="mbdto">
+      select mbtitle, mbcontent, mbstartdate from matchingboard
+   </select>
+   
+    <!-- 게시글 리스트(Dynamic & Ajax) 
+    parameter int check 1 일경우, 2일경우, 3일경우, 4일경우 -->
+     <select id="boardAjax" parameterType="int" resultType="bldto">      
+      select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname, count(bc.bnum) cnt
+      from board b, host h, member m, boardcomment bc
+      where b.hname=h.hname(+) and b.mid=m.mid and b.bnum=bc.bnum(+)
+      
+      <choose>
+         <when test="check==1">
+         and b.btype1='유저조행기' 
+         </when>
+         <when test="check==3">
+         and b.btype1='유용한정보' 
+         </when>
+         <when test="check==4">
+         and b.btype1='낚시지식인'
+         </when>
+         
+         <when test="check==5">
+         and b.btype1='자유게시판' 
+         </when>
+         <otherwise></otherwise>
+         
+      </choose> 
+       group by b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent, b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid, m.mnickname order by b.bdate desc
+     </select>
+     <!-- 중고게시글리스트 -->
+     <select id="itemsboard" parameterType="int" resultType="ibdto">
+     	select ib.ibnum,ib.ibtitle,ib.ibname,ib.mid,ib.ibcontent,ib.ibmoney,ib.ibimage,ib.ibstatus,ib.ibdate,ib.ibreport, count(ic.ibnum) cnt
+    	 from itemsboard ib, itemscomment ic
+      	 where ib.ibnum=ic.ibnum(+) group by ib.ibnum, ib.ibtitle, ib.ibname, ib.mid, ib.ibcontent, 
+		 ib.ibmoney, ib.ibimage, ib.ibstatus, ib.ibdate, ib.ibreport
+     </select>
+     <!-- 글 상세정보 -->
+     <select id="boardInfo" parameterType="int" resultType="bldto">   <!-- 게시글 상세정보 -->   
+      select b.bnum, b.btype1, b.btype2, b.btitle, b.bcontent,  b.bimage, b.bdate, b.breport, h.hname, h.haddr, m.mid 
+      from board b, host h, member m
+      where b.hname=h.hname(+) and b.mid=m.mid and b.bnum=#{bnum}
+     </select>
+     <select id="itemsboardinfo" parameterType="int" resultType="ibdto">
+        select ib.ibnum,  ib.ibtitle, ib.ibname, m.mid, m.mphone, ib.ibcontent, ib.ibmoney, ib.ibimage, ib.ibstatus, to_char(ib.ibdate,'yyyy-mm-dd') ibdate, ib.ibreport
+      from itemsboard ib, member m
+      where ib.mid=m.mid and ibnum=#{ibnum}
+        
+     </select>
+     
+     <!-- 일반게시글 신고하기(중고장터 제외) -->
+     <update id="reportInsert" parameterType="int">
+         update board set breport=breport+1 where bnum=#{bnum}
+     </update>
+     <!--  중고장터게시글 신고하기 -->
+     <update id="itemsReportInsert" parameterType="int">
+        update itemsboard set ibreport=ibreport+1 where ibnum=#{ibnum}
+     </update>
+     <!-- 추천업체리스트 -->
+     <select id="recommendlist" resultType="rdto">
+      select * from (select h.hnum, r.hname, h.himage, substr(haddr,'1','2') haddr, count(r.hname) cnt from reservation r, host h where r.hname=h.hname group by r.hname, h.himage, h.haddr, h.hnum, substr(haddr,'1','2') order by 3 desc)  
+      where <![CDATA[rownum <=10]]>
+   </select>
+     <!-- 댓글  쓰기 시작 -->
+     <insert id="boardCommentInsert" parameterType="bcdto">
+        insert into boardcomment values(boardcomment_seq.nextVal,#{bnum},#{mnickname},#{bccontent},sysdate)
+     </insert>
+     
+     <insert id="itemsCommentInsert" parameterType="icdto">
+        insert into itemscomment values(itemsboard_seq.nextVal,#{ibnum},#{mnickname},#{iccontent},sysdate)
+     </insert>
+     <select id="boardCommentList" parameterType="bcdto" resultType="bcdto">
+        select bcnum,bnum,mnickname,bccontent,bcdate from boardcomment where bnum=#{bnum} order by bcdate desc
+     </select>
+          <select id="itemsCommentList" parameterType="icdto" resultType="icdto">
+        select icnum, ibnum, mnickname, iccontent, icdate from itemscomment where ibnum=#{ibnum} order by icdate desc
+     </select>
+     
+     
+     <!-- 댓글 쓰기 종료 -->
+   <!-- 김채은 영역 끝  -->
 
 
-	<!-- 권세진 영역 시작  -->
-	
-	<!-- 권세진 영역 끝  -->
-	
-	
-	<!-- 박정연 영역 시작  -->
-	
-	<!-- 박정연 영역 끝  -->
-	
-	
-	<!-- 주성중 영역 시작  -->
+   <!-- 권세진 영역 시작  -->
+   
+   <!-- 권세진 영역 끝  -->
+   
+   
+   <!-- 박정연 영역 시작  -->
+   
+   <!-- 박정연 영역 끝  -->
+   
+   
+   <!-- 주성중 영역 시작  -->
 
-	<!-- 주성중 영역 끝  -->
+   <!-- 주성중 영역 끝  -->
 
 
 

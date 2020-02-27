@@ -25,7 +25,6 @@ import kr.co.teamd.mvc.dao.MainDAO;
 import kr.co.teamd.mvc.dao.MatchingBoardInter;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dao.RandomMatchinginter;
-import kr.co.teamd.mvc.dto.BoardDTO;
 import kr.co.teamd.mvc.dto.BoardListAjaxDTO;
 import kr.co.teamd.mvc.dto.BoardcommentDTO;
 import kr.co.teamd.mvc.dto.ChkBTypeDTO;
@@ -49,6 +48,9 @@ public class JsonController {
 
 	@Autowired
 	private BoardInter bdao;
+	
+	@Autowired
+	private MatchingBoardInter mbi;
 
 	@Autowired
 	private AdminQnaDAO qdao;
@@ -222,15 +224,27 @@ public class JsonController {
 	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto){
 		List<MatchingboardDTO> b = bdao.androidBData(mbdto);
 		for(MatchingboardDTO dto : b) {
-            System.out.println("title : " + dto.getMbdate());
-            System.out.println("hname : " + dto.getMbtitle());
+            System.out.println("date : " + dto.getMbdate());
+            System.out.println("title : " + dto.getMbtitle());
+            System.out.println("mbtag : " + dto.getMbtag());
         }
 		return b;
 	}
 	
+	// 함께자바 안드 (재민)
+	@RequestMapping(value = "androidTogether", produces = "application/json;charset=utf-8")
+	public String androidTogether(String mid, String mbnum){
+		HashMap<String, Object> valupdate = new HashMap<String, Object>();
+		valupdate.put("mid", mid);
+		valupdate.put("mbnum", mbnum);
+		mbi.statusadd(valupdate);
+		return "성공";
+	}
+	
 	// 함께자바 검색기능
 	@RequestMapping(value = "matchingb")
-	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto) {
+	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto,String count) {
+		System.out.println("몇명인가요"+count);
 		System.out.println(dto.getMbtag());
 		List<String> service = new ArrayList<String>();
 		String[] test = dto.getMbtag().split("/");
@@ -260,11 +274,13 @@ public class JsonController {
 		}
 		list.put("dto", dto);
 		list.put("list", service);
+		list.put("count", count);
 		dto.setEnddate(modifyedate[2].substring(2, 4) + "/" + modifyedate[0] + "/" + modifyedate[1]);
 		List<MatchingboardDTO> searchdto = MatchingBoard.optionsearch(list);
 		for(MatchingboardDTO e : searchdto) {
 			System.out.println(e.getMbtitle());
 		}
+		
 
 		return searchdto;
 	}

@@ -95,8 +95,5 @@ public class BoardListAjaxDTO {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
-
-
-	
-	
+      
 }

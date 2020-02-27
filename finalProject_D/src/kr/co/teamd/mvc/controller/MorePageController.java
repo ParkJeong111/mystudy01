@@ -2,7 +2,6 @@ package kr.co.teamd.mvc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.teamd.mvc.dao.MainInter;
 import kr.co.teamd.mvc.dto.HostregDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
-import kr.co.teamd.mvc.dto.ReservationDTO;
 @Controller
 public class MorePageController {
 
@@ -66,8 +64,6 @@ public class MorePageController {
 	public String faq() {
 		return "morepage/cs_faq";
 	}
-	
-	
 	//김채은 영역 시작
 	
 	
@@ -104,7 +100,6 @@ public class MorePageController {
 			String mid = (String) session.getAttribute("mid");
 			qdto.setMid(mid);
 			mdao.qnaInsert(qdto);
-			
 			PrintWriter out;
 			try {
 				out = resp.getWriter();

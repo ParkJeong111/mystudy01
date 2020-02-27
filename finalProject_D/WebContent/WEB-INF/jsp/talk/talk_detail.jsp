@@ -358,7 +358,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_list_btn a{background:#fff;width:120px;height:40px;line-height:38px;border-radius:3rem;border:1px solid #e6e6e6;box-shadow:0 0 5px 0 rgba(0, 0, 0, 0.15);text-align:center;font-size:16px;color:#ff724c;letter-spacing:-0.5px;display:block;margin:0 auto;}
 
 .view_area  .view_info_comment{background:#fff;padding-top:0}
-.view_info_comment .check_title{padding:30px 0;border-bottom:1px solid #e6e6e6}
+.view_info_comment .check_title{padding:20px 0;border-bottom:1px solid #e6e6e6}
 .view_info_comment .check_title p{float:left;font-size:18px;color:#8c8c8c;}
 .view_info_comment .check_title p span{color:#ff724c}
 .view_info_comment .check_title .check_radio{float:right}
@@ -520,18 +520,8 @@ section{width:964px;position:relative;margin:0 auto;}
 				<section>
 					<div class="check_title clearfix">
 						<p>댓글 <span id="reply_total_cnt">${fn:length(comment)} 개</span></p>
-						<a class="refresh_btn"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_refresh.png" alt=""></a>
-						<div class="check_radio">
-
-							<label>
-								<input type="radio" onclick="fn_tcm_type()" name="tcm_type" value="new">
-								<ins>최신순</ins>
-							</label>
-							<label>
-								<input type="radio" onclick="fn_tcm_type()" name="tcm_type" value="step">
-								<ins>등록순</ins>
-							</label>
-						</div>
+						<a class="refresh_btn" href="#" onclick="javascript:location.reload()"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_refresh.png" alt=""></a>
+						
 					</div><!--// check_title -->
 
 
@@ -555,51 +545,6 @@ section{width:964px;position:relative;margin:0 auto;}
 					<!-- 댓글목록 -->
 					
 <div id="comment_list_area">
-<script>
-$(document).ready(function(){
-  
-
-    $('.btn_talk_comm_report').click(function(e){
-		e.preventDefault();
-        var seq_key = $('#report_tcm_key').val();
-		var mode = "add";
-		var sr_type = "2";
-		
-		$.ajax({
-			type: 'POST',
-			url: '/talk/user_report_proc',
-			data : {
-				seq_key : seq_key
-				, mode : mode
-				, sr_type : sr_type
-			},
-			dataType: 'json',
-			async: false,
-			cache: false,
-			processData: true,
-			success: function(res) {
-				$.toastAlert(res.ret);
-			},
-			error: function(res) {
-				if (res.responseText) {
-					console.log(res.responseText);
-					// location.reload(true);
-				}
-			}
-		});
-	});
-
-    });
-
-
-
-</script>
-
-<script>
-    $('.comment_list_more, .comment_list_best_box').show();
-    $('.comment_list_more_box').hide();
-</script>
-
 <div class="comment_list_area comment_list_best_box">
 			<!-- For문 사용 -->
 			<c:forEach var="e" items="${comment}">
@@ -615,32 +560,30 @@ $(document).ready(function(){
             </div>
            </c:forEach>
             </div>
-
-
-
-
 </div>
 					
 					
 				
 <script>
 $(document).ready(function(){
+
 	
 	//var commentform = $("form[role='commentform']");
 	var mnickname =  encodeURIComponent($('#mnickname').val())
 	var bnum = $('#bnum').val();
 	
-	$('#boardCommentInsert').click(function() {
+	$('#boardCommentInsert, ').click(function() {
 		if(mnickname!=''){
-			console.log(mnickname + "살아있네")
+			if($("textarea[name=bccontent]").val().length==0){
+				alert("내용을 입력해 주세요");
+				$('textarea[name=bccontent]').focus();
+			}else{
 			var bccontent = encodeURIComponent($("textarea[name=bccontent]").val())
 			var params = {
-					bnum : bnum,
-					mnickname : mnickname,
-					bccontent : bccontent
-				};
-			
-		
+								bnum : bnum,
+								mnickname : mnickname,
+								bccontent : bccontent
+						 };
 			 $.ajax({
 				type:'POST',
 				url:'boardCommentInsertList',
@@ -660,6 +603,7 @@ $(document).ready(function(){
 					});
 					$('#reply_total_cnt').text(count + ' 개');
 					$("textarea[name=bccontent]").val('');
+					$("textarea[name=bccontent]").focus();
 				
 				},
 				error:function(res){
@@ -667,7 +611,7 @@ $(document).ready(function(){
 				}
 				
 			}); 
-		
+			}
 		}else{
 			alert("로그인해주세요.")
 			$("textarea[name=bccontent]").val('');

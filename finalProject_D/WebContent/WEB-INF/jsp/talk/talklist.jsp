@@ -2,7 +2,10 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="header.jsp"%>
-<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- Poppins -->
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+	rel="stylesheet">
+<!-- Poppins -->
 <style>
 li {
 	list-style: none;
@@ -261,7 +264,7 @@ section {
 }
 
 .clearfix {
-	margin-top : 10px;
+	margin-top: 10px;
 	display: block;
 	content: '';
 	clear: both
@@ -291,7 +294,6 @@ section {
 	text-align: center;
 	height: 44px;
 	line-height: 42px;
-
 }
 
 .talk_header .talk_tab li i {
@@ -310,13 +312,12 @@ section {
 	top: -2px;
 }
 
-.selected{
+.selected {
 	/* border-bottom: 3px solid #F85959;
-	border-top: 3px solid #F85959; */
-	font-family:Poppins ;
+   border-top: 3px solid #F85959; */
+	font-family: Poppins;
 	border-bottom: 2px solid #f85959;
 	color: #f85959;
-
 }
 
 .talk_header .talk_cate_tab {
@@ -438,11 +439,10 @@ section {
 }
 
 .talk_area .contents_list {
-	width: 610px;
 	float: left;
 	position: relative;
 	padding-top: 45px;
-	margin-left: 180px;;
+	margin-left: 50px;;
 }
 
 .talk_area .contents_list .talk_notice {
@@ -508,7 +508,7 @@ section {
 	float: left;
 	border: 1px solid #dadada;
 	border-radius: 0.3rem;
-	width: 80%x;
+	width: 80% x;
 	height: 30px;
 	line-height: 28px;
 	font-size: 16px;
@@ -941,7 +941,6 @@ section {
 }
 
 .talk_area .talk_list .talk_box_area .talk_btn .talk_money_btn {
-	
 	font-size: 18px;
 	color: #000000;
 	letter-spacing: -0.6px;
@@ -950,9 +949,8 @@ section {
 	display: block;
 	float: left;
 	padding: 10px 0 15px 30px;
-    font-weight: 500;
+	font-weight: 500;
 }
-
 
 .talk_area .talk_list .talk_box_area .talk_btn .talk_like_btn:before {
 	width: 27px;
@@ -1106,10 +1104,10 @@ section {
 	display: block;
 	background: #fff;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-	padding: 15px;
-	position: relative;
+	padding: 15px; position : relative;
 	margin-top: 10px;
-	border-radius: 0.3rem
+	border-radius: 0.3rem;
+	position: relative;
 }
 
 .talk_area .talk_recom a img {
@@ -1120,16 +1118,17 @@ section {
 }
 
 .talk_area .talk_recom a .recom_text {
-	padding-left: 15px;
-	width: calc(100% - 120px);
+	padding-left: 25px;
+	padding-top: 30px; width : calc( 100% - 120px);
 	float: left;
+	width: calc(100% - 120px);
 }
 
 .talk_area .talk_recom a em {
 	display: block;
 	color: #2663e2;
 	letter-spacing: -0.8px;
-	font-size: 15px;
+	font-size: 14.5px;
 	margin-bottom: 10px
 }
 
@@ -1440,40 +1439,46 @@ section {
 }
 
 .boardlisthead {
-	 font-family: "Poppins", Arial, sans-serif;
-	 font-size: 25px;
-	 font: bolder;
-	 color: #606060;
-	 padding: 24px;
-	 margin-bottom: -16px;
-	 
-	 }
-	 
+	font-family: "Poppins", Arial, sans-serif;
+	font-size: 25px;
+	font: bolder;
+	color: #606060;
+	padding: 24px;
+	margin-bottom: -16px;
+}
+
 /*별점*/
-.star{
-  display:inline-block;
-  width: 15px; height: 30px;
-  cursor: pointer;
-}
-.star_left{
-  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
-  background-size: 30px; 
-  margin-right: -2px;
-}
-.star_right{
-  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -15px 0; 
-  background-size: 30px; 
-  margin-left: -2px;
-}
-.star.on, .star_print.on{
-  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
-}
-.star_print{
-	display:inline-block;
-  	width: 15px; height: 30px;
+.star {
+	display: inline-block;
+	width: 15px;
+	height: 30px;
+	cursor: pointer;
 }
 
+.star_left {
+	background: url(http://gahyun.wooga.kr/main/img/testImg/star.png)
+		no-repeat 0 0;
+	background-size: 30px;
+	margin-right: -2px;
+}
 
+.star_right {
+	background: url(http://gahyun.wooga.kr/main/img/testImg/star.png)
+		no-repeat -15px 0;
+	background-size: 30px;
+	margin-left: -2px;
+}
+
+.star.on, .star_print.on {
+	background-image:
+		url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
+}
+
+.star_print {
+	display: inline-block;
+	width: 15px;
+	height: 30px;
+}
 
 .service_area .service_tab {
 	border-bottom: 1px solid #e6e6e6
@@ -1499,7 +1504,6 @@ section {
 	text-align: center;
 	padding: 24px 0;
 	border-bottom: 1px solid #e6e6e6;
-	
 }
 
 .service_area .service_tab li.active a {
@@ -1511,25 +1515,26 @@ section {
 	width: 80%;
 	margin: 0 auto;
 	font-family: "Poppins", Arial, sans-serif;
-
 }
 
-.talk_tab li a{
-color: #606060;}
+.talk_tab li a {
+	color: #606060;
+}
 
 .selected a b {
-color: #f85959;}
-
-.boardtitle{
-font-size: 24px;
-margin: 3%;
+	color: #f85959;
 }
 
-.board_date{margin-left: 3%;
-margin-right:3%;
-margin-top: -3%;}
+.boardtitle {
+	font-size: 24px;
+	margin: 3%;
+}
 
-
+.board_date {
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-top: -3%;
+}
 </style>
 
 
@@ -1547,40 +1552,44 @@ margin-top: -3%;}
 <div class="header_area">
 
 	<div class="scrolling scroll_up">
-		
 
-		<div class="talk_header" >
+
+		<div class="talk_header">
 			<div class="talk_tab_area">
-				<section >
-			<div class="service_tab service_area">
-					<ul class="talk_tab clearfix service_area" style="margin-top: 1%;">
+				<section>
+					<div class="service_tab service_area">
+						<ul class="talk_tab clearfix service_area" style="margin-top: 1%;">
 
-						<li class="on boardlisthead selected"><a data-talk_key="1" data-tc_key="0"
-							data-u_type="1" href='javasript:void(0);' onclick="boardAjax(1)" ><strong><b>유저조행기</b></strong></a></li>
+							<li class="on boardlisthead selected"><a data-talk_key="1"
+								data-tc_key="0" data-u_type="1" href='javasript:void(0);'
+								onclick="boardAjax(1)"><strong><b>유저조행기</b></strong></a></li>
 
-						<li class="on boardlisthead"><a data-talk_key="11" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(2)"><strong><b>중고장터</b></strong></a></li>
+							<li class="on boardlisthead"><a data-talk_key="11"
+								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
+								onclick="boardAjax(2)"><strong><b>중고장터</b></strong></a></li>
 
-						<li class="on boardlisthead"><a data-talk_key="2" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(3)"><strong><b>유용한정보</b></strong></a></li>
-						<li class="on boardlisthead"><a data-talk_key="3" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(4)"><strong><b>낚시지식인</b></strong></a></li>
+							<li class="on boardlisthead"><a data-talk_key="2"
+								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
+								onclick="boardAjax(3)"><strong><b>유용한정보</b></strong></a></li>
+							<li class="on boardlisthead"><a data-talk_key="3"
+								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
+								onclick="boardAjax(4)"><strong><b>낚시지식인</b></strong></a></li>
 
-						<li class="on boardlisthead"><a data-talk_key="5" data-tc_key="0"
-							data-u_type="1" href='javascript:void(0);' onclick="boardAjax(5)"><strong><b>자유게시판</b></strong></a></li>
-					</ul>
+							<li class="on boardlisthead"><a data-talk_key="5"
+								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
+								onclick="boardAjax(5)"><strong><b>자유게시판</b></strong></a></li>
+						</ul>
 					</div>
 				</section>
 
 			</div>
-			
+
 		</div>
 	</div>
 
 </div>
 
-<div class="talk_area container bg_mp"
-	style="width: 80%;">
+<div class="talk_area container bg_mp" style="width: 100%;">
 
 	<section>
 		<div class="contents_list">
@@ -1588,16 +1597,17 @@ margin-top: -3%;}
 			<div class="talk_list" style="width: 100%">
 
 				<div id="talk_detail_list" data-start_key="0" data-offset="0"
-					data-limit="30" data-last_offset="" data-is_work="" style="float: left;">
-					<!-- 	<for문 사용하기> -->
+					data-limit="30" data-last_offset="" data-is_work=""
+					style="width: 60%; float: left;">
+					<!--    <for문 사용하기> -->
 					<c:forEach var="e" items="${test.list}">
 						<div class="talk_box_area" id="talk_visual135516">
-							<div class="boardtitle" >
-										<strong><b>${e.btitle}</b></strong> 
+							<div class="boardtitle">
+								<strong><b>${e.btitle}</b></strong>
 							</div>
 							<div class="board_date">
-							<div class="profile_name" style="float: left;">
-									<p>	${e.haddr}</p>
+								<div class="profile_name" style="float: left;">
+									<p>${e.haddr}</p>
 								</div>
 								<div class="profile_date" style="float: right">
 									<p>${e.bdate}</p>
@@ -1608,18 +1618,18 @@ margin-top: -3%;}
 							<div class="talk_view_btn"
 								OnClick="location.href ='talk_detail?bnum=${e.bnum}'"
 								style="cursor: pointer; margin-top: 10%">
-								<div>
-								<p class="talk_pic" style="float: left;">
-									<span class="manage">${e.btype2}</span>
-								</p><p style="float: right;margin-right: 3%">${e.mnickname}</p>
+								<div style="width: 100%">
+									<p class="talk_pic" style="float: left;width: 30%;">
+										<span class="manage" >${e.btype2}</span>
+									</p>
+									<p style="float: right; margin-right: 3%">${e.mnickname}</p>
 								</div>
-								
-								<div class="img_box"
-									style="width: 100%;">
-								
-										<img style="width: 100%;"
-											src="${pageContext.request.contextPath}/resources/images/${e.bimage}"
-											alt="">
+
+								<div class="img_box" style="width: 100%;">
+
+									<img style="width: 100%;"
+										src="${pageContext.request.contextPath}/resources/images/${e.bimage}"
+										alt="">
 								</div>
 
 								<div class="talk_text" style="margin-top: 5%;">
@@ -1630,16 +1640,18 @@ margin-top: -3%;}
 
 							<div class="talk_count_btn">
 								<div class="talk_count clearfix">
-							
+
 									<div class="comm_mark_line">
 										<p class="comm_line">
 											댓글 <span>${e.cnt }</span>
+											댓글 <span>${e.cnt}</span>
 										</p>
-					
+
 									</div>
 								</div>
 								<div class="talk_btn clearfix">
-									<a class="talk_comm_btn" href="talk_detail?bnum=${e.bnum}#comment_box">댓글쓰기</a> 
+									<a class="talk_comm_btn"
+										href="talk_detail?bnum=${e.bnum}#comment_box">댓글쓰기</a>
 
 								</div>
 							</div>
@@ -1647,27 +1659,27 @@ margin-top: -3%;}
 					</c:forEach>
 
 				</div>
-				<div style="float: right;">
-					<p>고기자바 추천 업체</p>
-					<c:forEach  var="i" items="${test.recommendlist}">
-					<div class="shadow" style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
-						<a href="#">
-							<img style="width: 120px; height: 120px; padding-top: 5px; padding-left: 5px;"
-											src="${pageContext.request.contextPath}/resources/images/${i.himage}"
-											alt="">
-							<div style="float: right;">
-							<em></em>
-							<strong>${i.hname }</strong>
-								<span>${i.haddr }</span>
-							</div>
-						</a>
+				<div class="talk_recom" style="width: 35%; float: right;">
+					<p style="margin-left:100px;">고기자바 추천 업체</p>
+					<c:forEach var="i" items="${test.recommendlist}">
+						<div class="shadow"
+							style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
+							<a href="itemdetail?hnum=${i.hnum}"> <img
+								style="width: 120px; height: 120px; padding-top: 5px; padding-left: 5px;"
+								src="${pageContext.request.contextPath}/resources/images/${i.himage}"
+								alt="">
+								<div class="recom_text" style="float: right;">
+									<em>${i.hname}</em> <strong>${i.haddr}</strong>
+
+								</div>
+							</a>
 						</div>
 					</c:forEach>
 				</div>
 			</div>
 		</div>
 
-	
+
 	</section>
 
 </div>
@@ -1676,7 +1688,8 @@ margin-top: -3%;}
 
 <!-- script -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
 <!-- loader -->
 
@@ -1723,114 +1736,141 @@ margin-top: -3%;}
 		});
 
 	});
-	
-	<%-- 
-	boardAjax 함수 호출되면
-	유형별(유저조행기(1), 중고장터(2), 유용한정보3),낚시지식인(4), 자유게시판(5))로
-	파라미터를 받아서 check값을 을 보낸다.
-	***talkAjax / itemsboardAjax 매핑을 따로 구분한 이유는
-	게시글테이블이 다르므로 select 출력하는게 다르기 때문 
-	 
-	 다이나믹쿼리로 보내고한 페이지에서 리스트 출력하기 위해 Ajax처리하여 URL로 보냄
-	--%>
-
+<%-- 
+   boardAjax 함수 호출되면
+   유형별(유저조행기(1), 중고장터(2), 유용한정보3),낚시지식인(4), 자유게시판(5))로
+   파라미터를 받아서 check값을 을 보낸다.
+   ***talkAjax / itemsboardAjax 매핑을 따로 구분한 이유는
+   게시글테이블이 다르므로 select 출력하는게 다르기 때문 
+    
+    다이나믹쿼리로 보내고한 페이지에서 리스트 출력하기 위해 Ajax처리하여 URL로 보냄
+   --%>
 	function boardAjax(check) {
-		console.log(check)
-		
-		if(check==1){
+		if (check == 1) {
 
-			$.ajax({
-				url : "talkAjax?check=" + check,
-				datatype : 'json',
-				success : function(data) {
-					
-						$("#talk_detail_list").html("")
-						$.each(data, function(key,value) {
-						
-						$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
-														+value.btitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-														+value.haddr+'</p></div><div class="profile_date" style="float: right"><p>'
-														+value.bdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
-														+value.bnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
-														+value.btype2+'</span></p><p style="float: right;margin-right: 3%">'
-														+value.mnickname+'</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
-														+value.bimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
-														+value.bcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
-														+'<p class="comm_line">댓글 <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
-														+value.bnum+'#comment_box">댓글쓰기</a></div></div></div>');
-						
-						
-						
-						
-						});
-						
-						
-						
-					}
-			});
-		}else if(check==2){
-			
-			$.ajax({
-				url : "itemsboardAjax?check=" + check,
-				datatype : 'json',
-				success : function(data) {
-					
-					console.log(data +"중고장터")
-					$("#talk_detail_list").html("")
-					$.each(data, function(key, value){
-							   
-							$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
-										+value.ibtitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-										+'</p></div><div class="profile_date" style="float: right"><p>'
-										+value.ibdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'itemstalk_detail?ibnum='
-										+value.ibnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
-										+'중고장터</span></p><p style="float: right;margin-right: 3%">'
-										+value.mid+'</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
-										+value.ibimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
-										+value.ibcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
-										+'<p class="comm_line">댓글 <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_money_btn" href="#">'
-										+value.ibmoney+'원</a><a class="talk_comm_btn" style="width:50%;" href="itemstalk_detail?ibnum='
-										+value.ibnum+'#comment_box">댓글쓰기</a></div></div></div>');
-					
+			$
+					.ajax({
+						url : "talkAjax?check=" + check,
+						datatype : 'json',
+						success : function(data) {
+
+							$("#talk_detail_list").html("")
+							$
+									.each(
+											data,
+											function(key, value) {
+
+												$("#talk_detail_list")
+														.append(
+																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+																		+ value.btitle
+																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
+																		+ value.haddr
+																		+ '</p></div><div class="profile_date" style="float: right"><p>'
+																		+ value.bdate
+																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
+																		+ value.bnum
+																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
+																		+ value.btype2
+																		+ '</span></p><p style="float: right;margin-right: 3%">'
+																		+ value.mnickname
+																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
+																		+ value.bimage
+																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
+																		+ value.bcontent
+																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
+																		+ '<p class="comm_line">댓글 <span>'+value.cnt+'</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
+																		+ value.bnum
+																		+ '#comment_box">댓글쓰기</a></div></div></div>');
+
+											});
+
+						}
 					});
-				}
-			});
-			
-		}
-		else{
+		} else if (check == 2) {
 
-			$.ajax({
-				url : "talkAjax?check=" + check,
-				datatype : 'json',
-				success : function(data) {
-					
-						$("#talk_detail_list").html("")
-						$.each(data, function(key,value) {
-						
-						$("#talk_detail_list").append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
-														+value.btitle+'</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-														+'</p></div><div class="profile_date" style="float: right"><p>'
-														+value.bdate+'</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
-														+value.bnum+'\'" style="cursor: pointer; margin-top: 10%"><div>	<p class="talk_pic" style="float: left;"><span class="manage">'
-														+value.btype2+'</span></p><p style="float: right;margin-right: 3%">'
-														+value.mnickname+'</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
-														+value.bimage+'" alt=""></div><div class="talk_text" style="margin-top: 5%;">	<p class="more">'
-														+value.bcontent+'</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
-														+'<p class="comm_line">댓글 <span>0</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
-														+value.bnum+'#comment_box">댓글쓰기</a></div></div></div>');
-						
-						
-						
-						
-						});
-						
-						
-						
-					}
-			});
+			$
+					.ajax({
+						url : "itemsboardAjax?check=" + check,
+						datatype : 'json',
+						success : function(data) {
+
+							console.log(data + "중고장터")
+							$("#talk_detail_list").html("")
+							$
+									.each(
+											data,
+											function(key, value) {
+
+												$("#talk_detail_list")
+														.append(
+																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+																		+ value.ibtitle
+																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
+																		+ '</p></div><div class="profile_date" style="float: right"><p>'
+																		+ value.ibdate
+																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'itemstalk_detail?ibnum='
+																		+ value.ibnum
+																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
+																		+ '중고장터</span></p><p style="float: right;margin-right: 3%">'
+																		+ value.mid
+																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
+																		+ value.ibimage
+																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
+																		+ value.ibcontent
+																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
+																		+ '<p class="comm_line">댓글 <span>'+value.cnt+'</span></p></div></div><div class="talk_btn clearfix"><a class="talk_money_btn" href="#">'
+																		+ value.ibmoney
+																		+ '원</a><a class="talk_comm_btn" style="width:50%;" href="itemstalk_detail?ibnum='
+																		+ value.ibnum
+																		+ '#comment_box">댓글쓰기</a></div></div></div>');
+
+											});
+						}
+					});
+
+		} else {
+
+			$
+					.ajax({
+						url : "talkAjax?check=" + check,
+						datatype : 'json',
+						success : function(data) {
+
+							$("#talk_detail_list").html("")
+							$
+									.each(
+											data,
+											function(key, value) {
+												console.log("왜 안나오지"+value.cnt)
+												$("#talk_detail_list")
+														.append(
+																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+																		+ value.btitle
+																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
+																		+ '</p></div><div class="profile_date" style="float: right"><p>'
+																		+ value.bdate
+																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
+																		+ value.bnum
+																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
+																		+ value.btype2
+																		+ '</span></p><p style="float: right;margin-right: 3%">'
+																		+ value.mnickname
+																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
+																		+ value.bimage
+																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
+																		+ value.bcontent
+																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
+																		+ '<p class="comm_line">댓글 <span>'+value.cnt+'</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
+																		+ value.bnum
+																		+ '#comment_box">댓글쓰기</a></div></div></div>');
+
+											});
+
+						}
+					});
 		}
-		
-		
+
 	}
 </script>
 </body>
