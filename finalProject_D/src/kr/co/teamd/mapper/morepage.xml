@@ -196,7 +196,9 @@
 	<select id="optionsearch" parameterType="hashmap" resultType="mbdto">
 		select mbnum,mbtitle,mid,mbcontent,mbtag,mbperson,mblocation,mbimage,to_date(mbstartdate,'yyyy-MM-dd') as mbstartdate
 		,to_date(mbdate,'yyyy-MM-dd') as mbdate,mbreport
-		from matchingboard where to_date(mbstartdate,'yyyy-MM-dd') &gt; to_date(#{dto.startdate},'yyyy-MM-dd')
+		from matchingboard 
+		where 
+		to_date(mbstartdate,'yyyy-MM-dd') &gt; to_date(#{dto.startdate},'yyyy-MM-dd')
 		and to_date(mbstartdate,'yyyy-MM-dd') &lt; to_date(#{dto.enddate},'yyyy-MM-dd')
 		and 
 		<foreach collection="list" item = "item" index="index" separator="or">
