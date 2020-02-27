@@ -1657,10 +1657,10 @@ li {
 						$('#matchinglistdiv').html("");
 						console.log("성공");
 						$.each(data,function(key,value) {
-							console.log(value.mbtitle);
+							console.log("숫자나오나요"+value.mbnum);
 							console.log("왜안나와");
 							$("#matchinglistdiv").append('<div class="col-md-4 ftco-animated">'
-								+ '<div class="destination"><a href="#"class="img img-2 d-flex justify-content-center align-items-center"style="background-image: url(${pageContext.request.contextPath}/resources/images/'+value.mbimage+');">'
+								+ '<div class="destination"><a href="matchpage?mbnum='+value.mbnum+'"  class="img img-2 d-flex justify-content-center align-items-center"style="background-image: url(${pageContext.request.contextPath}/resources/images/'+value.mbimage+');">'
 								+ '<div class="icon d-flex justify-content-center align-items-center"><span class="icon-search2"></span></div>'
 								+ '</a><div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="#">'+value.mbtitle+'</a></h3><p class="rate">'		
 								+ '<span style = "font-size: 15px;"> 출조일 : '+value.mbstartdate+'</span></p></div><div class="two"><span class="price">'+value.mbtag+'</span></div>'		

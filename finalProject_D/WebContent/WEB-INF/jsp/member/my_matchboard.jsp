@@ -1239,34 +1239,24 @@ $('input[type="checkbox"]').change(function() {
 		$('#hservice').attr('value', output);
 		
 	});
-
 	$('#updateBtn').click(function() {
 		location.href = 'matching';
 	});
-	
 	$('#uploadBtn').click(function() {
 		location.href = 'matching';
 	});
-	
 	$('#cancelBtn').click(function() {
 		location.href = 'matching';
 	});
-
 function goListBtn(){
-	
-	
-	
 	location="talklist?check=1";
 }
-	
 	<%-- 게시글 작성 type1 & type2 (재민)--%>
 	$(function() {
-		
 		<%-- 사진 올린거 바로 미리 보여주기 스크립트 --%>
 		$(document).ready(function(){
 			$("#bfile").on("change", handleImgFileSelect);
 		});
-		
 		function handleImgFileSelect(e){
 			var files = e.target.files;
 			var filesArr = Array.prototype.slice.call(files);
@@ -1285,7 +1275,6 @@ function goListBtn(){
 			});
 		}
 		<%-- 사진 올린거 바로 미리 보여주기 스크립트 끝 --%>
-		
 		$('#tm').change(
 				function(){
 					 if($('#tm').val() == 0){
