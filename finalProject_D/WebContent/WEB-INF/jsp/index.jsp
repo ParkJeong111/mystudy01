@@ -12,6 +12,17 @@ margin: auto;
 padding: auto;
 text-align: center;
 }
+.info_view span {
+    font-size: 16px;
+    padding: 0 5px;
+    margin-right: 5px;
+    display: inline;
+    height: 37px;
+    line-height: 35px;
+    border: 1px solid #f85959;
+    color: #f85959;
+    border-radius: 3rem;
+}
 
 </style>
 <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
@@ -84,15 +95,15 @@ text-align: center;
         </div>
     </section>
     
-    <section class="ftco-section ftco-destination" style=" padding-top:20px; background-color: white; padding-bottom: 20px;">
+    <section class="ftco-section ftco-destination" style=" padding-top:20px; background-color: white; padding-bottom: 20px; font-family: jua">
     	<div class="container" >
     		<div class="row justify-content-start pb-3" >
           <div class="col-md-7 heading-section ftco-animate" >
-          	<span class="subheading">고객이용 top</span>
-            <h2 class="mb-4"><strong>추천</strong>낚시</h2>
+          	<span class="subheading" style="font-size: 17px;margin-bottom: -10px;">고객이용 top</span>
+            <h2 class="mb-4" style="color: #999999;"><strong style="color: black;font-size: 35px;">추천</strong> 낚시</h2>
           </div>
         </div>
-    		<div class="row">
+    		<div class="row" style="font-family: jua">
     			<div class="col-md-12">
     				<div class="destination-slider owl-carousel ftco-animate">
     					<!-- 추천 for문 반복구간 시작 -->
@@ -106,7 +117,16 @@ text-align: center;
 		    					</a>
 		    					<div class="text p-3">
 		    						<h3><a href="#">${h.hname }</a></h3>
-		    						<span class="listing">${h.hspecies}</span>
+		    						<p class="info_view" >
+		    						<script>
+													var hspecies = '${h.hspecies}';
+													var hspeciesSplit = hspecies.split(',');
+													for (var i in hspeciesSplit) {
+														document.write('<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>');
+													}
+									</script>
+									</p>
+		    						
 		    					</div>
 		    				</div>
 	    				</div>
@@ -120,17 +140,17 @@ text-align: center;
     </section>
 
 
-    <section class="ftco-section bg-light" style="padding-bottom: 20px; padding-top:20px;">
+    <section class="ftco-section bg-light" style="padding-bottom: 20px; padding-top:20px; font-family: jua ">
     	<div class="container">
 				<div class="row justify-content-start pb-3">
           <div class="col-md-7 heading-section ftco-animate">
-          	<span class="subheading">고객이용후기</span>
-            <h2 class="mb-4"><strong>바다</strong> 낚시</h2>
+          	<span class="subheading" style="font-size: 17px;margin-bottom: -10px;">고객이용후기</span>
+            <h2 class="mb-4"  style="color: #999999;"><strong style="color: black;font-size: 35px;">바다</strong> 낚시</h2>
           </div>
         </div>    		
     	</div>
     	<div class="container-fluid">
-    		<div class="row">
+    		<div class="row" style="font-family: jua">
     		
     		<c:forEach items="${sealist}" var="sea" > 
     	<!-- 바다실시간 조황 for문 시작 5개만 돌려야함 -->
@@ -148,8 +168,17 @@ text-align: center;
 		    						<a href="#" style="width:100%;">${sea.hname }</a></h3>
 		    				</div>
     						</div>
-    						<p>${sea.btitle }</p>
-    						<p class="days"><span>${sea.hostdto.hspecies} </span></p>
+    						<p style="font-size: 15px;">${sea.btitle }</p>
+    						<p class="info_view" >
+		    						<script>
+													var hspecies = '${sea.hostdto.hspecies}';
+													var hspeciesSplit = hspecies.split(',');
+													for (var i in hspeciesSplit) {
+														document.write('<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>');
+													}
+									</script>
+									</p>
+
     						<hr>
     						<p class="bottom-area d-flex">
     							<span><i class="icon-map-o"></i>${sea.hostdto.haddr }</span> 
@@ -167,17 +196,17 @@ text-align: center;
     
 
 
-    <section class="ftco-section" style="padding-bottom: 20px; padding-top:20px;">
+    <section class="ftco-section" style="padding-bottom: 20px; padding-top:20px;  font-family: jua"">
     	<div class="container">
 				<div class="row justify-content-start pb-3">
           <div class="col-md-7 heading-section ftco-animate">
-          	<span class="subheading">고객이용후기</span>
-            <h2 class="mb-4"><strong>민물</strong> 낚시</h2>
+          	<span class="subheading" style="font-size: 17px;margin-bottom: -10px;">고객이용후기</span>
+            <h2 class="mb-4"  style="color: #999999;"><strong style="color: black;font-size: 35px;">민물</strong> 낚시</h2>
           </div>
         </div>    		
     	</div>
     	<div class="container-fluid">
-    		<div class="row">
+    		<div class="row" style="font-family: jua"> 
     		
     		<!-- 민물 실시간 조황 5개 for문 시작구간 -->
     			<c:forEach items="${freshlist}" var="fresh" > 
@@ -196,8 +225,16 @@ text-align: center;
 		    					</div>
 
     						</div>
-    						<p>${fresh.btitle }</p>
-    						<p class="days"><span>${fresh.hostdto.hspecies} </span></p>
+    						<p style="font-size: 15px;">${fresh.btitle }</p>
+    						<p class="info_view" >
+		    						<script>
+													var hspecies = '${fresh.hostdto.hspecies}';
+													var hspeciesSplit = hspecies.split(',');
+													for (var i in hspeciesSplit) {
+														document.write('<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>');
+													}
+									</script>
+									</p>
     						
     						<hr>
     						<p class="bottom-area d-flex">
@@ -219,11 +256,11 @@ text-align: center;
     	 <div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-4" style="margin-top: -100px;">고기자바 현황</h2>
+            <h2 class="mb-4" style="margin-top: -100px;font-family: jua; font-size: 35px;">고기자바 현황</h2>
             <!-- <span class="subheading">More than 100,000 websites hosted</span> -->
           </div>
         </div> 
-    		<div class="row justify-content-center" style="margin-top: -80px;">
+    		<div class="row justify-content-center" style="margin-top: -80px;font-family: jua; ">
     			<div class="col-md-10">
 		    		<div class="row">
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
@@ -266,7 +303,7 @@ text-align: center;
     </section>
 
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section" style="padding-bottom: 20px; padding-top:20px;">
+    <footer class="ftco-footer ftco-bg-dark ftco-section" style="padding-bottom: 20px; padding-top:20px; font-family:jua;">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
