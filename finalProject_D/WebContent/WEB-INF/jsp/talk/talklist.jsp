@@ -1142,21 +1142,7 @@ section {
 	line-height: 1.4
 }
 
-.talk_area .talk_recom a span {
-	width: 159px;
-	display: block;
-	position: absolute;
-	bottom: 15px;
-	font-size: 14px;
-	color: #b5b5b5;
-	letter-spacing: -0.6px
-}
 
-.talk_area .talk_recom a span i {
-	float: right;
-	color: #454545;
-	font-size: 16px
-}
 
 .talk_area .talk_plan {
 	margin-bottom: 20px
@@ -1529,13 +1515,13 @@ section {
 
 .boardtitle {
 	font-size: 24px;
-	margin: 3%;
+	margin: 2.3%;
 }
 
 .board_date {
 	margin-left: 3%;
 	margin-right: 3%;
-	margin-top: -3%;
+	margin-top: -2%;
 }
 </style>
 
@@ -1624,7 +1610,7 @@ section {
 									<p class="talk_pic" style="float: left; width: 30%;">
 										<span class="manage">${e.btype2}</span>
 									</p>
-									<p style="float: right; margin-right: 3%">${e.mnickname}</p>
+									<p style="float: right; margin-right: 3%"> ${e.mnickname}</p>
 								</div>
 
 								<div class="img_box" style="width: 100%;">
