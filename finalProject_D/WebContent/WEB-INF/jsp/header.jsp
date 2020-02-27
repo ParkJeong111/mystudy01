@@ -233,7 +233,7 @@ filter: invert(0%);
 
   </nav>
      <div>
-       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20%; margin-left: 28.9%;" id="autosearchlist" class="divBox shadow">
+       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 19.9%; margin-left: 31.5%; width: 277.97px;" id="autosearchlist" class="divBox shadow">
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
       	</div> 
 	</div>
