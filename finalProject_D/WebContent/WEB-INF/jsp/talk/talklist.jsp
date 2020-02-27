@@ -1535,8 +1535,6 @@ section {
 
 
 
-
-
 <div class="header_area">
 
 	<div class="scrolling scroll_up">
