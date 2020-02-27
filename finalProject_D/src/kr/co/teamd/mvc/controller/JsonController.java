@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -257,6 +256,7 @@ public class JsonController {
 		HashMap<String, Object> list = new HashMap<String, Object>();
 		String md = "0";
 		String[] modifysdate = dto.getStartdate().split("/");
+		
 		if (modifysdate[0].length() == 1) {
 			modifysdate[0] = md.concat(modifysdate[0]);
 		}
