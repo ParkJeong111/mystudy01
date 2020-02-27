@@ -439,7 +439,6 @@ section {
 }
 
 .talk_area .contents_list {
-	width: 100%;
 	float: left;
 	position: relative;
 	padding-top: 45px;
@@ -1129,7 +1128,7 @@ section {
 	display: block;
 	color: #2663e2;
 	letter-spacing: -0.8px;
-	font-size: 15px;
+	font-size: 14.5px;
 	margin-bottom: 10px
 }
 
@@ -1619,9 +1618,9 @@ section {
 							<div class="talk_view_btn"
 								OnClick="location.href ='talk_detail?bnum=${e.bnum}'"
 								style="cursor: pointer; margin-top: 10%">
-								<div>
-									<p class="talk_pic" style="float: left;">
-										<span class="manage">${e.btype2}</span>
+								<div style="width: 100%">
+									<p class="talk_pic" style="float: left;width: 30%;">
+										<span class="manage" >${e.btype2}</span>
 									</p>
 									<p style="float: right; margin-right: 3%">${e.mnickname}</p>
 								</div>
@@ -1660,7 +1659,7 @@ section {
 
 				</div>
 				<div class="talk_recom" style="width: 35%; float: right;">
-					<p style="">고기자바 추천 업체</p>
+					<p style="margin-left:100px;">고기자바 추천 업체</p>
 					<c:forEach var="i" items="${test.recommendlist}">
 						<div class="shadow"
 							style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
@@ -1746,8 +1745,6 @@ section {
     다이나믹쿼리로 보내고한 페이지에서 리스트 출력하기 위해 Ajax처리하여 URL로 보냄
    --%>
 	function boardAjax(check) {
-		console.log(check)
-
 		if (check == 1) {
 
 			$
@@ -1772,7 +1769,7 @@ section {
 																		+ value.bdate
 																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 																		+ value.bnum
-																		+ '\'" style="cursor: pointer; margin-top: 10%"><div>   <p class="talk_pic" style="float: left;"><span class="manage">'
+																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
 																		+ value.btype2
 																		+ '</span></p><p style="float: right;margin-right: 3%">'
 																		+ value.mnickname
@@ -1813,7 +1810,7 @@ section {
 																		+ value.ibdate
 																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'itemstalk_detail?ibnum='
 																		+ value.ibnum
-																		+ '\'" style="cursor: pointer; margin-top: 10%"><div>   <p class="talk_pic" style="float: left;"><span class="manage">'
+																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
 																		+ '중고장터</span></p><p style="float: right;margin-right: 3%">'
 																		+ value.mid
 																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
@@ -1844,7 +1841,7 @@ section {
 									.each(
 											data,
 											function(key, value) {
-
+												console.log("왜 안나오지"+value.cnt)
 												$("#talk_detail_list")
 														.append(
 																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
@@ -1854,7 +1851,7 @@ section {
 																		+ value.bdate
 																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 																		+ value.bnum
-																		+ '\'" style="cursor: pointer; margin-top: 10%"><div>   <p class="talk_pic" style="float: left;"><span class="manage">'
+																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
 																		+ value.btype2
 																		+ '</span></p><p style="float: right;margin-right: 3%">'
 																		+ value.mnickname
