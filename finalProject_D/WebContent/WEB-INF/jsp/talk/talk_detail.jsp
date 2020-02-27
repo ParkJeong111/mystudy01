@@ -572,7 +572,7 @@ $(document).ready(function(){
 	var mnickname =  encodeURIComponent($('#mnickname').val())
 	var bnum = $('#bnum').val();
 	
-	$('#boardCommentInsert, ').click(function() {
+	$('#boardCommentInsert').click(function() {
 		if(mnickname!=''){
 			if($("textarea[name=bccontent]").val().length==0){
 				alert("내용을 입력해 주세요");
