@@ -7,7 +7,7 @@ public class ItemscommentDTO {
 	private String mnickname;
 	private String iccontent;
 	private String icdate;
-	private String cnt;
+
 	
 	public int getIcnum() {
 		return icnum;
@@ -39,12 +39,7 @@ public class ItemscommentDTO {
 	public void setIcdate(String icdate) {
 		this.icdate = icdate;
 	}
-	public String getCnt() {
-		return cnt;
-	}
-	public void setCnt(String cnt) {
-		this.cnt = cnt;
-	}
+	
 	
 	
 	

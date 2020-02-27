@@ -7,7 +7,7 @@ public class BoardcommentDTO {
 	private String mnickname;
 	private String bccontent;
 	private String bcdate;
-	private int cnt;
+
 	
 	public int getBcnum() {
 		return bcnum;
@@ -39,12 +39,7 @@ public class BoardcommentDTO {
 	public void setBcdate(String bcdate) {
 		this.bcdate = bcdate;
 	}
-	public int getCnt() {
-		return cnt;
-	}
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
-	}
+
 	
 }
 
