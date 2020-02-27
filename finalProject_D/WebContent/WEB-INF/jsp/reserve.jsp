@@ -319,6 +319,10 @@ input[type=checkbox]:checked+label {
 			}
 		});
 		
+		$('#mpoint').click(function() {
+			$(this).val('');
+		});
+		
 		// 포인트 입력시 최종 금액 계산
 		$('#mpoint').keyup(function(){
 			var point;
@@ -332,7 +336,8 @@ input[type=checkbox]:checked+label {
 				console.log("point : " + point);
 				if (point < 0 || point > price) {
 					point = 0;
-					$(this).val(0);
+					$(this).val('');
+					alert('결제금액 내로 입력해주세요.');
 				}
 				$('#finalprice').css('font-size', '16px').css('color', 'black');
 				$('#finalprice').html('&nbsp;' + price + ' - ' + point
