@@ -2775,7 +2775,7 @@ keyframes swiper-preloader-spin { 100%{
 				<!-- 업체 지도 -->
 				<div class="profile_info col-md-4">
 					<span class="ico_pic ico_pic1"></span>
-					<div id="map" style="width: 380px; height: 175px;"></div>
+					<div id="map" class="clearfix" style="width: 380px; height: 325px;"></div>
 				</div>
 			</div>
 			<!--// view_profile -->
@@ -2926,6 +2926,8 @@ keyframes swiper-preloader-spin { 100%{
 								// alert(position.coords.latitude + ' ' + position.coords.longitude);
 								startposition_y = position.coords.latitude; // 위도
 								startposition_x = position.coords.longitude; // 경도
+								console.log("sssssssssssss: " + position.coords.latitude);
+								console.log("aaaaaaaaaaaaa: " + position.coords.longitude);
 							}, function(error) {
 								console.error("getLocation : " + error);
 							}, {
