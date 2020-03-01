@@ -233,7 +233,7 @@ filter: invert(0%);
 
   </nav>
      <div>
-       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 19.9%; margin-left: 31.5%; width: 277.97px;" id="autosearchlist" class="divBox shadow">
+       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20.1%; margin-left: 32.5%; width: 275px; cursor: pointer;" id="autosearchlist" class="divBox shadow">
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
       	</div> 
 	</div>
@@ -659,10 +659,6 @@ label {
  	            hours = 23;
  	        }
  	    }
- 	    
- 	    /* example
- 	     * 9시 -> 09시 변경 필요
- 	     */
  	    
  	    if(hours < 10) {
  	        hours = '0'+hours;

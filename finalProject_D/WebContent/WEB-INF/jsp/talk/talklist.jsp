@@ -1645,7 +1645,7 @@ section {
 
 				</div>
 				<div class="talk_recom" style="width: 35%; float: right;">
-					<p style="margin-left: 100px;">고기자바 추천 업체</p>
+					<h3 style="margin-left: 80px; font-size: 20px; font-family: jua;">고기자바 추천 업체</h3>
 					<c:forEach var="i" items="${test.recommendlist}">
 						<div class="shadow"
 							style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
