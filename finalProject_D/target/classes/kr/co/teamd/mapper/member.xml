@@ -3,16 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="member">
-
-	<!-- 김채은 영역 시작  -->
-	
-	<!-- 김채은 영역 끝  -->
-
-
-	<!-- 권세진 영역 시작  -->
-	
-	<!-- 권세진 영역 끝  -->
-	
 	
 	<!-- 박정연 영역 시작  -->
 		<!-- 예약내역 확인을위한 resultMap -->
@@ -60,15 +50,8 @@
 	<insert id="memberloginlog" parameterType="ldto">
 		insert into loginlog values(loginlog_seq.nextVal, #{mid}, #{lip},#{lagent} ,#{lstatus}, sysdate)
 	</insert>
-	
-	
 	<!-- 박정연 영역 끝  -->
-	
-	
-	<!-- 주성중 영역 시작  -->
 
-	<!-- 주성중 영역 끝  -->
-	
 	<!-- ======================안드로이드 로그인 체크================================ -->
 	<select id="androidLoginChk" parameterType="mdto" resultType="mdto">
 		select mid, mpwd from member where mid = #{mid} and mpwd = #{mpwd}
@@ -80,6 +63,11 @@
 		#{mphone}, #{memail}, #{maddr1}, #{maddr2}, #{mbirth}, #{msex}, null, sysdate, null, 0)
 	</insert>
 	
+	<!-- ===============================안드로이드 나의 정보 데이터====================================================== -->
+   <!-- <select id="androidMyinfo" parameterType="" resultType="">
+   		select mnum, mname, mid, mnickname, mphone, memail, maddr1, maddr2, mbirth, msex, mpoint from member
+   </select> -->
+   
 	<!-- id 중복 확인 -->
 	<select id="idchk" parameterType="String" resultType="int">
 		select count(*) mnum from member 
@@ -97,9 +85,5 @@
 		select count(mid) from pointlog where mid = #{mid} and to_date(pldate,'yyyy-MM-dd') = to_date(sysdate,'yyyy-MM-dd')
 	</select>
 	<!-- 포인트 로그 insert  -->
-	
-	
-	
-	
 
   </mapper>
