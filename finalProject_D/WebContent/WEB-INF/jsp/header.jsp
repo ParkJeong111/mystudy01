@@ -660,10 +660,6 @@ label {
  	        }
  	    }
  	    
- 	    /* example
- 	     * 9시 -> 09시 변경 필요
- 	     */
- 	    
  	    if(hours < 10) {
  	        hours = '0'+hours;
  	    }
