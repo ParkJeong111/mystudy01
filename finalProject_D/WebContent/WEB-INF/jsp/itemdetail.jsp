@@ -2775,7 +2775,7 @@ keyframes swiper-preloader-spin { 100%{
 				<!-- 업체 지도 -->
 				<div class="profile_info col-md-4">
 					<span class="ico_pic ico_pic1"></span>
-					<div id="map" style="width: 380px; height: 175px;"></div>
+					<div id="map" class="clearfix" style="width: 360px; height: 220px;"></div>
 				</div>
 			</div>
 			<!--// view_profile -->
@@ -2926,6 +2926,8 @@ keyframes swiper-preloader-spin { 100%{
 								// alert(position.coords.latitude + ' ' + position.coords.longitude);
 								startposition_y = position.coords.latitude; // 위도
 								startposition_x = position.coords.longitude; // 경도
+								console.log("sssssssssssss: " + position.coords.latitude);
+								console.log("aaaaaaaaaaaaa: " + position.coords.longitude);
 							}, function(error) {
 								console.error("getLocation : " + error);
 							}, {
@@ -2965,6 +2967,10 @@ keyframes swiper-preloader-spin { 100%{
 					// 지도생성
 					var map = new kakao.maps.Map(container, options);
 
+					var iwContent = '<div style="padding:5px;">${host.hname}</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				    iwPosition = new kakao.maps.LatLng(endposition_y, endposition_x), //인포윈도우 표시 위치입니다
+				    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+				    
 					// 마커가 표시될 위치
 					var markerPosition = new kakao.maps.LatLng(endposition_y,
 							endposition_x);
@@ -2973,6 +2979,17 @@ keyframes swiper-preloader-spin { 100%{
 						position : markerPosition
 					});
 					marker.setMap(map);
+					
+					// 인포윈도우를 생성하고 지도에 표시합니다
+					var infowindow = new kakao.maps.InfoWindow({
+						// 인포윈도우가 표시될 지도
+					    position : iwPosition, 
+					    content : iwContent,
+					    removable : iwRemoveable
+					});
+					
+					infowindow.open(map, marker);
+					
 					$('#distance').text(
 							"현재 위치로부터 거리 : " + distance.toFixed(2) + "km");
 				} else {

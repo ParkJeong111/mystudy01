@@ -47,7 +47,7 @@ public class RandomMatchingController {
 			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
 			out.flush();
 			return mav;
-		// 해당 유저가 현재 매칭중인 상태를 알기위한 값 추출
+		// 해당 유저가 현재 매칭중인 상태를 알기위한 값추출
 		}else {
 			matchingcheck = randommatching.matchingidcheck(session.getAttribute("mid").toString());
 		}
@@ -60,15 +60,15 @@ public class RandomMatchingController {
 			return mav;
 		// 해당 유저로 검색했을때 값이 있으면 매칭진행중으로 판단하고 메인페이지로 이동 시켜주는 기능
 		}else if(matchingcheck != 0){
-			mav.setViewName("index");
-			out.println("<script>alert('매칭 진행중인 상태입니다.'); location.href='index';</script>");
+			mav.setViewName("member/my_matching");
+			out.println("<script>alert('매칭 진행중인 상태입니다.'); location.href='my_matching';</script>");
 			out.flush();
 		// 매칭을 할 수있는 모든 조건을 충족하였을 때 매칭을 시켜주고 데이터베이스에 값을 저장해주는 기능
 		}else {
 			maplist.put("dto", dto);
 			dto.setRmid(session.getAttribute("mid").toString());
 			randommatching.randommatchinginsert(dto);
-			out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
+			out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
 			out.flush();
 			System.out.println("잘 등록하고 이동했쥬");
 			// 현재 매칭 진행중인 컬럼들을 추출해주기위한 변수 선언
@@ -103,7 +103,7 @@ public class RandomMatchingController {
 						// 매칭이 완료되면 테이블에 insert 해준다.
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
 						out.flush();
 						
 						
@@ -137,7 +137,7 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
 						out.flush();
 						
 					}
@@ -168,7 +168,7 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='index';</script>");
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
 						out.flush();
 						
 					}
@@ -178,7 +178,7 @@ public class RandomMatchingController {
 			}
 			
 		}
-		mav.setViewName("index");
+		mav.setViewName("member/my_matching");
 		return mav;
 	}
 	// 매칭내역을 노출시켜주는 기능

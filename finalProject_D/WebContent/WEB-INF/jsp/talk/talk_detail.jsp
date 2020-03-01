@@ -566,13 +566,11 @@ section{width:964px;position:relative;margin:0 auto;}
 				
 <script>
 $(document).ready(function(){
-
-	
 	//var commentform = $("form[role='commentform']");
 	var mnickname =  encodeURIComponent($('#mnickname').val())
 	var bnum = $('#bnum').val();
 	
-	$('#boardCommentInsert, ').click(function() {
+	$('#boardCommentInsert').click(function() {
 		if(mnickname!=''){
 			if($("textarea[name=bccontent]").val().length==0){
 				alert("내용을 입력해 주세요");
