@@ -67,37 +67,17 @@ public class MemberController {
 			session.setAttribute("vn", "redirect:my_board");   // when user login redirect page to my_board
 		}else {												// if mid is logged in and in session 
 			mav.setViewName("member/my_board");			//  then it goes straight to my_board page
-			
-			
 		}
 		return mav;										// return model and view
 	}
 	
 //  ------------------------------재민 영역 끝---------------------------------------
 	
-	
-	
-	
-	
 	@RequestMapping(value= "my_point") //나의 쿠폰
 	public String coupon() {
 		return "member/my_point";
 	}
 	
-
-		
-	//김채은 영역 시작
-	
-	
-	//김채은 영역 끝
-		
-
-		//권세진 영역 시작
-		
-		
-		
-		//권세진 영역 끝
-
 		//박정연 영역 시작
 	@RequestMapping(value= "my_reservation")  //예약내역
 	public ModelAndView reservation(HttpSession session, HttpServletResponse resp) {
@@ -116,8 +96,6 @@ public class MemberController {
 		}
 		return mav;
 	}
-	
-	
 		
 	@RequestMapping(value= "my_myinfo")  //나의정보
 	public ModelAndView myInfo(HttpSession session, HttpServletResponse resp) {
@@ -222,12 +200,4 @@ public class MemberController {
 		return mav;
 	}
 
-	
-		//박정연 영역 끝
-
-		//주성중 영역 시작
-		
-		
-		
-		//주성중 영역 끝
 }
