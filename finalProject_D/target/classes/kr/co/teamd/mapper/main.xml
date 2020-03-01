@@ -14,11 +14,21 @@
 	<!-- 권세진 영역 시작  -->
 	<!-- 헤더 검색 부분, 중복된 내용을 제거하고 모든 컬럼의 내용이 있는 대표 하나만 출력 -->
 		<select id="mainsearchlist" parameterType="String" resultType="hldto">
-		select h.hname hname, h.himage himage, h.hstar hstar,
+		<!-- select h.hname hname, h.himage himage, h.hstar hstar,
 		h.hnotice hnotice, h.htype htype, h.hservice hservice, h.haddr haddr,
 		h.hnum hnum, h.howner howner, h.hspecies hspecies, hg.hgmoney hgmoney
 		from host h, (select distinct hname, min(hgmoney) hgmoney
-		from hostgoods where hname like '%' || #{hname} || '%' group by hname) hg where h.hname=hg.hname
+		from hostgoods where hname like '%' || #{hname} || '%' group by hname) hg where h.hname=hg.hname -->
+		
+		select hname, himage, hstar, hgmoney, haddr, hnum, hspecies, boardnum from ( 
+        select h.himage as himage,h.hname as hname,
+		h.hstar as hstar,
+		hg.hgmoney as hgmoney,
+		h.haddr as haddr, h.hnum as hnum, h.hspecies as hspecies,
+        (select count(*) from board b where h.hname = b.hname and b.btype1 = '유저조행기') as boardnum
+		from host h, (select distinct hname, min(hgmoney) hgmoney from hostgoods
+       	group by hname) hg
+		where  h.hname = hg.hname order by boardnum desc) where hname like '%' || #{hname} || '%'
 	</select>
 	
 	<!-- 검새겅 자동완성을 위한 검색어에 따른 hname 출력을 위한 부분 -->
