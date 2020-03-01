@@ -11,7 +11,6 @@
 	</insert>
 	<!-- 김채은 영역 끝  -->
 
-
 	<!-- 권세진 영역 시작  -->
 	<!-- 헤더 검색 부분, 중복된 내용을 제거하고 모든 컬럼의 내용이 있는 대표 하나만 출력 -->
 		<select id="mainsearchlist" parameterType="String" resultType="hldto">
@@ -71,12 +70,5 @@
         (select count(rnum)cnt, hname from reservation group by hname)c where h.hname = c.hname order by cnt desc) where ROWNUM &lt;7
         </select>
 	<!-- 박정연 영역 끝  -->
-	
-	
-	<!-- 주성중 영역 시작  -->
-
-	<!-- 주성중 영역 끝  -->
-
-
 
   </mapper>
