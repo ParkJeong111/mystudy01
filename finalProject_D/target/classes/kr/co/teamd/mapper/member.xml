@@ -79,7 +79,7 @@
 	</update>
 	<!-- 포인트 로그 insert  -->
 	<insert id="gamepointlogInsert" parameterType="pldto">
-		insert into pointlog values(pointlog_seq.nextVal, #{mid},sysdate)
+		insert into pointlog values(pointlog_seq.nextVal, #{mid},sysdate, '적립',#{plpoint})
 	</insert>
 	<select id = "gamecheck" parameterType="String" resultType="int">
 		select count(mid) from pointlog where mid = #{mid} and to_date(pldate,'yyyy-MM-dd') = to_date(sysdate,'yyyy-MM-dd')

@@ -212,13 +212,13 @@ filter: invert(0%);
 					</c:choose>
           
              <ul class="submenumore">
-                <li class="nav-link" ><a href="my_passwordcheck">나의정보</a></li>
+                <li class="nav-link" ><a href="my_mypage">마이페이지</a></li>
                 <hr>
           	  	<li class="nav-link" ><a href="my_reservation">예약내역</a></li>
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_matching">랜덤매칭내역</a></li>
-          	  	<hr>
-          	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
+          	  	<!-- <hr>
+          	  	<li class="nav-link" ><a href="my_point">포인트</a></li> -->
           	  	<hr>
                 <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
               </ul>
