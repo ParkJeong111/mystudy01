@@ -89,11 +89,6 @@ public class BoardDAO implements BoardInter{
 		return ss.selectList("talk.itemsCommentList", icdto);
 	}
 
-
-
-
-	
-
 	@Override  // 재민          -- 중고 게시판 글 작성 --
 	public void itemboardAdd(ItemsboardDTO itbdto) {
 		ss.insert("talk.additboard", itbdto);
