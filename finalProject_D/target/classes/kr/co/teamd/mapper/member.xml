@@ -54,7 +54,7 @@
 
 	<!-- ======================안드로이드 로그인 체크================================ -->
 	<select id="androidLoginChk" parameterType="mdto" resultType="mdto">
-		select mid, mpwd from member where mid = #{mid} and mpwd = #{mpwd}
+		select mnum, mname, mid, mnickname, mphone, memail, maddr1, maddr2, to_char(mbirth,'yyyy-mm-dd')mbirth, msex, mpoint, mpwd from member where mid = #{mid} and mpwd = #{mpwd}
 	</select>
 	
 	<!-- ==============================  회원가입  (재민) ============================== -->
@@ -64,9 +64,9 @@
 	</insert>
 	
 	<!-- ===============================안드로이드 나의 정보 데이터====================================================== -->
-   <!-- <select id="androidMyinfo" parameterType="" resultType="">
-   		select mnum, mname, mid, mnickname, mphone, memail, maddr1, maddr2, mbirth, msex, mpoint from member
-   </select> -->
+   <select id="androidMyinfo" parameterType="mdto" resultType="mdto">
+   		select mnum, mname, mid, mnickname, mphone, memail, maddr1, maddr2, mbirth, msex, mpoint from member where mid = #{mid}
+   </select>
    
 	<!-- id 중복 확인 -->
 	<select id="idchk" parameterType="String" resultType="int">
