@@ -232,7 +232,7 @@ public class JsonController {
 		return b;
 	}
 	
-	// 함께자바 안드 (재민)
+	// 함께자바 상세보기 안드 (재민)
 	@RequestMapping(value = "androidTogether", produces = "application/json;charset=utf-8")
 	public String androidTogether(String mid, String mbnum){
 		HashMap<String, Object> valupdate = new HashMap<String, Object>();
@@ -241,6 +241,18 @@ public class JsonController {
 		mbi.statusadd(valupdate);
 		return "성공";
 	}
+	
+	// 안드로이드 내정보 (재민)
+		@RequestMapping(value = "androidMyinfo", produces = "application/json;charset=utf-8")
+		public List<MemberDTO> androidMyinfo(MemberDTO mdto){
+			List<MemberDTO> fo = mdao.androidMyinfo(mdto);
+			for(MemberDTO dto : fo) {
+	            System.out.println("mName : " + dto.getMname());
+	            System.out.println("mId : " + dto.getMid());
+	            System.out.println("mEmail : " + dto.getMemail());
+	        }
+			return fo;
+		}
 	
 	// 함께자바 검색기능
 	@RequestMapping(value = "matchingb")

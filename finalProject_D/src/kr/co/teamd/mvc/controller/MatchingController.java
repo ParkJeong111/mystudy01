@@ -34,12 +34,52 @@ public class MatchingController {
 		ModelAndView mav = new ModelAndView();
 		List<MatchingboardDTO> dto =  matchingdao.matchinglist();
 		mav.addObject("matchlist",dto);
-		for(MatchingboardDTO e : dto) {
-			System.out.println("함께자바 리스트 띄울때 나온다"+e.getMbnum());
-		}
 		mav.setViewName("matching");
 		return mav;
 	}
+	@RequestMapping(value= "matchingcreate")  //함께자바 
+	public ModelAndView matchingcreate(MatchingboardDTO dto, HttpSession session, HttpServletResponse response) throws IOException {
+		HashMap<String, Object> mbinsert = new HashMap<String, Object>();
+		PrintWriter out = response.getWriter();
+		StringBuilder sb = new StringBuilder();
+		String sign = "#";
+		String md = "0";
+		String[] modifysdate = dto.getMbstartdate().split("/");
+		if (modifysdate[0].length() == 1) {
+			modifysdate[0] = md.concat(modifysdate[0]);
+		}
+		if (modifysdate[1].length() == 1) {
+			modifysdate[1] = md.concat(modifysdate[1]);
+		}
+		dto.setMbstartdate(modifysdate[2].substring(2, 4) + "/" + modifysdate[0] + "/" + modifysdate[1]);
+		
+		String[] hobby = dto.getMbtag().split("/");
+		for(String e : hobby) {
+			sb.append("#").append(e);
+		}
+		String[] image = dto.getMbimage().split("\\\\");
+		String fileimage = "";
+		for(String e : image) {
+			fileimage = e;
+		}
+		dto.setMbimage(fileimage);
+		dto.setMbtag(sb.toString());
+		mbinsert.put("dto", dto);
+		if(session.getAttribute("mid") == null) {
+			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+			out.flush();
+		}else {
+			mbinsert.put("mid", session.getAttribute("mid"));
+		}
+		System.out.println(dto.getMbstartdate());
+		matchingboarddao.matchingboardinsert(mbinsert);
+		ModelAndView mav = new ModelAndView();
+		List<MatchingboardDTO> dto1 =  matchingdao.matchinglist();
+		mav.addObject("matchlist",dto1);
+		mav.setViewName("matching");
+		return mav;
+	}
+	
 	@RequestMapping(value= "matchpage")  //함께자바 
 	public ModelAndView matchpage(int mbnum) {
 		System.out.println("보드넘버 나와라"+mbnum);

@@ -82,6 +82,11 @@ public class MemberDAO implements MemberInter{
 		return ss.selectOne("member.androidLoginChk", mdto);
 	}
 
+	@Override    // 안드 내정보 (재민)
+	public List<MemberDTO> androidMyinfo(MemberDTO mdto) {
+		return ss.selectList("member.androidMyinfo", mdto);
+	}
+	
 	@Override
 	public void recentHostInsert(RecenthostDTO rhdto) {
 		ss.insert("member.recentHostInsert", rhdto);
