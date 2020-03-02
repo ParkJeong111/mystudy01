@@ -74,7 +74,7 @@ header .header_menu a.menu_search_btn {
 
 header .header_menu .search_header_box {
 	float: left;
-	border: 1px solid #e84418;
+	border: 1px solid #f85959;
 	border-radius: 0.3rem;
 	padding: 6px 8px;
 	width: 230px;
@@ -300,7 +300,7 @@ section {
 	padding: 0 5px 0 4px;
 	height: 19px;
 	line-height: 17px;
-	background: #e84418;
+	background: #f85959;
 	display: inline-block;
 	margin-right: 4px;
 	color: #fff;
@@ -380,7 +380,7 @@ section {
 }
 
 .talk_header .talk_cate_tab li.active a {
-	color: #606060;
+	color: #333333;
 	font-weight: 500
 }
 
@@ -390,7 +390,7 @@ section {
 	border-radius: 100%;
 	display: inline-block;
 	content: '';
-	background: #e84418;
+	background: #f85959;
 	left: 9px;
 	top: -13px;
 	position: relative;
@@ -483,7 +483,7 @@ section {
 
 .talk_area .contents_list .talk_notice .vTicker a {
 	font-size: 14px;
-	color: #606060;
+	color: #333333;
 	letter-spacing: -0.5px;
 }
 
@@ -517,7 +517,7 @@ section {
 }
 
 .talk_area .contents_list .live_hot .hot_title span {
-	color: #e84418
+	color: #f85959
 }
 
 .talk_area .contents_list .live_hot .hot_list {
@@ -536,7 +536,7 @@ section {
 }
 
 .talk_area .contents_list .live_hot .hot_list .vTicker li span {
-	color: #e84418
+	color: #f85959
 }
 
 .talk_area .talk_list .talk_box_area {
@@ -661,7 +661,8 @@ section {
 	display: table-cell;
 	vertical-align: middle;
 	width: 100%;
-	padding: 0 10px
+	padding: 0 10px;
+	font-size: 20px;
 }
 
 .talk_area .talk_list .talk_box_area .profile_line .profile_name strong
@@ -740,18 +741,20 @@ section {
 }
 
 .talk_area .talk_list .talk_box_area .talk_pic span.live {
-	background: #e84418;
+	background: #f85959;
 	color: #fff
 }
 
 .talk_area .talk_list .talk_box_area .talk_pic span.manage {
-	border: 1px solid #e84418;
-	color: #e84418
+	border: 1px solid #f85959;
+	color: #f85959;
+	font-family: jua;
+	font-size: 20px;
 }
 
 .talk_area .talk_list .talk_box_area .talk_pic span.kind {
 	border: 1px solid #dadada;
-	color: #2663e2
+	color: #444444;
 }
 
 .talk_area .talk_list .talk_box_area .talk_text {
@@ -931,7 +934,7 @@ section {
 
 .talk_area .talk_list .talk_box_area .talk_btn a {
 	font-size: 15px;
-	color: #606060;
+	color: #333333;
 	letter-spacing: -0.6px;
 	text-align: center;
 	width: 100%;
@@ -1081,7 +1084,7 @@ section {
 	position: absolute;
 	bottom: 15px;
 	font-size: 14px;
-	color: #2663e2;
+	color: #444444;;
 	letter-spacing: -0.6px
 }
 
@@ -1128,7 +1131,7 @@ section {
 
 .talk_area .talk_recom a em {
 	display: block;
-	color: #2663e2;
+	color: #444444;;
 	letter-spacing: -0.8px;
 	font-size: 14.5px;
 	margin-bottom: 10px
@@ -1192,14 +1195,14 @@ section {
 }
 
 .talk_area .talk_filter a.active {
-	color: #e84418
+	color: #f85959
 }
 
 .talk_area .talk_filter a.active:after {
 	width: 6px;
 	height: 6px;
 	content: '';
-	background: #e84418;
+	background: #f85959;
 	border-radius: 100%;
 	display: block;
 	position: absolute;
@@ -1332,7 +1335,7 @@ section {
 	content: '';
 	width: 6px;
 	height: 6px;
-	background: #e84418;
+	background: #f85959;
 	border-radius: 100%;
 	display: block;
 	position: absolute;
@@ -1377,7 +1380,7 @@ section {
 
 .talk_area .talk_list .talk_box_area .talk_btn .talk_pay.deal:before {
 	font-size: 12px;
-	color: #606060;
+	color: #333333;
 	display: block;
 	margin-bottom: 3px;
 	font-weight: normal;
@@ -1400,7 +1403,7 @@ section {
 
 .talk_area .talk_list .talk_box_area .talk_pic .sell {
 	border: 1px solid #dadada;
-	color: #2663e2
+	color: #444444;
 }
 
 .talk_area .talk_list .talk_box_area.jgo_sold .talk_text, .talk_area .talk_list .talk_box_area.jgo_sold .talk_btn .talk_pay
@@ -1430,7 +1433,7 @@ section {
 	font-family: "Poppins", Arial, sans-serif;
 	font-size: 25px;
 	font: bolder;
-	color: #606060;
+	color: #333333;
 	padding: 24px;
 	margin-bottom: -16px;
 }
@@ -1488,7 +1491,7 @@ section {
 .service_area .service_tab li a {
 	display: block;
 	font-size: 20px;
-	color: #606060;
+	color: #333333;
 	text-align: center;
 	padding: 24px 0;
 	border-bottom: 1px solid #e6e6e6;
@@ -1506,7 +1509,7 @@ section {
 }
 
 .talk_tab li a {
-	color: #606060;
+	color: #333333;
 }
 
 .selected a b {
@@ -1543,18 +1546,18 @@ section {
 		<div class="talk_header">
 			<div class="talk_tab_area">
 				<section>
-					<div class="service_tab service_area">
+					<div class="service_tab service_area" >
 						<ul class="talk_tab clearfix service_area" style="margin-top: 1%;">
 							<li class="on boardlisthead selected"><a href='javasript:void(0);'
-								onclick="boardAjax(1)"><strong><b>유저조행기</b></strong></a></li>
+								onclick="boardAjax(1)"><strong><b style="font-family: Do Hyeon; font-size: 30px;">유저조행기</b></strong></a></li>
 							<li class="on boardlisthead"><a href='javascript:void(0);'
-								onclick="boardAjax(2)"><strong><b>중고장터</b></strong></a></li>
+								onclick="boardAjax(2)"><strong><b style="font-family: Do Hyeon; font-size: 30px;">중고장터</b></strong></a></li>
 							<li class="on boardlisthead"><a href='javascript:void(0);'
-								onclick="boardAjax(3)"><strong><b>유용한정보</b></strong></a></li>
+								onclick="boardAjax(3)"><strong><b style="font-family: Do Hyeon; font-size: 30px;">유용한정보</b></strong></a></li>
 							<li class="on boardlisthead"><a href='javascript:void(0);'
-								onclick="boardAjax(4)"><strong><b>낚시지식인</b></strong></a></li>
+								onclick="boardAjax(4)"><strong><b style="font-family: Do Hyeon; font-size: 30px;">낚시지식인</b></strong></a></li>
 							<li class="on boardlisthead"><a href='javascript:void(0);'
-								onclick="boardAjax(5)"><strong><b>자유게시판</b></strong></a></li>
+								onclick="boardAjax(5)"><strong><b style="font-family: Do Hyeon; font-size: 30px;">자유게시판</b></strong></a></li>
 						</ul>
 					</div>
 				</section>
@@ -1636,7 +1639,7 @@ section {
 
 				</div>
 				<div class="talk_recom" style="width: 35%; float: right;">
-					<h3 style="margin-left: 80px; font-size: 20px; font-family: jua;">고기자바 추천 업체</h3>
+					<h3 style="margin-left: 80px; font-size: 28px; font-family: Do Hyeon;color: #333333;">고기자바 추천 업체</h3>
 					<c:forEach var="i" items="${test.recommendlist}">
 						<div class="shadow"
 							style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
@@ -1645,7 +1648,7 @@ section {
 								src="${pageContext.request.contextPath}/resources/images/${i.himage}"
 								alt="">
 								<div class="recom_text" style="float: right;">
-									<em>${i.hname}</em> <strong>${i.haddr}</strong>
+									<em style="width:90%; height:30px;margin:0px; padding:0px; text-overflow: ellipsis;overflow: hidden;white-space: nowrap;"><p style="font-size: 20px; font-family: Do Hyeon;">${i.hname}</p></em> <strong><b style="font-size: 20px; font-family: Do Hyeon;">${i.haddr}</b></strong>
 
 								</div>
 							</a>
