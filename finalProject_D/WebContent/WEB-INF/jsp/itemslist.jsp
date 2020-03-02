@@ -1344,14 +1344,8 @@ width: 855px;
 										<div class="text p-3">
 											<div class="d-flex">
 												<div class="one">
-<<<<<<< HEAD
-													<h3 style="font-size: 20px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;">
-														 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')">${hostlist.hname}</a>
-												
-=======
 													<h3 style="font-size: 25px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;">
-														<a href="itemdetail?hnum=${hostlist.hnum}">${hostlist.hname }</a>
->>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
+														 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')">${hostlist.hname}</a>
 													</h3>
 													<p class="rate starrate">
 													<c:forEach begin="0" end="4" varStatus="i">

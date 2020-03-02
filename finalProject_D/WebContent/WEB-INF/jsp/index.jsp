@@ -110,7 +110,7 @@ text-align: center;
     					<c:forEach var="h" items="${hdto}">
     					<div class="item">
 		    				<div class="destination">
-		    					<a href="itemdetail?hnum=${h.hnum}" class="img d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${h.himage});">
+		    					<a href="javascript:void(0)" onclick="itemdetail(${h.hnum},'${h.hname }')" class="img d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${h.himage});">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -506,6 +506,9 @@ label {
 </style>
 
 <script>
+function itemdetail(hnum, hname) {
+	location.href="itemdetail?hnum="+hnum+"&hname="+encodeURI(hname, "UTF-8");
+};
 // 모달 버튼에 이벤트를 건다.
 $('#openModalBtn1').on('click', function(){
 $('#modalBox').modal('show');
