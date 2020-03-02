@@ -19,26 +19,23 @@ import kr.co.teamd.mvc.dto.ReservationDTO;
 
 @Controller
 public class MemberController {
-	
+
 	@Autowired
 	private MemberInter mdao;
-	
-	/*
-	 * @Autowired private ChkBTypeDTO chkbdto;
-	 */
-	
-	@RequestMapping(value= "login") //로그인
+
+	@RequestMapping(value = "login") // 로그인
 	public String login() {
 		return "member/login";
 	}
-	@RequestMapping(value= "passwordfind") //비밀번호 찾기
+
+	@RequestMapping(value = "passwordfind") // 비밀번호 찾기
 	public String passwordfind() {
 		return "member/passwordfind";
 	}
-	
+
 	@RequestMapping("kakao")
 	public ModelAndView kakao(String mid, HttpSession session, HttpServletRequest reqeust) {
-	
+
 		ModelAndView mav = new ModelAndView();
 		session.setAttribute("mid", mid);
 		mav.setViewName("redirect:index");
@@ -46,131 +43,124 @@ public class MemberController {
 	}
 
 //  ------------------------------재민 영역 시작---------------------------------------
-	@RequestMapping(value= "addmember")  //회원가입 폼      
-	public String addmember() {    
-		return "member/addmember"; 
-	}
-	
-	@RequestMapping(value= "insertmember")  //회원가입 (멤버 추가)      
-	public String insertmember(MemberDTO mdto) {  
-		mdao.addMember(mdto);   				
-//		System.out.println(mdto.getMname());        // just to check if it gets member name
-//		System.out.println(mdto.getMaddr1());
-		return "redirect:login";                  // go to login page
+	@RequestMapping(value = "addmember") // 회원가입 폼
+	public String addmember() {
+		return "member/addmember";
 	}
 
-	@RequestMapping(value= "my_board") // 내글쓰기
-	public ModelAndView board(HttpSession session) {   // apply session here
-		ModelAndView mav = new ModelAndView();
-		String mid = (String) session.getAttribute("mid");   // check mid in session
-		if (mid == null) {									// if mid = null
-			mav.setViewName("member/login");				// go to login page
-			session.setAttribute("vn", "redirect:my_board");   // when user login redirect page to my_board
-		}else {												// if mid is logged in and in session 
-			mav.setViewName("member/my_board");			//  then it goes straight to my_board page
-		}
-		return mav;										// return model and view
+	@RequestMapping(value = "insertmember") // 회원가입 (멤버 추가)
+	public String insertmember(MemberDTO mdto) {
+		mdao.addMember(mdto);
+		return "redirect:login"; // go to login page
 	}
-	
+
+	@RequestMapping(value = "my_board") // 내글쓰기
+	public ModelAndView board(HttpSession session) { // apply session here
+		ModelAndView mav = new ModelAndView();
+		String mid = (String) session.getAttribute("mid"); // check mid in session
+		if (mid == null) { // if mid = null
+			mav.setViewName("member/login"); // go to login page
+			session.setAttribute("vn", "redirect:my_board"); // when user login redirect page to my_board
+		} else { // if mid is logged in and in session
+			mav.setViewName("member/my_board"); // then it goes straight to my_board page
+		}
+		return mav; // return model and view
+	}
+
 //  ------------------------------재민 영역 끝---------------------------------------
-	
-	
-		//박정연 영역 시작
-	@RequestMapping(value= "my_reservation")  //예약내역
+
+	// 박정연 영역 시작
+	@RequestMapping(value = "my_reservation") // 예약내역
 	public ModelAndView reservation(HttpSession session, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView();
 		String mid = (String) session.getAttribute("mid");
-		if (mid ==null) {
+		if (mid == null) {
 			mav.setViewName("member/login");
 			session.setAttribute("vn", "redirect:my_reservation");
-		}else {
+		} else {
 			HashMap<Object, Object> map = new HashMap<Object, Object>();
 			map.put("mid", mid);
 			map.put("type", 0);
 			List<ReservationDTO> reservationlist = mdao.myReservation(map);
 			mav.addObject("rlist", reservationlist);
-			mav.setViewName("member/my_reservation");	
+			mav.setViewName("member/my_reservation");
 		}
 		return mav;
 	}
-		
-	@RequestMapping(value= "my_myinfo")  //나의정보
+
+	@RequestMapping(value = "my_myinfo") // 나의정보
 	public ModelAndView myInfo(HttpSession session, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView();
 		String mid = (String) session.getAttribute("mid");
 		MemberDTO my = mdao.myInfo(mid);
-		mav.addObject("my",my);
-		mav.setViewName("member/my_myinfo");		
+		mav.addObject("my", my);
+		mav.setViewName("member/my_myinfo");
 		return mav;
 	}
-	
-	@RequestMapping(value= "my_myupdate")  //나의정보 수정
+
+	@RequestMapping(value = "my_myupdate") // 나의정보 수정
 	public String myUpdate(HttpSession session, HttpServletResponse resp, MemberDTO mdto, HttpServletRequest req) {
 		String mid = (String) session.getAttribute("mid");
 		mdto.setMid(mid);
 		mdao.myUpdate(mdto);
 		return "member/my_mypage";
 	}
-	
-	@RequestMapping(value= "my_mypage") //마이페이지 이동 
+
+	@RequestMapping(value = "my_mypage") // 마이페이지 이동
 	public ModelAndView my(HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
 		ModelAndView mav = new ModelAndView();
-		if (mid ==null) {
+		if (mid == null) {
 			session.setAttribute("vn", "redirect:my_mypage");
 			mav.setViewName("member/login");
 			return mav;
-		}else {
+		} else {
 			List<RecentListDTO> rlist = mdao.recentHostList(mid);
 			mav.addObject("rlist", rlist);
-			//MemberDTO my = mdao.myInfo(mid);
-			//int mpoint = my.getMpoint();
-			//mav.addObject("mpoint",mpoint);
-			mav.setViewName("member/my_mypage");			
-		return mav;
+			mav.setViewName("member/my_mypage");
+			return mav;
 		}
 	}
 
-	@RequestMapping(value= "my_passwordcheck") //나의 정보 확인전 비밀번호 체크페이지로 이동
+	@RequestMapping(value = "my_passwordcheck") // 나의 정보 확인전 비밀번호 체크페이지로 이동
 	public String myPasswordCheck(HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
-		if (mid ==null) {
+		if (mid == null) {
 			session.setAttribute("vn", "redirect:my_myinfo");
 			return "member/login";
-		}else {
-		return "member/my_passwordcheck";
+		} else {
+			return "member/my_passwordcheck";
 		}
 	}
-	
-	@RequestMapping("pwdchk") //비밀번호 체크
+
+	@RequestMapping("pwdchk") // 비밀번호 체크
 	public ModelAndView pwdchangechk(MemberDTO mdto, HttpServletResponse resp, HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
 		mdto.setMid(mid);
 		ModelAndView mav = new ModelAndView();
 		int cnt = mdao.pwdCheck(mdto);
-		if(cnt > 0) {
-			session.setAttribute("mid",mdto.getMid());
+		if (cnt > 0) {
+			session.setAttribute("mid", mdto.getMid());
 			mav.setViewName("redirect:my_myinfo");
 			mav.addObject("mdto", mdto);
 			return mav;
-		}else {
+		} else {
 			PrintWriter out;
 			try {
 				out = resp.getWriter();
 				out.println("<script>alert('비밀번호가 일치하지 않습니다.');</script>");
-				out.flush(); 
-				
+				out.flush();
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			mav.setViewName("member/my_passwordcheck");
 			return mav;
 		}
-		
+
 	}
-	
-	
-	@RequestMapping("logincheck")  //로그인체크
+
+	@RequestMapping("logincheck") // 로그인체크
 	public ModelAndView loginfprocess(HttpSession session, HttpServletRequest reqeust, HttpServletResponse resp,
 			@RequestHeader("User-Agent") String uagent, MemberDTO mdto) {
 		ModelAndView mav = new ModelAndView();
@@ -183,20 +173,20 @@ public class MemberController {
 			session.setAttribute("m", myinfo);
 			session.setAttribute("mpoint", myinfo.getMpoint());
 			String mid = (String) session.getAttribute("mid");
-					if(session.getAttribute("vn")==null) {
-						mav.setViewName("redirect:index");
-					}else {
-						mav.setViewName((String) session.getAttribute("vn"));
-						session.setAttribute("vn",null);
-					}
-						return mav;
-				
+			if (session.getAttribute("vn") == null) {
+				mav.setViewName("redirect:index");
+			} else {
+				mav.setViewName((String) session.getAttribute("vn"));
+				session.setAttribute("vn", null);
+			}
+			return mav;
+
 		} else {
 			PrintWriter out;
 			try {
 				out = resp.getWriter();
 				out.println("<script>alert('아이디와 비밀번호를 다시 확인해주세요');</script>");
-				out.flush(); 
+				out.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -205,13 +195,11 @@ public class MemberController {
 		}
 	}
 
-	@RequestMapping("logout")  //로그아웃
+	@RequestMapping("logout") // 로그아웃
 	public ModelAndView loginfoutprocess(HttpSession session, HttpServletRequest request) {
 		session.removeAttribute("nickname");
 		session.removeAttribute("mid");
 		ModelAndView mav = new ModelAndView();
-		System.out.println("로그아웃");
-		System.out.println();
 		mav.setViewName("redirect:index");
 		return mav;
 	}
