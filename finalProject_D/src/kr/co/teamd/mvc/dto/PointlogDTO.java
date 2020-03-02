@@ -2,9 +2,15 @@ package kr.co.teamd.mvc.dto;
 
 public class PointlogDTO {
 	private String mid,pldate,pltype;
-	private int plpoint;
+	private int plnum, plpoint;
 	
-
+	
+	public int getPlnum() {
+		return plnum;
+	}
+	public void setPlnum(int plnum) {
+		this.plnum = plnum;
+	}
 	public int getPlpoint() {
 		return plpoint;
 	}

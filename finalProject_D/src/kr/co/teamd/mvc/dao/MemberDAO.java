@@ -97,4 +97,9 @@ public class MemberDAO implements MemberInter{
 		return ss.selectList("member.recentHostList", mid);
 	}
 
+	@Override
+	public List<PointlogDTO> gamepointlogList(String mid) {
+		return ss.selectList("member.gamepointlogList", mid);
+	}
+
 }

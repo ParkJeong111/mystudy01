@@ -566,10 +566,8 @@ section{width:964px;position:relative;margin:0 auto;}
 				
 <script>
 $(document).ready(function(){
-	//var commentform = $("form[role='commentform']");
 	var mnickname =  encodeURIComponent($('#mnickname').val())
 	var bnum = $('#bnum').val();
-	
 	$('#boardCommentInsert').click(function() {
 		if(mnickname!=''){
 			if($("textarea[name=bccontent]").val().length==0){
@@ -578,9 +576,9 @@ $(document).ready(function(){
 			}else{
 			var bccontent = encodeURIComponent($("textarea[name=bccontent]").val())
 			var params = {
-								bnum : bnum,
-								mnickname : mnickname,
-								bccontent : bccontent
+							bnum : bnum,
+							mnickname : mnickname,
+							bccontent : bccontent
 						 };
 			 $.ajax({
 				type:'POST',
@@ -595,9 +593,6 @@ $(document).ready(function(){
 						$('.comment_list_area, .comment_list_best_box').append('<div class="comment_list_box tcm_best tcm_box clearfix tcm_box286297" id="tcm_box286297">'
 					              +'<div class="comment_box"><p class="comment_date"><span>'+value.mnickname+'</span> <span>'+value.bcdate+'</span>'
 					              +'</p><p class="comment_txt">'+value.bccontent+'</p></div></div>');
-						console.log(decodeURIComponent(value.bnum));
-						console.log(decodeURIComponent(value.mnickname));
-						console.log(decodeURIComponent(value.bccontent));
 					});
 					$('#reply_total_cnt').text(count + ' °³');
 					$("textarea[name=bccontent]").val('');

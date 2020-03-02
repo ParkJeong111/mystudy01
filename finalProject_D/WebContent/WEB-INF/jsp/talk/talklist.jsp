@@ -1545,24 +1545,15 @@ section {
 				<section>
 					<div class="service_tab service_area">
 						<ul class="talk_tab clearfix service_area" style="margin-top: 1%;">
-
-							<li class="on boardlisthead selected"><a data-talk_key="1"
-								data-tc_key="0" data-u_type="1" href='javasript:void(0);'
+							<li class="on boardlisthead selected"><a href='javasript:void(0);'
 								onclick="boardAjax(1)"><strong><b>유저조행기</b></strong></a></li>
-
-							<li class="on boardlisthead"><a data-talk_key="11"
-								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
+							<li class="on boardlisthead"><a href='javascript:void(0);'
 								onclick="boardAjax(2)"><strong><b>중고장터</b></strong></a></li>
-
-							<li class="on boardlisthead"><a data-talk_key="2"
-								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
+							<li class="on boardlisthead"><a href='javascript:void(0);'
 								onclick="boardAjax(3)"><strong><b>유용한정보</b></strong></a></li>
-							<li class="on boardlisthead"><a data-talk_key="3"
-								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
+							<li class="on boardlisthead"><a href='javascript:void(0);'
 								onclick="boardAjax(4)"><strong><b>낚시지식인</b></strong></a></li>
-
-							<li class="on boardlisthead"><a data-talk_key="5"
-								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
+							<li class="on boardlisthead"><a href='javascript:void(0);'
 								onclick="boardAjax(5)"><strong><b>자유게시판</b></strong></a></li>
 						</ul>
 					</div>
@@ -1649,7 +1640,7 @@ section {
 					<c:forEach var="i" items="${test.recommendlist}">
 						<div class="shadow"
 							style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
-							<a href="itemdetail?hnum=${i.hnum}"> <img
+							 <a href="javascript:void(0)" onclick="itemdetail(${i.hnum},'${i.hname }')"> <img
 								style="width: 120px; height: 120px; padding-top: 5px; padding-left: 5px;"
 								src="${pageContext.request.contextPath}/resources/images/${i.himage}"
 								alt="">
@@ -1712,6 +1703,9 @@ section {
 	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 <script type="text/javascript">
+function itemdetail(hnum, hname) {
+	location.href="itemdetail?hnum="+hnum+"&hname="+encodeURI(hname, "UTF-8");
+};
 	$(document).ready(function() {
 		$(".on").each(function() {
 			$(this).click(function() {
@@ -1719,7 +1713,6 @@ section {
 				$(this).siblings().removeClass("selected"); //siblings:형제요소들,    removeClass:선택된 클래스의 특성을 없앰
 			});
 		});
-
 	});
 <%-- 
    boardAjax 함수 호출되면
@@ -1732,91 +1725,73 @@ section {
    --%>
 	function boardAjax(check) {
 		if (check == 1) {
-
 			$.ajax({
-						url : "talkAjax?check=" + check,
-						datatype : 'json',
-						success : function(data) {
-
-							$("#talk_detail_list").html("")
-							$
-									.each(
-											data,
-											function(key, value) {
-
-												$("#talk_detail_list")
-														.append(
-																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
-																		+ value.btitle
-																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-																		+ value.haddr
-																		+ '</p></div><div class="profile_date" style="float: right"><p>'
-																		+ value.bdate
-																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
-																		+ value.bnum
-																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
-																		+ value.btype2
-																		+ '</span></p><p style="float: right;margin-right: 3%">'
-																		+ value.mnickname
-																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
-																		+ value.bimage
-																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
-																		+ value.bcontent
-																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
-																		+ '<p class="comm_line">댓글 <span>'
-																		+ value.cnt
-																		+ '</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
-																		+ value.bnum
-																		+ '#comment_box">댓글쓰기</a></div></div></div>');
-
-											});
-
-						}
-					});
-		} else if (check == 2) {
-
+				url : "talkAjax?check=" + check,
+				datatype : 'json',
+				success : function(data) {
+					$("#talk_detail_list").html("")
+					$.each(data,function(key, value) {
+						$("#talk_detail_list")
+							.append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+										+ value.btitle
+										+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
+										+ value.haddr
+										+ '</p></div><div class="profile_date" style="float: right"><p>'
+										+ value.bdate
+										+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
+										+ value.bnum
+										+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
+										+ value.btype2
+										+ '</span></p><p style="float: right;margin-right: 3%">'
+										+ value.mnickname
+										+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
+										+ value.bimage
+										+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
+										+ value.bcontent
+										+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
+										+ '<p class="comm_line">댓글 <span>'
+										+ value.cnt
+										+ '</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
+										+ value.bnum
+										+ '#comment_box">댓글쓰기</a></div></div></div>');
+									});
+								}
+							});			
+		}else if (check == 2) {
 			$.ajax({
-						url : "itemsboardAjax?check=" + check,
-						datatype : 'json',
-						success : function(data) {
-
-							console.log(data + "중고장터")
-							$("#talk_detail_list").html("")
-							$.each(
-											data,
-											function(key, value) {
-
-												$("#talk_detail_list")
-														.append(
-																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
-																		+ value.ibtitle
-																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-																		+ '</p></div><div class="profile_date" style="float: right"><p>'
-																		+ value.ibdate
-																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'itemstalk_detail?ibnum='
-																		+ value.ibnum
-																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
-																		+ '중고장터</span></p><p style="float: right;margin-right: 3%">'
-																		+ value.mid
-																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
-																		+ value.ibimage
-																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
-																		+ value.ibcontent
-																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
-																		+ '<p class="comm_line">댓글 <span>'
-																		+ value.cnt
-																		+ '</span></p></div></div><div class="talk_btn clearfix"><a class="talk_money_btn" href="#">'
-																		+ value.ibmoney
-																		+ '원</a><a class="talk_comm_btn" style="width:50%;" href="itemstalk_detail?ibnum='
-																		+ value.ibnum
-																		+ '#comment_box">댓글쓰기</a></div></div></div>');
-
-											});
-						}
+					url : "itemsboardAjax?check=" + check,
+					datatype : 'json',
+					success : function(data) {
+						console.log(data + "중고장터")
+						$("#talk_detail_list").html("")
+						$.each(data,function(key, value) {
+							$("#talk_detail_list")
+								.append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+										+ value.ibtitle
+										+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
+										+ '</p></div><div class="profile_date" style="float: right"><p>'
+										+ value.ibdate
+										+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'itemstalk_detail?ibnum='
+										+ value.ibnum
+										+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
+										+ '중고장터</span></p><p style="float: right;margin-right: 3%">'
+										+ value.mid
+										+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
+										+ value.ibimage
+										+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
+										+ value.ibcontent
+										+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
+										+ '<p class="comm_line">댓글 <span>'
+										+ value.cnt
+										+ '</span></p></div></div><div class="talk_btn clearfix"><a class="talk_money_btn" href="#">'
+										+ value.ibmoney
+										+ '원</a><a class="talk_comm_btn" style="width:50%;" href="itemstalk_detail?ibnum='
+										+ value.ibnum
+										+ '#comment_box">댓글쓰기</a></div></div></div>');
+								});
+							}
 					});
-
 		} else {
-
 			$.ajax({
 						url : "talkAjax?check=" + check,
 						datatype : 'json',
