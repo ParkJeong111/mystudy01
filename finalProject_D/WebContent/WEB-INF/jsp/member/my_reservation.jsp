@@ -112,7 +112,6 @@ border-bottom: 1px solid #e6e6e6;
 							</div>
 						</div>
 						</c:forEach>
-
 			</div>
 		</div>
 		</div>

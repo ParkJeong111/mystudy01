@@ -26,7 +26,7 @@ public class ReserveController {
 
 	@Autowired
 	private ReservationInter usingpointdto;
-	
+
 	// 결제페이지 이동
 	@RequestMapping(value = "reserve")
 	public ModelAndView reserveView(int hnum, int hgnum) {
@@ -42,8 +42,8 @@ public class ReserveController {
 	@RequestMapping(value = "resInsert")
 	public ModelAndView reserveInsert(HttpServletRequest request, int hnum, String mid, ReservationDTO rdto) {
 		usingpointdto.usingpoingInsert(rdto);
-		ModelAndView mav = new ModelAndView("redirect:itemdetail?hnum=" + hnum);
-		
+		System.out.println("hhhhhhhhhfffffffffffhname : " + rdto.getHname());
+		ModelAndView mav = new ModelAndView("redirect:my_reservation");
 		try {
 			service.reserveInsertmpointUpdate(request, rdto);
 		} catch (Exception e) {

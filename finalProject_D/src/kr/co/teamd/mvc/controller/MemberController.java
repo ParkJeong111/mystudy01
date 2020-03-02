@@ -87,7 +87,12 @@ public class MemberController {
 			HashMap<Object, Object> map = new HashMap<Object, Object>();
 			map.put("mid", mid);
 			map.put("type", 0);
+			System.out.println("여기여기");
 			List<ReservationDTO> reservationlist = mdao.myReservation(map);
+			for(ReservationDTO dto : reservationlist) {
+				System.out.println("hname : " + dto.getHname());
+			}
+			System.out.println("여기여기222222222");
 			mav.addObject("rlist", reservationlist);
 			mav.setViewName("member/my_reservation");	
 		}
@@ -115,7 +120,6 @@ public class MemberController {
 	@RequestMapping(value= "my_mypage") //마이페이지 이동 
 	public ModelAndView my(HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
-		System.out.println(mid+"나오지?");
 		ModelAndView mav = new ModelAndView();
 		if (mid ==null) {
 			session.setAttribute("vn", "redirect:my_mypage");
@@ -124,8 +128,10 @@ public class MemberController {
 		}else {
 			List<RecentListDTO> rlist = mdao.recentHostList(mid);
 			mav.addObject("rlist", rlist);
-			mav.setViewName("member/my_mypage");
-			
+			//MemberDTO my = mdao.myInfo(mid);
+			//int mpoint = my.getMpoint();
+			//mav.addObject("mpoint",mpoint);
+			mav.setViewName("member/my_mypage");			
 		return mav;
 		}
 	}

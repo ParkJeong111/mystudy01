@@ -3025,8 +3025,9 @@ keyframes swiper-preloader-spin { 100%{
 							$form.attr('method', 'post');
 							$form.appendTo('body');
 							var hnum = $('<input type="hidden" value="${host.hnum}" name="hnum">');
+							console.log('hname : ' + '${host.hname}');
 							var hgnum = $('<input type="hidden" value="' + hg + '" name="hgnum">');
-							$form.append(hnum).append(hgnum);
+							$form.append(hnum).append(hgnum).append(hname);
 							$form.submit();
 						}
 					);

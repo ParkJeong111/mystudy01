@@ -25,7 +25,9 @@ public interface MemberInter {
 	public void gamepointUpdate(MemberDTO dto);// 게임을 통해 포인트를 지급해주는 기능
 	public void gamepointlogInsert(PointlogDTO dto); // 1일 1회만 플레이하게 하기 위한 로그 입력
 	public int gamecheck(String mid); // 1일 1회 체크를 위한 입력
+	public List<PointlogDTO> gamepointlogList(String mid); //포인트내역
 	public List<MemberDTO> androidMyinfo(MemberDTO mdto); // 안드 내정보 (재민)
 	public void recentHostInsert(RecenthostDTO rhdto);  // 최근본숙소 추가
-	public List<RecentListDTO> recentHostList(String mid);
+	public List<RecentListDTO> recentHostList(String mid);//최근본숙소 리스트
+	
 }
