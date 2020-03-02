@@ -437,10 +437,12 @@ input[type=checkbox]:checked+label {
 										// 결제 성공시
 										if (rsp.success) {
 											var msg = '결제가 완료되었습니다.';
+											/*
 											msg += '고유ID : ' + rsp.imp_uid;
 											msg += '상점 거래ID : ' + rsp.merchant_uid;
 											msg += '결제 금액 : ' + rsp.paid_amount;
 											msg += '카드 승인번호 : ' + rsp.apply_num;
+											*/
 											// location.href = "itemdetail?hnum=" + '${host.hnum}';
 											$("#insertForm").submit(); // 데이터베이스 저장
 										} else {
@@ -477,6 +479,8 @@ input[type=checkbox]:checked+label {
 		$.datepicker
 				.setDefaults({
 					dateFormat : 'yy-mm-dd' //Input Display Format 변경
+					,
+					minDate: 0
 					,
 					showOtherMonths : true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
 					,
