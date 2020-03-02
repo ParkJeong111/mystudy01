@@ -325,95 +325,50 @@ function hostdelete(hname) {
 					var hnum = $(this).prev().prev().text();
 					console.log(hnum);
 							$(".chzn-choices").html = ""
-
 							$.ajax({
 										url : "hostinfo?hnum="+hnum,
 										datatype : 'json',
 										success : function(data) {
-
 											if (data != null) {
-												if (data.htype == '¹Ù´Ù') {
-													$("#hostTypeSelect").find(
-															"option:eq(0)")
-															.prop("selected",
-																	true);
-												} else if (data.htype == '¹Î¹°') {
-													$("#hostTypeSelect").find(
-															"option:eq(1)")
-															.prop("selected",
-																	true);
+												if(data.htype == '¹Ù´Ù'){
+													$("#hostTypeSelect").find("option:eq(0)").prop("selected",true);
+												}else if (data.htype == '¹Î¹°') {
+													$("#hostTypeSelect").find("option:eq(1)").prop("selected",true);
 												}
-
-												$('#hnum').attr("value",
-														data.hnum);
-												$('#hname').attr("value",
-														data.hname);
-												$('#hceo').attr("value",
-														data.hceo);
-												$('#hphone').attr("value",
-														data.hphone);
-												$('#haddr').attr("value",
-														data.haddr);
+												$('#hnum').attr("value",data.hnum);
+												$('#hname').attr("value",data.hname);
+												$('#hceo').attr("value",data.hceo);
+												$('#hphone').attr("value",data.hphone);
+												$('#haddr').attr("value",data.haddr);
 												$("#himage").val("")
-												$('#imagename').text(
-														data.himage);
-
-												$("#img").attr(
-														"src",
-														"${pageContext.request.contextPath}/resources/images/"
-																+ data.himage);
-
-												$('#hnotice').attr("value",
-														data.hnotice);
-												$('#howner').attr("value",
-														data.howner);
-												$('#hguide').attr("value",
-														data.hguide);
-
+												$('#imagename').text(data.himage);
+												$("#img").attr("src","${pageContext.request.contextPath}/resources/images/"+ data.himage);
+												$('#hnotice').attr("value",data.hnotice);
+												$('#howner').attr("value",data.howner);
+												$('#hguide').attr("value",data.hguide);
 												var content = '';
-												hspecies = data.hspecies
-														.split(',');
-
+												hspecies = data.hspecies.split(',');
 												for ( var i in hspecies) {
-													content += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'
-															+ hspecies[i]
-															+ '</span>'
+													content += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'+ hspecies[i]+ '</span>'
 															+ '<a href="javascript:void(0)" class="search-choice-close" rel="0"></a></li>'
 												}
-
-												$('#hspecies_chzn > ul').html(
-														"");
-												$('#hspecies_chzn > ul')
-														.append(content);
-
+												$('#hspecies_chzn > ul').html("");
+												$('#hspecies_chzn > ul').append(content);
 												var content2 = '';
-												hservice = data.hservice
-														.split(',');
-
+												hservice = data.hservice.split(',');
 												for ( var i in hservice) {
-													content2 += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'
-															+ hservice[i]
-															+ '</span>'
+													content2 += '<li class="search-choice" id="hspecies_chzn_c_0"><span>'+ hservice[i]+ '</span>'
 															+ '<a href="javascript:void(0)" class="search-choice-close" rel="0"></a></li>'
 												}
-
-												$('#cover > div > div > ul')
-														.html("");
-												$('#cover > div > div > ul')
-														.append(content2);
-
+												$('#cover > div > div > ul').html("");
+												$('#cover > div > div > ul').append(content2);
 											}
-
 										}
-
 									});
-
-						});
-		});
-
+								});
+							});
 		$('input[name="hfile"]').click(function() {
 			$('#imagename').text("");
-
 		});
 
 		var hostform = $("form[role='hostform']");

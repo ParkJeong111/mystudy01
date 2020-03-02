@@ -21,4 +21,9 @@ public class ReservationDAO implements ReservationInter {
 	public void memberPointUpdate(ReservationDTO rdto) {
 		ss.update("reserve.updatepoint", rdto);
 	}
+	
+	@Override
+	public void usingpoingInsert(ReservationDTO rdto) {
+		ss.insert("reserve.usingpoint", rdto);
+	}
 }
