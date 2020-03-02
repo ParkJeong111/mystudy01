@@ -112,7 +112,6 @@ public class JsonController {
 		return itemscommentlist;
 	}
 
-
 	@RequestMapping("qnainfo")
 	public QnaDTO qnainfo(@RequestParam("qnum") int qnum) {
 		QnaDTO qdto = qdao.qnainfo(qnum);
