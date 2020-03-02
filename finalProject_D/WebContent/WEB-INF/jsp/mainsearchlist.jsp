@@ -1,17 +1,16 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html lang="ko">
-<head>
+
 <style>
+body{color: #333333;}
 .talk_header {
 	border-bottom: 1px solid #e6e6e6;
 }
 
 .talk_header .talk_tab li {
-	float: left;
+
 	width: 11.1111%;
 	position: relative;
 	top: 1px;
@@ -19,7 +18,7 @@
 
 .talk_header .talk_tab li a {
 	display: block;
-	font-size: 16px;
+	font-size: 25px;
 	color: #606060;
 	letter-spacing: -0.6px;
 	text-align: center;
@@ -1134,88 +1133,37 @@ li {
 	width: 324px;
 	padding-top: 45px;
 }
+
+.itemslistheader{
+display: inline-block;
+}
+.fix{position:fixed;_position:absolute;
+width:285px;top:12%;z-index:100}
+.fixbox{
+margin-left: 270px;
+width: 855px;
+}
+.info_view span {
+    font-size: 16px;
+    padding: 0 5px;
+    margin: 15px 5px 0;
+    display: inline;
+    height: 37px;
+    line-height: 35px;
+    border: 1px solid #f85959;
+    color: #f85959;
+    border-radius: 3rem;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.starrate {
+	margin-top: 4px;
+	margin-bottom: 0
+}
 </style>
-<title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/animate.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/style.css">
-<!-- 경계선 -->
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/animate.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/magnific-popup.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/aos.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/ionicons.min.css">
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/flaticon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/icomoon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/boot/css/style.css">
-</head>
-<body>
-
-
 	<!-- END nav -->
 
 	<div class="hero-wrap js-fullheight"
@@ -1223,38 +1171,51 @@ li {
 		<div class="overlay"></div>
 		<div class="container" style="margin-top: -40%;"></div>
 	</div>
-	<!--  여기에 헤더부분 추가  -->
-	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
-
-				검색 결과
+	<!--  상단 내용  -->
+	<p style="text-align: center; font-weight: bold; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon; color:#333333;">
+		바다 / 민물
 	</p>
-	<hr>
+	<!-- 상단 선택 부분 -->
 	<div class="talk_header">
-
+		<div class="talk_tab_area">
+			<section>
+				
+				<hr>
+			</section>
+		</div>
+		<!-- 사이드 검색 부분 -->
 		<section class="ftco-section ftco-degree-bg"
-			style="padding-top: 10px;">
+			style="padding-top: 10px; font-family: Do Hyeon;">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 sidebar ftco-animate">
+					<div class="col-lg-3 sidebar ftco-animate float_sidebar" id="float_sidebar" >
+						<!-- 업체명, 지역 검색 -->	
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
-								style="text-align: center; font-weight: bold;">상세 검색</h3>
+								style="text-align: center; font-weight: bold;font-size: 25px;color: #333333">상 세 검 색</h3>
 							<form action="searchlist" method="post">
-								<div class="fields">
+								<div class="fields"  style="font-size: 20px;">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="검색 할 컨텐츠" name="searchValue" id="searchValue">
+										<input  style="font-size: 20px;" type="text" class="form-control" placeholder="검색 할 업체명" name="searchValue" id="searchValue">
 									</div>
 									<div class="form-group">
 										<div class="select-wrap one-third">
 											<div class="icon">
 												<span class="ion-ios-arrow-down"></span>
 											</div>
-											<select name="" id="" class="form-control">
-												<option value="">거리를 설정해주세요</option>
-												<option value="">100km</option>
-												<option value="">200km</option>
-												<option value="">300km</option>
-												<option value="">500km</option>
+											<select  style="font-size: 20px;" name="searchLocation" id="searchLocation" class="form-control">
+												<option value="">지역을 선택해주세요.</option>
+												<option value="서울">서울</option>
+												<option value="경기">경기</option>
+												<option value="인천">인천</option>
+												<option value="강원">강원</option>
+												<option value="충북">충북</option>
+												<option value="충남">충남</option>
+												<option value="경북">경북</option>
+												<option value="경남">경남</option>
+												<option value="전북">전북</option>
+												<option value="전남">전남</option>
+												<option value="제주">제주</option>
 											</select>
 										</div>
 									</div>
@@ -1269,82 +1230,82 @@ li {
 										</div>
 									</div>
 									<div class="form-group">
-										<input type="button" value="검색" id="searchbtn"
+										<input type="button" style="font-size: 20px;" value="검색" id="searchbtn"
 											class="btn btn-primary py-3 px-5">
 									</div>
 								</div>
 							</form>
 						</div>
-						
-						
+						<!-- 리뷰 평점 검색 -->
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
-								style="text-align: center; font-weight: bold;">리뷰 별점</h3>
+								style="text-align: center; font-weight: bold;font-size: 25px;color: #333333;">리 뷰 별 점</h3>
 							<form method="post" class="star-rating">
-								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star" value="0"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
-											<span>&nbsp;상관없음</span>
-										</p>
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio0" name="star" value="0"> 
+									<label for="starradio0">
+									<p class="rate starrate">
+											<span style="font-size: 20px;">&nbsp;상관없음</span>
+									</p>
 									</label>
 								</div>
-								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star" value="5"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio5" name="star" value="5"> 
+									<label for="starradio5">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
-								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star"  value="4"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio4" name="star" value="4"> 
+									<label for="starradio4">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star-o"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
-								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star"  value="3"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio3" name="star" value="3"> 
+									<label for="starradio3">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star"></i><i class="icon-star-o"></i><i
 												class="icon-star-o"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
-								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star"  value="2"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio2" name="star" value="2"> 
+									<label for="starradio2">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star"></i><i
 												class="icon-star-o"></i><i class="icon-star-o"></i><i
 												class="icon-star-o"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
-								<div class="form-check">
-									<input type="radio" class="form-check-input" name="star"  value="1"> <label class="form-check-label"
-										for="exampleCheck1">
-										<p class="rate">
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio1" name="star" value="1"> 
+									<label for="starradio1">
+									<p class="rate starrate">
 											<span><i class="icon-star"></i><i class="icon-star-o"></i><i
 												class="icon-star-o"></i><i class="icon-star-o"></i><i
 												class="icon-star-o"></i></span>
-										</p>
+									</p>
 									</label>
 								</div>
 							</form>
 						</div>
 					</div>
+					<!-- 업체 리스트 -->
 					<div class="col-lg-9">
-						<div class="row" id="mainsearchlist">
-							<c:forEach items="${mainsearchlist }" var="mainsearchlist">
+						<div class="row" id="mainsearchlistdiv">
+							<c:forEach items="${mainsearchlist }" var="mainsearchlist" varStatus="status">
 								<div class="col-md-4 ftco-animate">
 									<div class="destination">
 										<a href="itemdetail?hnum=${mainsearchlist.hnum}"
@@ -1358,7 +1319,7 @@ li {
 										<div class="text p-3">
 											<div class="d-flex">
 												<div class="one">
-													<h3>
+													<h3 style="font-size: 25px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;">
 														<a href="itemdetail?hnum=${mainsearchlist.hnum}">${mainsearchlist.hname }</a>
 													</h3>
 													<p class="rate starrate">
@@ -1371,19 +1332,28 @@ li {
 																<i class="icon-star-o"></i>
 															</c:otherwise>
 														</c:choose>
-													</c:forEach>		
-													<span style="font-size: 15px;">${mainsearchlist.hstar}</span>
+													</c:forEach>
 													</p>
 												</div>
 												<div class="two">
-													<span class="price product-price">${mainsearchlist.hgmoney }</span>
+													<span class="price product-price">${mainsearchlist.hgmoney}</span><br>
+													<span style="font-size: 18px;">리뷰: ${mainsearchlist.boardnum}</span>
 												</div>
 											</div>
-											<p>${mainsearchlist.hnotice }</p>
-											<p class="days"></p>
+											<p class="info_view" style="font-family: jua" >
+												<script>
+													var hspecies = '${mainsearchlist.hspecies}';
+													var hspeciesSplit = hspecies.split(',');
+													for (var i in hspeciesSplit) {
+														document.write('<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>');
+													}
+												</script>
+											</p>
 											<hr>
 											<p class="bottom-area d-flex">
-												<span><i class="icon-map-o"></i>${mainsearchlist.haddr } </span> 
+												<span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap; font-size: 20px;"><i class="icon-map-o"></i>
+													&nbsp;${mainsearchlist.haddr}
+												</span> 
 												<%-- <span class="ml-auto"><a href="#">예약하기</a></span> --%>
 											</p>
 										</div>
@@ -1391,21 +1361,6 @@ li {
 								</div>
 							</c:forEach>
 						</div>
-						<!--  <div class="row mt-5">
-		          <div class="col text-center">
-		            <div class="block-27">
-		              <ul>
-		                <li><a href="#">&lt;</a></li>
-		                <li class="active"><span>1</span></li>
-		                <li><a href="#">2</a></li>
-		                <li><a href="#">3</a></li>
-		                <li><a href="#">4</a></li>
-		                <li><a href="#">5</a></li>
-		                <li><a href="#">&gt;</a></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>-->
 					</div>
 					<!-- .col-md-8 -->
 				</div>
@@ -1413,8 +1368,76 @@ li {
 		</section>
 		<!-- .section -->
 		</div>
+		
 		<script>
 		$(function() {
+			
+			// 리뷰 별점 검색
+			$("input:radio[name=star]").click(function(){
+				star = $(this).val();
+				$.ajax({
+					url : "searchlist?searchValue=" + encodeURIComponent($('#searchValue').val()) + '&searchLocation=' + encodeURIComponent($('#searchLocation').val()) + "&minprice=" + $('#minprice').val() 
+							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
+					datatype : 'json',
+					success : function(data) {
+						$("#mainsearchlistdiv").html("");
+						// 평점 별 그리기
+						$.each(data, function(key, value) {
+							var star = "";
+							for(i = 0; i < 5; i++) {
+								if(i < value.hstar) {
+									star += '<i class="icon-star"></i>';				
+								} else {
+									star += '<i class="icon-star-o"></i>';
+								}
+							}
+							
+							// 어종 ,를 기준으로 추가
+							var hspecies = value.hspecies;
+							var hspeciesSplit = hspecies.split(',');
+							var hspeciesResult = "";
+							for (var i in hspeciesSplit) {
+								hspeciesResult += '<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>';
+							}
+							
+							$("#mainsearchlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+									+ "<div class='destination'>"
+									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<div class="icon d-flex justify-content-center align-items-center">'
+									+ '<span class="icon-search2"></span></div></a>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+								    + '<p class="rate starrate">' + star
+								    + '</p></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 18px;">리뷰: ' + value.boardnum + '</span></div></div>'
+								    + '<p class="info_view" style="font-family: jua" >' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap; font-size:20px;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+									);
+						});
+						
+						$(".product-price").each(function(idx) {
+							var value = $(this).text();
+							$(this).text($.fn.priceBuilder(value));
+						});
+					}
+				});
+			});
+				    
+			$(window).scroll(  
+				    function(){  
+				        //스크롤의 위치가 상단에서 450보다 크면  
+				        if($(window).scrollTop() > 450){  
+				        /* if(window.pageYOffset >= $('원하는위치의엘리먼트').offset().top){ */  
+				            $('#float_sidebar').addClass("fix");  
+				        	$('#mainsearchlistdiv').addClass("fixbox")
+				            //위의 if문에 대한 조건 만족시 fix라는 class를 부여함  
+				        }else{  
+				            $('#float_sidebar').removeClass("fix");
+				            $('#mainsearchlistdiv').removeClass("fixbox")
+				            //위의 if문에 대한 조건 아닌경우 fix라는 class를 삭제함  
+				        }  
+				    }  
+				);  
+
 			
 			var star = 0;
 			
@@ -1432,11 +1455,12 @@ li {
 			$("#searchbtn").click(function() {
 				star = $(':radio[name="star"]:checked').val();
 				$.ajax({
-					url : "searchlist?searchValue=" + encodeURI($('#searchValue').val(), "UTF-8") + "&minprice=" + $('#minprice').val() 
+					url : "searchlist?searchValue=" + encodeURIComponent($('#searchValue').val()) + '&searchLocation=' + encodeURIComponent($('#searchLocation').val()) + "&minprice=" + $('#minprice').val() 
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
-						$("#mainsearchlist").html("");
+						$("#mainsearchlistdiv").html("");
+						// 평점 별 그리기
 						$.each(data, function(key, value) {
 							var star = "";
 							for(i = 0; i < 5; i++) {
@@ -1446,16 +1470,25 @@ li {
 									star += '<i class="icon-star-o"></i>';
 								}
 							}
-							$("#mainsearchlist").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+							// ,를 기준으로 어종 추가							
+							var hspecies = value.hspecies;
+							var hspeciesSplit = hspecies.split(',');
+							var hspeciesResult = "";
+							for (var i in hspeciesSplit) {
+								hspeciesResult += '<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>';
+							}
+							
+							$("#mainsearchlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
 									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
 									+ '<div class="icon d-flex justify-content-center align-items-center">'
 									+ '<span class="icon-search2"></span></div></a>'
-									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
-								    + '<p class="rate">' + star
-								    + '<span style="font-size: 15px;">'+ value.hstar + '</span></p></div>'
-								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span></div></div>'
-									+ '<p>' + value.hnotice + '</p><p class="days"></p><hr><p class="bottom-area d-flex"><span><i class="icon-map-o"></i>' + value.haddr + ' </span></p></div></div></div>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+								    + '<p class="rate starrate">' + star
+								    + '</p></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 18px;">리뷰: ' + value.boardnum + '</span></div></div>'
+								    + '<p class="info_view" style="font-family: jua" >' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;font-size:20px;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
 						$(".product-price").each(function(idx) {
@@ -1465,12 +1498,8 @@ li {
 					}
 				});
 			});
-			
-			
-			
 		});
 		</script>
-
 
 		<script
 			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.teamd.mvc.dao.HostInter;
+import kr.co.teamd.mvc.dao.ReservationDAO;
+import kr.co.teamd.mvc.dao.ReservationInter;
 import kr.co.teamd.mvc.dto.HostDTO;
 import kr.co.teamd.mvc.dto.HostgoodsDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
@@ -22,6 +24,9 @@ public class ReserveController {
 	@Autowired
 	private ServiceInter service;
 
+	@Autowired
+	private ReservationInter usingpointdto;
+	
 	// 결제페이지 이동
 	@RequestMapping(value = "reserve")
 	public ModelAndView reserveView(int hnum, int hgnum) {
@@ -35,8 +40,10 @@ public class ReserveController {
 
 	// 결제 진행
 	@RequestMapping(value = "resInsert")
-	public ModelAndView reserveInsert(HttpServletRequest request, int hnum, ReservationDTO rdto) {
+	public ModelAndView reserveInsert(HttpServletRequest request, int hnum, String mid, ReservationDTO rdto) {
+		usingpointdto.usingpoingInsert(rdto);
 		ModelAndView mav = new ModelAndView("redirect:itemdetail?hnum=" + hnum);
+		
 		try {
 			service.reserveInsertmpointUpdate(request, rdto);
 		} catch (Exception e) {

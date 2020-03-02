@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.MemberDTO;
+import kr.co.teamd.mvc.dto.RecentListDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
 @Controller
@@ -67,8 +68,6 @@ public class MemberController {
 			session.setAttribute("vn", "redirect:my_board");   // when user login redirect page to my_board
 		}else {												// if mid is logged in and in session 
 			mav.setViewName("member/my_board");			//  then it goes straight to my_board page
-			
-			
 		}
 		return mav;										// return model and view
 	}
@@ -76,28 +75,6 @@ public class MemberController {
 //  ------------------------------재민 영역 끝---------------------------------------
 	
 	
-	
-	
-	
-	@RequestMapping(value= "my_point") //나의 쿠폰
-	public String coupon() {
-		return "member/my_point";
-	}
-	
-
-		
-	//김채은 영역 시작
-	
-	
-	//김채은 영역 끝
-		
-
-		//권세진 영역 시작
-		
-		
-		
-		//권세진 영역 끝
-
 		//박정연 영역 시작
 	@RequestMapping(value= "my_reservation")  //예약내역
 	public ModelAndView reservation(HttpSession session, HttpServletResponse resp) {
@@ -116,8 +93,6 @@ public class MemberController {
 		}
 		return mav;
 	}
-	
-	
 		
 	@RequestMapping(value= "my_myinfo")  //나의정보
 	public ModelAndView myInfo(HttpSession session, HttpServletResponse resp) {
@@ -134,7 +109,25 @@ public class MemberController {
 		String mid = (String) session.getAttribute("mid");
 		mdto.setMid(mid);
 		mdao.myUpdate(mdto);
-		return "redirect:my_myinfo";
+		return "member/my_mypage";
+	}
+	
+	@RequestMapping(value= "my_mypage") //마이페이지 이동 
+	public ModelAndView my(HttpSession session) {
+		String mid = (String) session.getAttribute("mid");
+		System.out.println(mid+"나오지?");
+		ModelAndView mav = new ModelAndView();
+		if (mid ==null) {
+			session.setAttribute("vn", "redirect:my_mypage");
+			mav.setViewName("member/login");
+			return mav;
+		}else {
+			List<RecentListDTO> rlist = mdao.recentHostList(mid);
+			mav.addObject("rlist", rlist);
+			mav.setViewName("member/my_mypage");
+			
+		return mav;
+		}
 	}
 
 	@RequestMapping(value= "my_passwordcheck") //나의 정보 확인전 비밀번호 체크페이지로 이동
@@ -222,12 +215,4 @@ public class MemberController {
 		return mav;
 	}
 
-	
-		//박정연 영역 끝
-
-		//주성중 영역 시작
-		
-		
-		
-		//주성중 영역 끝
 }

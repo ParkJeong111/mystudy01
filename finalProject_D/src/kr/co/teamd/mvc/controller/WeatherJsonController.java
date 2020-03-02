@@ -77,20 +77,20 @@ public class WeatherJsonController {
 
 		StringBuilder urlBuilder = new StringBuilder(apiUrl);
 		urlBuilder.append("?" + URLEncoder.encode("serviceKey", "EUC-KR") + "=" + serviceKey);
-		urlBuilder.append("&" + URLEncoder.encode("pageNo", "EUC-KR") + "=" + URLEncoder.encode("1", "EUC-KR")); // 페이지
-																													// 번호
-		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "EUC-KR") + "=" + URLEncoder.encode("10", "EUC-KR")); // 결과
+		urlBuilder.append("&" + URLEncoder.encode("pageNo", "EUC-KR") + "=" + URLEncoder.encode("1", "EUC-KR"));        // 페이지
+																													    // 번호
+		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "EUC-KR") + "=" + URLEncoder.encode("10", "EUC-KR"));    // 결과
 																														// 수
 		urlBuilder.append("&" + URLEncoder.encode("dataType", "EUC-KR") + "=" + URLEncoder.encode(dataType, "EUC-KR")); // 데이터
 																														// 타입
-		urlBuilder.append("&" + URLEncoder.encode("base_date", "EUC-KR") + "=" + URLEncoder.encode(baseDate, "EUC-KR")); // 관측
-																															// 날짜
-		urlBuilder.append("&" + URLEncoder.encode("base_time", "EUC-KR") + "=" + URLEncoder.encode(baseTime, "EUC-KR")); // 관측
-																															// 시간
-																															// AM
-																															// 02시부터
-																															// 3시간
-																															// 단위
+		urlBuilder.append("&" + URLEncoder.encode("base_date", "EUC-KR") + "=" + URLEncoder.encode(baseDate, "EUC-KR"));// 관측
+																														// 날짜
+		urlBuilder.append("&" + URLEncoder.encode("base_time", "EUC-KR") + "=" + URLEncoder.encode(baseTime, "EUC-KR"));// 관측
+																														// 시간
+																														// AM
+																														// 02시부터
+																														// 3시간
+																														// 단위
 		urlBuilder.append("&" + URLEncoder.encode("nx", "EUC-KR") + "=" + URLEncoder.encode(nx, "EUC-KR"));
 		urlBuilder.append("&" + URLEncoder.encode("ny", "EUC-KR") + "=" + URLEncoder.encode(ny, "EUC-KR"));
 

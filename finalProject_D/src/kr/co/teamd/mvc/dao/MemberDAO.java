@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 import kr.co.teamd.mvc.dto.LoginlogDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.PointlogDTO;
+import kr.co.teamd.mvc.dto.RecentListDTO;
+import kr.co.teamd.mvc.dto.RecenthostDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 @Repository
 public class MemberDAO implements MemberInter{
@@ -78,6 +80,21 @@ public class MemberDAO implements MemberInter{
 	@Override
 	public MemberDTO androidLogin(MemberDTO mdto) {   // 안드로이드 로그인 체크 (재민)
 		return ss.selectOne("member.androidLoginChk", mdto);
+	}
+
+	@Override    // 안드 내정보 (재민)
+	public List<MemberDTO> androidMyinfo(MemberDTO mdto) {
+		return ss.selectList("member.androidMyinfo", mdto);
+	}
+	
+	@Override
+	public void recentHostInsert(RecenthostDTO rhdto) {
+		ss.insert("member.recentHostInsert", rhdto);
+	}
+
+	@Override
+	public List<RecentListDTO> recentHostList(String mid) {
+		return ss.selectList("member.recentHostList", mid);
 	}
 
 }

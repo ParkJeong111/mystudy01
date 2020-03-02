@@ -30,10 +30,8 @@ public class TalkController {
 
 	@Autowired
 	private BoardInter bdao;
-	
 	@Autowired
 	private BoardDAO rdao;
-
 	@RequestMapping(value = "talklist") // 게시판리스트, 추천업체리스트
 	public ModelAndView boardtalk(int check) {
 		ModelAndView mav = new ModelAndView("talk/talklist");

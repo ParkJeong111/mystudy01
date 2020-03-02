@@ -34,9 +34,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet"> <!-- 로고폰트  Gugi -->
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"> <!--  추가 폰트  Noto Sans KR -->
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  추가 폰트  Do Hyeon -->
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  메인 폰트  Do Hyeon -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- 추가 폰트 Poppins -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap" rel="stylesheet"> <!--굵은   Noto Sans KR -->
 
     <style>
     .nav-link{font-family: Jua;}
@@ -212,13 +212,13 @@ filter: invert(0%);
 					</c:choose>
           
              <ul class="submenumore">
-                <li class="nav-link" ><a href="my_passwordcheck">나의정보</a></li>
+                <li class="nav-link" ><a href="my_mypage">마이페이지</a></li>
                 <hr>
           	  	<li class="nav-link" ><a href="my_reservation">예약내역</a></li>
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_matching">랜덤매칭내역</a></li>
-          	  	<hr>
-          	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
+          	  	<!-- <hr>
+          	  	<li class="nav-link" ><a href="my_point">포인트</a></li> -->
           	  	<hr>
                 <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
               </ul>
@@ -233,7 +233,7 @@ filter: invert(0%);
 
   </nav>
      <div>
-       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 19.9%; margin-left: 31.5%; width: 277.97px;" id="autosearchlist" class="divBox shadow">
+       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20.1%; margin-left: 32.5%; width: 275px; cursor: pointer;" id="autosearchlist" class="divBox shadow">
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
       	</div> 
 	</div>
@@ -265,8 +265,8 @@ input[type="radio"]:active + label:before {
 
 input[type="radio"] + label {
     position: relative;
-    padding: 10px;
-    padding-left: 2em;
+    padding: 5px;
+    padding-left: 25px;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -374,24 +374,33 @@ label {
     cursor: pointer;
     display: inline-block;
 }
+
+.modal-body label { padding-left: 25px; padding: 5px;}
 </style>
-<div id="modalBox" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-family: Jua;">
+<div id="modalBox" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-size:25px; font-family: Do Hyeon;">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-<h4 class="modal-title" id="myModalLabel" style = "margin: auto; font-family: Jua;">랜덤 매칭</h4>
+<h4 class="modal-title" id="myModalLabel" style = "margin: auto; font-family: Do Hyeon; color: #333333;font-size: 36px;">랜덤 매칭</h4>
 </div>
-<form action="randommatching" method="post">
+<form action="randommatching" method="post" style="margin: 0px; padding: 0px;">
 <div class="modal-body">
-<p><strong><b>인원수</b></strong></p>
+<div style="display: inline-block;">
+<div style="float: left; margin: 0px; padding: 0px; margin-top: 10px;">
+<strong><b>인원수</b></strong>
+</div>
+<div style="float: right;">
 <input type = "radio" id = "radio1" name = "rmcount" value="2" checked="checked">
 <label for="radio1">2</label>
 <input type = "radio" id = "radio2" name = "rmcount" value="4">
 <label for="radio2">4</label>
 <input type = "radio" id = "radio3" name = "rmcount" value="6">
 <label for="radio3">6</label>
-<hr>
-<p><strong><b>지역</b></strong></p>
+</div>
+</div>
+<hr style="padding: 0px; margin: 0px;margin-bottom: 3px;">
+<div>
+<p><strong><b style="padding: 0px; margin: 0px">지역</b></strong></p>
 <input type="radio" id = "radio4" name = "rmlocation" value="seoul" checked="checked">
 <label for="radio4">서울</label>
 <input type="radio" id = "radio5" name = "rmlocation"  value="Gyeonggi">
@@ -414,16 +423,20 @@ label {
 <label for="radio13">전남</label>
 <input type="radio" id = "radio14"name = "rmlocation"  value="jeju">
 <label for="radio14">제주</label>
-<hr>
-<p><strong><b>유형</b></strong></p>
+</div>
+<hr style="margin: 0px; padding: 0px;margin-bottom: 3px;">
+<div>
+<p><strong><b style="padding: 0px; margin: 0px">유형</b></strong></p>
 <input type="radio" id = "radio15" name = "rmtype" value="sea" checked="checked">
 <label for="radio15">바다</label>
 <input type="radio" id = "radio16" name = "rmtype"  value="freshwater">
 <label for="radio16">민물</label>
 <input type="radio" id = "radio17" name = "rmtype"  value="fishingcafe">
 <label for="radio17">낚시카페</label>
-<hr>
-<p><strong><b>나이</b></strong></p>
+</div>
+<hr style="margin: 0px; padding: 0px;margin-bottom: 3px;">
+<div>
+<p><strong><b style="padding: 0px; margin: 0px">나이</b></strong></p>
 <input type="radio" id = "radio18" name = "rmage" value="20" checked="checked">
 <label for="radio18">20</label>
 <input type="radio" id = "radio19" name = "rmage"  value="30">
@@ -434,21 +447,24 @@ label {
 <label for="radio21">50</label>
 <input type="radio" id = "radio22" name = "rmage"  value="60">
 <label for="radio22">60이상</label>
-<hr>
-<p><strong><b>시간대</b></strong></p>
+</div>
+<hr style="margin: 0px; padding: 0px;margin-bottom: 3px;">
+<div>
+<p><strong><b style="padding: 0px; margin: 0px">시간대</b></strong></p>
 <input type="radio" id = "radio23" name = "rmtime" value="am" checked="checked">
 <label for="radio23">오전</label>
 <input type="radio" id = "radio24" name = "rmtime"  value="pm">
 <label for="radio24">오후</label>
 <input type="radio" id = "radio25" name = "rmtime"  value="night">
 <label for="radio25">야간</label>
-<hr>
-<p><strong><b>성별</b></strong></p>
+<hr style="margin: 0px; padding: 0px;">
+<p><strong><b style="padding: 0px; margin: 0px">성별</b></strong></p>
 <input type="radio" id = "radio26" name = "rmsex" value="man" checked="checked">
 <label for="radio26">남자</label>
 <input type="radio" id = "radio27" name = "rmsex"  value="woman">
 <label for="radio27">여자</label>
-<hr>
+</div>
+<hr style="margin: 0px; padding: 0px;margin-bottom: 3px;">
 <div style = "margin-left: 282px;">
 <button type="submit" class="btn btn-primary" style = "font-family: Jua;">매칭하기</button>
 <button type="button" class="btn btn-default" id="closeModalBtn2" style = "font-family: Jua;">매칭취소</button>
@@ -659,10 +675,6 @@ label {
  	            hours = 23;
  	        }
  	    }
- 	    
- 	    /* example
- 	     * 9시 -> 09시 변경 필요
- 	     */
  	    
  	    if(hours < 10) {
  	        hours = '0'+hours;

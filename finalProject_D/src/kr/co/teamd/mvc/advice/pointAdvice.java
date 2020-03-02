@@ -40,8 +40,8 @@ public class pointAdvice {
 					}else {
 						System.out.println("로그인 log에서 보는 mid 값이 "+mid);
 						pointdto.setMid(mid);
+						pointdto.setPlpoint((int) fd[3]);
 						mdao.gamepointlogInsert(pointdto);
-						//////////////////////////////////////////////로그 insert문 필요
 					}
 				}
 			} catch (Throwable e) {

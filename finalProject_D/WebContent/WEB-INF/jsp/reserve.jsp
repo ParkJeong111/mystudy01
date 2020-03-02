@@ -119,11 +119,11 @@ input[type=checkbox]:checked+label {
 </div>
 <!--  여기에 헤더부분 추가  -->
 <p
-	style="font-family: Jua; text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
+	style="font-family: Do Hyeon; text-align: center; font-weight: bold; color: #333333; font-size: 45px; padding-top: 25px; padding-bottom: 5px;">
 	결제</p>
 <hr>
 <div class="talk_header"
-	style="font-family: Jua; margin-bottom: 10%">
+	style="font-family: Do Hyeon; margin-bottom: 10%">
 	<section class="ftco-section ftco-degree-bg" style="padding-top: 10px;">
 		<div class="noticeList_area container">
 			<section>
@@ -142,42 +142,42 @@ input[type=checkbox]:checked+label {
 										style="display: inline-block; float: left; width: 60%;">
 										<section>
 											<h2>
-												<b>구매 정보</b>
+												<b style="font-size: 30px;">구매 정보</b>
 											</h2>
 											<!-- 구매자 -->
-											<strong style="font-size: 18px; color: #aaaaaa;"><b>구매자</b></strong><br>
+											<strong style="font-size: 25px; color: #333333;"><b>구매자</b></strong><br>
 											<p>
-												<input style="width: 80%; height: 44px; font-size: 16px;"
+												<input style="width: 80%; height: 44px; font-size: 25px; padding-left: 10px;"
 													type="text" name="mid" value="${sessionScope.mid}"
 													readonly="readonly">
 											</p>
 											<!-- 사용일자 -->
-											<strong style="font-size: 18px; color: #aaaaaa;"><b>사용일자</b></strong><br>
+											<strong style="font-size: 25px; color: #333333;"><b>사용일자</b></strong><br>
 											<p>
-												<input style="width: 80%; height: 44px; font-size: 16px;"
+												<input style="width: 80%; height: 44px; font-size: 25px; padding-left: 10px;"
 													type="text" id="datepicker" name="usedate">
 											</p>
 											<br>
 											<!-- 포인트사용 -->
-											<strong style="font-size: 18px; color: #aaaaaa;"><b>포인트</b></strong>
-											<strong style="font-size: 12px; color: #aaaaaa;">&nbsp;&nbsp;&nbsp;사용
+											<strong style="font-size: 25px; color: #333333;"><b>포인트</b></strong>
+											<strong style="font-size: 20px; color: #333333;">&nbsp;&nbsp;&nbsp;사용
 												가능 포인트 :<span style="color: #f85959">${sessionScope.mpoint}</span> </strong> <br>
 											<p>
 												<c:if test="${sessionScope.mpoint == 0}">
-												<input style="width: 80%; height: 44px; font-size: 16px;"
+												<input style="width: 80%; height: 44px; font-size: 25px; padding-left: 10px;"
 													type="text" id="mpoint" name="mpoint" value="0" readonly="readonly"
 													maxlength="6">
 												</c:if>
 												<c:if test="${sessionScope.mpoint != 0}">
-												<input style="width: 80%; height: 44px; font-size: 16px;"
+												<input style="width: 80%; height: 44px; font-size: 25px; padding-left: 10px;"
 													type="text" id="mpoint" name="mpoint" value="0" maxlength="6">
 												</c:if>
 											</p>
 											<br>
 											<!-- 결제수단 시작 -->
-											<strong style="font-size: 18px; color: #aaaaaa;"><b>결제수단
+											<strong style="font-size: 25px; color: #333333;"><b>결제수단
 													선택</b></strong><br><select id="pgselect"
-												style="width: 80%; height: 48px; font-size: 18px; cursor: pointer;">
+												style="width: 80%; height: 48px; font-size: 25px; cursor: pointer;  padding-left: 10px;">
 												<option value="card">신용카드</option>
 												<option value="phone">휴대폰소액결제</option>
 												<option value="samsung">삼성페이</option>
@@ -187,28 +187,28 @@ input[type=checkbox]:checked+label {
 										</section>
 										<br>
 										<!-- 결제동의 시작 -->
-										<strong style="font-size: 18px; color: #aaaaaa;"><b>결제동의</b></strong>
+										<strong style="font-size: 22px; color: #333333;"><b>결제동의</b></strong>
 										<section style="margin-top: 3%;">
-											<p style="width: 564px; height: 30px; font-size: 18px;">
+											<p style="width: 564px; height: 30px; font-size: 25px;">
 												<input type="checkbox" id="rbox0" class="inp_chk_02"><label
 													for="rbox0"> &nbsp; <b>전체 동의</b></label>
 
 											</p>
-											<p style="font-size: 16px;">
+											<p style="font-size: 22px;">
 												<input type="checkbox" id="rbox1" class="inp_chk_02"><label
 													for="rbox1"> &nbsp; 취소/환불규정 동의 <b>(필수)</b>
 												</label>
 
 											</p>
-											<p style="font-size: 16px;">
+											<p style="font-size: 22px;">
 												<input type="checkbox" id="rbox2" class="inp_chk_02"><label
 													for="rbox2"> &nbsp; 개인정보 수집 및 이용 동의</label> <b>(필수)</b>
 											</p>
-											<p style="font-size: 16px;">
+											<p style="font-size: 22px;">
 												<input type="checkbox" id="rbox3" class="inp_chk_02"><label
 													for="rbox3"> &nbsp; 개인정보 제 3자 제공 동의 </label> <b>(필수)</b>
 											</p>
-											<p style="font-size: 16px;">
+											<p style="font-size: 22px;">
 												<input type="checkbox" id="rbox4" class="inp_chk_02"><label
 													for="rbox4"> &nbsp; 만 14세 이상입니다.</label> <b>(필수)</b>
 
@@ -221,15 +221,15 @@ input[type=checkbox]:checked+label {
 									<div id="right"
 										style="padding-left: 2%; padding-right: 2%; width: 30%; margin-right: 31px; float: right; color: rgba(0, 0, 0, 0.87); background-color: #FAFAFA">
 										<section>
-											<p class="name" style="font-size: 20px; margin-top: 5%;">
-												<strong style="color: rgba(0, 0, 0, 0.38); font-size: 18px"><b>업체이름</b></strong><br>
-												<b><strong>${host.hname}</strong></b><input type="hidden"
+											<p class="name" style="font-size: 25px; margin-top: 5%;">
+												<strong ><b style="color: #333333 font-size: 22px">업체이름</b></strong><br>
+												<b><strong style="color: black;">${host.hname}</strong></b><input type="hidden"
 													value="${host.hname}" id="hname" name="hname"><br>
 											</p>
-											<p style="font-size: 20px;">
-												<strong style="color: rgba(0, 0, 0, 0.38); font-size: 18px;"><b>이용권</b></strong>
+											<p style="font-size: 25px;">
+												<strong style="color: #333333 font-size: 22px;"><b>이용권</b></strong>
 												<br> <select id="hgselect"
-													style="width: 80%; height: 48px; font-size: 18px; cursor: pointer;">
+													style="width: 80%; height: 48px; font-size: 25px; cursor: pointer;">
 													<c:forEach var="e" items="${host.hgdto}">
 														<c:choose>
 															<c:when test="${e.hgnum == hostgoods.hgnum}">
@@ -246,34 +246,34 @@ input[type=checkbox]:checked+label {
 										<hr style="width: 98%;">
 										<section>
 											<!-- 결제 금액 -->
-											<p style="font-size: 16px;">
+											<p style="font-size: 25px;">
 												<strong> <b
-													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">상품
+													style="color: rgba(0, 0, 0, 0.87); font-size: 22px;">상품
 														금액</b>
 												</strong> <br> <span class="product-price" id="firstprice"
-													style="font-size: 16px; color: black;">
+													style="font-size: 25px; color: black;">
 													&nbsp;${hostgoods.hgmoney} </span>
 											</p>
 											<hr style="width: 98%;">
-											<p style="font-size: 16px;">
+											<p style="font-size: 25px;">
 												<strong> <b
-													style="color: rgba(0, 0, 0, 0.87); font-size: 18px;">최종
+													style="color: rgba(0, 0, 0, 0.87); font-size: 22px;">최종
 														금액</b> (VAT 포함)
-												</strong> <br> <span class="product-price" id="finalprice"
-													style="font-size: 24px; color: #f85959;">
-													${hostgoods.hgmoney} </span>
+												</strong> <br> <b><span class="product-price" id="finalprice"
+													style="font-size: 28px; color: #f85959;">
+													${hostgoods.hgmoney} </span></b>
 											</p>
 											<hr style="width: 98%;">
-											<ul style="font-size: 16px; padding-left: 0%;">
-												<li style="font-size: 16px;">해당 결제금액은 세금, 이용료가 포함된
+											<ul style="font-size: 18px; padding-left: 0%;">
+												<li style="font-size: 18px;">해당 결제금액은 세금, 이용료가 포함된
 													금액입니다.</li>
-												<li style="font-size: 16px;">결제 당일부터 사용이 가능합니다.</li>
-												<li style="font-size: 16px;">사용방법 : 결제 후 <span
+												<li style="font-size: 18px;">결제 당일부터 사용이 가능합니다.</li>
+												<li style="font-size: 20px;">사용방법 <br>: 결제 후 <span
 													style="color: #f85959;">직접 방문</span> 시 제시
 												</li>
 											</ul>
 											<button type="button" id="insert"
-												style="margin-top: 10%; width: 99%; height: 56px; border: 0; outline: 0; cursor: pointer; color: #FFFFFF; font: 15px; background-color: #f85959; font-size: 15px;">결제하기
+												style="margin-top: 10%; width: 99%; height: 56px; border: 0; outline: 0; cursor: pointer; color: #FFFFFF; font: 15px; background-color: #f85959; font-size: 25px;">결제하기
 											</button>
 										</section>
 									</div>
@@ -339,9 +339,9 @@ input[type=checkbox]:checked+label {
 					$(this).val('');
 					alert('결제금액 내로 입력해주세요.');
 				}
-				$('#finalprice').css('font-size', '16px').css('color', 'black');
+				$('#finalprice').css('font-size', '18px').css('color', 'black');
 				$('#finalprice').html('&nbsp;' + price + ' - ' + point
-						+ "<br><p id='finalprice2' style='font-size: 24px; color: #f85959;'>&nbsp;" + $.fn.priceBuilder((price-point)) + ' 원</p>');
+						+ "<br><p id='finalprice2' style='font-size: 28px; color: #f85959;'>&nbsp;" + $.fn.priceBuilder((price-point)) + ' 원</p>');
 			}
 		});
 	
