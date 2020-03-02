@@ -36,10 +36,8 @@ public class TalkController {
 	public ModelAndView boardtalk(int check) {
 		ModelAndView mav = new ModelAndView("talk/talklist");
 		HashMap<String, Object> test = new HashMap<String, Object>();
-		
 		List<BoardListAjaxDTO> list = bdao.boardAjax(check);
 		List<ReservationDTO> recommendlist = rdao.recommendlist();
-		
 		test.put("list", list);
 		test.put("recommendlist", recommendlist);
 		mav.addObject("test", test);

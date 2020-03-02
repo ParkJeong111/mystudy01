@@ -300,10 +300,15 @@ public class JsonController {
 	
 	
 	@RequestMapping(value= "my_point") //나의 포인트 
-	public List<PointlogDTO> coupon(HttpSession session) {
+	public HashMap<Object, Object> coupon(HttpSession session) {
+		HashMap<Object, Object> map = new HashMap<Object, Object>();
 		String mid = (String) session.getAttribute("mid");
 		List<PointlogDTO> plist = mdao.gamepointlogList(mid);
-		return plist ;
+		MemberDTO mdto = mdao.myInfo(mid);
+		int mpoint = mdto.getMpoint();
+		map.put("plist", plist);
+		map.put("mpoint",mpoint);
+		return map ;
 	}
 	
 	@RequestMapping(value= "my_recent") //최근본가맹점
