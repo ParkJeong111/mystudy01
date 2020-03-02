@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.PointlogDTO;
 
+//¡÷º∫¡ﬂ Advice
+
 @Component
 @Aspect
 public class pointAdvice {

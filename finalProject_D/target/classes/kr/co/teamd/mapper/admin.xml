@@ -162,7 +162,6 @@
 	</select>
 
 	<!-- 관리자_회원관리_회원탈퇴시 상태 업데이트 -->
-	<!-- 어드민 로그인 기능 구현 되면 연동해야함. -->
 	<update id="memberupdate" parameterType="int">
 		update member set
 		mname='탈퇴한 회원입니다.',mdrop=sysdate where mnum=#{mnum}
@@ -183,7 +182,6 @@
 	</select>
 
 	<!-- 관리자_1:1문의_답변작성 -->
-	<!-- 어드민 로그인 기능 구현 되면 연동해야함. -->
 	<update id="qnaanswer" parameterType="qdto">
 		update qna set
 		qanswer=#{qanswer},qadate=sysdate,qadmin='김채은이다' where

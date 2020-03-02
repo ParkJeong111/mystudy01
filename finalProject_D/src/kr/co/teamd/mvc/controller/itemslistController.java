@@ -26,6 +26,7 @@ public class itemslistController {
 	private MainDAO mainsearch;
 	
 	// 업체 리스트
+	// 송용화, 주성중
 	@RequestMapping(value= "itemslist")
 	public ModelAndView hostlist(int type) {
 		ModelAndView mav = new ModelAndView();
@@ -37,6 +38,7 @@ public class itemslistController {
 	}
 	
 	// 업체 상세페이지
+	// 송용화
 	@GetMapping(value = "itemdetail")
 	public ModelAndView hostDetail(int hnum, String hname, HttpSession session) {
 		System.out.println("hnum이다" + hnum);
@@ -54,6 +56,7 @@ public class itemslistController {
 	}
 	
 	//검색 후 업체 리스트
+	//권세진
 	@GetMapping(value = "mainsearchlist")
 	public ModelAndView mainsearchlist(String hname) {
 		ModelAndView mav = new ModelAndView();
