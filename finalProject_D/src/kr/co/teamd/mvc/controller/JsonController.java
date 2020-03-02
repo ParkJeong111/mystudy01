@@ -296,5 +296,12 @@ public class JsonController {
 
 		return searchdto;
 	}
+	
+	
+	@RequestMapping(value= "my_point") //나의 포인트 
+	public String coupon() {
+		return "member/my_point";
+	}
+	
 
 }

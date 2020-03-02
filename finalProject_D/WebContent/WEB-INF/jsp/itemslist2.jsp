@@ -1,302 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="header.jsp"%>
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
-	rel="stylesheet">
-<!-- Poppins -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <style>
-li {
-	list-style: none;
-}
-
-img {
-	vertical-align: middle;
-	max-width: 100%;
-}
-
-.header_area {
-	background: #fff;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 990
-}
-
-.search_header_area {
-	position: fixed;
-	background: #fff;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 990
-}
-
-.mypage_header_area .header_title h1 a.home_btn {
-	display: none
-}
-
-.mypage_header_area .header_title .h_tit a.home_btn {
-	display: none
-}
-
-header {
-	border-bottom: 1px solid #e6e6e6;
-	background: #fff;
-}
-
-header a.header_logo {
-	float: left;
-	padding: 15.5px 0;
-	width: 124px
-}
-
-header a.header_logo2 {
-	display: none
-}
-
-header .header_menu {
-	float: right;
-}
-
-header .header_menu a {
-	float: left;
-	margin-left: 25px;
-	display: block
-}
-
-header .header_menu a.menu_search_btn {
-	padding: 18px 0;
-	margin-left: 0;
-	width: 20px
-}
-
-header .header_menu .search_header_box {
-	float: left;
-	border: 1px solid #e84418;
-	border-radius: 0.3rem;
-	padding: 6px 8px;
-	width: 230px;
-	margin: 12px 0;
-	font-size: 0
-}
-
-header .header_menu .search_header_box input {
-	border: none;
-	font-size: 13px;
-	letter-spacing: -0.7px;
-	vertical-align: top;
-	width: calc(100% - 20px);
-	outline: none
-}
-
-header .header_menu .search_header_box a {
-	float: right;
-	margin-left: 0;
-}
-
-header .header_menu .search_header_box img {
-	width: 19px
-}
-
-header .header_menu a.menu_txt {
-	padding: 19px 0 22px
-}
-
-header .header_menu a.menu_btn {
-	padding: 16px 0 20px 0;
-	width: 25px
-}
-
-header .location_setting {
-	font-size: 14px;
-	color: #848484;
-	letter-spacing: -0.6px;
-	float: left;
-	padding: 21px 30px 21px 0;
-	background:
-		url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/location_setting_ico_01.png')
-		top 17px right no-repeat;
-	background-size: 23px auto;
-	margin-left: 10px
-}
-
-.header_title {
-	border-bottom: 1px solid #e6e6e6;
-	background: #fff;
-}
-
-.header_title h1 {
-	font-size: 22px;
-	color: #333333;
-	font-weight: 500;
-	text-align: center;
-	padding: 10px 0;
-	margin: 0 auto
-}
-
-.header_title h1 .coupon_btn {
-	font-size: 15px;
-	border: 1px solid #333333;
-	border-radius: 3em;
-	padding: 4px 8px;
-	position: absolute;
-	top: 14px;
-	right: 0
-}
-
-.header_title .h_tit {
-	font-size: 35px;
-	color: #333333;
-	font-weight: bold;
-	text-align: center;
-	padding: 10px 0;
-	margin: 0 auto
-}
-
-.header_title .h_tit .coupon_btn {
-	font-size: 15px;
-	border: 1px solid #333333;
-	border-radius: 3em;
-	padding: 4px 8px;
-	position: absolute;
-	top: 14px;
-	right: 0
-}
-
-.header_title .filter_drop {
-	display: none;
-}
-
-.header_title .title_reserve_line {
-	display: none
-}
-
-.header_detail {
-	position: fixed;
-	top: 58px;
-	background: #fbfbfb;
-	z-index: 1;
-	width: 100%;
-	padding: 10px 0;
-	display: none
-}
-
-.header_detail.on {
-	display: block;
-}
-
-.header_detail h1.wrap_title {
-	display: none
-}
-
-.header_detail .wrap_title {
-	display: none
-}
-
-.header_detail .detail_title p {
-	font-size: 16px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	width: calc(100% - 120px);
-	font-weight: normal;
-	position: relative;
-}
-
-.header_detail .detail_title p.wide {
-	width: 100%
-}
-
-.header_detail .detail_title p.wide.jgo {
-	width: calc(100% - 130px)
-}
-
-.header_detail .detail_title a {
-	border: 1px solid #c0c0c0;
-	width: 56px;
-	height: 25px;
-	line-height: 23px;
-	text-align: center;
-	display: block;
-	float: right;
-	border-radius: 3rem;
-	font-size: 13px;
-	color: #aaaaaa;
-	letter-spacing: -0.5px;
-	font-weight: normal;
-	position: absolute;
-	top: 0;
-	right: 0
-}
-
-.header_detail .detail_title a.btn_talk_edit {
-	right: 60px;
-	position: absolute
-}
-
-.header_detail .detail_title a.btn_talk_del {
-	right: 0;
-	position: absolute
-}
-
-.header_detail .detail_title a.btn_talk_scrap {
-	width: 80px
-}
-
-.header_detail .header_menu a.menu_btn {
-	display: none
-}
-
-.header_title.title_none {
-	display: none
-}
-
-section {
-	width: 964px;
-	position: relative;
-	margin: 0 auto;
-}
-
-.block-20 {
-	width: 680px;
-}
-
-.clearfix {
-	margin-top: 10px;
-	display: block;
-	content: '';
-	clear: both
-}
-
-.clearfix:after {
-	display: block;
-	content: '';
-	clear: both
-}
-
 .talk_header {
 	border-bottom: 1px solid #e6e6e6;
 }
 
 .talk_header .talk_tab li {
-	float: left;
-	width: 19.1111%;
+
+	width: 11.1111%;
 	position: relative;
 	top: 1px;
 }
 
 .talk_header .talk_tab li a {
 	display: block;
-	font-size: 19px;
+	font-size: 22px;
+	color: #606060;
 	letter-spacing: -0.6px;
 	text-align: center;
 	height: 44px;
 	line-height: 42px;
 }
 
-.talk_header .talk_tab li i {
+.talk_header .talk_tab li a i {
 	padding: 0 5px 0 4px;
 	height: 19px;
 	line-height: 17px;
@@ -312,12 +41,9 @@ section {
 	top: -2px;
 }
 
-.selected {
-	/* border-bottom: 3px solid #F85959;
-   border-top: 3px solid #F85959; */
-	font-family: Poppins;
-	border-bottom: 2px solid #f85959;
-	color: #f85959;
+.talk_header .talk_tab li.active a {
+	color: #e84418;
+	border-bottom: 1px solid #e84418
 }
 
 .talk_header .talk_cate_tab {
@@ -400,7 +126,13 @@ section {
 	width: 25%
 }
 
+li {
+	list-style: none;
+}
+
+}
 .talk_area.container {
+	padding-top: 202px !important;
 	position: relative;
 	padding-bottom: 135px;
 }
@@ -439,10 +171,10 @@ section {
 }
 
 .talk_area .contents_list {
+	width: 610px;
 	float: left;
 	position: relative;
 	padding-top: 45px;
-	margin-left: 50px;;
 }
 
 .talk_area .contents_list .talk_notice {
@@ -508,7 +240,7 @@ section {
 	float: left;
 	border: 1px solid #dadada;
 	border-radius: 0.3rem;
-	width: 80% x;
+	width: 125px;
 	height: 30px;
 	line-height: 28px;
 	font-size: 16px;
@@ -543,6 +275,7 @@ section {
 	background: #fff;
 	border: 1px solid #e6e6e6;
 	border-radius: 0.3rem;
+	margin-top: 15px;
 }
 
 .talk_area .talk_list .talk_box_area .profile_line {
@@ -650,11 +383,6 @@ section {
 	{
 	content: 'M';
 	background: linear-gradient(to bottom, #616161, #171717);
-}
-
-.talk_area .talk_list .talk_box_area .profile_line .profile_img p.lv98:before
-	{
-	background: linear-gradient(to bottom, #ffd848, #ff3600);
 }
 
 .talk_area .talk_list .talk_box_area .profile_line .profile_name {
@@ -777,10 +505,6 @@ section {
 	letter-spacing: -0.6px;
 	line-height: 1.3;
 	margin-top: 10px
-}
-
-.talk_area .talk_list .talk_box_area .talk_text p.more:after {
-	color: #c0c0c0;
 }
 
 .talk_area .talk_list .talk_box_area .talk_visual {
@@ -934,22 +658,10 @@ section {
 	color: #606060;
 	letter-spacing: -0.6px;
 	text-align: center;
-	width: 100%;
+	width: 33.3333%;
 	display: block;
 	float: left;
 	padding: 10px 0 15px 30px;
-}
-
-.talk_area .talk_list .talk_box_area .talk_btn .talk_money_btn {
-	font-size: 18px;
-	color: #000000;
-	letter-spacing: -0.6px;
-	text-align: center;
-	width: 50%;
-	display: block;
-	float: left;
-	padding: 10px 0 15px 30px;
-	font-weight: 500;
 }
 
 .talk_area .talk_list .talk_box_area .talk_btn .talk_like_btn:before {
@@ -1107,8 +819,7 @@ section {
 	padding: 15px;
 	position: relative;
 	margin-top: 10px;
-	border-radius: 0.3rem;
-	position: relative;
+	border-radius: 0.3rem
 }
 
 .talk_area .talk_recom a img {
@@ -1119,18 +830,16 @@ section {
 }
 
 .talk_area .talk_recom a .recom_text {
-	padding-left: 25px;
-	padding-top: 30px;
+	padding-left: 15px;
 	width: calc(100% - 120px);
 	float: left;
-	width: calc(100% - 120px);
 }
 
 .talk_area .talk_recom a em {
 	display: block;
 	color: #2663e2;
 	letter-spacing: -0.8px;
-	font-size: 14.5px;
+	font-size: 15px;
 	margin-bottom: 10px
 }
 
@@ -1142,7 +851,21 @@ section {
 	line-height: 1.4
 }
 
+.talk_area .talk_recom a span {
+	width: 159px;
+	display: block;
+	position: absolute;
+	bottom: 15px;
+	font-size: 14px;
+	color: #b5b5b5;
+	letter-spacing: -0.6px
+}
 
+.talk_area .talk_recom a span i {
+	float: right;
+	color: #454545;
+	font-size: 16px
+}
 
 .talk_area .talk_plan {
 	margin-bottom: 20px
@@ -1375,14 +1098,6 @@ section {
 	padding: 8px 0
 }
 
-.talk_area .talk_list .talk_box_area .talk_btn .talk_pay.deal:before {
-	font-size: 12px;
-	color: #606060;
-	display: block;
-	margin-bottom: 3px;
-	font-weight: normal;
-}
-
 .talk_area .talk_list .talk_box_area .talk_pic .sold {
 	background: #cccccc;
 	color: #fff
@@ -1412,454 +1127,442 @@ section {
 	opacity: .5
 }
 
-.talk_area .talk_list .talk_box_area.jgo_sold .talk_visual:after {
-	font-size: 22px;
-	color: #fff;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	z-index: 99;
-	background: rgba(0, 0, 0, 0.3);
-	height: 50px;
-	line-height: 48px;
-	text-align: center
+.talk_area .contents_pic {
+	float: right;
+	width: 324px;
+	padding-top: 45px;
 }
 
-.boardlisthead {
-	font-family: "Poppins", Arial, sans-serif;
-	font-size: 25px;
-	font: bolder;
-	color: #606060;
-	padding: 24px;
-	margin-bottom: -16px;
+.itemslistheader{
+display: inline-block;
+}
+.fix{position:fixed;_position:absolute;
+width:285px;top:12%;z-index:100}
+.fixbox{
+margin-left: 270px;
+width: 855px;
+}
+.info_view span {
+    font-size: 16px;
+    padding: 0 5px;
+    margin: 15px 5px 0;
+    display: inline;
+    height: 37px;
+    line-height: 35px;
+    border: 1px solid #f85959;
+    color: #f85959;
+    border-radius: 3rem;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-/*별점*/
-.star {
-	display: inline-block;
-	width: 15px;
-	height: 30px;
-	cursor: pointer;
-}
-
-.star_left {
-	background: url(http://gahyun.wooga.kr/main/img/testImg/star.png)
-		no-repeat 0 0;
-	background-size: 30px;
-	margin-right: -2px;
-}
-
-.star_right {
-	background: url(http://gahyun.wooga.kr/main/img/testImg/star.png)
-		no-repeat -15px 0;
-	background-size: 30px;
-	margin-left: -2px;
-}
-
-.star.on, .star_print.on {
-	background-image:
-		url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
-}
-
-.star_print {
-	display: inline-block;
-	width: 15px;
-	height: 30px;
-}
-
-.service_area .service_tab {
-	border-bottom: 1px solid #e6e6e6
-}
-
-.service_area .service_tab ol {
-	width: 80%;
-	margin: 0 auto;
-	position: relative;
-}
-
-.service_area .service_tab li {
-	float: left;
-	width: 33.3333%;
-	position: relative;
-	top: 1px
-}
-
-.service_area .service_tab li a {
-	display: block;
-	font-size: 20px;
-	color: #606060;
-	text-align: center;
-	padding: 24px 0;
-	border-bottom: 1px solid #e6e6e6;
-}
-
-.service_area .service_tab li.active a {
-	border-bottom: 1px solid #f85959;
-	color: #f85959;
-}
-
-.service_area section {
-	width: 80%;
-	margin: 0 auto;
-	font-family: "Poppins", Arial, sans-serif;
-}
-
-.talk_tab li a {
-	color: #606060;
-}
-
-.selected a b {
-	color: #f85959;
-}
-
-.boardtitle {
-	font-size: 24px;
-	margin: 2.3%;
-}
-
-.board_date {
-	margin-left: 3%;
-	margin-right: 3%;
-	margin-top: -2%;
+.starrate {
+	margin-top: 4px;
+	margin-bottom: 0
 }
 </style>
+	<!-- END nav -->
 
-
-
-<div class="hero-wrap js-fullheight"
-	style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_4.jpg');">
-	<div class="overlay"></div>
-	<div class="container" style="margin-top: -40%;"></div>
-</div>
-
-
-
-<div class="header_area">
-
-	<div class="scrolling scroll_up">
-
-
-		<div class="talk_header">
-			<div class="talk_tab_area">
-				<section>
-					<div class="service_tab service_area">
-						<ul class="talk_tab clearfix service_area" style="margin-top: 1%;">
-
-							<li class="on boardlisthead selected"><a data-talk_key="1"
-								data-tc_key="0" data-u_type="1" href='javasript:void(0);'
-								onclick="boardAjax(1)"><strong><b>유저조행기</b></strong></a></li>
-
-							<li class="on boardlisthead"><a data-talk_key="11"
-								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
-								onclick="boardAjax(2)"><strong><b>중고장터</b></strong></a></li>
-
-							<li class="on boardlisthead"><a data-talk_key="2"
-								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
-								onclick="boardAjax(3)"><strong><b>유용한정보</b></strong></a></li>
-							<li class="on boardlisthead"><a data-talk_key="3"
-								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
-								onclick="boardAjax(4)"><strong><b>낚시지식인</b></strong></a></li>
-
-							<li class="on boardlisthead"><a data-talk_key="5"
-								data-tc_key="0" data-u_type="1" href='javascript:void(0);'
-								onclick="boardAjax(5)"><strong><b>자유게시판</b></strong></a></li>
-						</ul>
-					</div>
-				</section>
-
-			</div>
-
-		</div>
+	<div class="hero-wrap js-fullheight"
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_3.jpg');">
+		<div class="overlay"></div>
+		<div class="container" style="margin-top: -40%;"></div>
 	</div>
-
-</div>
-
-<div class="talk_area container bg_mp" style="width: 100%;">
-
-	<section>
-		<div class="contents_list">
-
-			<div class="talk_list" style="width: 100%">
-
-				<div id="talk_detail_list" data-start_key="0" data-offset="0"
-					data-limit="30" data-last_offset="" data-is_work=""
-					style="width: 60%; float: left;">
-					<!--    <for문 사용하기> -->
-					<c:forEach var="e" items="${test.list}">
-						<div class="talk_box_area" id="talk_visual135516">
-							<div class="boardtitle">
-								<strong><b>${e.btitle}</b></strong>
-							</div>
-							<div class="board_date">
-								<div class="profile_name" style="float: left;">
-									<p>${e.haddr}</p>
-								</div>
-								<div class="profile_date" style="float: right">
-									<p>${e.bdate}</p>
-								</div>
-							</div>
-
-
-							<div class="talk_view_btn"
-								OnClick="location.href ='talk_detail?bnum=${e.bnum}'"
-								style="cursor: pointer; margin-top: 10%">
-								<div style="width: 100%">
-									<p class="talk_pic" style="float: left; width: 30%;">
-										<span class="manage">${e.btype2}</span>
-									</p>
-									<p style="float: right; margin-right: 3%"> ${e.mnickname}</p>
-								</div>
-
-								<div class="img_box" style="width: 100%;">
-
-									<img style="width: 100%;"
-										src="${pageContext.request.contextPath}/resources/images/${e.bimage}"
-										alt="">
-								</div>
-
-								<div class="talk_text" style="margin-top: 5%;">
-									<p class="more">${e.bcontent}</p>
-								</div>
-
-							</div>
-
-							<div class="talk_count_btn">
-								<div class="talk_count clearfix">
-
-									<div class="comm_mark_line">
-										<p class="comm_line">
-											댓글 <span>${e.cnt}</span>
-										</p>
-
+	<!--  상단 내용  -->
+	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon;">
+		<c:choose >
+			<c:when test="${type == 1}">
+				바다낚시
+			</c:when>
+			<c:when test="${type == 2}">
+				민물낚시
+			</c:when>
+			<c:when test="${type == 3}">
+				전문낚시
+			</c:when>
+			<c:when test="${type == 4}">
+				카페낚시
+			</c:when>
+		</c:choose>
+	</p>
+	<hr>
+	<!-- 상단 선택 부분 -->
+	<div class="talk_header">
+		<div class="talk_tab_area">
+			<section>
+				<ul class="talk_tab clearfix" style="font-family:jua; font-weight: bold; width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
+					<!--  <li class="active">-->
+					<li class="itemslistheader"><a href="itemslist?type=1" data-talk_key="6" data-tc_key="0"
+						data-u_type="1">바다</a></li>
+					<li class="itemslistheader"><a href="itemslist?type=2" data-talk_key="1" data-tc_key="0"
+						data-u_type="1">민물</a></li>
+					<li class="itemslistheader"><a href="itemslist?type=3" data-talk_key="12" data-tc_key="0"
+						data-u_type="1">전문</a></li>
+					<li class="itemslistheader"><a href="itemslist?type=4" data-talk_key="11" data-tc_key="0"
+						data-u_type="1">카페</a></li>
+					
+				</ul>
+				<hr>
+			</section>
+		</div>
+		<!-- 사이드 검색 부분 -->
+		<section class="ftco-section ftco-degree-bg"
+			style="padding-top: 10px; font-family: Jua;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 sidebar ftco-animate float_sidebar" id="float_sidebar" >
+						<!-- 업체명, 지역 검색 -->	
+						<div class="sidebar-wrap bg-light ftco-animate">
+							<h3 class="heading mb-4"
+								style="text-align: center; font-weight: bold;font-size: 20px;">상세 검색</h3>
+							<form action="searchlist" method="post">
+								<div class="fields"  style="font-size: 18px;">
+									<div class="form-group">
+										<input  style="font-size: 18px;" type="text" class="form-control" placeholder="검색 할 업체명" name="searchValue" id="searchValue">
+									</div>
+									<div class="form-group">
+										<div class="select-wrap one-third">
+											<div class="icon">
+												<span class="ion-ios-arrow-down"></span>
+											</div>
+											<select  style="font-size: 18px;" name="searchLocation" id="searchLocation" class="form-control">
+												<option value="">지역을 선택해주세요.</option>
+												<option value="서울">서울</option>
+												<option value="경기">경기</option>
+												<option value="인천">인천</option>
+												<option value="강원">강원</option>
+												<option value="충북">충북</option>
+												<option value="충남">충남</option>
+												<option value="경북">경북</option>
+												<option value="경남">경남</option>
+												<option value="전북">전북</option>
+												<option value="전남">전남</option>
+												<option value="제주">제주</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="range-slider">
+											<span> <input type="number" value="1000" min="0" name="minprice" id="minprice"
+												max="120000" />원 - <input type="number" value="50000" name="maxprice" id="maxprice"
+												min="0" max="120000" />원
+											</span> <input value="1000" min="0" max="120000" step="500"
+												type="range" /> <input value="50000" min="0" max="120000"
+												step="500" type="range" />
+										</div>
+									</div>
+									<div class="form-group">
+										<input type="button" value="검색" id="searchbtn"
+											class="btn btn-primary py-3 px-5">
 									</div>
 								</div>
-								<div class="talk_btn clearfix">
-									<a class="talk_comm_btn"
-										href="talk_detail?bnum=${e.bnum}#comment_box">댓글쓰기</a>
-
-								</div>
-							</div>
+							</form>
 						</div>
-					</c:forEach>
-
-				</div>
-				<div class="talk_recom" style="width: 35%; float: right;">
-					<h3 style="margin-left: 80px; font-size: 20px; font-family: jua;">고기자바 추천 업체</h3>
-					<c:forEach var="i" items="${test.recommendlist}">
-						<div class="shadow"
-							style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
-							<a href="itemdetail?hnum=${i.hnum}"> <img
-								style="width: 120px; height: 120px; padding-top: 5px; padding-left: 5px;"
-								src="${pageContext.request.contextPath}/resources/images/${i.himage}"
-								alt="">
-								<div class="recom_text" style="float: right;">
-									<em>${i.hname}</em> <strong>${i.haddr}</strong>
-
+						<!-- 리뷰 평점 검색 -->
+						<div class="sidebar-wrap bg-light ftco-animate">
+							<h3 class="heading mb-4"
+								style="text-align: center; font-weight: bold;font-size: 18px;">리뷰 별점</h3>
+							<form method="post" class="star-rating">
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio0" name="star" value="0"> 
+									<label for="starradio0">
+									<p class="rate starrate">
+											<span style="font-size: 18px;">&nbsp;상관없음</span>
+									</p>
+									</label>
 								</div>
-							</a>
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio5" name="star" value="5"> 
+									<label for="starradio5">
+									<p class="rate starrate">
+											<span><i class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star"></i></span>
+									</p>
+									</label>
+								</div>
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio4" name="star" value="4"> 
+									<label for="starradio4">
+									<p class="rate starrate">
+											<span><i class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star-o"></i></span>
+									</p>
+									</label>
+								</div>
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio3" name="star" value="3"> 
+									<label for="starradio3">
+									<p class="rate starrate">
+											<span><i class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star"></i><i class="icon-star-o"></i><i
+												class="icon-star-o"></i></span>
+									</p>
+									</label>
+								</div>
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio2" name="star" value="2"> 
+									<label for="starradio2">
+									<p class="rate starrate">
+											<span><i class="icon-star"></i><i class="icon-star"></i><i
+												class="icon-star-o"></i><i class="icon-star-o"></i><i
+												class="icon-star-o"></i></span>
+									</p>
+									</label>
+								</div>
+								<div class="form-check" style="height: 50px;">
+									<input type="radio" id="starradio1" name="star" value="1"> 
+									<label for="starradio1">
+									<p class="rate starrate">
+											<span><i class="icon-star"></i><i class="icon-star-o"></i><i
+												class="icon-star-o"></i><i class="icon-star-o"></i><i
+												class="icon-star-o"></i></span>
+									</p>
+									</label>
+								</div>
+							</form>
 						</div>
-					</c:forEach>
+					</div>
+					<!-- 업체 리스트 -->
+					<div class="col-lg-9">
+						<div class="row" id="hostlistdiv">
+							<c:forEach items="${hostlist }" var="hostlist" varStatus="status">
+								<div class="col-md-4 ftco-animate">
+									<div class="destination">
+										 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')"
+											class="img img-2 d-flex justify-content-center align-items-center"
+											style="background-image: url(${pageContext.request.contextPath}/resources/images/${hostlist.himage });">
+											<div
+												class="icon d-flex justify-content-center align-items-center">
+												<span class="icon-search2"></span>
+											</div>
+										</a>
+										<div class="text p-3">
+											<div class="d-flex">
+												<div class="one">
+													<h3 style="font-size: 20px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;">
+														 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')">${hostlist.hname}</a>
+												
+													</h3>
+													<p class="rate starrate">
+													<c:forEach begin="0" end="4" varStatus="i">
+														<c:choose>
+															<c:when test="${i.current < hostlist.hstar}">
+																<i class="icon-star"></i>
+															</c:when>
+															<c:otherwise>
+																<i class="icon-star-o"></i>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
+													</p>
+												</div>
+												<div class="two">
+													<span class="price product-price">${hostlist.hgmoney}</span><br>
+													<span style="font-size: 15px;">리뷰: ${hostlist.boardnum}</span>
+												</div>
+											</div>
+											<p class="info_view" >
+												<script>
+													var hspecies = '${hostlist.hspecies}';
+													var hspeciesSplit = hspecies.split(',');
+													for (var i in hspeciesSplit) {
+														document.write('<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>');
+													}
+												</script>
+											</p>
+											<hr>
+											<p class="bottom-area d-flex">
+												<span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>
+													&nbsp;${hostlist.haddr}
+												</span> 
+												<%-- <span class="ml-auto"><a href="#">예약하기</a></span> --%>
+											</p>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+					<!-- .col-md-8 -->
 				</div>
 			</div>
+		</section>
+		<!-- .section -->
 		</div>
+		
+		<script>
+		
+		function itemdetail(hnum, hname) {
+			location.href="itemdetail?hnum="+hnum+"&hname="+encodeURI(hname, "UTF-8");
+		};
+		$(function() {
+		
+			
+			// 리뷰 별점 검색
+			$("input:radio[name=star]").click(function(){
+				star = $(this).val();
+				$.ajax({
+					url : "searchlist?searchValue=" + encodeURIComponent($('#searchValue').val()) + '&searchLocation=' + encodeURIComponent($('#searchLocation').val()) + "&minprice=" + $('#minprice').val() 
+							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
+					datatype : 'json',
+					success : function(data) {
+						$("#hostlistdiv").html("");
+						// 평점 별 그리기
+						$.each(data, function(key, value) {
+							var star = "";
+							for(i = 0; i < 5; i++) {
+								if(i < value.hstar) {
+									star += '<i class="icon-star"></i>';				
+								} else {
+									star += '<i class="icon-star-o"></i>';
+								}
+							}
+							
+							// 어종 ,를 기준으로 추가
+							var hspecies = value.hspecies;
+							var hspeciesSplit = hspecies.split(',');
+							var hspeciesResult = "";
+							for (var i in hspeciesSplit) {
+								hspeciesResult += '<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>';
+							}
+							
+							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+									+ "<div class='destination'>"
+									+ '<a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',' +  value.hname +')" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<div class="icon d-flex justify-content-center align-items-center">'
+									+ '<span class="icon-search2"></span></div></a>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:20px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;"><a href="javascript:void(0)"  onclick="itemdetail('+  value.hnum + ',' +  value.hname +')">' + value.hname + '</a></h3>'
+								    + '<p class="rate starrate">' + star
+								    + '</p></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">리뷰: ' + value.boardnum + '</span></div></div>'
+								    + '<p class="info_view">' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+									);
+						});
+						
+						$(".product-price").each(function(idx) {
+							var value = $(this).text();
+							$(this).text($.fn.priceBuilder(value));
+						});
+					}
+				});
+			});
+				    
+			$(window).scroll(  
+				    function(){  
+				        //스크롤의 위치가 상단에서 450보다 크면  
+				        if($(window).scrollTop() > 450){  
+				        /* if(window.pageYOffset >= $('원하는위치의엘리먼트').offset().top){ */  
+				            $('#float_sidebar').addClass("fix");  
+				        	$('#hostlistdiv').addClass("fixbox")
+				            //위의 if문에 대한 조건 만족시 fix라는 class를 부여함  
+				        }else{  
+				            $('#float_sidebar').removeClass("fix");
+				            $('#hostlistdiv').removeClass("fixbox")
+				            //위의 if문에 대한 조건 아닌경우 fix라는 class를 삭제함  
+				        }  
+				    }  
+				);  
 
+			
+			var star = 0;
+			
+			$.fn.priceBuilder = function(price) {
+				// 금액에 천단위 콤마 추가해주는 정규표현식
+				return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
 
-	</section>
-
-</div>
-
-
-
-<!-- script -->
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-
-<!-- loader -->
-
-
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.easing.1.3.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.stellar.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(".on").each(function() {
-			$(this).click(function() {
-				$(this).addClass("selected"); //클릭된 부분을 상단에 정의된 CCS인 selected클래스로 적용
-				$(this).siblings().removeClass("selected"); //siblings:형제요소들,    removeClass:선택된 클래스의 특성을 없앰
+			$(".product-price").each(function(idx) {
+				// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+				var value = $(this).text();
+				$(this).text($.fn.priceBuilder(value));
+			});
+			
+			$("#searchbtn").click(function() {
+				star = $(':radio[name="star"]:checked').val();
+				$.ajax({
+					url : "searchlist?searchValue=" + encodeURIComponent($('#searchValue').val()) + '&searchLocation=' + encodeURIComponent($('#searchLocation').val()) + "&minprice=" + $('#minprice').val() 
+							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
+					datatype : 'json',
+					success : function(data) {
+						$("#hostlistdiv").html("");
+						// 평점 별 그리기
+						$.each(data, function(key, value) {
+							var star = "";
+							for(i = 0; i < 5; i++) {
+								if(i < value.hstar) {
+									star += '<i class="icon-star"></i>';				
+								} else {
+									star += '<i class="icon-star-o"></i>';
+								}
+							}
+							// ,를 기준으로 어종 추가							
+							var hspecies = value.hspecies;
+							var hspeciesSplit = hspecies.split(',');
+							var hspeciesResult = "";
+							for (var i in hspeciesSplit) {
+								hspeciesResult += '<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>';
+							}
+							
+							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+									+ "<div class='destination'>"
+									+ '<a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',' +  value.hname +')" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<div class="icon d-flex justify-content-center align-items-center">'
+									+ '<span class="icon-search2"></span></div></a>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:20px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;"><a href="javascript:void(0)"  onclick="itemdetail('+  value.hnum + ',' +  value.hname +')">' + value.hname + '</a></h3>'
+								    + '<p class="rate starrate">' + star
+								    + '</p></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">리뷰: ' + value.boardnum + '</span></div></div>'
+								    + '<p class="info_view">' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+									);
+						});
+						$(".product-price").each(function(idx) {
+							var value = $(this).text();
+							$(this).text($.fn.priceBuilder(value));
+						});
+					}
+				});
 			});
 		});
+		</script>
 
-	});
-<%-- 
-   boardAjax 함수 호출되면
-   유형별(유저조행기(1), 중고장터(2), 유용한정보3),낚시지식인(4), 자유게시판(5))로
-   파라미터를 받아서 check값을 을 보낸다.
-   ***talkAjax / itemsboardAjax 매핑을 따로 구분한 이유는
-   게시글테이블이 다르므로 select 출력하는게 다르기 때문 
-    
-    다이나믹쿼리로 보내고한 페이지에서 리스트 출력하기 위해 Ajax처리하여 URL로 보냄
-   --%>
-	function boardAjax(check) {
-		if (check == 1) {
-
-			$.ajax({
-						url : "talkAjax?check=" + check,
-						datatype : 'json',
-						success : function(data) {
-
-							$("#talk_detail_list").html("")
-							$
-									.each(
-											data,
-											function(key, value) {
-
-												$("#talk_detail_list")
-														.append(
-																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
-																		+ value.btitle
-																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-																		+ value.haddr
-																		+ '</p></div><div class="profile_date" style="float: right"><p>'
-																		+ value.bdate
-																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
-																		+ value.bnum
-																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
-																		+ value.btype2
-																		+ '</span></p><p style="float: right;margin-right: 3%">'
-																		+ value.mnickname
-																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
-																		+ value.bimage
-																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
-																		+ value.bcontent
-																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
-																		+ '<p class="comm_line">댓글 <span>'
-																		+ value.cnt
-																		+ '</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
-																		+ value.bnum
-																		+ '#comment_box">댓글쓰기</a></div></div></div>');
-
-											});
-
-						}
-					});
-		} else if (check == 2) {
-
-			$.ajax({
-						url : "itemsboardAjax?check=" + check,
-						datatype : 'json',
-						success : function(data) {
-
-							console.log(data + "중고장터")
-							$("#talk_detail_list").html("")
-							$.each(
-											data,
-											function(key, value) {
-
-												$("#talk_detail_list")
-														.append(
-																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
-																		+ value.ibtitle
-																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-																		+ '</p></div><div class="profile_date" style="float: right"><p>'
-																		+ value.ibdate
-																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'itemstalk_detail?ibnum='
-																		+ value.ibnum
-																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
-																		+ '중고장터</span></p><p style="float: right;margin-right: 3%">'
-																		+ value.mid
-																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
-																		+ value.ibimage
-																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
-																		+ value.ibcontent
-																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
-																		+ '<p class="comm_line">댓글 <span>'
-																		+ value.cnt
-																		+ '</span></p></div></div><div class="talk_btn clearfix"><a class="talk_money_btn" href="#">'
-																		+ value.ibmoney
-																		+ '원</a><a class="talk_comm_btn" style="width:50%;" href="itemstalk_detail?ibnum='
-																		+ value.ibnum
-																		+ '#comment_box">댓글쓰기</a></div></div></div>');
-
-											});
-						}
-					});
-
-		} else {
-
-			$.ajax({
-						url : "talkAjax?check=" + check,
-						datatype : 'json',
-						success : function(data) {
-
-							$("#talk_detail_list").html("")
-							$.each(
-											data,
-											function(key, value) {
-												console.log("왜 안나오지"
-														+ value.cnt)
-												$("#talk_detail_list")
-
-														.append(
-																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
-																		+ value.btitle
-																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-																		+ '</p></div><div class="profile_date" style="float: right"><p>'
-																		+ value.bdate
-																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
-																		+ value.bnum
-																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
-																		+ value.btype2
-																		+ '</span></p><p style="float: right;margin-right: 3%">'
-																		+ value.mnickname
-																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
-																		+ value.bimage
-																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
-																		+ value.bcontent
-																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
-																		+ '<p class="comm_line">댓글 <span>'
-																		+ value.cnt
-																		+ '</span></p></div></div><div class="talk_btn clearfix"><a class="talk_comm_btn" href="talk_detail?bnum='
-																		+ value.bnum
-																		+ '#comment_box">댓글쓰기</a></div></div></div>');
-
-											});
-
-						}
-					});
-		}
-
-	}
-</script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.easing.1.3.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.stellar.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/jquery.timepicker.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/range.js"></script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/google-map.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 </body>
 </html>

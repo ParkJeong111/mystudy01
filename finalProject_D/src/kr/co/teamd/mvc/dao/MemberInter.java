@@ -7,6 +7,8 @@ import java.util.List;
 import kr.co.teamd.mvc.dto.LoginlogDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
 import kr.co.teamd.mvc.dto.PointlogDTO;
+import kr.co.teamd.mvc.dto.RecentListDTO;
+import kr.co.teamd.mvc.dto.RecenthostDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
 public interface MemberInter {
@@ -23,5 +25,11 @@ public interface MemberInter {
 	public void gamepointUpdate(MemberDTO dto);// 게임을 통해 포인트를 지급해주는 기능
 	public void gamepointlogInsert(PointlogDTO dto); // 1일 1회만 플레이하게 하기 위한 로그 입력
 	public int gamecheck(String mid); // 1일 1회 체크를 위한 입력
+<<<<<<< HEAD
 	public List<MemberDTO> androidMyinfo(MemberDTO mdto); // 안드 내정보 (재민)
+=======
+	public void recentHostInsert(RecenthostDTO rhdto);  // 최근본숙소 추가
+	public List<RecentListDTO> recentHostList(String mid);
+	
+>>>>>>> branch 'master' of https://github.com/ParkJeong111/mystudy01.git
 }

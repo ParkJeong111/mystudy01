@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
+body{color: #333333;}
 .talk_header {
 	border-bottom: 1px solid #e6e6e6;
 }
@@ -17,7 +18,7 @@
 
 .talk_header .talk_tab li a {
 	display: block;
-	font-size: 22px;
+	font-size: 25px;
 	color: #606060;
 	letter-spacing: -0.6px;
 	text-align: center;
@@ -1171,7 +1172,7 @@ width: 855px;
 		<div class="container" style="margin-top: -40%;"></div>
 	</div>
 	<!--  상단 내용  -->
-	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon;">
+	<p style="text-align: center; font-weight: bold; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon; color:#333333;">
 		<c:choose >
 			<c:when test="${type == 1}">
 				바다낚시
@@ -1192,7 +1193,7 @@ width: 855px;
 	<div class="talk_header">
 		<div class="talk_tab_area">
 			<section>
-				<ul class="talk_tab clearfix" style="font-family:jua; font-weight: bold; width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
+				<ul class="talk_tab clearfix" style="font-family:Do Hyeon;font-size:25px; color:#444444; font-weight: bold; width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
 					<!--  <li class="active">-->
 					<li class="itemslistheader"><a href="itemslist?type=1" data-talk_key="6" data-tc_key="0"
 						data-u_type="1">바다</a></li>
@@ -1209,25 +1210,25 @@ width: 855px;
 		</div>
 		<!-- 사이드 검색 부분 -->
 		<section class="ftco-section ftco-degree-bg"
-			style="padding-top: 10px; font-family: Jua;">
+			style="padding-top: 10px; font-family: Do Hyeon;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 sidebar ftco-animate float_sidebar" id="float_sidebar" >
 						<!-- 업체명, 지역 검색 -->	
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
-								style="text-align: center; font-weight: bold;font-size: 20px;">상세 검색</h3>
+								style="text-align: center; font-weight: bold;font-size: 25px;color: #333333">상 세 검 색</h3>
 							<form action="searchlist" method="post">
-								<div class="fields"  style="font-size: 18px;">
+								<div class="fields"  style="font-size: 20px;">
 									<div class="form-group">
-										<input  style="font-size: 18px;" type="text" class="form-control" placeholder="검색 할 업체명" name="searchValue" id="searchValue">
+										<input  style="font-size: 20px;" type="text" class="form-control" placeholder="검색 할 업체명" name="searchValue" id="searchValue">
 									</div>
 									<div class="form-group">
 										<div class="select-wrap one-third">
 											<div class="icon">
 												<span class="ion-ios-arrow-down"></span>
 											</div>
-											<select  style="font-size: 18px;" name="searchLocation" id="searchLocation" class="form-control">
+											<select  style="font-size: 20px;" name="searchLocation" id="searchLocation" class="form-control">
 												<option value="">지역을 선택해주세요.</option>
 												<option value="서울">서울</option>
 												<option value="경기">경기</option>
@@ -1254,7 +1255,7 @@ width: 855px;
 										</div>
 									</div>
 									<div class="form-group">
-										<input type="button" value="검색" id="searchbtn"
+										<input type="button" style="font-size: 20px;" value="검색" id="searchbtn"
 											class="btn btn-primary py-3 px-5">
 									</div>
 								</div>
@@ -1263,13 +1264,13 @@ width: 855px;
 						<!-- 리뷰 평점 검색 -->
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
-								style="text-align: center; font-weight: bold;font-size: 18px;">리뷰 별점</h3>
+								style="text-align: center; font-weight: bold;font-size: 25px;color: #333333;">리 뷰 별 점</h3>
 							<form method="post" class="star-rating">
 								<div class="form-check" style="height: 50px;">
 									<input type="radio" id="starradio0" name="star" value="0"> 
 									<label for="starradio0">
 									<p class="rate starrate">
-											<span style="font-size: 18px;">&nbsp;상관없음</span>
+											<span style="font-size: 20px;">&nbsp;상관없음</span>
 									</p>
 									</label>
 								</div>
@@ -1332,7 +1333,7 @@ width: 855px;
 							<c:forEach items="${hostlist }" var="hostlist" varStatus="status">
 								<div class="col-md-4 ftco-animate">
 									<div class="destination">
-										<a href="itemdetail?hnum=${hostlist.hnum}"
+										 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')"
 											class="img img-2 d-flex justify-content-center align-items-center"
 											style="background-image: url(${pageContext.request.contextPath}/resources/images/${hostlist.himage });">
 											<div
@@ -1343,8 +1344,8 @@ width: 855px;
 										<div class="text p-3">
 											<div class="d-flex">
 												<div class="one">
-													<h3 style="font-size: 20px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;">
-														<a href="itemdetail?hnum=${hostlist.hnum}">${hostlist.hname }</a>
+													<h3 style="font-size: 25px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;">
+														 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')">${hostlist.hname}</a>
 													</h3>
 													<p class="rate starrate">
 													<c:forEach begin="0" end="4" varStatus="i">
@@ -1361,10 +1362,10 @@ width: 855px;
 												</div>
 												<div class="two">
 													<span class="price product-price">${hostlist.hgmoney}</span><br>
-													<span style="font-size: 15px;">리뷰: ${hostlist.boardnum}</span>
+													<span style="font-size: 18px;">리뷰: ${hostlist.boardnum}</span>
 												</div>
 											</div>
-											<p class="info_view" >
+											<p class="info_view" style="font-family: jua" >
 												<script>
 													var hspecies = '${hostlist.hspecies}';
 													var hspeciesSplit = hspecies.split(',');
@@ -1375,7 +1376,7 @@ width: 855px;
 											</p>
 											<hr>
 											<p class="bottom-area d-flex">
-												<span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>
+												<span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap; font-size: 20px;"><i class="icon-map-o"></i>
 													&nbsp;${hostlist.haddr}
 												</span> 
 												<%-- <span class="ml-auto"><a href="#">예약하기</a></span> --%>
@@ -1394,7 +1395,12 @@ width: 855px;
 		</div>
 		
 		<script>
+		
+		function itemdetail(hnum, hname) {
+			location.href="itemdetail?hnum="+hnum+"&hname="+encodeURI(hname, "UTF-8");
+		};
 		$(function() {
+		
 			
 			// 리뷰 별점 검색
 			$("input:radio[name=star]").click(function(){
@@ -1426,15 +1432,15 @@ width: 855px;
 							
 							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
-									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',' +  value.hname +')" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
 									+ '<div class="icon d-flex justify-content-center align-items-center">'
 									+ '<span class="icon-search2"></span></div></a>'
-									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:20px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="javascript:void(0)"  onclick="itemdetail('+  value.hnum + ',' +  value.hname +')">' + value.hname + '</a></h3>'
 								    + '<p class="rate starrate">' + star
 								    + '</p></div>'
-								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">리뷰: ' + value.boardnum + '</span></div></div>'
-								    + '<p class="info_view">' + hspeciesResult + '</p>'
-									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 18px;">리뷰: ' + value.boardnum + '</span></div></div>'
+								    + '<p class="info_view" style="font-family: jua" >' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap; font-size:20px;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
 						
@@ -1504,15 +1510,16 @@ width: 855px;
 							
 							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
-									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',' +  value.hname +')" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
 									+ '<div class="icon d-flex justify-content-center align-items-center">'
 									+ '<span class="icon-search2"></span></div></a>'
-									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:20px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="javascript:void(0)"  onclick="itemdetail('+  value.hnum + ',' +  value.hname +')">' + value.hname + '</a></h3>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
 								    + '<p class="rate starrate">' + star
 								    + '</p></div>'
-								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">리뷰: ' + value.boardnum + '</span></div></div>'
-								    + '<p class="info_view">' + hspeciesResult + '</p>'
-									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 18px;">리뷰: ' + value.boardnum + '</span></div></div>'
+								    + '<p class="info_view" style="font-family: jua" >' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;font-size:20px;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
 						$(".product-price").each(function(idx) {
@@ -1524,7 +1531,6 @@ width: 855px;
 			});
 		});
 		</script>
-
 		<script
 			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 		<script
