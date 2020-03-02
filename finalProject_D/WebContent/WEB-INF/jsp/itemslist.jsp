@@ -1537,7 +1537,6 @@ width: 855px;
 			});
 		});
 		</script>
-
 		<script
 			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 		<script
