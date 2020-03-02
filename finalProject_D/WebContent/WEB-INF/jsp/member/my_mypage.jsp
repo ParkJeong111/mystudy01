@@ -175,7 +175,7 @@ function mypoint() {
 			success : function(data) {
 				console.log("성공은했니?")
 				$("#target").html("")
-				$("#target").append('<div class="col-md-4 ftco-animate fadeInUp ftco-animated"><div class="destination" style="font-size: 18px;"><p style="text-align: right;">잔여 포인트 : <span>10point</span></p>')
+				$("#target").append('<div class="col-md-4 ftco-animate fadeInUp ftco-animated"><div class="destination" style="font-size: 18px;"><p style="text-align: left0;">잔여 포인트 : <span>10point</span></p>')
 				$("#target").append('<table id="targettable" style="width: 100%; font-size:20px; text-align: center;"><thead style="background-color: #f85959; color: #ffffff"><tr><th>구분</th><th>포인트</th><th>일자</th></tr>')
 				$.each(data, function(key, value){
 						/* $("#target").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='javascript:void(0)' onclick='itemdetail("+value.hostdto.hnum+",\""+value.hname+ "\")' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/"+value.hostdto.himage+"\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='javascript:void(0)' onclick='itemdetail("+value.hostdto.hnum+",\""+value.hname+ "\")'>"+value.hname+"</a></h3></div><div class='two'><span class='price per-price'>"+value.usedate+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.hostdto.haddr+"</span> </p></div></div></div>"); */
