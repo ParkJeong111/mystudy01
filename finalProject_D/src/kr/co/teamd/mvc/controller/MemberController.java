@@ -115,7 +115,6 @@ public class MemberController {
 	@RequestMapping(value= "my_mypage") //마이페이지 이동 
 	public ModelAndView my(HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
-		System.out.println(mid+"나오지?");
 		ModelAndView mav = new ModelAndView();
 		if (mid ==null) {
 			session.setAttribute("vn", "redirect:my_mypage");
@@ -124,8 +123,10 @@ public class MemberController {
 		}else {
 			List<RecentListDTO> rlist = mdao.recentHostList(mid);
 			mav.addObject("rlist", rlist);
-			mav.setViewName("member/my_mypage");
-			
+			//MemberDTO my = mdao.myInfo(mid);
+			//int mpoint = my.getMpoint();
+			//mav.addObject("mpoint",mpoint);
+			mav.setViewName("member/my_mypage");			
 		return mav;
 		}
 	}

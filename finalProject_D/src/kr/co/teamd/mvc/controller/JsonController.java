@@ -35,8 +35,10 @@ import kr.co.teamd.mvc.dto.ItemsboardDTO;
 import kr.co.teamd.mvc.dto.ItemscommentDTO;
 import kr.co.teamd.mvc.dto.MatchingboardDTO;
 import kr.co.teamd.mvc.dto.MemberDTO;
+import kr.co.teamd.mvc.dto.PointlogDTO;
 import kr.co.teamd.mvc.dto.QnaDTO;
 import kr.co.teamd.mvc.dto.RandomMatchingDTO;
+import kr.co.teamd.mvc.dto.RecentListDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
 @RestController
@@ -287,9 +289,19 @@ public class JsonController {
 	
 	
 	@RequestMapping(value= "my_point") //나의 포인트 
-	public String coupon() {
-		return "member/my_point";
+	public List<PointlogDTO> coupon(HttpSession session) {
+		String mid = (String) session.getAttribute("mid");
+		List<PointlogDTO> plist = mdao.gamepointlogList(mid);
+		return plist ;
 	}
+	
+	@RequestMapping(value= "my_recent") //최근본가맹점
+	public List<RecentListDTO> recent(HttpSession session) {
+		String mid = (String) session.getAttribute("mid");
+		List<RecentListDTO> rlist = mdao.recentHostList(mid);
+		return rlist ;
+	}
+	
 	
 
 }

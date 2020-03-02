@@ -19,7 +19,7 @@ background: '#F85959';
 
 .talk_tab li {
 	float: left;
-	width: 19.1111%;
+	width: 33.1111%;
 	position: relative;
 	top: 1px;
 	list-style: none;
@@ -73,7 +73,7 @@ border-bottom: 1px solid #e6e6e6;
 						<li class="selecthead selected">
 						<a href="javascript:void(0);" onclick="recent();"><strong><b>최근 본 가맹점</b></strong></a></li>
 						<li class="selecthead">
-						<a href="javascript:void(0);" onclick="mypoint()"><strong><b>포인트 내역</b></strong></a></li>
+						<a href="javascript:void(0);" onclick="mypoint();"><strong><b>포인트 내역</b></strong></a></li>
 						<li class="selecthead">
 						<a href="my_passwordcheck;"><strong><b>나의정보수정</b></strong></a></li>
 					</ul>
@@ -81,7 +81,7 @@ border-bottom: 1px solid #e6e6e6;
 				</section>
 			</div>
 				
-					<!-- <div id="mypagetarget" class="row mypagelist" style="margin-top: 3%">
+					<!-- <div id="target" class="row mypagelist" style="margin-top: 3%">
 						<div class="col-md-12 ftco-animate ">
 						
 							<div class="destination" style="font-size: 18px;">
@@ -101,13 +101,13 @@ border-bottom: 1px solid #e6e6e6;
 					 -->
 					
 					
-					<div id="recnethosttarget" class="row reservationlist"style="margin-top: 3%">
+					<div id="target" class="row reservationlist"style="margin-top: 3%">
 					<c:forEach var="r" items="${rlist}">
 						<div class="col-md-4 ftco-animate ">
 							<div class="destination">
-								 <a href="javascript:void(0)" onclick="itemdetail(${r.hostdto.hnum},'${r.hostdto.hname }')"
+								 <a href="javascript:void(0)" onclick="itemdetail(${r.hnum},'${r.hname }')"
 									class="img img-2 d-flex justify-content-center align-items-center"
-									style="background-image: url('${pageContext.request.contextPath}/resources/images/${r.hostdto.himage }');">
+									style="background-image: url('${pageContext.request.contextPath}/resources/images/${r.himage }');">
 									<div class="icon d-flex justify-content-center align-items-center">
 										<span class="icon-search2"></span>
 									</div>
@@ -120,12 +120,12 @@ border-bottom: 1px solid #e6e6e6;
 											</h3>
 										</div>
 										<div class="two">
-											<span class="price per-price">${r.usedate}<br></span>
+											<span class="price per-price">${r.rhdate}<br></span>
 										</div>
 									</div>
 									<hr>
 									<p class="bottom-area d-flex">
-										<span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>${r.hostdto.haddr }</span> 
+										<span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>${r.haddr }</span> 
 									</p>
 								</div>
 							</div>
@@ -165,6 +165,50 @@ function itemdetail(hnum, hname) {
 	location.href="itemdetail?hnum="+hnum+"&hname="+encodeURI(hname, "UTF-8");
 };
 
+
+
+function mypoint() {
+		console.log("함수호출!!")
+		$.ajax({
+			url : "my_point",
+			datatype : 'json',
+			success : function(data) {
+				console.log("성공은했니?")
+				$("#target").html("")
+				$("#target").append('<div class="col-md-4 ftco-animate fadeInUp ftco-animated"><div class="destination" style="font-size: 18px;"><p style="text-align: right;">잔여 포인트 : <span>10point</span></p>')
+				$("#target").append('<table id="targettable" style="width: 100%; font-size:20px; text-align: center;"><thead style="background-color: #f85959; color: #ffffff"><tr><th>구분</th><th>포인트</th><th>일자</th></tr>')
+				$.each(data, function(key, value){
+						/* $("#target").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='javascript:void(0)' onclick='itemdetail("+value.hostdto.hnum+",\""+value.hname+ "\")' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/"+value.hostdto.himage+"\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='javascript:void(0)' onclick='itemdetail("+value.hostdto.hnum+",\""+value.hname+ "\")'>"+value.hname+"</a></h3></div><div class='two'><span class='price per-price'>"+value.usedate+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.hostdto.haddr+"</span> </p></div></div></div>"); */
+						console.log(value.plpoint)
+						$("#targettable").append('<tbody style="font-family:  Do Hyeon"><tr><td>'+value.pltype+'</td><td>'+value.plpoint+'point</td><td>'+value.pldate+'</td></tr></tbody></table></div></div>')
+				});
+			}
+		});
+		
+	}
+
+
+
+function recent() {
+	console.log("함수호출!!")
+	$.ajax({
+		url : "my_recent",
+		datatype : 'json',
+		success : function(data) {
+			console.log("성공은했니?")
+			$("#target").html("")
+			$.each(data, function(key, value){
+				$("#target").append('<div class="col-md-4 ftco-animate fadeInUp ftco-animated"><div class="destination"><a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',\"' +value.hname +'\")" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+				+'<div class="icon d-flex justify-content-center align-items-center"><span class="icon-search2"></span></div></a><div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="hotel-single.jsp">'+value.hname +'</a></h3></div>'
+				+'<div class="two"><span class="price per-price">'+value.rhdate +'<br></span></div></div><hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:65%;"><i class="icon-map-o"></i>'+value.haddr +'</span></p></div></div></div>');					
+					
+			});
+		}
+	});
+	
+}
+ 
+
 $(document).ready(function() {
 	$(".selecthead").each(function() {
 		$(this).click(function() {
@@ -176,19 +220,6 @@ $(document).ready(function() {
 });
 
 
-function mypoint() {
-		$.ajax({
-			url : "my_point",
-			datatype : 'json',
-			success : function(data) {
-				$("#mypagetarget").html("")
-				$.each(data, function(key, value){
-						$("#mypagetarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='javascript:void(0)' onclick='itemdetail("+value.hostdto.hnum+",\""+value.hname+ "\")' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/"+value.hostdto.himage+"\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='javascript:void(0)' onclick='itemdetail("+value.hostdto.hnum+",\""+value.hname+ "\")'>"+value.hname+"</a></h3></div><div class='two'><span class='price per-price'>"+value.usedate+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.hostdto.haddr+"</span> </p></div></div></div>");
-								});
-			}
-		});
-		
-	}
 
 
 </script>
