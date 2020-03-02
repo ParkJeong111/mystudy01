@@ -391,7 +391,7 @@
 
 .view_area .ps_txt p {
 	font-size: 14px;
-	color: #8c8c8c;
+	color: ##444444;
 }
 
 .view_area .ps_txt2 {
@@ -400,7 +400,7 @@
 
 .view_area .ps_txt2 p {
 	font-size: 14px;
-	color: #8c8c8c;
+	color: #444444;
 }
 
 .view_area .view_map {
@@ -614,7 +614,7 @@
 }
 
 .view_area .view_box table td .ps_txt {
-	color: #8c8c8c;
+	color: #444444;
 	display: block
 }
 
@@ -791,7 +791,7 @@
 	margin-left: 16px;
 	display: block;
 	font-size: 16px;
-	color: #8c8c8c;
+	color: #444444;
 	line-height: 1.4
 }
 
@@ -1016,7 +1016,7 @@
 	background: #fff;
 	text-align: center;
 	font-size: 16px;
-	color: #8c8c8c;
+	color: #444444;
 	padding-bottom: 20px;
 	font-weight: normal;
 }
@@ -1450,7 +1450,7 @@
 
 .view_area .reserve_area .reserve_dot p {
 	font-size: 18px;
-	color: #8c8c8c;
+	color: #444444;
 	margin-left: 15px;
 	line-height: 1.5
 }
@@ -1471,6 +1471,8 @@
 .reserveclick:hover {
 	border-color: #f85959;
 	cursor: pointer;
+	background-color: #f9d3d3;
+
 }
 
 .view_area .reserve_area_off .count_pic {
@@ -1708,7 +1710,7 @@
 	margin-top: 4px;
 	display: block;
 	font-size: 16px;
-	color: #8c8c8c;
+	color: #444444;
 	padding-left: 34px;
 	margin-left: 15px
 }
@@ -1739,10 +1741,10 @@
 }
 
 .manage_tab_area li a {
-	border: 1px solid #8c8c8c;
+	border: 1px solid #444444;
 	font-size: 16px;
 	padding: 10px 0;
-	color: #8c8c8c;
+	color: #444444;
 	text-align: center;
 	display: block;
 	border-radius: 0.3rem
@@ -1982,7 +1984,7 @@
 
 .view_info_manage .manage_list_area li .manage_date {
 	font-size: 14px;
-	color: #8c8c8c;
+	color: #444444;
 	position: absolute;
 	bottom: 15px
 }
@@ -2733,21 +2735,17 @@ keyframes swiper-preloader-spin { 100%{
 	<div class="container" style="margin-top: -40%;"></div>
 </div>
 <!--  여기에 헤더부분 추가  -->
-<hr>
-<div class="view_area" style="font-family: Jua;">
+<p style="text-align: center; font-weight: bold; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon; color:#333333;">
+		상세정보
+	</p>
+
+<div class="view_area" style="font-family: Noto Sans KR;">
 	<div class="talk_tab_area">
 		<section>
 			<h3 class="talk_tab clearfix"
-				style="font-weight: bold; text-align: center; color: #606060; font-size: 30px;">
-				<%-- <c:choose>
-					<c:when test="${host.htype == '바다'}">
-						바다
-					</c:when>
-					<c:when test="${host.htype == '민물'}">
-						민물
-					</c:when>
-				</c:choose> --%>
-				상세정보
+				style="font-weight: bold; text-align: center; color: #333333; font-size: 45px; font-family: Do Hyeon;">
+		
+		
 			</h3>
 			<hr>
 		</section>
@@ -2762,12 +2760,12 @@ keyframes swiper-preloader-spin { 100%{
 				<!-- 업체 정보 -->
 				<div class="profile_info col-md-4">
 					<dl class="clearfix">
-						<dt>
+						<dt style="font-family: Do Hyeon; font-size: 30px; color: #222222;">
 							<span class="ico_pic ico_pic1">상호명</span> <br>${host.hname}
 						</dt>
 						<dd>
-							<h2>${host.haddr}</h2>
-							<span id="distance" style="color: black;"></span>
+							<h2 style="color: #333333;">${host.haddr}</h2>
+							<span id="distance" style="color: #333333;"></span>
 						</dd>
 					</dl>
 				</div>
@@ -2789,23 +2787,23 @@ keyframes swiper-preloader-spin { 100%{
 					<p class="view_box_title">
 						주요어종<span class="count_txt">${fn:length(hspeciesList)}종</span>
 					</p>
-					<ol class="in_box clearfix" style="list-style: none;">
+					<ol class="in_box clearfix" style="list-style: none; color: #222222;">
 						<c:forEach items="${hspeciesList}" var="e">
 							<c:choose>
 								<c:when test="${e == '고등어' }">
 									<li><img
 										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_leather.png">
-										<h2>${e}</h2></li>
+										<h2 style="color: #222222;">${e}</h2></li>
 								</c:when>
 								<c:when test="${e == '방어' }">
 									<li><img
 										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_crucian_carp.png">
-										<h2>${e}</h2></li>
+										<h2 style="color: #222222;">${e}</h2></li>
 								</c:when>
 								<c:otherwise>
 									<li><img
 										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_fancy_crap.png">
-										<h2>${e}</h2></li>
+										<h2 style="color: #222222;">${e}</h2></li>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -2814,10 +2812,10 @@ keyframes swiper-preloader-spin { 100%{
 				<!-- 어종 정보 시작 -->
 				<!-- 서비스 정보 시작 -->
 				<div class="view_box info_view_sty9">
-					<p class="view_box_title">서비스</p>
+					<p class="view_box_title">편의시설</p>
 					<div class="in_box clearfix">
 						<c:forEach items="${hserviceList}" var="e">
-							<span>${e}</span>
+							<span style="font-family: jua;">${e}</span>
 						</c:forEach>
 					</div>
 				</div>
@@ -2835,7 +2833,7 @@ keyframes swiper-preloader-spin { 100%{
 									</p>
 								</div>
 								<div class="reserve_dot">
-									<p>${e.hginfo}</p>
+									<p style="font-size: 15px;">${e.hginfo}</p>
 								</div>
 							</div>
 						</a>

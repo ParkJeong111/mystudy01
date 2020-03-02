@@ -2,6 +2,9 @@
     pageEncoding="EUC-KR"%>
     
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- 추가 폰트 Poppins -->
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  메인 폰트  Do Hyeon -->
+	
 <style>
 .pieBackground {
     background-color: rgba(240, 240, 240, 1);
@@ -327,6 +330,7 @@ margin: auto;
 overflow: auto; 
 position: fixed; 
 }
+body{font-family: Do Hyeon}
 
 </style>
 
