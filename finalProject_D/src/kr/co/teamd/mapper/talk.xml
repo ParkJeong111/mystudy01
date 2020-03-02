@@ -119,24 +119,5 @@
           <select id="itemsCommentList" parameterType="icdto" resultType="icdto">
         select icnum, ibnum, mnickname, iccontent, icdate from itemscomment where ibnum=#{ibnum} order by icdate desc
      </select>
-     
-     
      <!-- 댓글 쓰기 종료 -->
-   <!-- 김채은 영역 끝  -->
-
-
-   <!-- 권세진 영역 시작  -->
-   
-   <!-- 권세진 영역 끝  -->
-   
-   
-   <!-- 박정연 영역 시작  -->
-   
-   <!-- 박정연 영역 끝  -->
-   
-   
-   <!-- 주성중 영역 시작  -->
-
-   <!-- 주성중 영역 끝  -->
-
   </mapper>

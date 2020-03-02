@@ -34,9 +34,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet"> <!-- 로고폰트  Gugi -->
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet"> <!-- 헤더폰트  Jua -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"> <!--  추가 폰트  Noto Sans KR -->
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  추가 폰트  Do Hyeon -->
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet"><!--  메인 폰트  Do Hyeon -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> <!-- 추가 폰트 Poppins -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap" rel="stylesheet"> <!--굵은   Noto Sans KR -->
 
     <style>
     .nav-link{font-family: Jua;}
@@ -212,13 +212,13 @@ filter: invert(0%);
 					</c:choose>
           
              <ul class="submenumore">
-                <li class="nav-link" ><a href="my_passwordcheck">나의정보</a></li>
+                <li class="nav-link" ><a href="my_mypage">마이페이지</a></li>
                 <hr>
           	  	<li class="nav-link" ><a href="my_reservation">예약내역</a></li>
           	  	<hr>
           	  	<li class="nav-link" ><a href="my_matching">랜덤매칭내역</a></li>
-          	  	<hr>
-          	  	<li class="nav-link" ><a href="my_point">포인트</a></li>
+          	  	<!-- <hr>
+          	  	<li class="nav-link" ><a href="my_point">포인트</a></li> -->
           	  	<hr>
                 <li class="nav-link"><a href="my_board" id="my_board">내글쓰기</a></li>
               </ul>
@@ -233,7 +233,7 @@ filter: invert(0%);
 
   </nav>
      <div>
-       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 19.9%; margin-left: 31.5%; width: 277.97px;" id="autosearchlist" class="divBox shadow">
+       	<div style="background-color: white; border-radius: 4px; display: none; margin-top: 20.1%; margin-left: 32.5%; width: 275px; cursor: pointer;" id="autosearchlist" class="divBox shadow">
       		<p class="autosearchlist"><a href="mainsearchlist"></a></p>
       	</div> 
 	</div>
@@ -659,10 +659,6 @@ label {
  	            hours = 23;
  	        }
  	    }
- 	    
- 	    /* example
- 	     * 9시 -> 09시 변경 필요
- 	     */
  	    
  	    if(hours < 10) {
  	        hours = '0'+hours;

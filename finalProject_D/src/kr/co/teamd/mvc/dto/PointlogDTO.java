@@ -1,13 +1,27 @@
 package kr.co.teamd.mvc.dto;
 
 public class PointlogDTO {
-	private String mid,mldate;
+	private String mid,pldate,pltype;
+	private int plpoint;
 	
-	public String getMldate() {
-		return mldate;
+
+	public int getPlpoint() {
+		return plpoint;
 	}
-	public void setMldate(String mldate) {
-		this.mldate = mldate;
+	public void setPlpoint(int plpoint) {
+		this.plpoint = plpoint;
+	}
+	public String getPldate() {
+		return pldate;
+	}
+	public void setPldate(String pldate) {
+		this.pldate = pldate;
+	}
+	public String getPltype() {
+		return pltype;
+	}
+	public void setPltype(String pltype) {
+		this.pltype = pltype;
 	}
 	public String getMid() {
 		return mid;

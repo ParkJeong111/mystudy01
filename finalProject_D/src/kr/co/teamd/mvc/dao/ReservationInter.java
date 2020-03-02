@@ -6,4 +6,5 @@ public interface ReservationInter {
 
 	public void reservationInsert(ReservationDTO rdto);
 	public void memberPointUpdate(ReservationDTO rdto);
+	public void usingpoingInsert(ReservationDTO rdto);
 }

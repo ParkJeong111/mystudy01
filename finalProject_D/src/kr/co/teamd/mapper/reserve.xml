@@ -16,4 +16,8 @@
 		update member set mpoint = mpoint - #{mpoint} where mid = #{mid}
 	</update>
 	<!-- 송용화 영역 끝 -->
+	
+	<insert id="usingpoint" parameterType="rdto">
+		insert into pointlog values(pointlog_seq.nextVal, #{mid}, sysdate, '사용', -1*#{mpoint})
+	</insert>
 </mapper>

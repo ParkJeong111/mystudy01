@@ -1142,21 +1142,7 @@ section {
 	line-height: 1.4
 }
 
-.talk_area .talk_recom a span {
-	width: 159px;
-	display: block;
-	position: absolute;
-	bottom: 15px;
-	font-size: 14px;
-	color: #b5b5b5;
-	letter-spacing: -0.6px
-}
 
-.talk_area .talk_recom a span i {
-	float: right;
-	color: #454545;
-	font-size: 16px
-}
 
 .talk_area .talk_plan {
 	margin-bottom: 20px
@@ -1529,13 +1515,13 @@ section {
 
 .boardtitle {
 	font-size: 24px;
-	margin: 3%;
+	margin: 2.3%;
 }
 
 .board_date {
 	margin-left: 3%;
 	margin-right: 3%;
-	margin-top: -3%;
+	margin-top: -2%;
 }
 </style>
 
@@ -1546,8 +1532,6 @@ section {
 	<div class="overlay"></div>
 	<div class="container" style="margin-top: -40%;"></div>
 </div>
-
-
 
 
 
@@ -1624,7 +1608,7 @@ section {
 									<p class="talk_pic" style="float: left; width: 30%;">
 										<span class="manage">${e.btype2}</span>
 									</p>
-									<p style="float: right; margin-right: 3%">${e.mnickname}</p>
+									<p style="float: right; margin-right: 3%"> ${e.mnickname}</p>
 								</div>
 
 								<div class="img_box" style="width: 100%;">
@@ -1661,7 +1645,7 @@ section {
 
 				</div>
 				<div class="talk_recom" style="width: 35%; float: right;">
-					<p style="margin-left: 100px;">고기자바 추천 업체</p>
+					<h3 style="margin-left: 80px; font-size: 20px; font-family: jua;">고기자바 추천 업체</h3>
 					<c:forEach var="i" items="${test.recommendlist}">
 						<div class="shadow"
 							style="width: 320px; height: 130px; border-radius: 5px; border-color: gray;">
