@@ -64,7 +64,7 @@
                 <when test="viewtype.equals('민물')">b.btype2='민물조행기'</when>
                 <otherwise></otherwise>
         </choose>
-        order by b.bdate desc) where rownum &lt;6 
+        order by b.bdate desc) where <![CDATA[ rownum < 6 ]]> 
         
         </select>
         

@@ -110,6 +110,7 @@
 		from host h, hostgoods hg
 		where h.hname = hg.hname and h.hnum =
 		#{hnum}
+		order by hgmoney asc
 	</select>
 	<!-- Host Detail 끝 -->
 
