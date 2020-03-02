@@ -41,6 +41,12 @@ public class MatchingBoardDAO implements MatchingBoardInter {
 		return ss.selectOne("morepage.boardmatchcheck",resultcheck);
 	}
 
+	@Override
+	public void matchingboardinsert(HashMap<String, Object> dto) {
+		ss.insert("morepage.matchingboardinsert",dto);
+	}
+
+
 
 
 
