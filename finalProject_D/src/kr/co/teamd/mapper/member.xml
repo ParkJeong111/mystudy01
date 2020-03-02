@@ -25,7 +25,7 @@
 		<when test="type==1">and r.usedate &gt;= to_char(sysdate)</when>
 		<when test="type==2">and r.usedate &lt; to_char(sysdate)</when>
 		<when test="type==3">and r.rmoney = 0</when>
-		<otherwise>and r.usedate > to_char(sysdate)</otherwise>
+		<otherwise>and r.usedate &gt;= to_char(sysdate)</otherwise>
 	</choose>
 	 order by r.usedate desc
 	</select>

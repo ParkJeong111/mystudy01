@@ -87,7 +87,12 @@ public class MemberController {
 			HashMap<Object, Object> map = new HashMap<Object, Object>();
 			map.put("mid", mid);
 			map.put("type", 0);
+			System.out.println("여기여기");
 			List<ReservationDTO> reservationlist = mdao.myReservation(map);
+			for(ReservationDTO dto : reservationlist) {
+				System.out.println("hname : " + dto.getHname());
+			}
+			System.out.println("여기여기222222222");
 			mav.addObject("rlist", reservationlist);
 			mav.setViewName("member/my_reservation");	
 		}
