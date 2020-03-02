@@ -2,6 +2,8 @@ package kr.co.teamd.mvc.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,8 +38,9 @@ public class itemslistController {
 	
 	// 업체 상세페이지
 	@GetMapping(value = "itemdetail")
-	public ModelAndView hostDetail(int hnum) {
+	public ModelAndView hostDetail(int hnum, String hname, HttpSession session) {
 		System.out.println("hnum이다" + hnum);
+		System.out.println("hname이다" + hname);
 		ModelAndView mav = new ModelAndView("itemdetail");
 		HostDTO hdto = hostdao.hostDetail(hnum);
 		List<HostgoodsDTO> hgdtoList = hdto.getHgdto();

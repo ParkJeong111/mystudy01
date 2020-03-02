@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.MemberDTO;
+import kr.co.teamd.mvc.dto.RecentListDTO;
 import kr.co.teamd.mvc.dto.ReservationDTO;
 
 @Controller
@@ -112,13 +113,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "my_mypage") //마이페이지 이동 
-	public String my(HttpSession session) {
+	public ModelAndView my(HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
+		ModelAndView mav = new ModelAndView();
 		if (mid ==null) {
 			session.setAttribute("vn", "redirect:my_mypage");
-			return "member/login";
+			mav.setViewName("member/login");
+			return mav;
 		}else {
-		return "member/my_mypage";
+			List<RecentListDTO> rlist = mdao.recentHostList(mid);
+			mav.addObject("rlist", rlist);
+			mav.setViewName("member/my_mypage");
+			
+		return mav;
 		}
 	}
 
