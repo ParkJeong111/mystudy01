@@ -73,7 +73,6 @@ public class RandomMatchingController {
 			System.out.println("잘 등록하고 이동했쥬");
 			// 현재 매칭 진행중인 컬럼들을 추출해주기위한 변수 선언
 			List<RandomMatchingDTO> randto =  randommatching.randomatchinglist();
-			
 			// 인원수 2명인 매칭을 진행해주는 기능
 			if(dto.getRmcount() == 2) {
 				// 현재 입력된 값과 디비에 매칭 진행중인 값들을 비교하기위한 for문 선언
@@ -103,8 +102,6 @@ public class RandomMatchingController {
 						// 매칭이 완료되면 테이블에 insert 해준다.
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
-						out.flush();
 						
 						
 					}
@@ -113,6 +110,7 @@ public class RandomMatchingController {
 				}
 				count2 = 0;
 			}
+			
 			// 인원수 2명 부분과 동일합니다.
 			else if(dto.getRmcount() == 4) {
 				for(RandomMatchingDTO e : randto) {
@@ -137,13 +135,12 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
-						out.flush();
 						
 					}
 					dbval.setLength(0);
 				}
 				count4 = 0;
+				
 			}else {
 				for(RandomMatchingDTO e : randto) {
 					dbval.append(e.getRmcount()).append(e.getRmlocation()).append(e.getRmtype())
@@ -168,8 +165,6 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
-						out.flush();
 						
 					}
 					dbval.setLength(0);
