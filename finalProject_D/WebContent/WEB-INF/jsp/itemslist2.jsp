@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
-body{color: #333333;}
 .talk_header {
 	border-bottom: 1px solid #e6e6e6;
 }
@@ -18,7 +17,7 @@ body{color: #333333;}
 
 .talk_header .talk_tab li a {
 	display: block;
-	font-size: 25px;
+	font-size: 22px;
 	color: #606060;
 	letter-spacing: -0.6px;
 	text-align: center;
@@ -1172,38 +1171,63 @@ width: 855px;
 		<div class="container" style="margin-top: -40%;"></div>
 	</div>
 	<!--  상단 내용  -->
-	<p style="text-align: center; font-weight: bold; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon; color:#333333;">
-		바다 / 민물
+	<p style="text-align: center; font-weight: bold; color: #606060; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon;">
+		<c:choose >
+			<c:when test="${type == 1}">
+				바다낚시
+			</c:when>
+			<c:when test="${type == 2}">
+				민물낚시
+			</c:when>
+			<c:when test="${type == 3}">
+				전문낚시
+			</c:when>
+			<c:when test="${type == 4}">
+				카페낚시
+			</c:when>
+		</c:choose>
 	</p>
+	<hr>
 	<!-- 상단 선택 부분 -->
 	<div class="talk_header">
 		<div class="talk_tab_area">
 			<section>
-				
+				<ul class="talk_tab clearfix" style="font-family:jua; font-weight: bold; width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
+					<!--  <li class="active">-->
+					<li class="itemslistheader"><a href="itemslist?type=1" data-talk_key="6" data-tc_key="0"
+						data-u_type="1">바다</a></li>
+					<li class="itemslistheader"><a href="itemslist?type=2" data-talk_key="1" data-tc_key="0"
+						data-u_type="1">민물</a></li>
+					<li class="itemslistheader"><a href="itemslist?type=3" data-talk_key="12" data-tc_key="0"
+						data-u_type="1">전문</a></li>
+					<li class="itemslistheader"><a href="itemslist?type=4" data-talk_key="11" data-tc_key="0"
+						data-u_type="1">카페</a></li>
+					
+				</ul>
 				<hr>
 			</section>
 		</div>
 		<!-- 사이드 검색 부분 -->
 		<section class="ftco-section ftco-degree-bg"
-			style="padding-top: 10px; font-family: Do Hyeon;">
+			style="padding-top: 10px; font-family: Jua;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 sidebar ftco-animate float_sidebar" id="float_sidebar" >
 						<!-- 업체명, 지역 검색 -->	
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
-								style="text-align: center; font-weight: bold;font-size: 25px;color: #333333">상 세 검 색</h3>
+								style="text-align: center; font-weight: bold;font-size: 20px;">상세 검색</h3>
 							<form action="searchlist" method="post">
-								<div class="fields"  style="font-size: 20px;">
+								<div class="fields"  style="font-size: 18px;">
 									<div class="form-group">
-										<input  style="font-size: 20px;" type="text" class="form-control" placeholder="검색 할 업체명" name="searchValue" id="searchValue">
+										<input  style="font-size: 18px;" type="text" class="form-control" placeholder="검색 할 업체명" name="searchValue" id="searchValue">
 									</div>
 									<div class="form-group">
 										<div class="select-wrap one-third">
 											<div class="icon">
 												<span class="ion-ios-arrow-down"></span>
 											</div>
-											<select  style="font-size: 20px;" name="searchLocation" id="searchLocation" class="form-control">
+											<select  style="font-size: 18px;" name="searchLocation" id="searchLocation" class="form-control">
 												<option value="">지역을 선택해주세요.</option>
 												<option value="서울">서울</option>
 												<option value="경기">경기</option>
@@ -1230,7 +1254,7 @@ width: 855px;
 										</div>
 									</div>
 									<div class="form-group">
-										<input type="button" style="font-size: 20px;" value="검색" id="searchbtn"
+										<input type="button" value="검색" id="searchbtn"
 											class="btn btn-primary py-3 px-5">
 									</div>
 								</div>
@@ -1239,13 +1263,13 @@ width: 855px;
 						<!-- 리뷰 평점 검색 -->
 						<div class="sidebar-wrap bg-light ftco-animate">
 							<h3 class="heading mb-4"
-								style="text-align: center; font-weight: bold;font-size: 25px;color: #333333;">리 뷰 별 점</h3>
+								style="text-align: center; font-weight: bold;font-size: 18px;">리뷰 별점</h3>
 							<form method="post" class="star-rating">
 								<div class="form-check" style="height: 50px;">
 									<input type="radio" id="starradio0" name="star" value="0"> 
 									<label for="starradio0">
 									<p class="rate starrate">
-											<span style="font-size: 20px;">&nbsp;상관없음</span>
+											<span style="font-size: 18px;">&nbsp;상관없음</span>
 									</p>
 									</label>
 								</div>
@@ -1304,13 +1328,13 @@ width: 855px;
 					</div>
 					<!-- 업체 리스트 -->
 					<div class="col-lg-9">
-						<div class="row" id="mainsearchlistdiv">
-							<c:forEach items="${mainsearchlist }" var="mainsearchlist" varStatus="status">
+						<div class="row" id="hostlistdiv">
+							<c:forEach items="${hostlist }" var="hostlist" varStatus="status">
 								<div class="col-md-4 ftco-animate">
 									<div class="destination">
-										<a href="itemdetail?hnum=${mainsearchlist.hnum}"
+										 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')"
 											class="img img-2 d-flex justify-content-center align-items-center"
-											style="background-image: url(${pageContext.request.contextPath}/resources/images/${mainsearchlist.himage });">
+											style="background-image: url(${pageContext.request.contextPath}/resources/images/${hostlist.himage });">
 											<div
 												class="icon d-flex justify-content-center align-items-center">
 												<span class="icon-search2"></span>
@@ -1319,13 +1343,14 @@ width: 855px;
 										<div class="text p-3">
 											<div class="d-flex">
 												<div class="one">
-													<h3 style="font-size: 25px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;">
-														<a href="itemdetail?hnum=${mainsearchlist.hnum}">${mainsearchlist.hname }</a>
+													<h3 style="font-size: 20px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;">
+														 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')">${hostlist.hname}</a>
+												
 													</h3>
 													<p class="rate starrate">
 													<c:forEach begin="0" end="4" varStatus="i">
 														<c:choose>
-															<c:when test="${i.current < mainsearchlist.hstar}">
+															<c:when test="${i.current < hostlist.hstar}">
 																<i class="icon-star"></i>
 															</c:when>
 															<c:otherwise>
@@ -1336,13 +1361,13 @@ width: 855px;
 													</p>
 												</div>
 												<div class="two">
-													<span class="price product-price">${mainsearchlist.hgmoney}</span><br>
-													<span style="font-size: 18px;">리뷰: ${mainsearchlist.boardnum}</span>
+													<span class="price product-price">${hostlist.hgmoney}</span><br>
+													<span style="font-size: 15px;">리뷰: ${hostlist.boardnum}</span>
 												</div>
 											</div>
-											<p class="info_view" style="font-family: jua" >
+											<p class="info_view" >
 												<script>
-													var hspecies = '${mainsearchlist.hspecies}';
+													var hspecies = '${hostlist.hspecies}';
 													var hspeciesSplit = hspecies.split(',');
 													for (var i in hspeciesSplit) {
 														document.write('<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>');
@@ -1351,8 +1376,8 @@ width: 855px;
 											</p>
 											<hr>
 											<p class="bottom-area d-flex">
-												<span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap; font-size: 20px;"><i class="icon-map-o"></i>
-													&nbsp;${mainsearchlist.haddr}
+												<span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>
+													&nbsp;${hostlist.haddr}
 												</span> 
 												<%-- <span class="ml-auto"><a href="#">예약하기</a></span> --%>
 											</p>
@@ -1370,7 +1395,12 @@ width: 855px;
 		</div>
 		
 		<script>
+		
+		function itemdetail(hnum, hname) {
+			location.href="itemdetail?hnum="+hnum+"&hname="+encodeURI(hname, "UTF-8");
+		};
 		$(function() {
+		
 			
 			// 리뷰 별점 검색
 			$("input:radio[name=star]").click(function(){
@@ -1380,7 +1410,7 @@ width: 855px;
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
-						$("#mainsearchlistdiv").html("");
+						$("#hostlistdiv").html("");
 						// 평점 별 그리기
 						$.each(data, function(key, value) {
 							var star = "";
@@ -1400,17 +1430,17 @@ width: 855px;
 								hspeciesResult += '<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>';
 							}
 							
-							$("#mainsearchlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
-									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',' +  value.hname +')" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
 									+ '<div class="icon d-flex justify-content-center align-items-center">'
 									+ '<span class="icon-search2"></span></div></a>'
-									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:20px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;"><a href="javascript:void(0)"  onclick="itemdetail('+  value.hnum + ',' +  value.hname +')">' + value.hname + '</a></h3>'
 								    + '<p class="rate starrate">' + star
 								    + '</p></div>'
-								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 18px;">리뷰: ' + value.boardnum + '</span></div></div>'
-								    + '<p class="info_view" style="font-family: jua" >' + hspeciesResult + '</p>'
-									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap; font-size:20px;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">리뷰: ' + value.boardnum + '</span></div></div>'
+								    + '<p class="info_view">' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
 						
@@ -1428,11 +1458,11 @@ width: 855px;
 				        if($(window).scrollTop() > 450){  
 				        /* if(window.pageYOffset >= $('원하는위치의엘리먼트').offset().top){ */  
 				            $('#float_sidebar').addClass("fix");  
-				        	$('#mainsearchlistdiv').addClass("fixbox")
+				        	$('#hostlistdiv').addClass("fixbox")
 				            //위의 if문에 대한 조건 만족시 fix라는 class를 부여함  
 				        }else{  
 				            $('#float_sidebar').removeClass("fix");
-				            $('#mainsearchlistdiv').removeClass("fixbox")
+				            $('#hostlistdiv').removeClass("fixbox")
 				            //위의 if문에 대한 조건 아닌경우 fix라는 class를 삭제함  
 				        }  
 				    }  
@@ -1459,7 +1489,7 @@ width: 855px;
 							+ "&maxprice=" + $('#maxprice').val() + "&star=" + star + "&type=" + '${type}',
 					datatype : 'json',
 					success : function(data) {
-						$("#mainsearchlistdiv").html("");
+						$("#hostlistdiv").html("");
 						// 평점 별 그리기
 						$.each(data, function(key, value) {
 							var star = "";
@@ -1478,17 +1508,17 @@ width: 855px;
 								hspeciesResult += '<span style="padding: 5px; padding-left: 10px; padding-right: 10px;">' + hspeciesSplit[i] + '</span>';
 							}
 							
-							$("#mainsearchlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
+							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
-									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',' +  value.hname +')" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
 									+ '<div class="icon d-flex justify-content-center align-items-center">'
 									+ '<span class="icon-search2"></span></div></a>'
-									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:20px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 22px;  white-space: nowrap;"><a href="javascript:void(0)"  onclick="itemdetail('+  value.hnum + ',' +  value.hname +')">' + value.hname + '</a></h3>'
 								    + '<p class="rate starrate">' + star
 								    + '</p></div>'
-								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 18px;">리뷰: ' + value.boardnum + '</span></div></div>'
-								    + '<p class="info_view" style="font-family: jua" >' + hspeciesResult + '</p>'
-									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;font-size:20px;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
+								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 15px;">리뷰: ' + value.boardnum + '</span></div></div>'
+								    + '<p class="info_view">' + hspeciesResult + '</p>'
+									+ '<hr><p class="bottom-area d-flex"><span style="text-overflow: ellipsis; width:100%;height: 25px;overflow: hidden; white-space: nowrap;"><i class="icon-map-o"></i>&nbsp;' + value.haddr + '</span></p></div></div></div>'
 									);
 						});
 						$(".product-price").each(function(idx) {

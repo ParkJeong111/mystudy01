@@ -1333,7 +1333,7 @@ width: 855px;
 							<c:forEach items="${hostlist }" var="hostlist" varStatus="status">
 								<div class="col-md-4 ftco-animate">
 									<div class="destination">
-										<a href="itemdetail?hnum=${hostlist.hnum}"
+										 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')"
 											class="img img-2 d-flex justify-content-center align-items-center"
 											style="background-image: url(${pageContext.request.contextPath}/resources/images/${hostlist.himage });">
 											<div
@@ -1345,7 +1345,7 @@ width: 855px;
 											<div class="d-flex">
 												<div class="one">
 													<h3 style="font-size: 25px; text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;">
-														<a href="itemdetail?hnum=${hostlist.hnum}">${hostlist.hname }</a>
+														 <a href="javascript:void(0)" onclick="itemdetail(${hostlist.hnum},'${hostlist.hname }')">${hostlist.hname}</a>
 													</h3>
 													<p class="rate starrate">
 													<c:forEach begin="0" end="4" varStatus="i">
@@ -1395,7 +1395,12 @@ width: 855px;
 		</div>
 		
 		<script>
+		
+		function itemdetail(hnum, hname) {
+			location.href="itemdetail?hnum="+hnum+"&hname="+encodeURI(hname, "UTF-8");
+		};
 		$(function() {
+		
 			
 			// ¸®ºä º°Á¡ °Ë»ö
 			$("input:radio[name=star]").click(function(){
@@ -1427,10 +1432,10 @@ width: 855px;
 							
 							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
-									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',' +  value.hname +')" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
 									+ '<div class="icon d-flex justify-content-center align-items-center">'
 									+ '<span class="icon-search2"></span></div></a>'
-									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="javascript:void(0)"  onclick="itemdetail('+  value.hnum + ',' +  value.hname +')">' + value.hname + '</a></h3>'
 								    + '<p class="rate starrate">' + star
 								    + '</p></div>'
 								    + '<div class="two"><span class="price product-price">' + value.hgmoney + '</span><br><span style="font-size: 18px;">¸®ºä: ' + value.boardnum + '</span></div></div>'
@@ -1505,9 +1510,10 @@ width: 855px;
 							
 							$("#hostlistdiv").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'>"
 									+ "<div class='destination'>"
-									+ '<a href="itemdetail?hnum=' + value.hnum + '" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
+									+ '<a href="javascript:void(0)" onclick="itemdetail('+  value.hnum + ',' +  value.hname +')" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/'+ value.himage + ');">'
 									+ '<div class="icon d-flex justify-content-center align-items-center">'
 									+ '<span class="icon-search2"></span></div></a>'
+									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="javascript:void(0)"  onclick="itemdetail('+  value.hnum + ',' +  value.hname +')">' + value.hname + '</a></h3>'
 									+ '<div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size:25px;text-overflow: ellipsis; overflow: hidden; width: 100%; height: 27px;  white-space: nowrap;"><a href="itemdetail?hnum='+ value.hnum + '">' + value.hname + '</a></h3>'
 								    + '<p class="rate starrate">' + star
 								    + '</p></div>'
@@ -1525,7 +1531,6 @@ width: 855px;
 			});
 		});
 		</script>
-
 		<script
 			src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 		<script
