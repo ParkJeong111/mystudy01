@@ -354,25 +354,33 @@ $(function() {
 	$('#idChkBtn').click(
 		function() {
 			console.log("ID check button : " + $('#mid').val());
-			$.ajax({
-				url : "idcheck?id=" + $('#mid').val(),
-				success : function(data) {
-					console.log(data);
-					if (data === 0) {
-						$('#target').show().css("color", "blue").text("사용가능");
-						$("#mid").css("background-color", "#B0F6AC");
-						$(".signupbtn").prop("disabled", false);
-						$(".signupbtn").css("background-color", "#f85959");
-						idChk = 1;
-					} else {
-						alert("다른 아이디를 선택해 주세요.");
-						$("#mid").css("background-color", "#FFCECE");
-						$('#target').show().css("color", "red").text("사용중");
-						$(".signupbtn").prop("disabled", true);
-						$(".signupbtn").css("background-color", "#aaaaaa");
-					}
+			if($('#mid').val() == ""){
+				alert("아이디를 입력해주세요~!");
+				$("#mid").css("background-color", "#FFCECE");
+				$('#target').show().css("color", "red").text("공백은 사용하실수 없습니다.");
+				$(".signupbtn").prop("disabled", true);
+				$(".signupbtn").css("background-color", "#aaaaaa");
+				} else{
+					$.ajax({
+						url : "idcheck?id=" + $('#mid').val(),
+						success : function(data) {
+							console.log(data);
+							if (data === 0) {
+								$('#target').show().css("color", "blue").text("사용가능");
+								$("#mid").css("background-color", "#B0F6AC");
+								$(".signupbtn").prop("disabled", false);
+								$(".signupbtn").css("background-color", "#f85959");
+								idChk = 1;
+							} else {
+								alert("다른 아이디를 선택해 주세요.");
+								$("#mid").css("background-color", "#FFCECE");
+								$('#target').show().css("color", "red").text("사용중");
+								$(".signupbtn").prop("disabled", true);
+								$(".signupbtn").css("background-color", "#aaaaaa");
+							}
+						}
+					});
 				}
-			});
 		});
 
 		/* 비밀번호 확인 */
