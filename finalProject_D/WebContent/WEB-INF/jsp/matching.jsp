@@ -1353,22 +1353,22 @@ li {
 	</div>
 	<!--  여기에 헤더부분 추가  -->
 	<p
-		style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;  font-family: Jua;">
+		style="text-align: center; font-weight: bold; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon; color:#333333;">
 		함께자바</p>
 	<hr>
 		<section class="ftco-section ftco-degree-bg"
-			style="padding-top: 10px; font-family: Jua;">
+			style="padding-top: 10px; font-family: Do Hyeon;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 sidebar ftco-animate">
 						<div class="sidebar-wrap ftco-animate" style="width: 320px;">
 							<section>
 								<div class="form-group" style="width: 280px;">
-									<input type="text" id="checkin_date" class="form-control"
+									<input style="font-size:26px;" type="text" id="checkin_date" class="form-control"
 										placeholder="시작일" name = "startdate">
 								</div>
 								<div class="form-group" style="width: 280px;">
-									<input type="text" id="checkin_date" class="form-control"
+									<input style="font-size:26px;" type="text" id="checkin_date" class="form-control"
 										placeholder="종료일" name = "enddate">
 								</div>
 							</section>
@@ -1391,7 +1391,7 @@ li {
 							<br>
 							<div>
 								<div style="display: inline;">
-									<strong style="margin-left: 20px; color: gray;">인원</strong>
+									<strong style="margin-left: 24px; color: gray; font-size:20px;">인원</strong>
 									<input
 										type="button" onClick="changeperminus()" value="-"
 										class="per_Btn" style="margin-left: 60px;" id = "minus"> <strong>
@@ -1408,9 +1408,9 @@ li {
 							<section class="roomtype_section">
 								<ul class="bedtype" style="list-style: none;">
 									<li style="float: left; margin-right: 10px;"><input
-										type="checkbox" id="bbox1" value="바다" /><label for="bbox1">&nbsp;</label><p style="margin: auto; text-align: center;">바다</p></li>
+										type="checkbox" id="bbox1" value="바다" /><label for="bbox1">&nbsp;</label><p style="margin: auto; font-size:20px; text-align: center;">바다</p></li>
 									<li style="float: left; margin-right: 10px;"><input
-										type="checkbox" id="bbox2" value="민물" /><label for="bbox2">&nbsp;</label><p style="margin: auto; text-align: center;">민물</p></li>
+										type="checkbox" id="bbox2" value="민물" /><label for="bbox2">&nbsp;</label><p style="margin: auto; font-size:20px; text-align: center;">민물</p></li>
 								</ul>
 								<input type="text" id="hroom_text" name="hroom_text" value=""
 									hidden="hidden">
@@ -1420,83 +1420,83 @@ li {
 							<br> <br>
 							<!-- 객실내 시설 시작!!!!!!!!!!!!!!-->
 							<section class="service_section" style="margin-left: 30px;">
-								<strong style="margin-left: 20px; color: gray;">관심사</strong>
+								<strong style="margin-left: 20px; color: gray; font-size:28px;">관심사</strong>
 								<table style="line-height: 30px; margin-left: 18px;">
 									<tr>
 										<td style="width: 100px;"><input type="checkbox"
-											id="rbox1" value="실내" /><label for="rbox1">&nbsp;실내</label></td>
+											id="rbox1" value="실내" /><label for="rbox1" style="font-size:20px;">&nbsp;실내</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox2" value="배" /><label
-											for="rbox2">&nbsp;배</label></td>
+											for="rbox2" style="font-size:20px;">&nbsp;배</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox3" value="야간" /><label
-											for="rbox3">&nbsp;야간</label></td>
+											for="rbox3" style="font-size:20px;">&nbsp;야간</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox4" value="새벽" /><label
-											for="rbox4">&nbsp;새벽</label></td>
+											for="rbox4"style="font-size:20px;">&nbsp;새벽</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox5" value="초보" /><label
-											for="rbox5">&nbsp;초보</label></td>
+											for="rbox5" style="font-size:20px;">&nbsp;초보</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox6" value="축제" /><label
-											for="rbox6">&nbsp;축제</label></td>
+											for="rbox6" style="font-size:20px;">&nbsp;축제</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox7" value="흡연" /><label
-											for="rbox7">&nbsp;흡연</label></td>
+											for="rbox7" style="font-size:20px;">&nbsp;흡연</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox8" value="비흡연" /><label
-											for="rbox8">&nbsp;비흡연</label></td>
+											for="rbox8" style="font-size:20px;">&nbsp;비흡연</label></td>
 									</tr>
 								</table>
-								<br> <strong style="margin-left: 20px; color: gray;">바다</strong>
+								<br> <strong style="margin-left: 20px; color: gray; font-size:28px;">바다</strong>
 								<table style="line-height: 30px; margin-left: 18px;">
 									<tr>
 										<td style="width: 100px;"><input type="checkbox"
-											id="rbox30" value="서해중부" /><label for="rbox30">&nbsp;서해중부</label></td>
+											id="rbox30" value="서해중부" /><label for="rbox30" style="font-size:20px;">&nbsp;서해중부</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox9" value="서해남부" /><label
-											for="rbox9">&nbsp;서해남부</label></td>
+											for="rbox9" style="font-size:20px;">&nbsp;서해남부</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox10" value="동해중부" /><label
-											for="rbox10">&nbsp;동해중부</label></td>
+											for="rbox10" style="font-size:20px;">&nbsp;동해중부</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox11" value="동해남부" /><label
-											for="rbox11">&nbsp;동해남부</label></td>
+											for="rbox11" style="font-size:20px;">&nbsp;동해남부</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox12" value="남해서부" /><label
-											for="rbox12">&nbsp;남해서부</label></td>
+											for="rbox12" style="font-size:20px;">&nbsp;남해서부</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox13" value="남해동부" /><label
-											for="rbox13">&nbsp;남해동부</label></td>
+											for="rbox13" style="font-size:20px;">&nbsp;남해동부</label></td>
 									</tr>
 								</table>
-								<br> <strong style="margin-left: 20px; color: gray;">민물</strong>
+								<br> <strong style="margin-left: 20px; color: gray; font-size:28px;"">민물</strong>
 								<table style="line-height: 30px; margin-left: 18px;">
 									<tr>
 										<td style="width: 100px;"><input type="checkbox"
-											id="rbox14" value="강원" /><label for="rbox14">&nbsp;강원</label></td>
+											id="rbox14" value="강원" /><label for="rbox14" style="font-size:20px;">&nbsp;강원</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox15" value="경기" /><label
-											for="rbox15">&nbsp;경기</label></td>
+											for="rbox15" style="font-size:20px;">&nbsp;경기</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox16" value="충북" /><label
-											for="rbox16">&nbsp;충북</label></td>
+											for="rbox16" style="font-size:20px;">&nbsp;충북</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox17" value="충남" /><label
-											for="rbox17">&nbsp;충남</label></td>
+											for="rbox17" style="font-size:20px;">&nbsp;충남</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox18" value="전북" /><label
-											for="rbox18">&nbsp;전북</label></td>
+											for="rbox18" style="font-size:20px;">&nbsp;전북</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox19" value="전남" /><label
-											for="rbox19">&nbsp;전남</label></td>
+											for="rbox19" style="font-size:20px;">&nbsp;전남</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox20" value="경북" /><label
-											for="rbox20">&nbsp;경북</label></td>
+											for="rbox20" style="font-size:20px;">&nbsp;경북</label></td>
 										<td>&nbsp;<input type="checkbox" id="rbox21" value="경남" /><label
-											for="rbox21">&nbsp;경남</label></td>
+											for="rbox21" style="font-size:20px;">&nbsp;경남</label></td>
 									</tr>
 									<tr>
 										<td><input type="checkbox" id="rbox22" value="제주" /><label
-											for="rbox22">&nbsp;제주</label></td>
+											for="rbox22" style="font-size:20px;">&nbsp;제주</label></td>
 									</tr>
 									<input type="text" id="hservice" name="hservice" value="" hidden="hidden">
 								</table>
@@ -1520,18 +1520,18 @@ li {
 									<div class="text p-3">
 										<div class="d-flex">
 											<div class="one">
-												<h3>
+												<h3 style="font-size: 25px;">
 													<a href="#">${matchlist.mbtitle }</a>
 												</h3>
-												<p class="rate">	
-													<span style = "font-size: 13px;"> 출조일 : ${matchlist.mbstartdate }</span>
+												<p class="rate" style="width:200px">	
+													<span style = "font-size: 20px;padding-left: 15px;"> 출조일 : ${matchlist.mbstartdate }</span>
 												</p>
 											</div>
 											<div class="two">
-												<span class="price" style = "font-size: 14px;">${matchlist.mbtag }</span>
+												<span style="font-size: 15px;" class="price">${matchlist.mbtag }</span>
 											</div>
 										</div>
-										<p>${matchlist.mblocation }</p>
+										<p style ="font-size:20px; padding-left: 15px; margin-top: -19px">지역 : ${matchlist.mblocation }</p>
 										<p class="days">
 										</p>
 										<hr>
@@ -1675,7 +1675,6 @@ li {
         function matchpage() {
 			location.href = 'matchpage?mbnum='
 		}
-        
         
         function changeperminus(){
         	var val;
