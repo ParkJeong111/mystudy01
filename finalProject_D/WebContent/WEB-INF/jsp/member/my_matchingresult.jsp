@@ -71,9 +71,9 @@ border-bottom: 1px solid #e6e6e6;
 			
 					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
-						<li class="selecthead selected" id = "match">
+						<li class="selecthead selected">
 						<a href="javascript:void(0);" onclick="matching()"  style = "margin: auto;"><strong><b>¸ÅÄªÁß</b></strong></a></li>
-						<li class="selecthead selected1" id = "matchres">
+						<li class="selecthead selected1">
 						<a href="javascript:void(0);" onclick="matchingres()"  style = "margin: auto;"><strong><b>¸ÅÄª¿Ï·á</b></strong></a></li>
 						
 					</ul>
@@ -150,7 +150,6 @@ border-bottom: 1px solid #e6e6e6;
 		</div>
 		</div>
 		</div>
-		<input type="hidden" value="${list.check }" id="checkval">
 	</section>
 	
 <div id="matchingModal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-family: Jua;">
@@ -208,15 +207,6 @@ border-bottom: 1px solid #e6e6e6;
 
 </body>
 <script>
-console.log("check°ªÀº"+$('#checkval').val());
-if($('#checkval').val() == 1){
-	document.getElementById("match").className = "selecthead selected1";
-	document.getElementById("matchres").className = "selecthead selected";
-	matchingres();
-}
-
-
-
 $(document).on("click", "#modalmatch", function(){
 	$('#matchingModal').modal('show');
 });
@@ -234,8 +224,8 @@ $(document).ready(function() {
 		});
 	});
 	
-});
 
+});
 
 
 function matching() {
