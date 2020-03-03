@@ -119,7 +119,7 @@ public class RandomMatchingController {
 						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
 						out.flush();
 					}
-						
+					
 					
 					// StringBuilder의 값이 기준이상 넘어가지 않도록 리셋해주는 기능
 					dbval.setLength(0);
