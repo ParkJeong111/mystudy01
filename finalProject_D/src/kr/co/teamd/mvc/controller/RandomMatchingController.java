@@ -26,6 +26,7 @@ public class RandomMatchingController {
 	private int count2 = 0;
 	private int count4 = 0;
 	private int count6 = 0;
+	private String check = "0";
 	// mybatis에 인자값을 2개이상 보내기위해 선언
 	HashMap<String, Object> maplist = new HashMap<String, Object>();
 	// 해당 유저가 현재 매칭중인지를 확인하기위한 값 선언
@@ -47,7 +48,7 @@ public class RandomMatchingController {
 		// 로그인 아닐시에는 로그인창으로 이동시켜주는 기능
 		if(session.getAttribute("mid") == null) {
 			mav.setViewName("member/login");
-			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+			out.println("<script>alert('로그인 후 이용해주세요.'); location.href = 'login';</script>");
 			out.flush();
 		// 현재 RandomMatching 테이블에서 해당 유저의 매칭 대기 상태의 매칭정보가 있는지 체크해주는 기능(rmstatus = 0)
 		}else {
@@ -57,7 +58,7 @@ public class RandomMatchingController {
 		// 로그인 아닐시에는 로그인창으로 이동시켜주는 기능
 		if(session.getAttribute("mid") == null) {
 			mav.setViewName("member/login");
-			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+			out.println("<script>alert('로그인 후 이용해주세요.'); location.href = 'login';</script>");
 			out.flush();
 		// 위에서 넣어준 matchingcheck 값이 1이상이라면 현재 매칭 대기 상태의 매칭정보가 있는것이기때문에 매칭을 진행 할 수 없도록 해주는 기능
 		}else if(matchingcheck != 0){
@@ -71,13 +72,13 @@ public class RandomMatchingController {
 			dto.setRmid(session.getAttribute("mid").toString());
 			// 해당 정보들을 활용하여 insert해주는 기능
 			randommatching.randommatchinginsert(dto);
-			out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
-			out.flush();
+			
 			System.out.println("잘 등록하고 이동했쥬");
 			// 현재 매칭 진행중인 컬럼들을 추출해주기위한 변수 선언
 			List<RandomMatchingDTO> randto =  randommatching.randomatchinglist();
 			// 인원수 2명인 매칭을 진행해주는 기능
 			if(dto.getRmcount() == 2) {
+				
 				// 현재 입력된 값과 디비에 매칭 진행중인 값들을 비교하기위한 for문 선언
 				for(RandomMatchingDTO e : randto) {
 					dbval.append(e.getRmcount()).append(e.getRmlocation()).append(e.getRmtype())
@@ -108,9 +109,19 @@ public class RandomMatchingController {
 						// 매칭이 완료되면 matchingresult 테이블에 완료된 매칭값을 insert한다.
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						
-						
+						check = "1";
+						System.out.println("check값은 몇이냐"+check);
+						System.out.println("이건아니잖아=======================================================");
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
+						out.flush();
 					}
+					else {
+						System.out.println("이건아니잖아=======================================================");
+						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
+						out.flush();
+					}
+						
+					
 					// StringBuilder의 값이 기준이상 넘어가지 않도록 리셋해주는 기능
 					dbval.setLength(0);
 				}
@@ -202,8 +213,11 @@ public class RandomMatchingController {
 			List<RandomMatchingDTO> ranlist = randommatching.randomlistinfo(mid);
 			HashMap<String, Object> list = new HashMap<String, Object>();
 			list.put("req", ranlist);
+			list.put("check", check);
 			mav.addObject("list",list);
 			mav.setViewName("member/my_matching");
+			System.out.println("check마지막값"+check);
+			check = "0";
 			return mav;
 		}	
 		

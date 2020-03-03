@@ -836,14 +836,14 @@ input, select, button {
 													<%-- 아이디 세션 체크 --%>
 													<input type="hidden" name="mid" value="${sessionScope.mid }"/>
 													<input type="text" id="ibname" name="ibname" class="form-control"
-														placeholder="상품명을 입력해주세요." style="border-radius: 7px;">
+														placeholder="상품명을 입력해주세요." style="border-radius: 7px;" required="required">
 												</div>
 											</div>
 											<div class="col-md-6"
 												style="float: right; margin-left: -140px;">
 												<div class="form-group" style="width: 250px;">
 													<input type="text" id="ibmoney" name="ibmoney" class="form-control"
-														placeholder="가격을 입력해주세요." style="border-radius: 7px;">
+														placeholder="가격을 입력해주세요." style="border-radius: 7px;" required="required">
 												</div>
 											</div>
 											<div class="col-md-6"
@@ -851,13 +851,13 @@ input, select, button {
 												<div class="form-group" style="width: 250px;">
 													<input multiple="multiple" type="file" id="ibfile" name="ibfile"
 														class="form-control" placeholder="사진을 등록해주세요."
-														style="border-radius: 7px;">
+														style="border-radius: 7px;" required="required">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group" style="width: 870px;">
 													<input type="text" class="form-control" id="ibtitle" name="ibtitle"
-														placeholder="제목을 입력해 주세요(30자 이하)">
+														placeholder="제목을 입력해 주세요(30자 이하)" required="required">
 												</div>
 											</div>
 
@@ -866,7 +866,7 @@ input, select, button {
 												<div class="form-group">
 													<textarea
 														style="width: 870px; height: 500px; resize: none;" id="ibcontent" name="ibcontent"
-														placeholder="상품 내용을 입력해주세요."></textarea>
+														placeholder="상품 내용을 입력해주세요." required="required"></textarea>
 
 												</div>
 											</div>
