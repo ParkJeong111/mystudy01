@@ -845,7 +845,7 @@ a {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; font-family: Do Hyeon; font-size: 35px;" >
+		<div class="service_tab" style="text-align: center;margin: auto; padding: auto; font-family: Do Hyeon; font-size: 35px;" >
 			<ol class="clearfix" style="text-align: center;">
 				<li class="active"><a href="my_board"><b><strong style="font-size: 35px;">게시글작성</strong></b></a></li>
 				<li><a href="itemsboard"><b><strong style="font-size: 35px;">중고 게시글작성</strong></b></a></li>
