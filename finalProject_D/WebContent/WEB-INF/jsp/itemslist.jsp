@@ -1395,13 +1395,11 @@ width: 855px;
 		</div>
 		
 		<script>
-		
 		function itemdetail(hnum, hname) {
 			location.href="itemdetail?hnum="+hnum+"&hname="+encodeURI(hname, "UTF-8");
 		};
-		$(function() {
 		
-			
+		$(function() {
 			// 리뷰 별점 검색
 			$("input:radio[name=star]").click(function(){
 				star = $(this).val();

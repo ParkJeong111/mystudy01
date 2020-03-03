@@ -272,13 +272,19 @@
 							<img
 								src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSIwIDAgNTEyLjAwMDU1IDUxMiIgd2lkdGg9IjUxMnB4Ij48cGF0aCBkPSJtNTAuNTExNzE5IDIzMS45ODQzNzVjNS4yODkwNjItLjI2OTUzMSA5LjQ4ODI4MS00LjY0MDYyNSA5LjQ4ODI4MS05Ljk4ODI4MSAwLTUuNTMxMjUtNC40OTIxODgtMTAuMDAzOTA2LTEwLTEwLjAwMzkwNi01LjUxOTUzMSAwLTEwIDQuNDgwNDY4LTEwIDEwLjAwMzkwNiAwIDUuODU1NDY4IDQuOTg4MjgxIDEwLjMxMjUgMTAuNTExNzE5IDkuOTg4Mjgxem0wIDAiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJtMjYwLjAwMzkwNiAyMjEuOTk2MDk0YzAtNjAuNTk3NjU2LTQ5LjMxMjUtMTEwLjAwMzkwNi0xMTAtMTEwLjAwMzkwNi00NC4wNDI5NjggMC04MS44MzIwMzEgMjQuOTAyMzQzLTEwMS4wODIwMzEgNjYuNjA5Mzc0LTIuMzEyNSA1LjAxNTYyNi0uMTI1IDEwLjk1NzAzMiA0Ljg5MDYyNSAxMy4yNjk1MzIgNS4wMDc4MTIgMi4zMTY0MDYgMTAuOTUzMTI1LjEyODkwNiAxMy4yNjk1MzEtNC44ODY3MTkgMTUuODk0NTMxLTM0LjQzMzU5NCA0Ni44OTA2MjUtNTQuOTkyMTg3IDgyLjkyMTg3NS01NC45OTIxODcgNy45MjU3ODIgMCAxNS42MTcxODggMS4wMzUxNTYgMjIuOTQ1MzEzIDIuOTY4NzUtMjkuOTM3NSA1My42NjAxNTYtMjMuODI4MTI1IDEyMC45NTMxMjQgMTUuMzAwNzgxIDE2OC40MzM1OTMtMTEuODQzNzUgNS41NTA3ODEtMjQuOTI1NzgxIDguNjAxNTYzLTM4LjI0NjA5NCA4LjYwMTU2My0zNi4xOTE0MDYgMC02OC42ODc1LTIxLjQ3NjU2My04Mi43OTY4NzUtNTQuNzEwOTM4LTIuMTU2MjUtNS4wODIwMzEtOC4wMjM0MzctNy40NTMxMjUtMTMuMTEzMjgxLTUuMjk2ODc1LTUuMDgyMDMxIDIuMTYwMTU3LTcuNDUzMTI1IDguMDI3MzQ0LTUuMjk2ODc1IDEzLjExMzI4MSAxNy4xNjAxNTYgNDAuNDI5Njg4IDU3LjI4NTE1NiA2Ni44OTQ1MzIgMTAxLjIwNzAzMSA2Ni44OTQ1MzIgNjEuMTc1NzgyIDAgMTEwLTQ5LjI4OTA2MyAxMTAtMTEwem0tMjguNzg1MTU2IDM4Ljg4MjgxMmMtMTkuMzI4MTI1LTI2LjYzMjgxMi0yMi41NzAzMTItNjIuMDM5MDYyLTguNDAyMzQ0LTkxLjcxNDg0NCAxMC44MDQ2ODggMTQuODQ3NjU3IDE3LjE4NzUgMzMuMTA1NDY5IDE3LjE4NzUgNTIuODMyMDMyIDAgMTMuNDI1NzgxLTMuMTI4OTA2IDI3LjAzMTI1LTguNzg1MTU2IDM4Ljg4MjgxMnptLTI1LjcxNDg0NCAzMS45NTMxMjVjLTM2LjE0NDUzMS00MS45NTMxMjUtNDEuNjg3NS0xMDIuODM5ODQzLTEzLjcxNDg0NC0xNTAuNTMxMjUgNS45NjQ4NDQgMy4xNDA2MjUgMTEuNTM1MTU3IDYuOTI5Njg4IDE2LjYyMTA5NCAxMS4yNzczNDQtMjIuNjc1NzgxIDM5Ljg0Mzc1LTE4LjA4NTkzNyA5MC4wODk4NDQgMTEuNDMzNTk0IDEyNS4xOTUzMTMtNC4yMjI2NTYgNS4yMzA0NjgtOS4wNDY4NzUgOS45Mzc1LTE0LjMzOTg0NCAxNC4wNTg1OTN6bTAgMCIgZmlsbD0iIzAwMDAwMCIvPjxwYXRoIGQ9Im01MTEuODk4NDM4IDExLjQxNDA2MmMuNDQ1MzEyLTMuMTE3MTg3LS42MDE1NjMtNi4yNjE3MTgtMi44MjgxMjYtOC40ODQzNzQtMi4yMjY1NjItMi4yMjY1NjMtNS4zNzUtMy4yNzM0MzgtOC40ODQzNzQtMi44MjgxMjZsLTk5IDE0LjE0MDYyNmMtMy43NS41MzUxNTYtNi44NzUgMy4xNDQ1MzEtOC4wNzQyMTkgNi43MzgyODEtMS4xOTUzMTMgMy41OTM3NS0uMjYxNzE5IDcuNTU0Njg3IDIuNDE0MDYyIDEwLjIzMDQ2OWwyMS4yMjI2NTcgMjEuMjIyNjU2LTMwLjM5NDUzMiAzMC4zOTA2MjVjLTU1LjE1NjI1LTM2LjkzMzU5NC0xMjEuNDYwOTM3LTMwLjY3OTY4OC0xNzEuMDkzNzUgNC4yOTY4NzUtMjAuMzM1OTM3LTkuOTA2MjUtNDIuODk0NTMxLTE1LjEyODkwNi02NS42NTYyNS0xNS4xMjg5MDYtODIuNzEwOTM3IDAtMTUwLjAwMzkwNiA2Ny4yODkwNjItMTUwLjAwMzkwNiAxNTAuMDAzOTA2IDAgNzEuNjI4OTA2IDUwLjYwOTM3NSAxMzIuODgyODEyIDEyMC4wMDM5MDYgMTQ2Ljk5NjA5NHY0My4wMDM5MDZoLTMwLjAwMzkwNmMtNS41MTk1MzEgMC0xMCA0LjQ4MDQ2OC0xMCAxMC4wMDM5MDZ2NDBjMCA1LjUxOTUzMSA0LjQ4MDQ2OSAxMCAxMCAxMGgzMC4wMDM5MDZ2MzBjMCA1LjUyMzQzOCA0LjQ3NjU2MyAxMCAxMCAxMGg0MGM1LjUyMzQzOCAwIDEwLTQuNDc2NTYyIDEwLTEwdi0zMGgzMGM1LjUyMzQzOCAwIDEwLTQuNDgwNDY5IDEwLTEwdi00MGMwLTUuNTIzNDM4LTQuNDc2NTYyLTEwLjAwMzkwNi0xMC0xMC4wMDM5MDZoLTMwdi00My4wMDM5MDZjMjEuMTQwNjI1LTQuMzAwNzgyIDQxLjE1MjM0NC0xMy4xNzU3ODIgNTguNjEzMjgyLTI1Ljk4MDQ2OSA1NS41NjI1IDI2Ljg0NzY1NiAxMjQuNzA3MDMxIDE3LjgwNDY4NyAxNzEuNDUzMTI0LTI4Ljk1MzEyNSA1MC42NjQwNjMtNTAuNjUyMzQ0IDU4LjE3OTY4OC0xMjkuNzQ2MDk0IDE5LjA4OTg0NC0xODguNzkyOTY5bDMwLjQxMDE1Ni0zMC40MTAxNTYgMjEuMjE4NzUgMjEuMjE4NzVjMi42Nzk2ODggMi42Nzk2ODcgNi42NDA2MjYgMy42MDkzNzUgMTAuMjM0Mzc2IDIuNDE3OTY5IDMuNTkzNzUtMS4xOTkyMTkgNi4xOTkyMTgtNC4zMjQyMTkgNi43MzQzNzQtOC4wNzQyMTl6bS0zNDMuMzA4NTk0IDMzOS4yNjU2MjZjLTQuOTI1NzgyLjcwMzEyNC04LjU4NTkzOCA0LjkyMTg3NC04LjU4NTkzOCA5Ljg5ODQzN3Y2MS40MjE4NzVjMCA1LjUxOTUzMSA0LjQ3NjU2MyAxMCAxMCAxMGgzMHYyMGgtMzBjLTUuNTIzNDM3IDAtMTAgNC40NzY1NjItMTAgMTB2MzBoLTIwdi0zMGMwLTUuNTIzNDM4LTQuNDgwNDY4LTEwLTEwLTEwaC0zMHYtMjBoMzBjNS41MTk1MzIgMCAxMC00LjQ4MDQ2OSAxMC0xMHYtNjEuNDIxODc1YzAtNC45NzY1NjMtMy42NjAxNTYtOS4xOTUzMTMtOC41ODU5MzctOS44OTg0MzctNjMuNTE5NTMxLTkuMDgyMDMyLTExMS40MTc5NjktNjQuNDAyMzQ0LTExMS40MTc5NjktMTI4LjY4MzU5NCAwLTcxLjY4NzUgNTguMzIwMzEyLTEzMC4wMDM5MDYgMTMwLjAwMzkwNi0xMzAuMDAzOTA2IDcwLjk1NzAzMiAwIDEzMCA1Ny4zMzU5MzcgMTMwIDEzMC4wMDM5MDYgMCA2Ni4wNjI1LTQ4Ljk3MjY1NiAxMTkuNzU3ODEyLTExMS40MTQwNjIgMTI4LjY4MzU5NHptOTcuMTM2NzE4LTIyNC4xMzI4MTNjMzMuNzkyOTY5LTE1LjgxMjUgNzUuMDE5NTMyLTkuMTAxNTYzIDEwMS45MTc5NjkgMTcuODA4NTk0IDM1LjA5Mzc1IDM1LjA4OTg0MyAzNS4wOTM3NSA5Mi4xODc1IDAgMTI3LjI3NzM0My0yMi44OTg0MzcgMjIuOTAyMzQ0LTU1Ljg1MTU2MiAzMS40OTYwOTQtODYuNjA5Mzc1IDIzLjM2MzI4MiAxMi40MzM1OTQtMjIuMjM4MjgyIDE4Ljk3MjY1Ni00Ny4yMTg3NSAxOC45NzI2NTYtNzMgMC0zNS4xOTUzMTMtMTIuMDkzNzUtNjguNjIxMDk0LTM0LjI4MTI1LTk1LjQ0OTIxOXptMjE1LjA2MjUtMzguNzU3ODEzLTE0LjE0ODQzNy0xNC4xNDg0MzdjLTMuOTA2MjUtMy45MDIzNDQtMTAuMjM4MjgxLTMuOTA2MjUtMTQuMTQ0NTMxIDBsLTQzLjQyOTY4OCA0My40Mjk2ODdjLTMuNTE5NTMxIDMuNTE5NTMyLTMuOTE0MDYyIDkuMDg5ODQ0LS45Mjk2ODcgMTMuMDcwMzEzIDM4LjQ5NjA5MyA1MS4zMzk4NDQgMzMuMjQ2MDkzIDEyNC4zMjgxMjUtMTIuMjEwOTM4IDE2OS43NzczNDQtMzYuODU1NDY5IDM2Ljg2MzI4MS05Mi44MDA3ODEgNDcuNzUzOTA2LTE0MC40Mjk2ODcgMjguNjk1MzEyIDUuMDg5ODQ0LTUuMDM1MTU2IDkuODA0Njg3LTEwLjQyNTc4MSAxNC4xMTcxODctMTYuMTM2NzE5IDM5LjM1NTQ2OSAxMi45NTMxMjYgODIuNjIxMDk0IDIuODU1NDY5IDExMi4xNzU3ODEtMjYuNjk5MjE4IDQyLjg5MDYyNi00Mi44OTA2MjUgNDIuODkwNjI2LTExMi42NzU3ODIgMC0xNTUuNTY2NDA2LTM0LjQyNTc4MS0zNC40MzM1OTQtODcuNTkzNzUtNDIuMDc0MjE5LTEzMC40MzM1OTMtMTguNzczNDM4LTUuMTc5Njg4LTQuNzUtMTAuNjYwMTU3LTkuMTI1LTE2LjQyMTg3NS0xMy4wODk4NDQgMzcuODgyODEyLTIzLjIxODc1IDk0LjcwNzAzMS0zMy42NDA2MjUgMTQ2LjkyNTc4MSA1LjUxNTYyNSAzLjk3NjU2MyAyLjk4NDM3NSA5LjU1MDc4MSAyLjU4OTg0NCAxMy4wNjY0MDYtLjkyOTY4N2w0My40MzM1OTQtNDMuNDI5Njg4YzMuOTAyMzQ0LTMuOTA2MjUgMy45MDIzNDQtMTAuMjM4MjgxIDAtMTQuMTQ0NTMxbC0xNC4xNDg0MzctMTQuMTQ4NDM3IDY2LjAwMzkwNi05LjQyNTc4MnptMCAwIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+Cg=="
 								alt="" class="ico_login_email"
-								style="width: 34px; height: 26px; z-index: 2; position: relative; right: -90%; top: 20px;">
-								<div style="text-align: center;">
-								 남자 : 
-								<input type="radio" name="msex" id="msex" value="남자" required>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여자 : 
-								<input type="radio" name="msex" id="msex" value="여자">
-								</div>
+								style="width: 34px; height: 26px; z-index: 2; position: relative; right: -90%; top: 35px;">
+							<div style="text-align: center;">
+								<!-- 								<label for="msexm">남자</label> -->
+								<!-- 								<input type="radio" name="msex" id="msexm" value="남자" required="required"> -->
+								<!-- 							 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
+								<!-- 								<label for="msexf">여자</label> -->
+								<!-- 								<input type="radio" name="msex" id="msexf" value="여자"> -->
+								<input type="radio" id="msexm" name="msex" value="man"
+									checked="checked"> <label for="msexm">남자</label>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" id="msexf" name="msex" value="woman">
+								<label for="msexf">여자</label>
+							</div>
 						</div>
 
 						<div class="agree_section">
@@ -353,48 +359,40 @@ $(function() {
 				success : function(data) {
 					console.log(data);
 					if (data === 0) {
-						$('#target').show().css("color", "blue")
-								.text("사용가능");
-						$("#mid").css("background-color",
-								"#B0F6AC");
+						$('#target').show().css("color", "blue").text("사용가능");
+						$("#mid").css("background-color", "#B0F6AC");
 						$(".signupbtn").prop("disabled", false);
-						$(".signupbtn").css("background-color",
-								"#f85959");
+						$(".signupbtn").css("background-color", "#f85959");
 						idChk = 1;
 					} else {
 						alert("다른 아이디를 선택해 주세요.");
-						$("#mid").css("background-color",
-								"#FFCECE");
-						$('#target').show().css("color", "red")
-								.text("사용중");
+						$("#mid").css("background-color", "#FFCECE");
+						$('#target').show().css("color", "red").text("사용중");
 						$(".signupbtn").prop("disabled", true);
-						$(".signupbtn").css("background-color",
-								"#aaaaaa");
+						$(".signupbtn").css("background-color", "#aaaaaa");
 					}
 				}
-			});   
+			});
 		});
-		
-	/* 비밀번호 확인 */     
-		$('#pwdChkBtn').click(
-					function() {
-						console.log("비밀번호1차 " + $('#mpwd').val());
-						console.log("비밀번호2차 " + $('#mpwd2').val());
-						if($('#mpwd').val() === $('#mpwd2').val()){
-							console.log("비밀번호 일치!");
-							alert("비밀번호 일치!");
-						}else{
-							console.log("비밀번호 일치하지않습니다.");
-							alert("비밀번호가 일치하지 않습니다.");
-						}
-					});
-		
 
-/* ---------다음 우편주소----------API */            /* 테스트 해야됨!!! */
-function execDaumPostcode() {
-	console.log("does it work??? 3333333");
-	new daum.Postcode({
-		oncomplete : function(data) {
+		/* 비밀번호 확인 */
+		$('#pwdChkBtn').click(function() {
+			console.log("비밀번호1차 " + $('#mpwd').val());
+			console.log("비밀번호2차 " + $('#mpwd2').val());
+			if ($('#mpwd').val() === $('#mpwd2').val()) {
+				console.log("비밀번호 일치!");
+				alert("비밀번호가 일치합니다. 사용 가능 O");
+			} else {
+				console.log("비밀번호 일치하지않습니다.");
+				alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요!");
+			}
+		});
+
+		/* ---------다음 우편주소----------API *//* 테스트 해야됨!!! */
+		function execDaumPostcode() {
+			console.log("does it work??? 3333333");
+			new daum.Postcode({
+				oncomplete : function(data) {
 					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
 					// 각 주소의 노출 규칙에 따라 주소를 조합한다.
@@ -417,12 +415,11 @@ function execDaumPostcode() {
 						// 건물명이 있을 경우 추가한다.
 						if (data.buildingName !== '') {
 							extraAddr += (extraAddr !== '' ? ', '
-									+ data.buildingName
-									: data.buildingName);
+									+ data.buildingName : data.buildingName);
 						}
 						// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-						fullAddr += (extraAddr !== '' ? ' ('
-								+ extraAddr + ')' : '');
+						fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')'
+								: '');
 					}
 					// 우편번호와 주소 정보를 해당 필드에 넣는다.
 					document.getElementById('maddr1').value = data.zonecode; //5자리 새우편번호 사용
@@ -432,8 +429,9 @@ function execDaumPostcode() {
 					 document.getElementById('addr2').focus(); */
 				}
 			}).open();
-		};//--------------------------API end
-});
+		}
+		;//--------------------------API end
+	});
 <%-- ----------------------------------------------------------------- --%>
 </script>
 
