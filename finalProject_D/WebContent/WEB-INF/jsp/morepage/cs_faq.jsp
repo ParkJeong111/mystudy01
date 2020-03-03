@@ -21,8 +21,8 @@
 
 .service_area .service_tab li a {
 	display: block;
-	font-size: 20px;
-	color: #606060;
+font-size: 35px;
+	color: #333333;
 	text-align: center;
 	padding: 24px 0;
 	border-bottom: 1px solid #e6e6e6;
@@ -819,7 +819,7 @@ input, select, button {
 		style=" background: white; ">
 	<div class="service_area container" >
 
-		<div class="service_tab">
+		<div class="service_tab" style="margin-top: -50px;font-family: Do Hyeon; font-size: 35px;">
 			<ol class="clearfix">
 					<li class="active"><strong><a href="cs_faq"><b>자주하는질문</b></a></strong></li>
 					<li ><strong><a href="cs_customerreg"><b>업체등록요청</b></a></strong></li>

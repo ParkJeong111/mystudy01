@@ -141,8 +141,8 @@
 	<section class="ftco-section contact-section ftco-degree-bg"
 		style="padding-left:30%; font-family: Jua;">
 		<div class="container" style="margin: auto;">
-			<div class="row d-flex mb-5 contact-info" style="margin-left: 18%;">
-				<h2 class="h4">
+			<div class="row d-flex mb-5 contact-info" style="margin-left: 12%;">
+				<h2 class="h4" style="font-family: Do Hyeon; color: #333333;margin-top: -100px;" >
 					<br>회원가입
 				</h2>
 

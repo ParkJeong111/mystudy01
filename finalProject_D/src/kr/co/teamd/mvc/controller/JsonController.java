@@ -307,4 +307,29 @@ public class JsonController {
 		return rlist;
 	}
 
+	@RequestMapping("pwfind") // 이메일로 비밀번호 찾기
+	public HashMap<String, Object> pwfind(MemberDTO mdto) {
+		String memail = mdto.getMemail();
+		System.out.println("memail : " + memail);
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		MemberDTO myinfo = mdao.pwfind(memail);
+		
+		if (myinfo == null) {
+			System.out.println("null");
+			String msg = "이메일이 존재하지 않습니다."; 
+			map.put("msg", msg);
+			return map;
+		} else {
+			String msg = "success";
+			map.put("myinfo", myinfo);
+			map.put("msg", msg);
+			return map;
+		}
+	}
+		/*
+		 * if (myinfo != null) { map.put("myinfo", myinfo); map.put("msg",
+		 * "이메일이 존재합니다."); return map; } else { String msg = "이메일이 존재하지 않습니다."; return
+		 * map; }
+		 */
 }
