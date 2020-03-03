@@ -24,7 +24,7 @@ public class pointAdvice {
 	
 	@Around("execution(* kr.co.teamd.mvc.controller.GameController.mymatch*(..))")
 	public ModelAndView pointLoginLog(ProceedingJoinPoint jp) {
-		System.out.println("pointlog 생성 지점");
+		// System.out.println("pointlog 생성 지점");
 		Object[] fd =jp.getArgs();
 		ModelAndView rpath =null;
 		String methodName=jp.getSignature().getName();
@@ -38,9 +38,9 @@ public class pointAdvice {
 					HttpServletResponse request =  (HttpServletResponse) fd[1];
 					String mid = (String) session.getAttribute("mid");
 					if(mid==null) {
-						System.out.println("로그인 log에서 보는 mid 값이 null");
+						// System.out.println("로그인 log에서 보는 mid 값이 null");
 					}else {
-						System.out.println("로그인 log에서 보는 mid 값이 "+mid);
+						// System.out.println("로그인 log에서 보는 mid 값이 "+mid);
 						pointdto.setMid(mid);
 						pointdto.setPlpoint((int) fd[3]);
 						mdao.gamepointlogInsert(pointdto);
