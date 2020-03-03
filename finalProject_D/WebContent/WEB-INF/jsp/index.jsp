@@ -156,7 +156,7 @@ text-align: center;
     	<!-- 바다실시간 조황 for문 시작 5개만 돌려야함 -->
     			<div class="col-sm col-md-6 col-lg ftco-animate" >
     				<div class="destination">
-    					<a href="itemdetail?hnum=${sea.hostdto.hnum}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${sea.bimage});">
+    					<a href="talk_detail?bnum=${sea.bnum}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${sea.bimage});">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -212,7 +212,7 @@ text-align: center;
     			<c:forEach items="${freshlist}" var="fresh" > 
     			<div class="col-sm col-md-6 col-lg ftco-animate">
     				<div class="destination" >
-    					<a href="itemdetail?hnum=${fresh.hostdto.hnum}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${fresh.bimage});">
+    					<a href="talk_detail?bnum=${fresh.bnum}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(${pageContext.request.contextPath}/resources/images/${fresh.bimage});">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
