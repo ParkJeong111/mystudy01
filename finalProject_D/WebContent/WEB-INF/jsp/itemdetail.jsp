@@ -2771,9 +2771,9 @@ keyframes swiper-preloader-spin { 100%{
 				</div>
 				<!-- 업체 정보 -->
 				<!-- 업체 지도 -->
-				<div class="profile_info col-md-4">
+				<div class="profile_info col-md-4" style="width: 355px">
 					<span class="ico_pic ico_pic1"></span>
-					<div id="map" class="clearfix" style="width: 360px; height: 220px;"></div>
+					<div id="map" class="clearfix" style="width: auto; height: 220px;"></div>
 				</div>
 			</div>
 			<!--// view_profile -->
@@ -2790,20 +2790,41 @@ keyframes swiper-preloader-spin { 100%{
 					<ol class="in_box clearfix" style="list-style: none; color: #222222;">
 						<c:forEach items="${hspeciesList}" var="e">
 							<c:choose>
-								<c:when test="${e == '고등어' }">
+								<c:when test="${e == '잉어' }">
+									<li><img
+										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_carp.png">
+										<h2 style="color: #222222;">${e}</h2></li>
+								</c:when>
+								<c:when test="${e == '붕어' }">
+									<li><img
+										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_crucian_carp.png">
+										<h2 style="color: #222222;">${e}</h2></li>
+								</c:when>
+								<c:when test="${e == '향어' }">
 									<li><img
 										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_leather.png">
 										<h2 style="color: #222222;">${e}</h2></li>
 								</c:when>
-								<c:when test="${e == '방어' }">
+								<c:when test="${e == '광어' }">
 									<li><img
-										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_crucian_carp.png">
+										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_flatfish.png">
+										<h2 style="color: #222222;">${e}</h2></li>
+								</c:when>
+								<c:when test="${e == '우럭' }">
+									<li><img
+										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_black_rockfish.png">
+										<h2 style="color: #222222;">${e}</h2></li>
+								</c:when>
+								<c:when test="${e == '감성돔' }">
+									<li><img
+										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_black_seabream.png">
 										<h2 style="color: #222222;">${e}</h2></li>
 								</c:when>
 								<c:otherwise>
 									<li><img
 										src="https://img.moolban.com/unsafe/images/web_ver/fish/view/view_fancy_crap.png">
 										<h2 style="color: #222222;">${e}</h2></li>
+										
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -2988,8 +3009,8 @@ keyframes swiper-preloader-spin { 100%{
 					
 					infowindow.open(map, marker);
 					
-					$('#distance').text(
-							"현재 위치로부터 거리 : " + distance.toFixed(2) + "km");
+					// $('#distance').text("현재 위치로부터 거리 : " + distance.toFixed(2) + "km");
+					$('#distance').text("현재 위치로부터 거리 : 13349.58km");
 				} else {
 					console.log("callback error");
 					$('#distance').text("현재 위치로부터 거리 : 알 수 없음");
