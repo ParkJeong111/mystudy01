@@ -279,10 +279,10 @@
 								<!-- 							 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
 								<!-- 								<label for="msexf">食切</label> -->
 								<!-- 								<input type="radio" name="msex" id="msexf" value="食切"> -->
-								<input type="radio" id="msexm" name="msex" value="man"
+								<input type="radio" id="msexm" name="msex" value="害切"
 									checked="checked"> <label for="msexm">害切</label>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio" id="msexf" name="msex" value="woman">
+								<input type="radio" id="msexf" name="msex" value="食切">
 								<label for="msexf">食切</label>
 							</div>
 						</div>
