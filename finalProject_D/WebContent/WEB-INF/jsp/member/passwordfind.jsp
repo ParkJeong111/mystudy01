@@ -66,7 +66,7 @@
 						<div class="form-group">
 						<img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_login_email.png" 
 						alt="" class="ico_login_email" style = "width: 34px; height: 26px; z-index: 50; position:relative; right:-460px; top: 38px;">
-							<input type="email" class="form-control" placeholder="  이메일주소" style = "z-index: 1;">
+							<input type="email" class="form-control" id="memail" name="memail" placeholder="  이메일주소" style = "z-index: 1;">
 							<br>
 						</div>
 						<!--  <div class="form-group">
@@ -76,9 +76,11 @@
                 <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
               </div>
               -->
-
+			<div id="pwcontent">
+				
+			</div>
 						<div class="form-group">
-							<input type="submit" value="가입하기"
+							<input type="button" id="pwfind" value="비밀번호 찾기"
 								class="btn btn-primary py-3 px-5" style = "width: 520px;" >
 						</div>	
 					</form>
@@ -122,92 +124,44 @@
     
   </body>
   <script type='text/javascript'>
-  $(function(){
-
-	    $(".agree_all label").click(function(){
-	        if($(".agree_all label input").prop("checked")) {
-	         $("input[type=checkbox]").prop("checked",true);
-	        } else {
-	         $("input[type=checkbox]").prop("checked",false);
-	        }
-	    })
-	})
   
-//<![CDATA[
-	// 사용할 앱의 JavaScript 키를 설정해 주세요.
-	Kakao.init('6f4c6f3de3e26056bac5bd7d9faed18d'); //여기서 아까 발급받은 키 중 javascript키를 사용해준다.
-	// 카카오 로그인 버튼을 생성합니다.
-	Kakao.Auth.createLoginButton({
-		container : '#kakao-login-btn',
-
-		success : function(authObj) {
-
-			Kakao.API.request({
-
-				url : '/v1/user/me',
-				success : function(res) {
-					//document.write(res.properties.nickname+"님 환영합니다."+res.id+"아이디입니다.");
-
-					location.href = "kakao?mnickname= "
-							+ encodeURI(res.properties.nickname, "EUC-KR")
-							+ "&mid=" + res.id;
-
-					/*  alert(res.properties.nickname+"님 환영합니다.");
-					if(res.properties.nickname !== null){
-						console.log("적용됐어염");
-						location.href = 'main';
-					}else if(res.properties.nickname === null){
-						$("#kakao-login-btn").show();
-						
-						console.log("적용됐어염11");
-					} */
-					//alert(JSON.stringify(res)); //<---- kakao.api.request 에서 불러온 결과값 json형태로 출력
-					//alert(JSON.stringify(authObj)); //<----Kakao.Auth.createLoginButton에서 불러온 결과값 json형태로 출력
-					console.log(res.id);//<---- 콘솔 로그에 id 정보 출력(id는 res안에 있기 때문에  res.id 로 불러온다)
-					console.log(res.kaccount_email);//<---- 콘솔 로그에 email 정보 출력 
-					//console.log(res.profile_image);
-					//console.log(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근 
-					// res.properties.nickname으로도 접근 가능 )
-					//console.log(res.created);
-					//console.log(res.status);
-					//console.log(authObj.access_token);//<---- 콘솔 로그에 토큰값 출력
-					// $('#kakao_id').val(res.properties.id);
-					//$('#kakao_nickname').val(res.properties.nickname);  
-					/*   var d = new Date(); */
-					/*  
-						
-					}); */
-
-				}
-			})
-		},
-		fail : function(err) {
-			alert(JSON.stringify(err));
-		}
-	});
-	$('#loginbtn').click(
-			function() {
-				$.ajax({
-					url : "loginf?mid=" + $("#mid").val() + "&mpassword="
-							+ $('#mpassword').val(),
-					success : function(data) {
-						if (data == 0) {
-							alert("아이디 또는 비밀번호를 확인해 주세요");
-							location = 'kloginForm';
-						} else {
-							
-							console.log("mid" + $("#mid").val());
-							if ($("#mid").val() == 'admin') {
-								alert("관리자모드입니다.");
-								location = 'admin';
-							} else {
-								alert("여기어때 입니다.");
-								location = 'main';
-							}
+  
+  $(function(){
+		$('#pwfind').click(function() {
+			console.log("비밀번호")
+			var email =  $('#memail').val();
+			console.log(email)
+			if(memail!=''){
+				 $.ajax({
+					type:'POST',
+					url:'pwfind',
+					data: {
+						memail:email
+						},
+					datatype :'json',
+					success:function(res){
+						$('#pwcontent').html("");
+						if(res.msg=='success'){
+							alert('비밀번호를 찾았습니다.')
+							$('#pwcontent').append('<div style="margin-left:180px; margin-top:-25px; margin-bottom:20px;"><span style="font-size:16px;"> 현재 비밀번호 : '+res.myinfo.mpwd+'</span><div>');
 						}
-
+						else{
+							$('#pwcontent').append('<div  style="margin-left:160px; margin-top:-25px; margin-bottom:20px;"><span  style="font-size:16px;">'+res.msg+'</span><div>');
+						}
+						$("input[name=memail]").val('');
+						$("input[name=memail]").focus();
+					
+					},
+					error:function(res){
+						console.log("실패했나")
 					}
-				});
-			});
+				}); 
+			}else{
+				alert("이메일을 입력해주세요.")
+			}
+		});
+	});
+  
+	
   </script>
 </html>
