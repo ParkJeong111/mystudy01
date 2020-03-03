@@ -40,7 +40,7 @@
 
     <style>
     .nav-link{font-family: Jua;}
-    .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{ padding-left: 10px; padding-right: 10px; font-size: 25px;}
+    .ftco-navbar-light .navbar-nav > .nav-item > .nav-link{ padding-left: 10px; padding-right: 10px; font-size: 23px;}
     .form-controla{
     -webkit-box-shadow: none;
     box-shadow: none;
