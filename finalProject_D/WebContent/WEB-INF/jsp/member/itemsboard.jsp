@@ -425,7 +425,7 @@
 	border: none;
 	font-size: 16px;
 	text-align: center;
-	color: #606060;
+	color: #333333;
 }
 
 .inq_area .inqFile_hidden {
@@ -711,7 +711,7 @@
 
 .select2-result-repository.company_info .info_area .c_view_addr {
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	letter-spacing: -0.5px;
 }
 
