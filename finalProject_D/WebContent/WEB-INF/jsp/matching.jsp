@@ -1676,7 +1676,6 @@ li {
 			location.href = 'matchpage?mbnum='
 		}
         
-        
         function changeperminus(){
         	var val;
         	val = document.getElementById('perid').innerHTML; 
