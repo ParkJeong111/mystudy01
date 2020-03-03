@@ -27,7 +27,9 @@ public interface MemberInter {
 	public int gamecheck(String mid); // 1일 1회 체크를 위한 입력
 	public List<PointlogDTO> gamepointlogList(String mid); //포인트내역
 	public List<MemberDTO> androidMyinfo(MemberDTO mdto); // 안드 내정보 (재민)
-	public void recentHostInsert(RecenthostDTO rhdto);  // 최근본숙소 추가
-	public List<RecentListDTO> recentHostList(String mid);//최근본숙소 리스트
+	public void recentHostInsert(RecenthostDTO rhdto);  // 최근본숙소 추가(채은)
+	public List<RecentListDTO> recentHostList(String mid);//최근본숙소 리스트(채은
+	public MemberDTO pwfind(String memail); //이메일로 비밀번호 찾기
+	
 	
 }

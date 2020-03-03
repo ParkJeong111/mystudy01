@@ -48,13 +48,13 @@ section{width:964px;position:relative;margin:0 auto;}
 .manage_tab_area li{float:left;width:calc(33.333% - 10px);}
 .manage_tab_area li a{border:1px solid #8c8c8c;font-size:16px;padding:10px 0;color:#8c8c8c;text-align:center;display:block;border-radius:0.3rem}
 .manage_tab_area li:nth-child(2){margin:0 15px}
-.manage_tab_area li.active a{border:1px solid #ff724c;color:#ff724c}
-.manage_tab_area li:hover a{border:1px solid #ff724c}
+.manage_tab_area li.active a{border:1px solid #f85959;color:#f85959}
+.manage_tab_area li:hover a{border:1px solid #f85959}
 
 .view_area .view_contents.view_info_manage{background:#fff}
 .view_info_manage{border-top:1px solid #e6e6e6;padding-top:25px}
 .view_info_manage .view_count_text p{font-size:20px;}
-.view_info_manage .view_count_text p span{color:#ff724c;}
+.view_info_manage .view_count_text p span{color:#f85959;}
 
 .view_info_manage .manage_list_area li{float:left;margin-top:10px;background:#fff;width:calc(33.333% - 8px);border:1px solid #e6e6e6;border-radius:0.3rem;margin-right:10px}
 .view_info_manage .manage_list_area li:nth-child(3n+1){margin-right:0}
@@ -117,7 +117,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .detail_title .detail_pic span{margin-right:10px;font-size:15px;padding:0 8px;height:28px;line-height:26px;text-align:center;display:inline-block;border-radius:0.3rem}
 .view_info_manage_detail .detail_title .detail_pic span:first-child{margin-left:0}
 .view_info_manage_detail .detail_title .detail_pic span.live_tag{color:#fff;background:#e84418;position:relative;top:-1px}
-.view_info_manage_detail .detail_title .detail_title_date dl dt span.fishlist_tag{color:#ff724c;border:1px solid #ff724c;}
+.view_info_manage_detail .detail_title .detail_title_date dl dt span.fishlist_tag{color:#f85959;border:1px solid #f85959;}
 .view_info_manage_detail .detail_title .detail_title_date{display:table;width:100%}
 .view_info_manage_detail .detail_title .detail_title_date dt{font-size:13px;display:table-cell;line-height:1.3;color:#333;font-weight:500;letter-spacing:-0.9px}
 .view_info_manage_detail .detail_title .detail_title_date dt h1{font-size:18px;font-weight:500}
@@ -138,8 +138,8 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .manage_info_line strong{width:100px;float:left;text-align:center;font-size:15px;font-weight:500;letter-spacing:-0.8px;background:#f8f8f8;border-right:1px solid #e6e6e6;height:40px;line-height:38px;}
 .view_info_manage_detail .manage_info_line span{width:calc(100% - 100px);float:left;height:40px;line-height:38px;padding:0 15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .view_info_manage_detail .manage_info_line span.map_link{width:calc(100% - 150px)}
-.view_info_manage_detail .manage_info_line span.map_link a{width:55px;height:21px;line-height:19px;color:#fff;background:#ff724c;border-radius:0.3rem;font-size:13px;letter-spacing:-0.7px;text-align:center;display:block;position:absolute;top:10px;right:10px;}
-.view_info_manage_detail .manage_info_line span.map_link a.map_btn{background:#fff;width:55px;height:21px;line-height:19px;color:#ff724c;border:1px solid #ff724c;border-radius:0.3rem;font-size:13px;letter-spacing:-0.7px;text-align:center;display:block;position:absolute;top:10px;right:10px;}
+.view_info_manage_detail .manage_info_line span.map_link a{width:55px;height:21px;line-height:19px;color:#fff;background:#f85959;border-radius:0.3rem;font-size:13px;letter-spacing:-0.7px;text-align:center;display:block;position:absolute;top:10px;right:10px;}
+.view_info_manage_detail .manage_info_line span.map_link a.map_btn{background:#fff;width:55px;height:21px;line-height:19px;color:#f85959;border:1px solid #f85959;border-radius:0.3rem;font-size:13px;letter-spacing:-0.7px;text-align:center;display:block;position:absolute;top:10px;right:10px;}
 .view_info_manage_detail .manage_info_line span.price_link{width:calc(100% - 150px)}
 .view_info_manage_detail .manage_info_line span.price_link a{width:55px;height:21px;line-height:19px;color:#fff;background:#b4b4b4;border-radius:0.3rem;font-size:13px;letter-spacing:-0.7px;text-align:center;display:block;position:absolute;top:10px;right:10px;}
 .view_info_manage_detail .manage_info_line .map_link_mo{display:none}
@@ -194,8 +194,8 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .manage_like .manage_like_box.show{height:auto}
 .view_info_manage_detail .manage_like .manage_like_box a{cursor:default;width:40px;height:40px;border:1px solid #e6e6e6;background:#f5f0ea;border-radius:100%;display:block;position:relative;margin-right:20px;float:left;}
 .view_info_manage_detail .manage_like .manage_like_box a img{border-radius:100%;width:100%;height:100%;overflow:hidden;}
-.view_info_manage_detail .manage_like .manage_like_box a:after{width:25px;height:25px;background:#ff724c url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_like02.png') center top 50% no-repeat;background-size:21px auto;position:absolute;bottom:0;right:-10px;content:'';border-radius:100%;overflow:hidden;}
-.view_info_manage_detail .manage_like a.like_more{font-size:14px;color:#ff724c;height:24px;line-height:22px;padding:0 10px;border:1px solid #ff724c;border-radius:3rem;display:block;float:right;margin-top:8px}
+.view_info_manage_detail .manage_like .manage_like_box a:after{width:25px;height:25px;background:#f85959 url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_like02.png') center top 50% no-repeat;background-size:21px auto;position:absolute;bottom:0;right:-10px;content:'';border-radius:100%;overflow:hidden;}
+.view_info_manage_detail .manage_like a.like_more{font-size:14px;color:#f85959;height:24px;line-height:22px;padding:0 10px;border:1px solid #f85959;border-radius:3rem;display:block;float:right;margin-top:8px}
 /* .view_info_manage_detail .manage_like a.like_more:after{display:none}
 .view_info_manage_detail .manage_like a.like_more.show{font-size:0}
 .view_info_manage_detail .manage_like .like_more.show:after{content:'접기';display:block;width:100%;position:absolute;top:0;left:0;font-size:14px;text-align:center;color:#fff} */
@@ -254,12 +254,12 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_detail .view_info_comment .comment_text_area .comment_upload_box label input:focus{outline:none}
 .view_detail .view_info_comment .comment_text_area .comment_upload_box .photo_btn{padding-left:33px;margin-top:4px;font-size:15px;color:#808080;letter-spacing:-0.6px;height:20px;line-height:18px;float:left;background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_photo01.png') no-repeat;background-size:auto 20px;}
 .view_detail .view_info_comment .comment_text_area .comment_upload_box .photo_btn.on{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_photo02.png') no-repeat;background-size:auto 20px;}
-.view_detail .view_info_comment .comment_text_area .comment_upload_box .comm_btn{width:77px;height:40px;line-height:38px;border-radius:0.3rem;background:#ff724c;color:#fff;font-size:16px;text-align:center;letter-spacing:-0.6px;float:right;display:block;}
+.view_detail .view_info_comment .comment_text_area .comment_upload_box .comm_btn{width:77px;height:40px;line-height:38px;border-radius:0.3rem;background:#f85959;color:#fff;font-size:16px;text-align:center;letter-spacing:-0.6px;float:right;display:block;}
 .view_detail .view_info_comment .comment_box .comment_name{font-size:16px;position:relative}
-.view_detail .view_info_comment .comment_box .comment_name span{height:24px;line-height:22px;border-radius:0.3rem;background:#ff724c;padding:0 8px;font-size:14px;color:#ffffff;letter-spacing:-0.6px;display:inline-block;margin-right:5px}
+.view_detail .view_info_comment .comment_box .comment_name span{height:24px;line-height:22px;border-radius:0.3rem;background:#f85959;padding:0 8px;font-size:14px;color:#ffffff;letter-spacing:-0.6px;display:inline-block;margin-right:5px}
 .view_detail .view_info_comment .comment_box .comment_name a{width:4px;position:absolute;top:0;right:0}
 .view_detail .view_info_comment .comment_list_more{padding:30px 0 0;}
-.view_detail .view_info_comment .comment_list_more a{width:200px;height:44px;line-height:42px;border:1px solid #ff724c;display:block;margin:0 auto;font-size:16px;color:#ff724c;text-align:center;letter-spacing:-0.6px;border-radius:0.3rem;}
+.view_detail .view_info_comment .comment_list_more a{width:200px;height:44px;line-height:42px;border:1px solid #f85959;display:block;margin:0 auto;font-size:16px;color:#f85959;text-align:center;letter-spacing:-0.6px;border-radius:0.3rem;}
 .view_detail .view_info_comment .recomment_list_box{border-bottom:1px solid #e6e6e6;position:relative}
 .view_detail .view_info_comment .recomment_list_box:before{width:15px;height:15px;background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_comm01.png') no-repeat;background-size:100% auto;content:'';position:absolute;top:30px;left:28px}
 .view_detail .view_info_comment .recomment_text_area{padding:15px 52px 30px 58px;border-bottom:1px solid #e6e6e6;background:#f7f7f7;position:relative;}
@@ -283,7 +283,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_detail .view_info_comment .recomment_text_area .comment_upload_box label input:focus{outline:none}
 .view_detail .view_info_comment .recomment_text_area .comment_upload_box .photo_btn{padding-left:33px;margin-top:4px;font-size:15px;color:#808080;letter-spacing:-0.6px;height:20px;line-height:18px;float:left;background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_photo01.png') no-repeat;background-size:auto 20px;}
 .view_detail .view_info_comment .recomment_text_area .comment_upload_box .photo_btn.on{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_photo02.png') no-repeat;background-size:auto 20px;}
-.view_detail .view_info_comment .recomment_text_area .comment_upload_box .comm_btn{width:77px;height:40px;line-height:38px;border-radius:0.3rem;background:#ff724c;color:#fff;font-size:16px;text-align:center;letter-spacing:-0.6px;float:right;display:block;}
+.view_detail .view_info_comment .recomment_text_area .comment_upload_box .comm_btn{width:77px;height:40px;line-height:38px;border-radius:0.3rem;background:#f85959;color:#fff;font-size:16px;text-align:center;letter-spacing:-0.6px;float:right;display:block;}
 .view_detail .comment_filter{width:272px;position:fixed;bottom:30px;left:50%;margin-left:-136px;border-radius:3rem;overflow:hidden; box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);background:rgba(255,255,255,0.5);border:1px solid #e6e6e6;z-index:1;}
 .view_detail .comment_filter:hover{background:#fff;}
 .view_detail .comment_filter a{display:block;width:33.333%;float:left;padding-top:51px;padding-bottom:18px;font-size:16px;color:#777777;text-align:center;letter-spacing:-0.6px;}
@@ -298,7 +298,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_detail .view_company_profile .profile_visual{width:80px;height:80px;background:#f5f0ea;border:1px solid #e6e6e6;border-radius:100%;overflow:hidden;position:absolute;left:50%;margin-left:-40px;top:-40px}
 .view_detail .view_company_profile .profile_visual img{width:100%;}
 .view_detail .view_company_profile .profile_name{font-size:18px;font-weight:500;letter-spacing:-0.7px;text-align:center;display:block}
-.view_detail .view_company_profile .profile_name:hover{color:#ff724c}
+.view_detail .view_company_profile .profile_name:hover{color:#f85959}
 .view_detail .view_company_profile .profile_name i.ico_review{width:37px;height:37px;display:inline-block;background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_review_bg.png') no-repeat;background-size:100% auto;vertical-align:middle;position:relative;top:-3px;}
 .view_detail .view_company_profile .profile_name i.ico_review.on1{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_review_01.png') no-repeat;background-size:100% auto;}
 .view_detail .view_company_profile .profile_name i.ico_review.on2{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_review_02.png') no-repeat;background-size:100% auto;}
@@ -308,8 +308,8 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_detail .view_company_profile .profile_address{font-size:15px;color:#606060;letter-spacing:-0.6px;text-align:center;margin-top:5px;}
 .view_detail .view_company_profile .profile_btn{text-align:center;font-size:0;margin-top:15px;}
 .view_detail .view_company_profile .profile_btn a{display:inline-block;width:93px;height:32px;line-height:30px;text-align:center;background:#fff;border:1px solid #e6e6e6;border-radius:3rem;font-size:15px;color:#606060;letter-spacing:-0.6px;}
-.view_detail .view_company_profile .profile_btn a.like_btn.on{border:1px solid #ff724c;color:#ff724c}
-.view_detail .view_company_profile .profile_btn a.call_btn{margin-left:5px;border:1px solid #ff724c;color:#ff724c}
+.view_detail .view_company_profile .profile_btn a.like_btn.on{border:1px solid #f85959;color:#f85959}
+.view_detail .view_company_profile .profile_btn a.call_btn{margin-left:5px;border:1px solid #f85959;color:#f85959}
 
 .view_info_manage_detail .view_detail_list_area{margin-top:20px}
 .view_info_manage_detail .view_detail_list_area .detail_list_title strong{font-size:18px;font-weight:normal;float:left;letter-spacing:-0.7px}
@@ -318,7 +318,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .view_detail_list_area .detail_list_title .swiper-container-rtl .swiper-button-next{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ad_slide_prev_01.png') no-repeat;width:28px;height:28px;background-size:100% auto;margin:0 3px 0 10px}
 .view_info_manage_detail .view_detail_list_area .detail_list_title .swiper-button-next,
 .view_info_manage_detail .view_detail_list_area .detail_list_title .swiper-container-rtl .swiper-button-prev{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ad_slide_next_01.png') no-repeat;width:28px;height:28px;background-size:100% auto}
-.view_info_manage_detail .view_detail_list_area .detail_list_title a{float:right;font-size:15px;color:#ff724c;text-align:right;position:relative;top:7px;}
+.view_info_manage_detail .view_detail_list_area .detail_list_title a{float:right;font-size:15px;color:#f85959;text-align:right;position:relative;top:7px;}
 .view_info_manage_detail .view_detail_list_area .view_detail_list{margin-top:10px}
 .view_info_manage_detail .view_detail_list_area .view_detail_list:after{display:block;content:'';clear:both}
 .view_info_manage_detail .view_detail_list_area .view_detail_list li{float:left;width:230px;}
@@ -336,7 +336,7 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .talk_detail_list_area .detail_list_title .swiper-container-rtl .swiper-button-next{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ad_slide_prev_01.png') no-repeat;width:28px;height:28px;background-size:100% auto;margin:0 3px 0 10px}
 .view_info_manage_detail .talk_detail_list_area .detail_list_title .swiper-button-next,
 .view_info_manage_detail .talk_detail_list_area .detail_list_title .swiper-container-rtl .swiper-button-prev{background:url('https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ad_slide_next_01.png') no-repeat;width:28px;height:28px;background-size:100% auto}
-.view_info_manage_detail .talk_detail_list_area .detail_list_title a{float:right;font-size:15px;color:#ff724c;text-align:right;position:relative;top:7px;}
+.view_info_manage_detail .talk_detail_list_area .detail_list_title a{float:right;font-size:15px;color:#f85959;text-align:right;position:relative;top:7px;}
 .view_info_manage_detail .talk_detail_list_area .detail_list_title + .clearfix{font-size:0}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_slide{width:468px;overflow:hidden;background:#fff;border:1px solid rgba(218, 218, 218, 0.5);border-radius:0.3rem;display:block;display:inline-block;position:relative;}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_slide .img_box{width:182px;height:155px;position:relative;float:left;}
@@ -346,8 +346,8 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_slide dt{margin-top:10px;font-size:15px;color:#333;font-weight:500;letter-spacing:-0.6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_slide dd{margin-top:5px;font-size:14px;color:#606060;letter-spacing:-0.6px;line-height:1.3;height:37px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical;}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_slide .date_pic{position:absolute;bottom:10px;width:calc(100% - 202px);}
-.view_info_manage_detail .talk_detail_list_area .talk_detail_slide .date_pic i{font-size:13px;color:#ff724c;letter-spacing:-0.5px;float:left}
-.view_info_manage_detail .talk_detail_list_area .talk_detail_slide .date_pic i:before{width:5px;height:5px;background:#ff724c;border-radius:100%;display:inline-block;content:'';position:relative;top:-2px;margin-right:3px;}
+.view_info_manage_detail .talk_detail_list_area .talk_detail_slide .date_pic i{font-size:13px;color:#f85959;letter-spacing:-0.5px;float:left}
+.view_info_manage_detail .talk_detail_list_area .talk_detail_slide .date_pic i:before{width:5px;height:5px;background:#f85959;border-radius:100%;display:inline-block;content:'';position:relative;top:-2px;margin-right:3px;}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_slide .date_pic span{float:right;font-size:14px;color:#c0c0c0;letter-spacing:-0.6px;opacity:0.5;}
 .view_info_manage_detail .talk_detail_list_area.talk_detail_list1{width:468px;}
 .view_info_manage_detail .talk_detail_list_area.talk_detail_list2 .talk_detail_slide:first-child{margin-right:15px}
@@ -355,17 +355,17 @@ section{width:964px;position:relative;margin:0 auto;}
 .view_info_manage_detail .talk_detail_list_area .talk_detail_slide.talk_detail_default .kind_txt, .view_info_manage_detail .talk_detail_list_area .talk_detail_slide.talk_detail_default dl{opacity:0.5}
 
 .view_info_manage_detail .talk_detail_list_area .talk_detail_list_btn{margin-top:27px;}
-.view_info_manage_detail .talk_detail_list_area .talk_detail_list_btn a{background:#fff;width:120px;height:40px;line-height:38px;border-radius:3rem;border:1px solid #e6e6e6;box-shadow:0 0 5px 0 rgba(0, 0, 0, 0.15);text-align:center;font-size:16px;color:#ff724c;letter-spacing:-0.5px;display:block;margin:0 auto;}
+.view_info_manage_detail .talk_detail_list_area .talk_detail_list_btn a{background:#fff;width:120px;height:40px;line-height:38px;border-radius:3rem;border:1px solid #e6e6e6;box-shadow:0 0 5px 0 rgba(0, 0, 0, 0.15);text-align:center;font-size:16px;color:#f85959;letter-spacing:-0.5px;display:block;margin:0 auto;}
 
 .view_area  .view_info_comment{background:#fff;padding-top:0}
 .view_info_comment .check_title{padding:20px 0;border-bottom:1px solid #e6e6e6}
 .view_info_comment .check_title p{float:left;font-size:18px;color:#8c8c8c;}
-.view_info_comment .check_title p span{color:#ff724c}
+.view_info_comment .check_title p span{color:#f85959}
 .view_info_comment .check_title .check_radio{float:right}
 .view_info_comment .check_title .check_radio label{float:left;position:relative;margin-left:20px;font-size:0}
 .view_info_comment .check_title .check_radio label input{position:absolute;z-index:-99999;opacity:0;}
 .view_info_comment .check_title .check_radio label input + ins{color:#606060;font-size:18px;}
-.view_info_comment .check_title .check_radio label input:checked + ins{color:#ff724c}
+.view_info_comment .check_title .check_radio label input:checked + ins{color:#f85959}
 .view_info_comment .comment_list_box{border-bottom:1px solid #e6e6e6;padding:10px 10px;}
 .view_info_comment .comment_list_box.tcm_best{background:#fafafa}
 .view_info_comment .comment_profile{width:50px;height:50px;position:relative;border-radius:100%;overflow:hidden;float:left;}
@@ -410,7 +410,7 @@ section{width:964px;position:relative;margin:0 auto;}
 		<div class="detail_profile clearfix">
 			<section>
 				
-				<p class="wide">제목 : ${dto.btitle}</p>
+				<p class="wide"style="font-size: 25px;">제목 : ${dto.btitle}</p>
 							</section>
 		</div><!--// detail_profile -->
 
@@ -421,7 +421,7 @@ section{width:964px;position:relative;margin:0 auto;}
 						<dt>작성자 &nbsp; : &nbsp;  ${dto.mid} &nbsp;  
 						<c:choose>
 						<c:when test="${dto.btype2=='바다조행기' || dto.btype2=='민물조행기'}">
-						<span class="fishlist_tag" style="color:#ff724c;border:1px solid #ff724c;margin-right:10px;font-size:15px;padding:0 8px;height:28px;line-height:26px;text-align:center;display:inline-block;border-radius:0.3rem;">
+						<span class="fishlist_tag" style="color:#f85959;border:1px solid #f85959;margin-right:10px;font-size:15px;padding:0 8px;height:28px;line-height:26px;text-align:center;display:inline-block;border-radius:0.3rem;">
 						<c:set var = "string1" value = "${dto.btype2}"/>
    						<c:set var = "string2" value = "${fn:substring(string1, 0, 2)}" />
 						${string2} 조황

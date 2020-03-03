@@ -20,7 +20,7 @@
 						<tr>
 							<td>
 								<p
-									style="text-align: center; font-size: 15px; color: #c0c0c0; font-weight: bold; margin: 0px 0px 0px 0px;">
+									style="text-align: center; font-size: 25px; color: #333333; font-weight: bold; margin: 0px 0px 0px 0px;">
 									현재 비밀번호를 입력해주세요</p>
 							</td>
 						</tr>
@@ -35,7 +35,7 @@
 						</tr>
 						<tr>
 							<td style="padding-top: 10%"><input type="submit" value="확인하기"
-								class="btn btn-primary py-3 px-5" style="width: 70%;">
+								class="btn btn-primary py-3 px-5" style="width: 70%;font-size: 20px;">
 
 							</td>
 						</tr>

@@ -60,7 +60,7 @@ public class RandomMatchingController {
 			mav.setViewName("member/login");
 			out.println("<script>alert('로그인 후 이용해주세요.'); location.href = 'login';</script>");
 			out.flush();
-		// 위에서 넣어준 matchingcheck 값이 1이상이라면 현재 매칭 대기 상태의 매칭정보가 있는것이기때문에 매칭을 진행 할 수 없도록 해주는 기능
+		// 위에서 넣어준 matchingcheck 값이 0이상이라면 현재 매칭 대기 상태의 매칭정보가 있는것이기때문에 매칭을 진행 할 수 없도록 해주는 기능
 		}else if(matchingcheck != 0){
 			mav.setViewName("member/my_matching");
 			out.println("<script>alert('매칭 진행중인 상태입니다.'); location.href='my_matching';</script>");
@@ -72,7 +72,6 @@ public class RandomMatchingController {
 			dto.setRmid(session.getAttribute("mid").toString());
 			// 해당 정보들을 활용하여 insert해주는 기능
 			randommatching.randommatchinginsert(dto);
-			
 			System.out.println("잘 등록하고 이동했쥬");
 			// 현재 매칭 진행중인 컬럼들을 추출해주기위한 변수 선언
 			List<RandomMatchingDTO> randto =  randommatching.randomatchinglist();
@@ -120,7 +119,7 @@ public class RandomMatchingController {
 						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
 						out.flush();
 					}
-						
+					
 					
 					// StringBuilder의 값이 기준이상 넘어가지 않도록 리셋해주는 기능
 					dbval.setLength(0);

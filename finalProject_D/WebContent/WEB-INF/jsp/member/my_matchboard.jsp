@@ -23,7 +23,7 @@
 .service_area .service_tab li a {
 	display: block;
 	font-size: 20px;
-	color: #606060;
+	color: #333333;
 	text-align: center;
 	padding: 24px 0;
 	border-bottom: 1px solid #e6e6e6;
@@ -62,7 +62,7 @@
 	font-weight: normal;
 	float: right;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 }
 
 .service_area .service_title strong:before {
@@ -117,7 +117,7 @@
 	outline: none;
 	width: 100%;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	height: 58px;
 	border: none;
 	border-radius: 0.3rem;
@@ -189,7 +189,7 @@
 	background: #f8f8f9;
 	padding: 20px 31px;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	border-top: 1px solid #e6e6e6
 }
 
@@ -295,7 +295,7 @@
 	outline: none;
 	width: 100%;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	height: 58px;
 	border: none;
 	border-radius: 0.3rem;
@@ -426,7 +426,7 @@
 	border: none;
 	font-size: 16px;
 	text-align: center;
-	color: #606060;
+	color: #333333;
 }
 
 .inq_area .inqFile_hidden {
@@ -712,7 +712,7 @@
 
 .select2-result-repository.company_info .info_area .c_view_addr {
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	letter-spacing: -0.5px;
 }
 
@@ -845,11 +845,11 @@ a {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto;" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; font-family: Do Hyeon; font-size: 35px;"  >
 			<ol class="clearfix" style="text-align: center;">
-				<li><a href="my_board"><b><strong>게시글작성</strong></b></a></li>
-				<li><a href="itemsboard"><b><strong>중고 게시글작성</strong></b></a></li>
-				<li class="active"><a href="matchboardview"><b><strong>매칭글 작성</strong></b></a></li>
+				<li><a href="my_board"><b><strong style = "font-size: 35px;">게시글작성</strong></b></a></li>
+				<li><a href="itemsboard"><b><strong style = "font-size: 35px;">중고 게시글작성</strong></b></a></li>
+				<li class="active"><a href="matchboardview"><b><strong style = "font-size: 35px;">매칭글 작성</strong></b></a></li>
 			</ol>
 		</div>
 <style>
@@ -988,12 +988,18 @@ form ul {
 label {
     cursor: pointer;
     display: inline-block;
+    font-size: 25px;
 }
+p > strong > b{
+	font-size: 25px;
+	color: #333333;
+}
+
 </style>
 		<section class="ftco-section ftco-degree-bg"
 			style="background: white;">
-			<div class="container">
-			<form method="post" action="#" enctype="multipart/form-data" >	
+			<div class="container" style="margin-top: -70px;">
+			<form method="post" action="#" enctype="multipart/form-data" style="font-family: Do Hyeon;">	
 				<div class="row">
 					<div class="col-lg-9">
 						<div class="row">
@@ -1093,7 +1099,7 @@ label {
 												<div class="form-group" >
 													<input multiple="multiple" type="file" id="bfile" name="bfile" value="이미지"
 														class="form-control" placeholder="사진을 등록해주세요."
-														style="border-radius: 7px;" required="required">
+														style="border-radius: 7px; font-size: 22px;" required="required">
 														<%-- 사진 올린거 바로 미리 보여주기 --%>
 <!-- 													<div> -->
 														<div class="img_wrap">
@@ -1120,12 +1126,12 @@ label {
 										<div class="col-md-6">
 											<div class="form-group">
 												<input type="text" class="form-control" id="btitle" name="btitle"
-													placeholder="제목을 입력해 주세요(30자 이하)" required="required">	
+													placeholder="제목을 입력해 주세요(30자 이하)" required="required" style="font-size: 22px;">	
 											</div>
 										</div>
 											<div class="form-group" style="width: 280px;">
 									<input type="text" id="checkin_date" class="form-control"
-										placeholder="시작일" name = "startdate" required="required">
+										placeholder="시작일" name = "startdate" required="required" style="font-size: 22px;">
 										</div>
 										
 										<!-- 별점 평점  -->
@@ -1169,7 +1175,7 @@ label {
 										&nbsp;<br>
 										<div class="col-md-6">
 											<div class="form-group">
-												<textarea style="width: 870px; height: 500px;" name="bcontent" id="bcontent"
+												<textarea style="width: 870px; height: 500px; font-size: 25px;" name="bcontent" id="bcontent"
 													placeholder="내용을 입력해주세요." required="required"></textarea>
 										</div>
 										</div>
@@ -1178,11 +1184,11 @@ label {
 											<div class="form-group"
 												style="margin-top: 20px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
 												<input type="reset" value="취소" id="cancelBtn"
-													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+													style="width: 113px; height: 40px; background-color: #666666; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="submit" value="올리기" id="uploadBtn"
-													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="button" id = "updateBtn" value="목록" 
-													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 											</div>
 										</div>
 									</div>

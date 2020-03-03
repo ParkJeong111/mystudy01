@@ -148,7 +148,7 @@ font-family: "Poppins", Arial, sans-serif;
 	</div>
 	<!--  여기에 헤더부분 추가  -->
 	<p
-		style="text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
+		style="text-align: center; font-weight: bold; color: #606060; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family: Do Hyeon;">
 		공지사항</p>
 	<hr>
 	<div class="talk_header" style="">
