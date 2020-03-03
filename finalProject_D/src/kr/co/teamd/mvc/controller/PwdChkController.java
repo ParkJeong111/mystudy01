@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PwdChkController {
 	@RequestMapping(value = "/pwdcheck")
 	public String pwdchk(String pwd) {
-		System.out.println();
 		return "pwdcheck";
 	}
 	

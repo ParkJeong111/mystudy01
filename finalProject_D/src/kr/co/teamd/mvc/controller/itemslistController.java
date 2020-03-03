@@ -41,17 +41,16 @@ public class itemslistController {
 	// 송용화
 	@GetMapping(value = "itemdetail")
 	public ModelAndView hostDetail(int hnum, String hname, HttpSession session) {
-		System.out.println("hnum이다" + hnum);
-		System.out.println("hname이다" + hname);
 		ModelAndView mav = new ModelAndView("itemdetail");
 		HostDTO hdto = hostdao.hostDetail(hnum);
 		List<HostgoodsDTO> hgdtoList = hdto.getHgdto();
+		// DB에 있던 정보를 , 기준으로 나눠서 배열로 저장
 		String[] hspeciesList = hdto.getHspecies().trim().split(",");
 		String[] hserviceList = hdto.getHservice().trim().split(",");
-		mav.addObject("host", hdto);
-		mav.addObject("hglist", hgdtoList);
-		mav.addObject("hspeciesList", hspeciesList);
-		mav.addObject("hserviceList", hserviceList);
+		mav.addObject("host", hdto); // 업체 정보
+		mav.addObject("hglist", hgdtoList); // 이용권 정보
+		mav.addObject("hspeciesList", hspeciesList); // 어종 정보
+		mav.addObject("hserviceList", hserviceList); // 서비스 정보
 		return mav;
 	}
 	

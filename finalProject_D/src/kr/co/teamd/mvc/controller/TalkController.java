@@ -85,7 +85,7 @@ public class TalkController {
 	public String itemsboard() {
 		return "member/itemsboard";
 	}
-	
+
 	// 김채은
 	@RequestMapping(value = "reportInsert") // 일반 게시글 신고하기
 	public ModelAndView reportInsert(int bnum, HttpSession session, HttpServletResponse response) throws IOException {
@@ -160,8 +160,6 @@ public class TalkController {
 			bdto.setBtype2("자유게시판");
 			bdto.setHname("");
 		}
-
-
 
 		// 유저조행기 별점 평점
 		bdto.setBstar(bdto.getBstar());

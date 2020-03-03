@@ -111,7 +111,6 @@ public class MorePageController {
 
 	@RequestMapping(value = "cs_mtmqna") // 1:1문의
 	public ModelAndView qna(HttpSession session) {
-		System.out.println("1:1문의 진입 확인용 로그");
 		ModelAndView mav = new ModelAndView();
 		String mid = (String) session.getAttribute("mid");
 		if (mid == null) {
