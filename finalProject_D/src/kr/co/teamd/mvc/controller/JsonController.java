@@ -49,7 +49,7 @@ public class JsonController {
 
 	@Autowired
 	private BoardInter bdao;
-	
+
 	@Autowired
 	private MatchingBoardInter mbi;
 
@@ -71,7 +71,7 @@ public class JsonController {
 	@Autowired
 	private MatchingBoardInter MatchingBoard;
 
-	@RequestMapping("talkAjax") //일반 게시판리스트
+	@RequestMapping("talkAjax") // 일반 게시판리스트
 	public List<BoardListAjaxDTO> boardAjax(@RequestParam("check") int check) {
 		List<BoardListAjaxDTO> bdto = bdao.boardAjax(check);
 		return bdto;
@@ -84,15 +84,15 @@ public class JsonController {
 		return list;
 	}
 
-	@RequestMapping("hostinfo") //관리자 가맹점페이지 Ajax처리로 상세정보
+	@RequestMapping("hostinfo") // 관리자 가맹점페이지 Ajax처리로 상세정보
 	public HostDTO hostinfo(@RequestParam("hnum") int hnum) {
 		HostDTO hdto = hdao.hostinfo(hnum);
 		return hdto;
 	}
-	
+
 	@RequestMapping("boardCommentInsertList")
-	public List<BoardcommentDTO> boardCommentInsertList (BoardcommentDTO bcdto) throws UnsupportedEncodingException{
-		
+	public List<BoardcommentDTO> boardCommentInsertList(BoardcommentDTO bcdto) throws UnsupportedEncodingException {
+
 		String mnickname = URLDecoder.decode(bcdto.getMnickname(), "UTF-8");
 		String bccontent = URLDecoder.decode(bcdto.getBccontent(), "UTF-8");
 		bcdto.setMnickname(mnickname);
@@ -101,8 +101,9 @@ public class JsonController {
 		List<BoardcommentDTO> boardcommentlist = bdao.boardCommentList(bcdto);
 		return boardcommentlist;
 	}
+
 	@RequestMapping("itemsCommentInsertList")
-	public List<ItemscommentDTO> itemsCommentInsertList (ItemscommentDTO icdto) throws UnsupportedEncodingException{
+	public List<ItemscommentDTO> itemsCommentInsertList(ItemscommentDTO icdto) throws UnsupportedEncodingException {
 		String mnickname = URLDecoder.decode(icdto.getMnickname(), "UTF-8");
 		String iccontent = URLDecoder.decode(icdto.getIccontent(), "UTF-8");
 		icdto.setMnickname(mnickname);
@@ -150,11 +151,15 @@ public class JsonController {
 	}
 
 	// 업체리스트 상세 검색
+	// 송용화
 	@RequestMapping(value = "searchlist")
 	public List<HostlistDTO> searchList(HostSearchDTO hsdto) {
+		// 평점 - 상관없음 일때
 		if (hsdto.getStar().equals("undefined")) {
 			hsdto.setStarnum(0);
-		} else {
+		}
+		// 평점 골랐을때
+		else {
 			hsdto.setStarnum(Integer.parseInt(hsdto.getStar()));
 		}
 		List<HostlistDTO> hostlist = hostdao.hostSearch(hsdto);
@@ -162,6 +167,7 @@ public class JsonController {
 	}
 
 	// 이용권 선택
+	// 송용화
 	@RequestMapping(value = "ticketSelect")
 	public HostgoodsDTO ticketSelect(int hgnum) {
 		HostgoodsDTO hgdto = hostdao.hostgoodsDetail(hgnum);
@@ -179,8 +185,6 @@ public class JsonController {
 		return hdao.hnamechk(hname);
 	}
 
-	
-	
 	// 게시글 작성 type2 호스트 낚시터 이름
 	@RequestMapping(value = "btype2select")
 	public List<String> btype2select(HttpServletRequest request, int btypeValue) {
@@ -203,14 +207,10 @@ public class JsonController {
 	// 안드로이드 로그인 처리
 	@RequestMapping(value = "androidLogin", produces = "application/json;charset=utf-8")
 	public MemberDTO androidLogin(MemberDTO mdto) {
-		System.out.println("mid : " + mdto.getMid());
-		System.out.println("mpwd : " + mdto.getMpwd());
 		MemberDTO m = mdao.androidLogin(mdto);
-		System.out.println("출력값 " + m);
 		return m;
 	}
 
-	
 	// 안드로이드 게시판 데이터 처리 (재민)
 	/*
 	 * @RequestMapping(value = "androidBoardData", produces =
@@ -219,57 +219,48 @@ public class JsonController {
 	 * { System.out.println("title : " + dto.getBtitle());
 	 * System.out.println("hname : " + dto.getHname()); } return b; }
 	 */
+
 	// 안드로이드 함께자바 게시판 데이터 처리 (재민)
 	@RequestMapping(value = "androidBData", produces = "application/json;charset=utf-8")
-	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto){
+	public List<MatchingboardDTO> androidBData(MatchingboardDTO mbdto) {
 		List<MatchingboardDTO> b = bdao.androidBData(mbdto);
-		for(MatchingboardDTO dto : b) {
-            System.out.println("date : " + dto.getMbdate());
-            System.out.println("title : " + dto.getMbtitle());
-            System.out.println("mbtag : " + dto.getMbtag());
-        }
 		return b;
 	}
-	
+
 	// 함께자바 상세보기 안드 (재민)
 	@RequestMapping(value = "androidTogether", produces = "application/json;charset=utf-8")
-	public String androidTogether(String mid, String mbnum){
+	public String androidTogether(String mid, String mbnum) {
 		HashMap<String, Object> valupdate = new HashMap<String, Object>();
 		valupdate.put("mid", mid);
 		valupdate.put("mbnum", mbnum);
 		mbi.statusadd(valupdate);
 		return "성공";
 	}
-	
+
 	// 안드로이드 내정보 (재민)
-		@RequestMapping(value = "androidMyinfo", produces = "application/json;charset=utf-8")
-		public List<MemberDTO> androidMyinfo(MemberDTO mdto){
-			List<MemberDTO> fo = mdao.androidMyinfo(mdto);
-			for(MemberDTO dto : fo) {
-	            System.out.println("mName : " + dto.getMname());
-	            System.out.println("mId : " + dto.getMid());
-	            System.out.println("mEmail : " + dto.getMemail());
-	        }
-			return fo;
-		}
-	
+	@RequestMapping(value = "androidMyinfo", produces = "application/json;charset=utf-8")
+	public List<MemberDTO> androidMyinfo(MemberDTO mdto) {
+		List<MemberDTO> fo = mdao.androidMyinfo(mdto);
+		return fo;
+	}
+
 	// 함께자바 검색기능
 	@RequestMapping(value = "matchingb")
-	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto,String count) {
-		System.out.println("몇명인가요"+count);
-		System.out.println(dto.getMbtag());
+	public List<MatchingboardDTO> matchingb(MatchingboardDTO dto, String count) {
+		// System.out.println("몇명인가요" + count);
+		// System.out.println(dto.getMbtag());
 		List<String> service = new ArrayList<String>();
 		String[] test = dto.getMbtag().split("/");
-		for(int i=0;i<test.length;i++) {
+		for (int i = 0; i < test.length; i++) {
 			service.add(test[i]);
 		}
-		for(String e : service) {
-			System.out.println("e:"+e);
-		}
+		/*
+		 * for (String e : service) { System.out.println("e:" + e); }
+		 */
 		HashMap<String, Object> list = new HashMap<String, Object>();
 		String md = "0";
 		String[] modifysdate = dto.getStartdate().split("/");
-		
+
 		if (modifysdate[0].length() == 1) {
 			modifysdate[0] = md.concat(modifysdate[0]);
 		}
@@ -290,29 +281,30 @@ public class JsonController {
 		list.put("count", count);
 		dto.setEnddate(modifyedate[2].substring(2, 4) + "/" + modifyedate[0] + "/" + modifyedate[1]);
 		List<MatchingboardDTO> searchdto = MatchingBoard.optionsearch(list);
-		for(MatchingboardDTO e : searchdto) {
-			System.out.println(e.getMbtitle());
-		}
-		
+		/*
+		 * for (MatchingboardDTO e : searchdto) { System.out.println(e.getMbtitle()); }
+		 */
 
 		return searchdto;
 	}
-	
-	
-	@RequestMapping(value= "my_point") //나의 포인트 
-	public List<PointlogDTO> coupon(HttpSession session) {
+
+	@RequestMapping(value = "my_point") // 나의 포인트
+	public HashMap<Object, Object> coupon(HttpSession session) {
+		HashMap<Object, Object> map = new HashMap<Object, Object>();
 		String mid = (String) session.getAttribute("mid");
 		List<PointlogDTO> plist = mdao.gamepointlogList(mid);
-		return plist ;
+		MemberDTO mdto = mdao.myInfo(mid);
+		int mpoint = mdto.getMpoint();
+		map.put("plist", plist);
+		map.put("mpoint", mpoint);
+		return map;
 	}
-	
-	@RequestMapping(value= "my_recent") //최근본가맹점
+
+	@RequestMapping(value = "my_recent") // 최근본가맹점
 	public List<RecentListDTO> recent(HttpSession session) {
 		String mid = (String) session.getAttribute("mid");
 		List<RecentListDTO> rlist = mdao.recentHostList(mid);
-		return rlist ;
+		return rlist;
 	}
-	
-	
 
 }

@@ -175,19 +175,32 @@ function mypoint() {
 			success : function(data) {
 				console.log("성공은했니?")
 				$("#target").html("")
-				$("#target").append('<div class="col-md-4 ftco-animate fadeInUp ftco-animated"><div class="destination" style="font-size: 18px;"><p style="text-align: left0;">잔여 포인트 : <span>10point</span></p>')
+				$("#target").append('<div class="col-md-4 ftco-animate fadeInUp ftco-animated"><div class="destination" style="font-size: 18px;"><p style="text-align: left;">잔여 포인트 : <span class="product-price">'+data.mpoint+'P</span></p>')
 				$("#target").append('<table id="targettable" style="width: 100%; font-size:20px; text-align: center;"><thead style="background-color: #f85959; color: #ffffff"><tr><th>구분</th><th>포인트</th><th>일자</th></tr>')
-				$.each(data, function(key, value){
+				console.log("plist :" + data.plist);
+				console.log("mpoint :" + data.mpoint);
+				
+				$.each(data.plist, function(key, value){
+					console.log(data);
 						/* $("#target").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='javascript:void(0)' onclick='itemdetail("+value.hostdto.hnum+",\""+value.hname+ "\")' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/"+value.hostdto.himage+"\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='javascript:void(0)' onclick='itemdetail("+value.hostdto.hnum+",\""+value.hname+ "\")'>"+value.hname+"</a></h3></div><div class='two'><span class='price per-price'>"+value.usedate+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>"+ value.hostdto.haddr+"</span> </p></div></div></div>"); */
-						console.log(value.plpoint)
-						$("#targettable").append('<tbody style="font-family:  Do Hyeon"><tr><td>'+value.pltype+'</td><td>'+value.plpoint+'point</td><td>'+value.pldate+'</td></tr></tbody></table></div></div>')
+						console.log("key :" + key);
+						console.log("value :" + value);
+						 $("#targettable").append('<tbody style="font-family:  Do Hyeon"><tr><td>'+value.pltype+'</td><td class="product-price">'+value.plpoint+'P</td><td>'+value.pldate+'</td></tr></tbody></table></div></div>')
+				});
+				$(".product-price").each(function(idx) {
+					// 금액에 천단위 콤마추가해주고 맨 뒤에 원을 붙임
+					var value = $(this).text();
+					$(this).text($.fn.priceBuilder(value));
 				});
 			}
 		});
 		
 	}
 
-
+$.fn.priceBuilder = function(price) {
+	// 금액에 천단위 콤마 추가해주는 정규표현식
+	return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function recent() {
 	console.log("함수호출!!")

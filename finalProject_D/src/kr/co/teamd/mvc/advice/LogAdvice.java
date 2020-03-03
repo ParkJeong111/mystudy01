@@ -36,9 +36,9 @@ public class LogAdvice {
 					HttpServletRequest request = (HttpServletRequest) fd[1];
 					String mid = (String) session.getAttribute("mid");
 					if(mid==null) {
-						System.out.println("로그인 log에서 보는 mid 값이 null");
+						// System.out.println("로그인 log에서 보는 mid 값이 null");
 					}else {
-						System.out.println("로그인 log에서 보는 mid 값이 "+mid);
+						// System.out.println("로그인 log에서 보는 mid 값이 "+mid);
 						logdto.setMid(mid);
 						logdto.setLip(request.getRemoteAddr());
 						logdto.setLagent("PC");

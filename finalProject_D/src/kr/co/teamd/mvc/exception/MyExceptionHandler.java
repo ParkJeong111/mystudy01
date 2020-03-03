@@ -1,8 +1,5 @@
 package kr.co.teamd.mvc.exception;
 
-import java.sql.SQLException;
-
-import org.aspectj.lang.annotation.AfterThrowing;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.ui.Model;

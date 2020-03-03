@@ -88,7 +88,7 @@
 	
 	<!-- 포인트 로그 리스트(채은)  -->
 	<select id="gamepointlogList" parameterType="String" resultType="pldto">
-		select plnum, mid,to_char(pldate,'yyyy-mm-dd') pldate, pltype, plpoint from pointlog where mid=#{mid}
+		select plnum, mid,to_char(pldate,'yyyy-mm-dd') pldate, pltype, plpoint from pointlog where mid=#{mid} order by 3 desc
 	</select>
 
 	<!-- 최근본숙소 insert (채은)  -->
@@ -98,8 +98,10 @@
 	
 	<!-- 최근본숙소 select (채은)  -->
 	<select id="recentHostList" parameterType="String" resultType="rldto">
-		select rh.rhnum,rh.hname,to_char(rh.rhdate,'MM-dd') rhdate,h.hnum, h.himage, h.haddr from host h, recenthost rh 
-		where h.hname=rh.hname and rh.mid=#{mid} order by 3 desc
+		select distinct h.hnum, rh.hname, to_char(rh.rhdate,'MM-dd') rhdate, h.himage, h.haddr 
+		from host h, recenthost rh 
+		where h.hname = rh.hname and rh.mid = #{mid}
+		order by 3 desc
 	</select>
 	
   </mapper>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import kr.co.teamd.mvc.dao.MemberInter;
 
+// ø¿¿ÁπŒ
 @RestController
 public class IdcheckController {
 	
@@ -15,7 +16,6 @@ public class IdcheckController {
 	
 	@RequestMapping(value ="/idcheck" )
 	public int idchk(Model m, @RequestParam("id") String id) {
-		System.out.println("Id :" + id);
 		int mnum = memberinter.idChk(id);
 		return mnum;  
 	}

@@ -395,7 +395,7 @@ input[type="radio"]:active + label:before {
 input[type="radio"] + label {
     position: relative;
     padding: 10px;
-    padding-left: 2em;
+    padding-left: 25px;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;

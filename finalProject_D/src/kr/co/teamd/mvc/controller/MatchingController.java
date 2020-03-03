@@ -128,7 +128,7 @@ public class MatchingController {
 		resultcheck.put("mbnum", mbnum);
 		resultcheck.put("mid", mid);
 		int check = matchingboarddao.boardmatchcheck(resultcheck);
-		System.out.println("카운트가 몇인가요" + check);
+		// System.out.println("카운트가 몇인가요" + check);
 		
 		if(personcount == statuscount) {
 			out.println("<script>alert('출조인원이 초과하였습니다.');</script>");

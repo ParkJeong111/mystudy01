@@ -46,7 +46,7 @@
     box-shadow: none;
     border: transparent;
     background: #fff;
-    color: #4d4d4d;
+    color: #333333;
     border: 1px solid #e6e6e6;
     font-size: 14px;
     width: 300px;
@@ -375,7 +375,7 @@ label {
     display: inline-block;
 }
 
-.modal-body label { padding-left: 25px; padding: 5px;}
+.modal-content label { padding-left: 25px; padding: 5px;}
 </style>
 <div id="modalBox" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-size:25px; font-family: Do Hyeon;">
 <div class="modal-dialog" role="document">
@@ -385,22 +385,22 @@ label {
 </div>
 <form action="randommatching" method="post" style="margin: 0px; padding: 0px;">
 <div class="modal-body">
-<div style="display: inline-block;">
-<div style="float: left; margin: 0px; padding: 0px; margin-top: 10px;">
-<strong><b>인원수</b></strong>
+<div style="display: inline-block;margin: 0px; padding: 0px; ">
+<div style="float: left; margin: 0px; padding: 0px; margin-top: 10px; color: black;">
+<strong><b style="margin-right: 20px;">인원수</b></strong>
 </div>
 <div style="float: right;">
 <input type = "radio" id = "radio1" name = "rmcount" value="2" checked="checked">
-<label for="radio1">2</label>
+<label for="radio1" style="padding-left: 25px;">2</label>
 <input type = "radio" id = "radio2" name = "rmcount" value="4">
-<label for="radio2">4</label>
+<label for="radio2" style="padding-left: 25px;">4</label>
 <input type = "radio" id = "radio3" name = "rmcount" value="6">
-<label for="radio3">6</label>
+<label for="radio3" style="padding-left: 25px;">6</label>
 </div>
 </div>
-<hr style="padding: 0px; margin: 0px;margin-bottom: 3px;">
+<hr style="padding: 0px; margin: 0px;">
 <div>
-<p><strong><b style="padding: 0px; margin: 0px">지역</b></strong></p>
+<p><strong><b style="padding: 0px; margin: 0px; color: black;">지역</b></strong></p>
 <input type="radio" id = "radio4" name = "rmlocation" value="seoul" checked="checked">
 <label for="radio4">서울</label>
 <input type="radio" id = "radio5" name = "rmlocation"  value="Gyeonggi">
@@ -424,9 +424,12 @@ label {
 <input type="radio" id = "radio14"name = "rmlocation"  value="jeju">
 <label for="radio14">제주</label>
 </div>
-<hr style="margin: 0px; padding: 0px;margin-bottom: 3px;">
-<div>
-<p><strong><b style="padding: 0px; margin: 0px">유형</b></strong></p>
+<hr style="padding: 0px; margin: 0px;">
+<div style="display: inline-block;margin: 0px; padding: 0px; ">
+<div style="float: left; margin: 0px; padding: 0px; margin-top: 10px; color: black;">
+<strong><b style="margin-right: 20px;">유형</b></strong>
+</div>
+<div style="float: right;">
 <input type="radio" id = "radio15" name = "rmtype" value="sea" checked="checked">
 <label for="radio15">바다</label>
 <input type="radio" id = "radio16" name = "rmtype"  value="freshwater">
@@ -434,9 +437,13 @@ label {
 <input type="radio" id = "radio17" name = "rmtype"  value="fishingcafe">
 <label for="radio17">낚시카페</label>
 </div>
-<hr style="margin: 0px; padding: 0px;margin-bottom: 3px;">
-<div>
-<p><strong><b style="padding: 0px; margin: 0px">나이</b></strong></p>
+</div>
+<hr style="padding: 0px; margin: 0px;">
+<div style="display: inline-block;margin: 0px; padding: 0px; ">
+<div style="float: left; margin: 0px; padding: 0px; margin-top: 10px; color: black;">
+<strong><b style="margin-right: 20px;">연령대</b></strong>
+</div>
+<div style="float: right;">
 <input type="radio" id = "radio18" name = "rmage" value="20" checked="checked">
 <label for="radio18">20</label>
 <input type="radio" id = "radio19" name = "rmage"  value="30">
@@ -448,26 +455,37 @@ label {
 <input type="radio" id = "radio22" name = "rmage"  value="60">
 <label for="radio22">60이상</label>
 </div>
-<hr style="margin: 0px; padding: 0px;margin-bottom: 3px;">
-<div>
-<p><strong><b style="padding: 0px; margin: 0px">시간대</b></strong></p>
+</div>
+<hr style="padding: 0px; margin: 0px;">
+<div style="display: inline-block;margin: 0px; padding: 0px; ">
+<div style="float: left; margin: 0px; padding: 0px; margin-top: 10px; color: black;">
+<strong><b style="margin-right: 20px;">시간대</b></strong>
+</div>
+<div style="float: right;">
 <input type="radio" id = "radio23" name = "rmtime" value="am" checked="checked">
 <label for="radio23">오전</label>
 <input type="radio" id = "radio24" name = "rmtime"  value="pm">
 <label for="radio24">오후</label>
 <input type="radio" id = "radio25" name = "rmtime"  value="night">
 <label for="radio25">야간</label>
-<hr style="margin: 0px; padding: 0px;">
-<p><strong><b style="padding: 0px; margin: 0px">성별</b></strong></p>
+</div>
+</div>
+<hr style="padding: 0px; margin: 0px;">
+<div style="display: inline-block;margin: 0px; padding: 0px; ">
+<div style="float: left; margin: 0px; padding: 0px; margin-top: 10px; color: black;">
+<strong><b style="margin-right: 20px;">성별</b></strong>
+</div>
+<div style="float: right;">
 <input type="radio" id = "radio26" name = "rmsex" value="man" checked="checked">
 <label for="radio26">남자</label>
 <input type="radio" id = "radio27" name = "rmsex"  value="woman">
 <label for="radio27">여자</label>
 </div>
+</div>
 <hr style="margin: 0px; padding: 0px;margin-bottom: 3px;">
 <div style = "margin-left: 282px;">
-<button type="submit" class="btn btn-primary" style = "font-family: Jua;">매칭하기</button>
-<button type="button" class="btn btn-default" id="closeModalBtn2" style = "font-family: Jua;">매칭취소</button>
+<button type="submit" class="btn btn-primary" style = "font-size: 20px">매칭하기</button>
+<button type="button" class="btn btn-default" id="closeModalBtn2" style = "font-size: 20px">매칭취소</button>
 </div>
 </div>
 </div>
