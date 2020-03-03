@@ -102,4 +102,9 @@ public class MemberDAO implements MemberInter{
 		return ss.selectList("member.gamepointlogList", mid);
 	}
 
+	@Override
+	public MemberDTO pwfind(String memail) {
+		return ss.selectOne("member.pwfind", memail);
+	}
+
 }

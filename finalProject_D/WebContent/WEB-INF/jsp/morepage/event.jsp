@@ -103,7 +103,7 @@ div {
 		</div>
     </div>
 	<!--  여기에 헤더부분 추가  -->
-	<p style = "text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
+	<p style = "text-align: center; font-weight: bold; color: #606060; font-size: 45px; padding-top: 25px; padding-bottom: 5px;font-family: Do Hyeon;">
 	이벤트
 	</p>
 	<hr>

@@ -106,7 +106,7 @@ color: blue;
 	<section class="ftco-section contact-section ftco-degree-bg" style="padding-left: 530px;">
 		<div class="container" style="margin: auto;">
 			<div class="row d-flex mb-5 contact-info" style="margin-top:-8%; padding: auto;">
-				<h2 class="h4" style="text-align: center;S">
+				<h2 class="h4" style="text-align: center; margin-top: -100px; font-family: Do Hyeon;margin-left: 10%;">
 					<br>나의 정보
 				</h2>
 				<div class="w-100"></div>

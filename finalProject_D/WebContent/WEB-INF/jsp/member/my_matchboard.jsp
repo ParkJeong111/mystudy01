@@ -845,11 +845,11 @@ a {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto;" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; font-family: Do Hyeon; font-size: 35px;"  >
 			<ol class="clearfix" style="text-align: center;">
-				<li><a href="my_board"><b><strong>게시글작성</strong></b></a></li>
-				<li><a href="itemsboard"><b><strong>중고 게시글작성</strong></b></a></li>
-				<li class="active"><a href="matchboardview"><b><strong>매칭글 작성</strong></b></a></li>
+				<li><a href="my_board"><b><strong style = "font-size: 35px;">게시글작성</strong></b></a></li>
+				<li><a href="itemsboard"><b><strong style = "font-size: 35px;">중고 게시글작성</strong></b></a></li>
+				<li class="active"><a href="matchboardview"><b><strong style = "font-size: 35px;">매칭글 작성</strong></b></a></li>
 			</ol>
 		</div>
 <style>
@@ -993,7 +993,7 @@ label {
 		<section class="ftco-section ftco-degree-bg"
 			style="background: white;">
 			<div class="container">
-			<form method="post" action="my_board" enctype="multipart/form-data" >	
+			<form method="post" action="#" enctype="multipart/form-data" >	
 				<div class="row">
 					<div class="col-lg-9">
 						<div class="row">
@@ -1093,7 +1093,7 @@ label {
 												<div class="form-group" >
 													<input multiple="multiple" type="file" id="bfile" name="bfile" value="이미지"
 														class="form-control" placeholder="사진을 등록해주세요."
-														style="border-radius: 7px;">
+														style="border-radius: 7px;" required="required">
 														<%-- 사진 올린거 바로 미리 보여주기 --%>
 <!-- 													<div> -->
 														<div class="img_wrap">
@@ -1120,12 +1120,12 @@ label {
 										<div class="col-md-6">
 											<div class="form-group">
 												<input type="text" class="form-control" id="btitle" name="btitle"
-													placeholder="제목을 입력해 주세요(30자 이하)" required>	
+													placeholder="제목을 입력해 주세요(30자 이하)" required="required">	
 											</div>
 										</div>
 											<div class="form-group" style="width: 280px;">
 									<input type="text" id="checkin_date" class="form-control"
-										placeholder="시작일" name = "startdate">
+										placeholder="시작일" name = "startdate" required="required">
 										</div>
 										
 										<!-- 별점 평점  -->
@@ -1170,7 +1170,7 @@ label {
 										<div class="col-md-6">
 											<div class="form-group">
 												<textarea style="width: 870px; height: 500px;" name="bcontent" id="bcontent"
-													placeholder="내용을 입력해주세요."></textarea>
+													placeholder="내용을 입력해주세요." required="required"></textarea>
 										</div>
 										</div>
 										<!-- 취소, 올리기, 목록 버튼 -->
@@ -1179,7 +1179,7 @@ label {
 												style="margin-top: 20px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
 												<input type="reset" value="취소" id="cancelBtn"
 													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
-												<input type="button" value="올리기" id="uploadBtn"
+												<input type="submit" value="올리기" id="uploadBtn"
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="button" id = "updateBtn" value="목록" 
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">

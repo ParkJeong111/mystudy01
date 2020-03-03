@@ -27,14 +27,14 @@ background: '#F85959';
 }
 .talk_tab li a {
 	display: block;
-	font-size: 19px;
+	font-size: 35px;
 	letter-spacing: -0.6px;
 	text-align: center;
 	height: 44px;
 	line-height: 42px;
-	color: #606060;;
-	font-family: "Poppins", Arial, sans-serif;
-	 font-size: 19px;
+	color: #333333;
+	font-family: Do Hyeon;
+
 	cursor: pointer;
 	
 }
@@ -66,14 +66,14 @@ border-bottom: 1px solid #e6e6e6;
 
 				<div class="col-lg-9" style="margin: auto;">
 							
-			<div class="talk_tab_area" style="margin-top: -100px;">
+			<div class="talk_tab_area" style="margin-top: -100px; ">
 				<section>
 			
 					<ul class="talk_tab clearfix" style="margin-top: 1%;">
 
-						<li class="selecthead selected">
+						<li class="selecthead selected" id = "match">
 						<a href="javascript:void(0);" onclick="matching()"  style = "margin: auto;"><strong><b>¸ÅÄªÁß</b></strong></a></li>
-						<li class="selecthead selected1">
+						<li class="selecthead selected1" id = "matchres">
 						<a href="javascript:void(0);" onclick="matchingres()"  style = "margin: auto;"><strong><b>¸ÅÄª¿Ï·á</b></strong></a></li>
 						
 					</ul>
@@ -150,6 +150,7 @@ border-bottom: 1px solid #e6e6e6;
 		</div>
 		</div>
 		</div>
+		<input type="hidden" value="${list.check }" id="checkval">
 	</section>
 	
 <div id="matchingModal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style = "font-family: Jua;">
@@ -207,6 +208,15 @@ border-bottom: 1px solid #e6e6e6;
 
 </body>
 <script>
+console.log("check°ªÀº"+$('#checkval').val());
+if($('#checkval').val() == 1){
+	document.getElementById("match").className = "selecthead selected1";
+	document.getElementById("matchres").className = "selecthead selected";
+	matchingres();
+}
+
+
+
 $(document).on("click", "#modalmatch", function(){
 	$('#matchingModal').modal('show');
 });
@@ -224,8 +234,8 @@ $(document).ready(function() {
 		});
 	});
 	
-
 });
+
 
 
 function matching() {
