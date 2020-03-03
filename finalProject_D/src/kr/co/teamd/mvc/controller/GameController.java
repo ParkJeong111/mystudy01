@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.teamd.mvc.dao.MemberInter;
 import kr.co.teamd.mvc.dto.MemberDTO;
 
+//¡÷º∫¡ﬂ
 
 @Controller
 public class GameController {
@@ -54,7 +55,7 @@ public class GameController {
 
 	@RequestMapping(value = "gameresult")
 	public ModelAndView mymatching(HttpSession session, HttpServletResponse resp, MemberDTO dto, int res) throws IOException {
-		System.out.println(res);
+		// System.out.println(res);
 		ModelAndView mav = new ModelAndView();
 		String mid = (String) session.getAttribute("mid");
 		dto.setMid(mid);

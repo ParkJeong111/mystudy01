@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+//권세진, 오재민
 @RestController
 public class WeatherJsonController {
 	@RequestMapping("/weather")
@@ -44,12 +45,8 @@ public class WeatherJsonController {
 		// nx: 위도, ny: 경도
 		String nx;
 		String ny;
-			nx = x;
-			ny = y;
-
-
-		System.out.println(nx);
-		System.out.println(ny);
+		nx = x;
+		ny = y;
 		// 관측 날짜
 		String baseDate = daytime[0];
 
@@ -77,9 +74,9 @@ public class WeatherJsonController {
 
 		StringBuilder urlBuilder = new StringBuilder(apiUrl);
 		urlBuilder.append("?" + URLEncoder.encode("serviceKey", "EUC-KR") + "=" + serviceKey);
-		urlBuilder.append("&" + URLEncoder.encode("pageNo", "EUC-KR") + "=" + URLEncoder.encode("1", "EUC-KR"));        // 페이지
-																													    // 번호
-		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "EUC-KR") + "=" + URLEncoder.encode("10", "EUC-KR"));    // 결과
+		urlBuilder.append("&" + URLEncoder.encode("pageNo", "EUC-KR") + "=" + URLEncoder.encode("1", "EUC-KR")); // 페이지
+																													// 번호
+		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "EUC-KR") + "=" + URLEncoder.encode("10", "EUC-KR")); // 결과
 																														// 수
 		urlBuilder.append("&" + URLEncoder.encode("dataType", "EUC-KR") + "=" + URLEncoder.encode(dataType, "EUC-KR")); // 데이터
 																														// 타입

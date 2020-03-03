@@ -110,6 +110,7 @@
 		from host h, hostgoods hg
 		where h.hname = hg.hname and h.hnum =
 		#{hnum}
+		order by hgmoney asc
 	</select>
 	<!-- Host Detail 끝 -->
 
@@ -222,7 +223,9 @@
 	<select id = "boardmatchcheck" parameterType="Hashmap" resultType="int">
 		select count(mbtitle) from matchingboard where mbnum = #{mbnum} and mbresult LIKE '%'|| #{mid} || '%'
 	</select>
-	
+	<insert id = "matchingboardinsert" parameterType="Hashmap">
+		insert into matchingboard values(matchingboard_seq.nextVal,#{dto.mbtitle},#{mid},#{dto.mbcontent},#{dto.mbtag},#{dto.mbperson},#{dto.mblocation},#{dto.mbimage},#{dto.mbstartdate},sysdate,0,0,'출조리스트 : ')
+	</insert>
 	
 	<!--  -->
 	

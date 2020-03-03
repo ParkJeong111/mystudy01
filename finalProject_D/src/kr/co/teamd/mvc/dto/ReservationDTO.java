@@ -19,9 +19,6 @@ public class ReservationDTO {
 	private String haddr; //추천업체리스트를 위해 추가
 	private int hnum; //추천업체리스트를 위해 추가
 	
-	
-	
-	
 	public String getHaddr() {
 		return haddr;
 	}

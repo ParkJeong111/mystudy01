@@ -23,7 +23,7 @@
 .service_area .service_tab li a {
 	display: block;
 	font-size: 20px;
-	color: #606060;
+	color: #333333;
 	text-align: center;
 	padding: 24px 0;
 	border-bottom: 1px solid #e6e6e6;
@@ -62,7 +62,7 @@
 	font-weight: normal;
 	float: right;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 }
 
 .service_area .service_title strong:before {
@@ -117,7 +117,7 @@
 	outline: none;
 	width: 100%;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	height: 58px;
 	border: none;
 	border-radius: 0.3rem;
@@ -189,7 +189,7 @@
 	background: #f8f8f9;
 	padding: 20px 31px;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	border-top: 1px solid #e6e6e6
 }
 
@@ -295,7 +295,7 @@
 	outline: none;
 	width: 100%;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	height: 58px;
 	border: none;
 	border-radius: 0.3rem;
@@ -426,7 +426,7 @@
 	border: none;
 	font-size: 16px;
 	text-align: center;
-	color: #606060;
+	color: #333333;
 }
 
 .inq_area .inqFile_hidden {
@@ -646,7 +646,7 @@
 	max-height: 430px !important
 }
 
-.select2-container--default .select2-search--dropdown .select2-search__field
+/* .select2-container--default .select2-search--dropdown .select2-search__field */
 	{
 	padding: 20px 10px;
 	font-size: 20px;
@@ -712,7 +712,7 @@
 
 .select2-result-repository.company_info .info_area .c_view_addr {
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	letter-spacing: -0.5px;
 }
 
@@ -845,18 +845,17 @@ a {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto;" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; font-family: Do Hyeon; font-size: 35px;" >
 			<ol class="clearfix" style="text-align: center;">
-				<li class="active"><a href="my_board"><b><strong>게시글작성</strong></b></a></li>
-				<li><a href="itemsboard"><b><strong>중고 게시글작성</strong></b></a></li>
-				<li><a href="matchboardview"><b><strong>매칭글 작성</strong></b></a></li>
+				<li class="active"><a href="my_board"><b><strong style="font-size: 35px;">게시글작성</strong></b></a></li>
+				<li><a href="itemsboard"><b><strong style="font-size: 35px;">중고 게시글작성</strong></b></a></li>
+				<li><a href="matchboardview"><b><strong style="font-size: 35px;">매칭글 작성</strong></b></a></li>
 			</ol>
 		</div>
 
-		<section class="ftco-section ftco-degree-bg"
-			style="background: white;">
+		<section class="ftco-section ftco-degree-bg" style="background: white;">
 			<div class="container">
-			<form method="post" action="my_board" enctype="multipart/form-data" >	
+			<form method="post" action="my_board" enctype="multipart/form-data" style="margin-top: -60px; font-family:  Noto Sans KR; font-size: 22px;">	
 				<div class="row">
 					<div class="col-lg-9">
 						<div class="row">
@@ -873,7 +872,7 @@ a {
 													<input type="hidden" name="mid" value="${sessionScope.mid }"/>
 													
 													<select name="btype1" id="tm" class="form-control"
-														placeholder="유저조행기" style="border-radius: 7px;">
+														placeholder="유저조행기" style="border-radius: 7px;font-size: 22px;">
 														<option value="0">유저조행기</option>
 														<option value="1" id="c1">유용한정보</option>
 														<option value="2" id="c2">낚시지식인</option>
@@ -890,7 +889,7 @@ a {
 														<span class="ion-ios-arrow-down"></span>
 													</div>
 													<select name="btype2" id="tm2" class="form-control"
-														placeholder="카테고리를선택해주세요" style="border-radius: 7px;">
+														placeholder="카테고리를선택해주세요" style="border-radius: 7px;font-size: 22px;">
 														<option value="0">선택해주세요</option>
 														<option value="1">바다조행기</option>
 														<option value="2">민물조행기</option>
@@ -903,7 +902,7 @@ a {
 												<div class="form-group" >
 													<input multiple="multiple" type="file" id="bfile" name="bfile" value="이미지"
 														class="form-control" placeholder="사진을 등록해주세요."
-														style="border-radius: 7px;">
+														style="border-radius: 7px;font-size: 20px;">
 														<%-- 사진 올린거 바로 미리 보여주기 --%>
 <!-- 													<div> -->
 														<div class="img_wrap">
@@ -921,7 +920,7 @@ a {
 													<div class="icon" id="hostdwnarrow">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select id="hn" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;">
+													<select id="hn" name="hname" class="form-control" placeholder="가맹점 이름" style="border-radius: 7px;font-size: 22px;">
 													</select>
 											</div>
 										</div>
@@ -931,14 +930,14 @@ a {
 										<div class="col-md-6">
 											<div class="form-group">
 												<input type="text" class="form-control" id="btitle" name="btitle"
-													placeholder="제목을 입력해 주세요(30자 이하)" required>	
+													placeholder="제목을 입력해 주세요(30자 이하)" required style="font-size: 22px;" >	
 											</div>
 										</div>
 										<!-- 별점 평점  -->
 										<c:forEach var="e" items="${bstar }"></c:forEach>	
 										<div class="col-md-6 star-rating" style="float: left;" id="tm3">
-														<a>별점</a> <br>  <!-- 등록하는거 -->
-														<div class="star-box" id="star-box">
+														<div style=" float: left;"><a style="margin-top: -20px;">별점</a> </div>  <!-- 등록하는거 -->
+														<div class="star-box" id="star-box" style="float: right; margin-right: 40%">
 															<a class="star star_click" href="#0"></a>
 															<a class="star star_click" href="#1"></a>
 															<a class="star star_click" href="#2"></a>
@@ -994,13 +993,13 @@ a {
 										<!-- 취소, 올리기, 목록 버튼 -->
 										<div>
 											<div class="form-group"
-												style="margin-top: 20px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
+												style="font-size:22px; margin-top: 20px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
 												<input type="reset" value="취소" id="cancelBtn"
-													style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+													style="width: 113px; height: 40px; background-color: #666666; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="submit" value="올리기" id="uploadBtn"
-													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="button" onclick="jacvascript:goListBtn()" value="목록" 
-													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 											</div>
 										</div>
 									</div>

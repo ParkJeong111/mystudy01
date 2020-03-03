@@ -23,13 +23,9 @@ public class AdminBoardController {
 		ModelAndView mav = new ModelAndView();
 		List<BoardDTO> dto =  boardrdao.board();
 		List<ItemsboardDTO> dto1 = boardrdao.itemsboard();
-		System.out.println("여기가1번");
 		mav.addObject("itemsboard",dto1);
-		System.out.println("여기가2번");
 		mav.addObject("board", dto);
-		System.out.println("여기가3번");
 		mav.setViewName("admin/a_board");
-		System.out.println("여기가4번");
 		return mav;
 	}
 	@RequestMapping(value= "board_delete")
