@@ -1115,7 +1115,6 @@ function goListBtn(){
 				function(){
 					//var selectnum = $('#tm2 option:selected').val()
 					 if($("#tm2").val() == 0){
-						 console.log("실행되나????");
 						 $('#hostlist_div').prop('hidden', true);
 					 } else if($("#tm2").val() == 1 || $("#tm2").val() == 2) {
 						 $('#hostlist_div').prop('hidden', false);
