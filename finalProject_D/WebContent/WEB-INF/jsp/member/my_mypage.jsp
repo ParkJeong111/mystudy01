@@ -196,7 +196,6 @@ function mypoint() {
 		});
 		
 	}
-
 $.fn.priceBuilder = function(price) {
 	// 금액에 천단위 콤마 추가해주는 정규표현식
 	return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

@@ -1122,7 +1122,7 @@ section {
 }
 
 .talk_area .talk_recom a .recom_text {
-	padding-left: 25px;
+	padding-left: 15px;
 	padding-top: 30px;
 	width: calc(100% - 120px);
 	float: left;
