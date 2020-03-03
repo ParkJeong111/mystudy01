@@ -50,8 +50,8 @@
         </resultMap>
         <!-- 메인에서 이용후기 출력, 바다와 민물을 다이나믹 쿼리로 구분 -->
         <select id="revieswList" resultMap="reviewsListResult" parameterType="String">
-        select hnum, hname, hstar, btitle, haddr, bimage, hspecies, bdate from 
-        (select h.hnum, b.hname, h.hstar, b.btitle, h.haddr, b.bimage, h.hspecies, b.bdate from host h, board b 
+       select hnum, bnum, hname, hstar, btitle, haddr, bimage, hspecies, bdate from 
+        (select h.hnum, b.bnum, b.hname, h.hstar, b.btitle, h.haddr, b.bimage, h.hspecies, b.bdate from host h, board b 
         where h.hname=b.hname and 
         <choose>
                 <when test="viewtype.equals('바다')">b.btype2='바다조행기'</when>
