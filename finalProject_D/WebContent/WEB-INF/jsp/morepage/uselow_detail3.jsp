@@ -138,7 +138,7 @@ li {
 		</div>
     </div>
 	<!--  여기에 헤더부분 추가  -->
-	<p style = "text-align: center; font-weight: bold; color: #606060; font-size: 30px; padding-top: 25px; padding-bottom: 5px;">
+	<p style = "text-align: center; font-weight: bold; color: #606060; font-family: Do Hyeon;font-size: 45px;padding-top: 25px; padding-bottom: 5px;">
 	위치기반 서비스이용약관
 	</p>
 	<hr>
