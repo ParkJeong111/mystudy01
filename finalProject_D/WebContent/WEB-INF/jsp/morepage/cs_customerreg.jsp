@@ -843,7 +843,7 @@ input, select, button {
 				<form class="" action="hostreg" method="post"	id="form" novalidate="novalidate">
 					<input type="hidden" name="service_type" value="">
 					<!-- 업체등록요청 -->
-					<div class="req_area">
+					<div class="req_area" style="font-family: Do Hyeon; font-size: 20px;">
 						<p class="service_title">
 							<span>REQ</span>업체 등록 요청<strong>필수항목입니다.</strong>
 						</p>

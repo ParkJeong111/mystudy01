@@ -85,7 +85,7 @@ border-bottom: 1px solid #e6e6e6;
 					
 					<c:forEach var="r" items="${list.req}">
 						<div class="col-md-4 ftco-animate ">
-							<div class="destination">
+							<div class="destination" style="font-family: Do Hyeon;">
 								<a href="#"
 									class="img img-2 d-flex justify-content-center align-items-center"
 									style="background-image: url('${pageContext.request.contextPath}/resources/images/matching.JPG');
@@ -118,7 +118,7 @@ border-bottom: 1px solid #e6e6e6;
 						  
 						<c:forEach var="r" items="${list.res}">
 						<div class="col-md-4 ftco-animate ">
-							<div class="destination">
+							<div class="destination" style="font-family: Do Hyeon;">
 								<a href="itemdetail?hnum=${r.rmnum}"
 									class="img img-2 d-flex justify-content-center align-items-center"
 									style="background-image: url('${pageContext.request.contextPath}/resources/images/about.jpg');">
@@ -245,7 +245,7 @@ function matching() {
 			success : function(data) {
 				$("#reservationtarget").html("")
 				$.each(data, function(key, value){
-						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination'><a href='#' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/matching.JPG\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='itemdetail?hnum="+value.rmnum+"'>"+"¸ÅÄªÁß"+"</a></h3></div><div class='two'><span class='price per-price'>"+value.rmcount+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>&nbsp;&nbsp;"+ value.rmlocation+"</span> </p></div></div></div>");
+						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated'><div class='destination' style='font-family: Do Hyeon;'><a href='#' class='img img-2 d-flex justify-content-center align-items-center' style='background-image: url(\"${pageContext.request.contextPath}/resources/images/matching.JPG\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a href='itemdetail?hnum="+value.rmnum+"'>"+"¸ÅÄªÁß"+"</a></h3></div><div class='two'><span class='price per-price'>"+value.rmcount+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>&nbsp;&nbsp;"+ value.rmlocation+"</span> </p></div></div></div>");
 								});
 			}
 		});
@@ -259,7 +259,7 @@ function matchingres() {
 			success : function(data) {
 				$("#reservationtarget").html("")
 				$.each(data, function(key, value){
-						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated' id = 'modalmatch' style = 'cursor: pointer;'><div class='destination'><a class='img img-2 d-flex justify-content-center align-items-center'  style='background-image: url(\"${pageContext.request.contextPath}/resources/images/complete.JPG\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a>"+"¸ÅÄª¿Ï·á("+value.mrresult+")</a></h3></div><div class='two'><span class='price per-price'>"+value.rmcount+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>&nbsp;&nbsp;"+ value.rmlocation+"</span> </p></div></div></div>");
+						$("#reservationtarget").append("<div class='col-md-4 ftco-animate fadeInUp ftco-animated' id = 'modalmatch' style = 'cursor: pointer;'><div class='destination' style='font-family: Do Hyeon;'><a class='img img-2 d-flex justify-content-center align-items-center'  style='background-image: url(\"${pageContext.request.contextPath}/resources/images/complete.JPG\");'><div class='icon d-flex justify-content-center align-items-center'><span class='icon-search2'></span></div></a><div class='text p-3'><div class='d-flex'><div class='one'><h3><a>"+"¸ÅÄª¿Ï·á("+value.mrresult+")</a></h3></div><div class='two'><span class='price per-price'>"+value.rmcount+"<br></span></div></div><hr><p class='bottom-area d-flex'><span style='text-overflow: ellipsis; width:65%;'><i class='icon-map-o'></i>&nbsp;&nbsp;"+ value.rmlocation+"</span> </p></div></div></div>");
 						$('#resid').html(value.mrresult);
 						$('#reslocation').html(value.rmlocation);
 						$('#restype').html(value.rmtype);

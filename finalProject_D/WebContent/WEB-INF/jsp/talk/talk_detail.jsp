@@ -405,7 +405,7 @@ section{width:964px;position:relative;margin:0 auto;}
 		</div>
     </div>
 
-<div class="view_detail container" style="padding-top: 58px;">
+<div class="view_detail container" style="padding-top: 58px; font-family: Do Hyeon;">
 	<div class="view_info_manage_detail">
 		<div class="detail_profile clearfix">
 			<section>
@@ -531,7 +531,8 @@ section{width:964px;position:relative;margin:0 auto;}
 					    <input type="hidden" id="bnum" name="bnum" value="${dto.bnum}">
 					    <input type="hidden" id="mnickname" name="mnickname" value="${sessionScope.nickname}">
 					    <div class="file_textarea">
-					        <textarea id="bccontent" name="bccontent" class="tcm_comment" placeholder="댓글 내용을 입력해주세요."></textarea>
+					        <textarea id="bccontent" name="bccontent" class="tcm_comment" placeholder="댓글 내용을 입력해주세요."
+					        style="font-family: Do Hyeon;"></textarea>
 					    </div>
 
 					    <div class="comment_upload_box clearfix">

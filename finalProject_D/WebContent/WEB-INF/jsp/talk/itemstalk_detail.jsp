@@ -460,7 +460,7 @@ section{width:964px;position:relative;margin:0 auto;}
 		</div>
     </div>
 
-<div class="view_detail container" style="padding-top: 58.941px;">
+<div class="view_detail container" style="padding-top: 58.941px; font-family: Do Hyeon;">
 	<div class="view_info_manage_detail">
 		<div class="detail_profile clearfix">
 			<section>
@@ -603,7 +603,8 @@ section{width:964px;position:relative;margin:0 auto;}
 					    <input type="hidden" id="ibnum" name="ibnum" value="${dto.ibnum}">
 					    <input type="hidden" id="mnickname" name="mnickname" value="${sessionScope.nickname}">
 					    <div class="file_textarea">
-							<textarea id="iccontent" name="iccontent"class="tcm_comment" placeholder="댓글 내용을 입력해주세요."></textarea>
+							<textarea id="iccontent" name="iccontent"class="tcm_comment" placeholder="댓글 내용을 입력해주세요."
+							style="font-family: Do Hyeon;"></textarea>
 					        <div class="imgefile_upload">
 					            <img class="original" src="#" style="background-color: rgb(247, 247, 247);">
 								<div class="upload_close"><img src="https://img.moolban.com/unsafe/asset/www/responsive/img/basic/ico_photo03.png" alt=""></div>
