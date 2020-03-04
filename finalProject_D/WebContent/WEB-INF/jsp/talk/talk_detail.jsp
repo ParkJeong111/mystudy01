@@ -455,35 +455,35 @@ section{width:964px;position:relative;margin:0 auto;}
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-<h4 class="modal-title" id="myModalLabel" style = "margin: auto; font-family: Jua;">신고하기</h4>
+<h4 class="modal-title" id="myModalLabel" style = "margin: auto;font-family:Do Hyeon;">신고하기</h4>
 </div>
 <form action="reportInsert" method="post">
 <div class="modal-body">
-<p><strong><b>신고 사유</b></strong></p>
+<p><strong style="font-family:Do Hyeon;"><b>신고 사유</b></strong></p>
 
 <input type="hidden" name="bnum" value="${dto.bnum}">
 
 <input type = "radio" id="iradio1" name="report" value="2" checked="checked">
-<label for="iradio1">음란성/선정성</label>
+<label for="iradio1" style="font-family:Do Hyeon;" >음란성/선정성</label>
 <br>
 
 <input type = "radio" id="iradio2"  name="report" value="4">
-<label for="iradio2">욕설/반말/부적절한 언어</label>
+<label for="iradio2" style="font-family:Do Hyeon;">욕설/반말/부적절한 언어</label>
 <br>
 
 <input type = "radio"id="iradio3"  name="report" value="6">
-<label for="iradio3">부적절한 홍보 게시글</label>
+<label for="iradio3" style="font-family:Do Hyeon;">부적절한 홍보 게시글</label>
 <br>
 
 <input type = "radio" id="iradio4"  name="report" value="6">
-<label for="iradio4">도배성 게시글</label>
+<label for="iradio4" style="font-family:Do Hyeon;">도배성 게시글</label>
 
 
 
 
 <div style = "margin-left: 282px;">
-<button type="submit" class="btn btn-primary" style = "font-family: Jua;" >신고하기</button>
-<button type="button" class="btn btn-default" id="closeModalBtn2" style = "font-family: Jua;">취소하기</button>
+<button type="submit" class="btn btn-primary" style="font-family:Do Hyeon;"" >신고하기</button>
+<button type="button" class="btn btn-default" id="closeModalBtn2" style="font-family:Do Hyeon;"">취소하기</button>
 </div>
 
 </div>
