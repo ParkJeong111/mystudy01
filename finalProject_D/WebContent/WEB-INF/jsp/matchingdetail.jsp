@@ -2816,15 +2816,11 @@ filter: invert(0%);
 						출조일 : <span style="margin-right: 326px;" class="count_txt">${list.mbstartdate}</span>
 						게시글 등록일 : <span class="count_txt">${list.mbdate}</span>
 					</p>
-				
 						
-				
 						<p class="view_box_title">
 						매칭 신청한 아이디 : <span class="count_txt">${list.mbresult }(${list.mbstatus})</span>
 					</p>
 						
-						
-					
 						</dt>
 						<hr>
 						<p style="margin-bottom: 30px;" class="view_box_title">
