@@ -154,7 +154,7 @@
         container: '#kakao-login-btn',
         success: function(authObj) {
       	  Kakao.API.request({
-                url: '/v1/user/me',
+                url:'/v2/user/me',
                 success: function(res) {
               	  console.log(res.properties.nickname)
               	  console.log(res.id)
