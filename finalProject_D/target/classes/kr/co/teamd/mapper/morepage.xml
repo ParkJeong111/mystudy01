@@ -69,7 +69,7 @@
 		select mbnum, mbtitle, mid,
 		mbcontent, mbtag, mbperson, mblocation, mbimage,
 		to_char(mbstartdate,'YYYY-MM-DD') as mbstartdate, mbdate, mbreport
-		from matchingboard
+		from matchingboard order by 1 desc
 	</select>
 	<!-- 주성중 영역 끝 -->
 
@@ -224,7 +224,7 @@
 		select count(mbtitle) from matchingboard where mbnum = #{mbnum} and mbresult LIKE '%'|| #{mid} || '%'
 	</select>
 	<insert id = "matchingboardinsert" parameterType="Hashmap">
-		insert into matchingboard values(matchingboard_seq.nextVal,#{dto.mbtitle},#{mid},#{dto.mbcontent},#{dto.mbtag},#{dto.mbperson},#{dto.mblocation},#{dto.mbimage},#{dto.mbstartdate},sysdate,0,0,'출조리스트 : ')
+		insert into matchingboard values(matchingboard_seq.nextVal,#{dto.mbtitle},#{mid},#{dto.mbcontent},#{dto.mbtag},#{dto.mbperson},#{dto.mblocation},#{dto.mbimage},#{dto.mbstartdate},sysdate,0,1,'출조리스트 : '||#{mid}||'/')
 	</insert>
 	
 	<!--  -->

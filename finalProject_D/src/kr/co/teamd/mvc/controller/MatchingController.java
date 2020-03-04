@@ -79,13 +79,14 @@ public class MatchingController {
 		mbinsert.put("dto", dto);
 		// 현재 로그인 상태가 아니라면 alert 노출 후 로그인 페이지로 이동시켜준다.
 		if(session.getAttribute("mid") == null) {
-			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+			out.println("<script>location.href = 'login'</script>");
 			out.flush();
 		// 현재 로그인 상태라면 mid를 hashmap에 넣어준다.
 		}else {
 			mbinsert.put("mid", session.getAttribute("mid"));
 		}
 		// 입력된 hashmap을 토대로 matchingboard 테이블에 insert해준다.
+		System.out.println("여기까지는 들어오나요");
 		matchingboarddao.matchingboardinsert(mbinsert);
 		ModelAndView mav = new ModelAndView();
 		// 함께자바 페이지로 이동시켜줄 때 matchingboard에 있는 list를 뽑아준다.
@@ -129,6 +130,7 @@ public class MatchingController {
 		int check = matchingboarddao.boardmatchcheck(resultcheck);
 		// System.out.println("카운트가 몇인가요" + check);
 		
+		System.out.println(statuscount);
 		if(personcount == statuscount) {
 			//out.println("<script>alert('출조인원이 초과하였습니다.');</script>");
 			out.println("<script>location.href = 'matching';</script>");

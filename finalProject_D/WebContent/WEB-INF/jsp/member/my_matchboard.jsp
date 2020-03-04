@@ -1185,7 +1185,7 @@ p > strong > b{
 												style="margin-top: 20px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
 												<input type="reset" value="취소" id="cancelBtn"
 													style="width: 113px; height: 40px; background-color: #666666; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
-												<input type="submit" value="올리기" id="uploadBtn"
+												<input type="button" value="올리기" id="uploadBtn"
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="button" id = "updateBtn" value="목록" 
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
@@ -1233,8 +1233,10 @@ p > strong > b{
 
 <script>
 //목록으로 이동
-var output = '';
-var output1 = '';
+var output = '바다/서해중부/강원';
+var output1 = '2';
+var output2 = '서울';
+
 $('input[type="checkbox"]').change(function() {
 		output = '';
 		$('input[type="checkbox"]:checked').each(function(index) {
@@ -1267,12 +1269,17 @@ $('input[type="radio"]').change(function() {
 	$('#updateBtn').click(function() {
 		location.href = 'matching';
 	});
+	
 	$('#uploadBtn').click(function() {
-		location.href = 'matchingcreate?mbtag='+encodeURI(output)
-				+'&mbperson='+encodeURI(output1)+'&mblocation='+encodeURI(output2)+'&mbtitle='
-				+encodeURI($('#btitle').val())+"&mbstartdate="+encodeURI($('#checkin_date').val())
-				+'&mbcontent='+encodeURI($('#bcontent').val())+'&mbimage='+encodeURI($('#bfile').val());
+		console.log("여기는 들어오나요")
+		var geturl = 'matchingcreate?mbtag='+encodeURI(output)
+		+'&mbperson='+encodeURI(output1)+'&mblocation='+encodeURI(output2)+'&mbtitle='
+		+encodeURI($('#btitle').val())+"&mbstartdate="+encodeURI($('#checkin_date').val())
+		+'&mbcontent='+encodeURI($('#bcontent').val())+'&mbimage='+encodeURI($('#bfile').val());
+		
+		location.href = geturl;
 	});
+	
 	$('#cancelBtn').click(function() {
 		location.href = 'matching';
 	});
