@@ -933,7 +933,6 @@ section {
 	font-family:Do Hyeon;
 	font-size: 18px;
 }
-
 .talk_area .talk_list .talk_box_area .talk_btn a {
 font-family:Do Hyeon;
 	font-size: 18px;
