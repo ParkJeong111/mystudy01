@@ -1348,7 +1348,6 @@ li {
 		style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_3.jpg');">
 		<div class="overlay" ></div>
 		<div class="container" style="margin-top: -40%; font-family: Jua;">
-	
 		</div>
 	</div>
 	<!--  여기에 헤더부분 추가  -->
