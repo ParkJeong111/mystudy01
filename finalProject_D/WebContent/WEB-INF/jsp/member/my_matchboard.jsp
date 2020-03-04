@@ -1265,7 +1265,7 @@ $('input[type="radio"]').change(function() {
 
 	
 	$('#updateBtn').click(function() {
-		
+		location.href = 'matching';
 	});
 	$('#uploadBtn').click(function() {
 		location.href = 'matchingcreate?mbtag='+encodeURI(output)

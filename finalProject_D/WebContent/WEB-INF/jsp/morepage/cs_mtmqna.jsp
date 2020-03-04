@@ -298,6 +298,7 @@ font-size: 35px;
 
 .inq_area {
 	padding-top: 50px;
+	font-family: Do Hyeon;
 }
 
 .inq_area .service_title {

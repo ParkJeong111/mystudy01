@@ -87,7 +87,7 @@ border-bottom: 1px solid #e6e6e6;
 					<div id="target" class="row reservationlist"style="margin-top: 3%">
 					<c:forEach var="r" items="${rlist}">
 						<div class="col-md-4 ftco-animate ">
-							<div class="destination">
+							<div class="destination" style="font-size:18px; font-family: Do Hyeon;">
 								 <a href="javascript:void(0)" onclick="itemdetail(${r.hnum},'${r.hname }')"
 									class="img img-2 d-flex justify-content-center align-items-center"
 									style="background-image: url('${pageContext.request.contextPath}/resources/images/${r.himage }');">
@@ -158,7 +158,7 @@ function mypoint() {
 			success : function(data) {
 				console.log("성공은했니?")
 				$("#target").html("")
-				$("#target").append('<div class="col-md-4 ftco-animate fadeInUp ftco-animated"><div class="destination" style="font-size: 18px;"><p style="text-align: left;"><strong><b>잔여 포인트 : <span class="product-price">'+data.mpoint+'P</b></strong></span></p>')
+				$("#target").append('<div class="col-md-4 ftco-animate fadeInUp ftco-animated"><div class="destination" style="font-size: 18px; font-family: Do Hyeon;"><p style="text-align: left;"><strong><b>잔여 포인트 : <span class="product-price">'+data.mpoint+'P</b></strong></span></p>')
 				$("#target").append('<table id="targettable" style="width: 100%; font-size:20px; text-align: center;"><thead style="background-color: #f85959; color: #ffffff"><tr><th>구분</th><th>포인트</th><th>일자</th></tr>')
 				console.log("plist :" + data.plist);
 				console.log("mpoint :" + data.mpoint);
