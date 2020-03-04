@@ -1361,7 +1361,7 @@ li {
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 sidebar ftco-animate">
-						<div class="sidebar-wrap ftco-animate" style="width: 320px; z-index: 100">
+						<div class="sidebar-wrap ftco-animate" style="width: 320px;">
 							<section>
 								<div class="form-group" style="width: 280px;">
 									<input style="font-size:26px;" type="text" id="checkin_date" class="form-control"
@@ -1396,7 +1396,7 @@ li {
 										type="button" onClick="changeperminus()" value="-"
 										class="per_Btn" style="margin-left: 60px;" id = "minus"> <strong>
 										<span id="perid"
-										style="color: #E51048; font: bold; margin-left: 27px; margin-right: 27px; font-size: 18px; display: inline-block; width: 50px; text-align: center;">2</span>
+										style="color: #E51048; font: bold; margin-left: 10px; margin-right: 10px; font-size: 18px; display: inline-block; width: 50px; text-align: center;">2</span>
 									</strong> 
 									<input type="button" onClick="changeperplus()" value="+"
 										class="per_Btn" >
@@ -1503,8 +1503,8 @@ li {
 							</section>
 						</div>
 					</div>
-					<div class="col-lg-9" style="z-index: -1">
-						<div class="row" id = "matchinglistdiv" style="padding-left: 80px;">
+					<div class="col-lg-9">
+						<div class="row" id = "matchinglistdiv" style="margin-left: 80px;">
 							<c:forEach items = "${matchlist }" var = "matchlist">
 							<div class="col-md-4 ftco-animate">
 								<div class="destination">
