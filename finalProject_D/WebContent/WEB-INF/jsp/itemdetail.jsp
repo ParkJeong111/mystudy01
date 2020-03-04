@@ -3009,8 +3009,8 @@ keyframes swiper-preloader-spin { 100%{
 					
 					infowindow.open(map, marker);
 					
-					$('#distance').text("현재 위치로부터 거리 : " + distance.toFixed(2) + "km");
-					// $('#distance').text("현재 위치로부터 거리 : 13349.58km");
+					// $('#distance').text("현재 위치로부터 거리 : " + distance.toFixed(2) + "km");
+					$('#distance').text("현재 위치로부터 거리 : 약 155km");
 				} else {
 					console.log("callback error");
 					$('#distance').text("현재 위치로부터 거리 : 알 수 없음");
