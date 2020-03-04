@@ -775,7 +775,7 @@ section {
 }
 
 .talk_area .talk_list .talk_box_area .talk_text p {
-	font-size: 15px;
+	font-size: 18px;
 	color: #454545;
 	letter-spacing: -0.6px;
 	line-height: 1.3;
@@ -930,10 +930,13 @@ section {
 
 .talk_area .talk_list .talk_box_area .talk_count .comm_mark_line p {
 	margin-left: 20px;
+	font-family:Do Hyeon;
+	font-size: 18px;
 }
 
 .talk_area .talk_list .talk_box_area .talk_btn a {
-	font-size: 15px;
+font-family:Do Hyeon;
+	font-size: 18px;
 	color: #333333;
 	letter-spacing: -0.6px;
 	text-align: center;
@@ -1583,13 +1586,13 @@ section {
 					<c:forEach var="e" items="${test.list}">
 						<div class="talk_box_area" id="talk_visual135516">
 							<div class="boardtitle">
-								<strong><b>${e.btitle}</b></strong>
+								<strong style="font-family: Do Hyeon"><b>${e.btitle}</b></strong>
 							</div>
 							<div class="board_date">
-								<div class="profile_name" style="float: left;">
+								<div class="profile_name" style="float: left; font-family: Do Hyeon;">
 									<p>${e.haddr}</p>
 								</div>
-								<div class="profile_date" style="float: right">
+								<div class="profile_date" style="float: right; font-family: Do Hyeon;">
 									<p>${e.bdate}</p>
 								</div>
 							</div>
@@ -1602,7 +1605,7 @@ section {
 									<p class="talk_pic" style="float: left; width: 30%;">
 										<span class="manage">${e.btype2}</span>
 									</p>
-									<p style="float: right; margin-right: 3%"> ${e.mnickname}</p>
+									<p style="float: right; margin-right: 3%; font-family: Do Hyeon; "> ${e.mnickname}</p>
 								</div>
 
 								<div class="img_box" style="width: 100%;">
@@ -1613,7 +1616,7 @@ section {
 								</div>
 
 								<div class="talk_text" style="margin-top: 5%;">
-									<p class="more">${e.bcontent}</p>
+									<p class="more" style=" font-family: Do Hyeon;">${e.bcontent}</p>
 								</div>
 
 							</div>
@@ -1622,7 +1625,7 @@ section {
 								<div class="talk_count clearfix">
 
 									<div class="comm_mark_line">
-										<p class="comm_line">
+										<p class="comm_line" >
 											´ñ±Û <span>${e.cnt}</span>
 										</p>
 
@@ -1735,21 +1738,21 @@ function itemdetail(hnum, hname) {
 					$("#talk_detail_list").html("")
 					$.each(data,function(key, value) {
 						$("#talk_detail_list")
-							.append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+							.append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong style="font-family: Do Hyeon"><b>'
 										+ value.btitle
-										+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
+										+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;  font-family: Do Hyeon;"><p >'
 										+ value.haddr
-										+ '</p></div><div class="profile_date" style="float: right"><p>'
+										+ '</p></div><div class="profile_date" style="float: right; font-family: Do Hyeon;"><p>'
 										+ value.bdate
 										+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 										+ value.bnum
 										+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
 										+ value.btype2
-										+ '</span></p><p style="float: right;margin-right: 3%">'
+										+ '</span></p><p style="float: right;margin-right: 3%; font-family: Do Hyeon;">'
 										+ value.mnickname
 										+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
 										+ value.bimage
-										+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
+										+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more"style=" font-family: Do Hyeon;">'
 										+ value.bcontent
 										+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
 										+ '<p class="comm_line">´ñ±Û <span>'
@@ -1769,19 +1772,19 @@ function itemdetail(hnum, hname) {
 						$("#talk_detail_list").html("")
 						$.each(data,function(key, value) {
 							$("#talk_detail_list")
-								.append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+								.append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong style="font-family: Do Hyeon"><b>'
 										+ value.ibtitle
-										+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-										+ '</p></div><div class="profile_date" style="float: right"><p>'
+										+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;  font-family: Do Hyeon;"><p>'
+										+ '</p></div><div class="profile_date" style="float: right; font-family: Do Hyeon;"><p>'
 										+ value.ibdate
 										+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'itemstalk_detail?ibnum='
 										+ value.ibnum
 										+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
-										+ 'Áß°íÀåÅÍ</span></p><p style="float: right;margin-right: 3%">'
+										+ 'Áß°íÀåÅÍ</span></p><p style="float: right;margin-right: 3%; font-family: Do Hyeon;">'
 										+ value.mid
 										+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
 										+ value.ibimage
-										+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
+										+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more" style=" font-family: Do Hyeon;">'
 										+ value.ibcontent
 										+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
 										+ '<p class="comm_line">´ñ±Û <span>'
@@ -1809,20 +1812,20 @@ function itemdetail(hnum, hname) {
 												$("#talk_detail_list")
 
 														.append(
-																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
+																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong style="font-family: Do Hyeon"><b>'
 																		+ value.btitle
-																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
-																		+ '</p></div><div class="profile_date" style="float: right"><p>'
+																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;  font-family: Do Hyeon;"><p>'
+																		+ '</p></div><div class="profile_date" style="float: right; font-family: Do Hyeon;"><p>'
 																		+ value.bdate
 																		+ '</p></div></div><div class="talk_view_btn" OnClick="location.href =\'talk_detail?bnum='
 																		+ value.bnum
 																		+ '\'" style="cursor: pointer; margin-top: 10%"><div style="width:100%">   <p class="talk_pic" style="float: left;width: 30%;"><span class="manage">'
 																		+ value.btype2
-																		+ '</span></p><p style="float: right;margin-right: 3%">'
+																		+ '</span></p><p style="float: right;margin-right: 3%; font-family: Do Hyeon;">'
 																		+ value.mnickname
 																		+ '</p></div><div class="img_box" style="width: 100%;"><img style="width: 100%;" src="${pageContext.request.contextPath}/resources/images/'
 																		+ value.bimage
-																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more">'
+																		+ '" alt=""></div><div class="talk_text" style="margin-top: 5%;">   <p class="more" style="font-family: Do Hyeon;">'
 																		+ value.bcontent
 																		+ '</p></div></div><div class="talk_count_btn"><div class="talk_count clearfix"><div class="comm_mark_line">'
 																		+ '<p class="comm_line">´ñ±Û <span>'
