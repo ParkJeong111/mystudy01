@@ -19,7 +19,7 @@ background: '#F85959';
 
 .talk_tab li {
 	float: left;
-	width: 33.1111%;
+	width: 32.5%;
 	position: relative;
 	top: 1px;
 	list-style: none;
