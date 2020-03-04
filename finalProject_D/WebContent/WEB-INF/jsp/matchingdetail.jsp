@@ -97,6 +97,7 @@
 }
 
 .view_area .view_profile .profile_info dt {
+	font-family:Do Hyeon;
 	font-size: 25px;
 	margin-bottom: 30px;
 }
@@ -477,8 +478,9 @@
 }
 
 .view_area .view_box .view_box_title {
-	padding: 15px 30px;
-	font-size: 20px;
+	margin-left:20px;
+	font-family:Do Hyeon;
+	font-size: 25px;
 	font-weight: 500;
 }
 
@@ -535,7 +537,9 @@
 
 .view_area .view_box .view_box_title .count_txt {
 	color: #f85959;
-	margin-left: 5px
+	margin-left: 5px;
+	font-size: 20px;
+	
 }
 
 .view_area .view_box .view_box_title .vote_help {
@@ -2737,12 +2741,11 @@ filter: invert(0%);
 	<div class="container" style="margin-top: -40%;"></div>
 </div>
 <!--  여기에 헤더부분 추가  -->
-<hr>
 <div class="view_area" style = "font-family: jua;">
 	<div class="talk_tab_area">
 		<section>
 			<h3 class="talk_tab clearfix"
-				style="font-weight: bold; text-align: center; color: #606060; font-size: 30px;">
+				style="text-align: center; font-weight: bold; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon; color:#333333;">
 				<%-- <c:choose>
 					<c:when test="${host.htype == '바다'}">
 						바다
@@ -2799,105 +2802,43 @@ filter: invert(0%);
 			class="view_info view_info_reserve view_contents" style = "padding-bottom: 0px;">
 			<section>
 				<!-- 어종 정보 시작 -->
-				<div class="view_box info_view_sty6">
-					<p class="view_box_title">
-						관심사<span class="count_txt"><br>${list.mbtag}</span>
-					</p>
-					<hr>
-						<p class="view_box_title">
-						내용<span class="count_txt"><br>${list.mbcontent}</span>
-					</p>
-					<hr>
-						<p class="view_box_title">
-						인원수<span class="count_txt"><br>${list.mbperson}</span>
-					</p>
-					<hr>
-						<p class="view_box_title">
-						출조일<span class="count_txt"><br>${list.mbstartdate}</span>
-					</p>
-					<hr>
-						<p class="view_box_title">
-						게시글 등록일<span class="count_txt"><br>${list.mbdate}</span>
-					</p>
-					<hr>
-						<p class="view_box_title">
-						매칭 신청한 아이디<span class="count_txt"><br>${list.mbresult }(${list.mbstatus})</span>
-					</p>
-				</div>
-				<!-- 어종 정보 시작 -->
-				<!-- 서비스 정보 시작 -->
-				<!--  <div class="view_box info_view_sty9">
-					<p class="view_box_title">서비스</p>
-					<div class="in_box clearfix">
-							<span>${e}</span>
-					</div>
-				</div>-->
-				<!-- 서비스 정보 끝 -->
-				<!-- 이용권 정보 시작 -->
+				<div style="align-items: center;" class="view_box info_view_sty6">
 				
-				<!-- 이용권 정보 끝 -->
-				<!-- 이용권 주의정보 시작 -->
-				<!--  <div class="view_box info_view_sty1">
-					<p class="view_box_title">이용권 유의사항</p>
-					<div class="in_box">
-						<p class="dot_txt ::before">타 이벤트 및 중복할인 불가</p>
-						<p class="dot_txt">구매하신 이용권은 타인에게 양도할 수 없으며, 본인확인 후 사용가능</p>
-						<p class="dot_txt">구매일 기준 7일 이내에 미사용 이용권에 한해 100% 환불 가능</p>
-						<p class="dot_txt">단, 부분환불의 경우 고객센터로 문의</p>
-						<p class="dot_txt">사용방법 : 결제 후 직접 방문시 제시</p>
-					</div>
-				</div>-->
-				<!--  
-				<div class="view_box info_view_sty1">
-					<p class="view_box_title">업체공지</p>
-					<div class="in_box">
-						<p class="dot_txt">공지사항</p>
-					</div>
+				
+					<dl class="clearfix" style="margin-top: 15px;">
+						<dt>
+							<p class="view_box_title">
+						관심사 : <span style="margin-right: 400px;" class="count_txt">${list.mbtag}</span>
+						인원수 : <span  class="count_txt">${list.mbperson}</span>
+					</p>
+					
+						<p class="view_box_title">
+						출조일 : <span style="margin-right: 326px;" class="count_txt">${list.mbstartdate}</span>
+						게시글 등록일 : <span class="count_txt">${list.mbdate}</span>
+					</p>
+						
+						<p class="view_box_title">
+						매칭 신청한 아이디 : <span class="count_txt">${list.mbresult }(${list.mbstatus})</span>
+					</p>
+						</dt>
+						<hr>
+						<p style="margin-bottom: 30px;" class="view_box_title">
+						내용 : <span style="margin-top: 30px;" class="count_txt"><br>
+						${list.mbcontent}</span>
+						</p>
+							
+						<!-- 
+						<dd>
+							<h2>서울</h2>
+							<span id="distance" style="color: black;"></span>
+						</dd> -->
+					</dl>
+			
+				
 				</div>
-				<div class="view_box info_view_sty1">
-					<p class="view_box_title">사장님 한마디</p>
-					<div class="in_box">
-						<p class="dot_txt">가즈아</p>
-					</div>
-				</div>
-				-->
 			</section>
 		</div>
-		<!-- <div class="view_info_manage view_contents">
-			<section>
-				<div>
-					<ol id="talk_list" class="manage_list_area">
-						<div class="view_count_text">
-							<p>
-								조황/조행기 <span>94개</span>
-							</p>
-						</div>
-						<li><a href="">
-								<div class="profile_box clearfix">
-									<div class="profile_img lv98">
-										<img
-											src="https://img.moolban.com/unsafe/50x50/filters:no_upscale()/profile_aws/default.png?date=1493355238"
-											class="profile" alt="">
-									</div>
-									<p class="profile_name">각평낚시터</p>
-								</div>
-								<div class="manage_title_img">
-									<img
-										src="https://img.moolban.com/unsafe/480x270/filters:no_upscale()/talk/20200119/temp_20200119_1630800421.jpg?date=1582112250"
-										alt="">
-								</div>
-								<div class="manage_txt_box">
-									<p class="manage_kind_tag" style="">
-										<span class="sif_key50">메기</span>
-									</p>
-									<p class="manage_title_txt">2020년 첫 방류와 조황정보</p>
-									<p class="manage_date">2020년 01월 19일</p>
-								</div>
-						</a></li>
-					</ol>
-				</div>
-			</section>
-		</div> -->
+		
 	</div>
 	</c:forEach>
 	

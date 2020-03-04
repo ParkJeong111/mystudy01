@@ -308,13 +308,13 @@ text-align: center;
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">고기자바(GOGI-JAVA)?</h2>
+              <h2 class="ftco-heading-2">고기자바(GOGI-JAVA)</h2>
               <p>프로젝트를 위해 뭉쳐 실력 향상과 팀워크를 높힌 어부지리 팀의 도시어부들을 위한 낚시터 예약 및 매칭 시스템
 			  </p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate"><a href="https://twitter.com/?lang=ko"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="https://ko-kr.facebook.com/"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.instagram.com/?hl=ko"><span class="icon-instagram"></span></a></li>
               </ul>
             </div>
           </div>

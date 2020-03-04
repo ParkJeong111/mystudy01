@@ -1581,7 +1581,7 @@ section {
 					style="width: 60%; float: left;">
 					<!--    <for문 사용하기> -->
 					<c:forEach var="e" items="${test.list}">
-						<div class="talk_box_area" id="talk_visual135516" style="font-family: Do Hyeon;">
+						<div class="talk_box_area" id="talk_visual135516">
 							<div class="boardtitle">
 								<strong><b>${e.btitle}</b></strong>
 							</div>
@@ -1735,7 +1735,7 @@ function itemdetail(hnum, hname) {
 					$("#talk_detail_list").html("")
 					$.each(data,function(key, value) {
 						$("#talk_detail_list")
-							.append('<div class="talk_box_area" id="talk_visual135516" style="font-family: Do Hyeon;"><div class="boardtitle" ><strong><b>'
+							.append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
 										+ value.btitle
 										+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
 										+ value.haddr
@@ -1769,7 +1769,7 @@ function itemdetail(hnum, hname) {
 						$("#talk_detail_list").html("")
 						$.each(data,function(key, value) {
 							$("#talk_detail_list")
-								.append('<div class="talk_box_area" id="talk_visual135516" style="font-family: Do Hyeon;"><div class="boardtitle" ><strong><b>'
+								.append('<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
 										+ value.ibtitle
 										+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
 										+ '</p></div><div class="profile_date" style="float: right"><p>'
@@ -1809,7 +1809,7 @@ function itemdetail(hnum, hname) {
 												$("#talk_detail_list")
 
 														.append(
-																'<div class="talk_box_area" id="talk_visual135516" style="font-family: Do Hyeon;"><div class="boardtitle" ><strong><b>'
+																'<div class="talk_box_area" id="talk_visual135516"><div class="boardtitle" ><strong><b>'
 																		+ value.btitle
 																		+ '</b></strong></div><div class="board_date"><div class="profile_name" style="float: left;"><p>'
 																		+ '</p></div><div class="profile_date" style="float: right"><p>'

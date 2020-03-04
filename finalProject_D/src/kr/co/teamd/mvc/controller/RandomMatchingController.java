@@ -48,7 +48,7 @@ public class RandomMatchingController {
 		// 로그인 아닐시에는 로그인창으로 이동시켜주는 기능
 		if(session.getAttribute("mid") == null) {
 			mav.setViewName("member/login");
-			out.println("<script>alert('로그인 후 이용해주세요.'); location.href = 'login';</script>");
+			out.println("<script>location.href = 'login';</script>");
 			out.flush();
 		// 현재 RandomMatching 테이블에서 해당 유저의 매칭 대기 상태의 매칭정보가 있는지 체크해주는 기능(rmstatus = 0)
 		}else {
@@ -58,12 +58,12 @@ public class RandomMatchingController {
 		// 로그인 아닐시에는 로그인창으로 이동시켜주는 기능
 		if(session.getAttribute("mid") == null) {
 			mav.setViewName("member/login");
-			out.println("<script>alert('로그인 후 이용해주세요.'); location.href = 'login';</script>");
+			out.println("<script>location.href = 'login';</script>");
 			out.flush();
 		// 위에서 넣어준 matchingcheck 값이 0이상이라면 현재 매칭 대기 상태의 매칭정보가 있는것이기때문에 매칭을 진행 할 수 없도록 해주는 기능
 		}else if(matchingcheck != 0){
 			mav.setViewName("member/my_matching");
-			out.println("<script>alert('매칭 진행중인 상태입니다.'); location.href='my_matching';</script>");
+			out.println("<script>location.href='my_matching';</script>");
 			out.flush();
 		// 매칭을 할 수있는 모든 조건을 충족하였을 때 매칭을 시켜주고 데이터베이스에 값을 저장해주는 기능
 		}else {
@@ -110,13 +110,11 @@ public class RandomMatchingController {
 						randommatching.randomresultinsert(dto);
 						check = "1";
 						System.out.println("check값은 몇이냐"+check);
-						System.out.println("이건아니잖아=======================================================");
-						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
+						out.println("<script>location.href='my_matching';</script>");
 						out.flush();
 					}
 					else {
-						System.out.println("이건아니잖아=======================================================");
-						out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='my_matching';</script>");
+						out.println("<script>location.href='my_matching';</script>");
 						out.flush();
 					}
 					
@@ -152,7 +150,14 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						
+						check = "1";
+						System.out.println("check값은 몇이냐"+check);
+						out.println("<script> location.href='my_matching';</script>");
+						out.flush();
+					}
+					else {
+						out.println("<script> location.href='my_matching';</script>");
+						out.flush();
 					}
 					dbval.setLength(0);
 				}
@@ -182,7 +187,13 @@ public class RandomMatchingController {
 						}
 						dto.setMrresult(matchlist.toString());
 						randommatching.randomresultinsert(dto);
-						
+						check = "1";
+						System.out.println("check값은 몇이냐"+check);
+						out.println("<script> location.href='my_matching';</script>");
+						out.flush();
+					}else {
+						out.println("<script> location.href='my_matching';</script>");
+						out.flush();
 					}
 					dbval.setLength(0);
 				}
@@ -203,7 +214,7 @@ public class RandomMatchingController {
 		// 로그인 하지 않은 상태라면  로그인페이지로 이동 시켜준다.
 		if (mid == null) {
 			mav.setViewName("member/login");
-			out.println("<script>alert('로그인 후 이용해주세요.');</script>");
+			out.println("<script>location.href = 'login'</script>");
 			out.flush();
 			return mav;
 			
