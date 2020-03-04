@@ -19,7 +19,7 @@ background: '#F85959';
 
 .talk_tab li {
 	float: left;
-	width: 33.1111%;
+	width: 32.5%;
 	position: relative;
 	top: 1px;
 	list-style: none;
@@ -81,24 +81,7 @@ border-bottom: 1px solid #e6e6e6;
 				</section>
 			</div>
 				
-					<!-- <div id="target" class="row mypagelist" style="margin-top: 3%">
-						<div class="col-md-12 ftco-animate ">
-						
-							<div class="destination" style="font-size: 18px;">
-							<p style="text-align: right;"><strong><b>잔여 포인트 : <span>10point</b></strong></span></p>
-								<table style="width: 100%; font-size:20px; text-align: center;">
-									<thead style="background-color: #f85959; color: #ffffff">
-										<tr><th>구분</th><th>포인트</th><th>일자</th></tr>
-									<tbody style="font-family:  Do Hyeon">
-										<tr><td>적립</td><td>10 point</td><td>2020-02-06</td></tr>
-										<tr><td>적립</td><td>10 point</td><td>2020-02-06</td></tr>
-										<tr><td>사용</td><td>5 point</td><td>2020-02-06</td></tr>
-									</tbody>
-								
-								</table>
-							</div>
-						</div>
-					 -->
+				
 					
 					
 					<div id="target" class="row reservationlist"style="margin-top: 3%">
