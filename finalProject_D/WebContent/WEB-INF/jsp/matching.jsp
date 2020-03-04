@@ -1660,9 +1660,9 @@ li {
 							$("#matchinglistdiv").append('<div class="col-md-4 ftco-animated">'
 								+ '<div class="destination"><a href="matchpage?mbnum='+value.mbnum+'"  class="img img-2 d-flex justify-content-center align-items-center"style="background-image: url(${pageContext.request.contextPath}/resources/images/'+value.mbimage+');">'
 								+ '<div class="icon d-flex justify-content-center align-items-center"><span class="icon-search2"></span></div>'
-								+ '</a><div class="text p-3"><div class="d-flex"><div class="one"><h3><a href="#">'+value.mbtitle+'</a></h3><p class="rate">'		
-								+ '<span style = "font-size: 15px;"> 출조일 : '+value.mbstartdate+'</span></p></div><div class="two"><span class="price">'+value.mbtag+'</span></div>'		
-								+ '</div><p>'+value.mbcontent+'</p><p class="days"></p><hr></div></div></div>'
+								+ '</a><div class="text p-3"><div class="d-flex"><div class="one"><h3 style="font-size: 25px;><a href="#">'+value.mbtitle+'</a></h3><p class="rate" style="width:200px">'		
+								+ '<span style = "font-size: 20px ;padding-left: 15px;"> 출조일 : '+value.mbstartdate+'</span></p></div><div class="two" ><span style="font-size: 15px;" class="price">'+value.mbtag+'</span></div>'		
+								+ '</div><p style ="font-size:20px; padding-left: 15px; margin-top: -19px">'+value.mbcontent+'</p><p class="days" ></p><hr></div></div></div>'
 								);
 							});
 						}
