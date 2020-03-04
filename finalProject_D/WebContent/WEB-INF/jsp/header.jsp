@@ -1277,7 +1277,6 @@ label {
  		    	                   	case "100":
  		    	                    	$('.rainfall-second').html("70mm 이상");
  		    	                       	break;
- 		    	                       	
  		    	                   }
  		    				  }else if(category == "WAV"){ // 6시간 신적설 1 cm
  		    					  switch(val) {
