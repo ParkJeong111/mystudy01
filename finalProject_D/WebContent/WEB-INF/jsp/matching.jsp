@@ -1505,7 +1505,6 @@ li {
 					</div>
 					<div class="col-lg-9" style="z-index: -1">
 						<div class="row" id = "matchinglistdiv" style="padding-left: 80px;">
-						
 							<c:forEach items = "${matchlist }" var = "matchlist">
 							<div class="col-md-4 ftco-animate">
 								<div class="destination">
