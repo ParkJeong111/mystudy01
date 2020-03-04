@@ -97,6 +97,7 @@
 }
 
 .view_area .view_profile .profile_info dt {
+	font-family:Do Hyeon;
 	font-size: 25px;
 	margin-bottom: 30px;
 }
@@ -477,7 +478,8 @@
 }
 
 .view_area .view_box .view_box_title {
-	padding: 15px 30px;
+	margin-left:20px;
+	font-family:Do Hyeon;
 	font-size: 25px;
 	font-weight: 500;
 }
@@ -2739,12 +2741,11 @@ filter: invert(0%);
 	<div class="container" style="margin-top: -40%;"></div>
 </div>
 <!--  여기에 헤더부분 추가  -->
-<hr>
 <div class="view_area" style = "font-family: jua;">
 	<div class="talk_tab_area">
 		<section>
 			<h3 class="talk_tab clearfix"
-				style="font-weight: bold; text-align: center; color: #606060; font-size: 30px;">
+				style="text-align: center; font-weight: bold; font-size: 45px; padding-top: 25px; padding-bottom: 5px; font-family:Do Hyeon; color:#333333;">
 				<%-- <c:choose>
 					<c:when test="${host.htype == '바다'}">
 						바다
@@ -2804,7 +2805,7 @@ filter: invert(0%);
 				<div style="align-items: center;" class="view_box info_view_sty6">
 				
 				
-					<dl class="clearfix">
+					<dl class="clearfix" style="margin-top: 15px;">
 						<dt>
 							<p class="view_box_title">
 						관심사 : <span style="margin-right: 400px;" class="count_txt">${list.mbtag}</span>
@@ -2812,7 +2813,7 @@ filter: invert(0%);
 					</p>
 					
 						<p class="view_box_title">
-						출조일 : <span style="margin-right: 318px;" class="count_txt">${list.mbstartdate}</span>
+						출조일 : <span style="margin-right: 326px;" class="count_txt">${list.mbstartdate}</span>
 						게시글 등록일 : <span class="count_txt">${list.mbdate}</span>
 					</p>
 				
