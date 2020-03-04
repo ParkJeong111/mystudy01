@@ -2820,7 +2820,6 @@ filter: invert(0%);
 						<p class="view_box_title">
 						매칭 신청한 아이디 : <span class="count_txt">${list.mbresult }(${list.mbstatus})</span>
 					</p>
-						
 						</dt>
 						<hr>
 						<p style="margin-bottom: 30px;" class="view_box_title">
