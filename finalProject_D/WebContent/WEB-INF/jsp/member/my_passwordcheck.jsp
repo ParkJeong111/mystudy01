@@ -13,7 +13,7 @@
 		
 <section class="ftco-section contact-section ftco-degree-bg" >
       <div class="container" style = "margin: auto;">
-        <div class="contact-info" style="padding: auto;">
+        <div class="contact-info" style="padding: auto; font-family: Do Hyeon;">
         <br>
 				<form action="pwdchk" style="margin:0px;; padding: 0px; text-align: center;">
 					<table style="margin: auto;padding: auto; width: 50%;">

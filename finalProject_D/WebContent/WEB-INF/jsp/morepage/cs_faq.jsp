@@ -828,7 +828,7 @@ input, select, button {
 		</div>
 		<section>
 			<!-- 고객센터 -->
-			<div class="faq_area">
+			<div class="faq_area" style="font-family: Do Hyeon;">
 				<div class="faq_select">
 					<em> <select name="faq_cate_list">
 							<option value="1">자주하는질문</option>
