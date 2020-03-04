@@ -22,7 +22,7 @@
 .service_area .service_tab li a {
 	display: block;
 	font-size: 20px;
-	color: #606060;
+	color: #333333;
 	text-align: center;
 	padding: 24px 0;
 	border-bottom: 1px solid #e6e6e6;
@@ -61,7 +61,7 @@
 	font-weight: normal;
 	float: right;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 }
 
 .service_area .service_title strong:before {
@@ -116,7 +116,7 @@
 	outline: none;
 	width: 100%;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	height: 58px;
 	border: none;
 	border-radius: 0.3rem;
@@ -188,7 +188,7 @@
 	background: #f8f8f9;
 	padding: 20px 31px;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	border-top: 1px solid #e6e6e6
 }
 
@@ -294,7 +294,7 @@
 	outline: none;
 	width: 100%;
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	height: 58px;
 	border: none;
 	border-radius: 0.3rem;
@@ -425,7 +425,7 @@
 	border: none;
 	font-size: 16px;
 	text-align: center;
-	color: #606060;
+	color: #333333;
 }
 
 .inq_area .inqFile_hidden {
@@ -711,7 +711,7 @@
 
 .select2-result-repository.company_info .info_area .c_view_addr {
 	font-size: 18px;
-	color: #606060;
+	color: #333333;
 	letter-spacing: -0.5px;
 }
 
@@ -813,11 +813,11 @@ input, select, button {
 </div>
 <section class="ftco-section" style="background: white; margin-top: 0px; padding-top: 0px; ">
 	<div class="service_area container" >
-		<div class="service_tab" style="text-align: center;margin: auto;padding: auto;" >
+		<div class="service_tab" style="text-align: center;margin: auto;padding: auto; font-family: Do Hyeon; font-size: 35px;" >
 			<ol class="clearfix" style="text-align: center;">
-				<li><a href="my_board"><b><strong>게시글작성</strong></b></a></li>
-				<li class="active"><a href="itemsboard"><b><strong>중고 게시글작성</strong></b></a></li>
-				<li><a href="matchboardview"><b><strong>매칭글 작성</strong></b></a></li>
+				<li><a href="my_board"><b><strong style="font-size: 35px;">게시글작성</strong></b></a></li>
+				<li class="active"><a href="itemsboard"><b><strong style="font-size: 35px;">중고 게시글작성</strong></b></a></li>
+				<li><a href="matchboardview"><b><strong style="font-size: 35px;">매칭글 작성</strong></b></a></li>
 			</ol>
 		</div>
 
@@ -829,21 +829,21 @@ input, select, button {
 						<div class="row">
 							<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
 								<div class="fields">
-									<form action="itemsboardadd" method="post" enctype="multipart/form-data">
+									<form action="itemsboardadd" method="post" enctype="multipart/form-data"style="margin-top: -60px; font-family:  Noto Sans KR; font-size: 22px;">
 										<div class="row" style="width: 900px;">
-											<div class="col-md-6" style="float: left;">
+											<div class="col-md-6" style="float: left; align-content: center;">
 												<div class="form-group" style="width: 250px;">
 													<%-- 아이디 세션 체크 --%>
 													<input type="hidden" name="mid" value="${sessionScope.mid }"/>
 													<input type="text" id="ibname" name="ibname" class="form-control"
-														placeholder="상품명을 입력해주세요." style="border-radius: 7px;" required="required">
+														placeholder="상품명을 입력해주세요." style="border-radius: 7px; font-size: 18px;" required="required">
 												</div>
 											</div>
 											<div class="col-md-6"
 												style="float: right; margin-left: -140px;">
 												<div class="form-group" style="width: 250px;">
 													<input type="text" id="ibmoney" name="ibmoney" class="form-control"
-														placeholder="가격을 입력해주세요." style="border-radius: 7px;" required="required">
+														placeholder="가격을 입력해주세요." style="border-radius: 7px; font-size: 18px;" required="required">
 												</div>
 											</div>
 											<div class="col-md-6"
@@ -851,13 +851,13 @@ input, select, button {
 												<div class="form-group" style="width: 250px;">
 													<input multiple="multiple" type="file" id="ibfile" name="ibfile"
 														class="form-control" placeholder="사진을 등록해주세요."
-														style="border-radius: 7px;" required="required">
+														style="border-radius: 7px; font-size: 16px;" required="required">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group" style="width: 870px;">
 													<input type="text" class="form-control" id="ibtitle" name="ibtitle"
-														placeholder="제목을 입력해 주세요(30자 이하)" required="required">
+														placeholder="제목을 입력해 주세요(30자 이하)" required="required" style="font-size: 18px;">
 												</div>
 											</div>
 
@@ -875,11 +875,11 @@ input, select, button {
 												<div class="form-group"
 													style="margin-top: 20px; margin-left: 265px;">
 													<input type="reset" value="취소"
-														style="width: 113px; height: 40px; background-color: #CCCCCC; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+														style="width: 113px; height: 40px; background-color: #666666; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 													<input type="submit" value="올리기"
-														style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+														style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 													<input type="button" onclick="jacvascript:goListBtn()" value="목록" 
-														style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 16px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
+														style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												</div>
 											</div>
 										</div>

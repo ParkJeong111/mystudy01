@@ -103,5 +103,8 @@
 		where h.hname = rh.hname and rh.mid = #{mid}
 		order by 3 desc
 	</select>
-	
+	<!-- 이메일로 비밀번호 찾기 -->
+	<select id="pwfind" parameterType="String" resultType="mdto">
+		select mname,mid,mpwd,memail from member where memail=#{memail}
+	</select>
   </mapper>
