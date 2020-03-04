@@ -1361,7 +1361,7 @@ li {
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 sidebar ftco-animate">
-						<div class="sidebar-wrap ftco-animate" style="width: 320px;">
+						<div class="sidebar-wrap ftco-animate" style="width: 320px; z-index: 100">
 							<section>
 								<div class="form-group" style="width: 280px;">
 									<input style="font-size:26px;" type="text" id="checkin_date" class="form-control"
@@ -1503,9 +1503,8 @@ li {
 							</section>
 						</div>
 					</div>
-					<div class="col-lg-9" >
+					<div class="col-lg-9" style="z-index: -1">
 						<div class="row" id = "matchinglistdiv" style="padding-left: 80px;">
-						
 							<c:forEach items = "${matchlist }" var = "matchlist">
 							<div class="col-md-4 ftco-animate">
 								<div class="destination">
