@@ -874,7 +874,7 @@ input, select, button {
 											<div>
 												<div class="form-group"
 													style="margin-top: 20px; margin-left: 265px;">
-													<input type="reset" value="취소"
+													<input type="reset" value="취소" onclick="jacvascript:goListBtn()"
 														style="width: 113px; height: 40px; background-color: #666666; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 													<input type="submit" value="올리기"
 														style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">

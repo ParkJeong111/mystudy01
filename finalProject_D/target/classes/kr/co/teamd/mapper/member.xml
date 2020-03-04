@@ -82,7 +82,7 @@
 		insert into pointlog values(pointlog_seq.nextVal, #{mid},sysdate, '적립',#{plpoint})
 	</insert>
 	<select id = "gamecheck" parameterType="String" resultType="int">
-		select count(mid) from pointlog where mid = #{mid} and to_date(pldate,'yyyy-MM-dd') = to_date(sysdate,'yyyy-MM-dd')
+		select count(mid) from pointlog where mid = #{mid} and to_date(pldate,'yyyy-MM-dd') = to_date(sysdate,'yyyy-MM-dd') and pltype = '적립'
 	</select>
 	
 	

@@ -994,7 +994,7 @@ a {
 										<div>
 											<div class="form-group"
 												style="font-size:22px; margin-top: 20px; margin-left: 270px; float: left;">  <!-- style="margin-top: 50px; margin-left: 250px;       margin-top: 520px; margin-left: 205px;-->
-												<input type="reset" value="취소" id="cancelBtn"
+												<input type="reset" value="취소" id="cancelBtn" onclick = "jacvascript:goListBtn()"
 													style="width: 113px; height: 40px; background-color: #666666; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
 												<input type="submit" value="올리기" id="uploadBtn"
 													style="width: 113px; height: 40px; background-color: #F85959; color: white; font-size: 22px; border-radius: 7px; outline: none; border: 0; cursor: pointer;">
