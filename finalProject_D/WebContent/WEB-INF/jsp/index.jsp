@@ -308,8 +308,9 @@ text-align: center;
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">고기자바</h2>
-              <p>저희 D팀의 고기자바 서비스는 블라블라</p>
+              <h2 class="ftco-heading-2">고기자바(GOGI-JAVA)?</h2>
+              <p>프로젝트를 위해 뭉쳐 실력 향상과 팀워크를 높힌 어부지리 팀의 도시어부들을 위한 낚시터 예약 및 매칭 시스템
+			  </p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -321,8 +322,8 @@ text-align: center;
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">정보보기</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2">About</a></li>
-                <li ><a href="#" class="py-2">Service</a></li>
+                <li><a href="#" class="py-2">사업자 정보</a></li>
+                <li ><a href="#" class="py-2">서비스 소개</a></li>
               </ul>
             </div>
           </div>
@@ -330,8 +331,8 @@ text-align: center;
              <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">고객지원</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2">FAQ</a></li>
-                <li><a href="#" class="py-2">Payment Option</a></li>
+                <li><a href="#" class="py-2">자주하는질문</a></li>
+                <li><a href="#" class="py-2">1:1 문의하기</a></li>
                 <!-- <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
                 <li><a href="#" class="py-2 d-block">How it works</a></li>
                 <li><a href="#" class="py-2 d-block">Contact Us</a></li> -->
@@ -340,12 +341,12 @@ text-align: center;
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">사업자 정보</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">서울 금천구 가산디지털2로 123 월드메르디앙2차 410호</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">1588-1588</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@gogijava.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -358,9 +359,9 @@ text-align: center;
   Copyright &copy;<script>
   document.write(new Date().getFullYear());
   </script> 
-  All rights reserved | This template is made with 
+  All rights reserved | Copyright
   <i class="icon-heart" aria-hidden="true"></i> by 
-  <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <a href="https://colorlib.com" target="_blank">GOGI-JAVA Corp.</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
